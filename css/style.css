@@ -5,7 +5,7 @@
 	position: absolute;
 	width: 100%;
 	top: 0;
-	z-index: 2;
+	z-index: 1000;
 	align-items: center;
 	margin: 0 auto;
 }
@@ -188,7 +188,7 @@
 	display: inline-block;
 }
 .header-bottom .menu-nav .sub-menu{
-	z-index: 1;
+	z-index: 1001;
 	position: absolute;
 	background-color: #FFF;
 	list-style-type: none;
@@ -249,7 +249,7 @@
 /*Breadcrumbs START*/
 .breadcrumbs-wrap{
 	background-color: var(--color-1);
-	padding: 188px 0 50px 0;
+	padding: 235px 0 55px 0;
 	background-image: url(../images/about-top-bg.png);
 	background-position: top center;
 	background-size: cover;
@@ -257,7 +257,7 @@
 	text-align: center;
 	color: #fff;
 	position: relative;
-	z-index: 5;
+	z-index: 1;
 	pointer-events: auto;
 }
 .breadcrumbles-title{
@@ -280,7 +280,7 @@
 	text-decoration: none;
 	cursor: pointer;
 	position: relative;
-	z-index: 6;
+	z-index: 2;
 	pointer-events: auto;
 	display: inline-block;
 }
