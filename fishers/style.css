@@ -237,6 +237,9 @@
 	background-repeat: no-repeat;
 	text-align: center;
 	color: #fff;
+	position: relative;
+	z-index: 5;
+	pointer-events: auto;
 }
 .breadcrumbles-title{
 	font-size: 42px;
@@ -252,6 +255,18 @@
 	justify-content: center;
 	padding: 0;
 	margin: 0;
+}
+.breadcrumbs-wrap a{
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+	position: relative;
+	z-index: 6;
+	pointer-events: auto;
+	display: inline-block;
+}
+.breadcrumbs-wrap a:hover{
+	color: var(--color-4);
 }
 /*Breadcrumbs END*/
 
