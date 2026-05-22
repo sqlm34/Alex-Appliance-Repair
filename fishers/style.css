@@ -435,6 +435,11 @@
 .subtitle span{
 	color: var(--color-4);
 }
+.title .subtitle{
+	display: block;
+	margin-top: 7px;
+	text-transform: none;
+}
 .about-num-wrap{
 	border: 1px solid var(--color-6);
 	border-radius: 20px;
