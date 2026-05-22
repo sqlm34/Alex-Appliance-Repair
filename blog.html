@@ -60,6 +60,7 @@ function gtag_report_conversion(url) {
 	<link rel="stylesheet" href="css/magnific-popup.min.css">
 	<link rel="stylesheet" href="css/swiper-bundle.min.css">
 	<link rel="stylesheet" href="css/style.css?v=20260522-menu-fix">
+	<link rel="stylesheet" href="css/blog-layout.css?v=20260522-blog-layout">
 	<!-- Styles END -->
 
 	<title>Appliance Repair Blog | Alex Appliance Repair Tips</title>
@@ -458,7 +459,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 </section>
 
-	<section class="alex-blog-page">
+	<!-- Assimox-style blog archive: page heading, post cards, pagination, and sidebar. -->
+<section class="alex-blog-page">
     <div class="container">
         <div class="alex-blog-heading">
             <span>Our Blog</span>
@@ -468,6 +470,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="alex-blog-layout">
             <div class="alex-blog-main">
+                <!-- Featured post card: large image plus text summary. -->
                 <article class="alex-blog-card alex-blog-card-featured">
                     <a class="alex-blog-image" href="https://www.alex-repair.com/how-to-spot-and-fix-an-overworking-refrigerator-before-your-energy-bill-skyrockets.html">
                         <img src="images/how-to-spot-and-fix-an-overworking-refrigerator.png" alt="Overworking refrigerator repair tips">
@@ -480,6 +483,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </article>
 
+                <!-- Post grid: rounded article cards using Alex Repair colors. -->
                 <div class="alex-blog-grid">
                     <article class="alex-blog-card">
                         <a class="alex-blog-image" href="https://www.alex-repair.com/signs-your-dryer-needs-repairs-before-it-breaks-down.html">
@@ -554,6 +558,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </article>
                 </div>
 
+                <!-- Blog archive pagination. -->
                 <nav class="alex-blog-pagination" aria-label="Blog pagination">
                     <span class="alex-blog-page-current" aria-current="page">1</span>
                     <a href="https://www.alex-repair.com/blog-page-2.html">2</a>
@@ -562,6 +567,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </nav>
             </div>
 
+            <!-- Sidebar widgets: search, categories, recent posts, and service CTA. -->
             <aside class="alex-blog-sidebar">
                 <div class="alex-blog-widget alex-blog-search">
                     <h3>Search</h3>
@@ -608,327 +614,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
 </section>
-
-<style>
-    .alex-blog-page {
-        background: #fff;
-        padding: 90px 0 100px;
-    }
-    .alex-blog-heading {
-        max-width: 760px;
-        margin-bottom: 45px;
-    }
-    .alex-blog-heading span,
-    .alex-blog-meta {
-        color: var(--color-1);
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 1.4;
-    }
-    .alex-blog-heading h1 {
-        color: var(--color-title);
-        font-size: 48px;
-        line-height: 1.15;
-        margin: 10px 0 16px;
-    }
-    .alex-blog-heading p {
-        color: var(--color-text);
-        font-size: 18px;
-        line-height: 1.7;
-        margin: 0;
-    }
-    .alex-blog-layout {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) 360px;
-        gap: 34px;
-        align-items: start;
-    }
-    .alex-blog-main,
-    .alex-blog-sidebar {
-        min-width: 0;
-    }
-    .alex-blog-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 28px;
-        margin-top: 28px;
-    }
-    .alex-blog-card,
-    .alex-blog-widget {
-        background: #fff;
-        border: 1px solid rgba(16, 55, 92, 0.12);
-        border-radius: 20px;
-        box-shadow: 0 18px 45px rgba(16, 55, 92, 0.08);
-        overflow: hidden;
-    }
-    .alex-blog-card {
-        display: flex;
-        flex-direction: column;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .alex-blog-card:hover {
-        box-shadow: 0 22px 54px rgba(16, 55, 92, 0.14);
-        transform: translateY(-4px);
-    }
-    .alex-blog-card-featured {
-        display: grid;
-        grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
-        align-items: stretch;
-    }
-    .alex-blog-image {
-        display: block;
-        overflow: hidden;
-    }
-    .alex-blog-image img {
-        display: block;
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-        transition: transform 0.35s ease;
-    }
-    .alex-blog-card-featured .alex-blog-image img {
-        height: 100%;
-        min-height: 360px;
-    }
-    .alex-blog-card:hover .alex-blog-image img {
-        transform: scale(1.04);
-    }
-    .alex-blog-content {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        padding: 26px;
-    }
-    .alex-blog-card-featured .alex-blog-content {
-        padding: 36px;
-    }
-    .alex-blog-content h2 {
-        color: var(--color-title);
-        font-size: 24px;
-        line-height: 1.25;
-        margin: 10px 0 14px;
-    }
-    .alex-blog-card-featured h2 {
-        font-size: 34px;
-        line-height: 1.18;
-    }
-    .alex-blog-content h2 a {
-        color: inherit;
-    }
-    .alex-blog-content p {
-        color: var(--color-text);
-        font-size: 16px;
-        line-height: 1.65;
-        margin: 0 0 22px;
-    }
-    .alex-blog-link,
-    .alex-blog-search button,
-    .alex-blog-cta a {
-        align-self: flex-start;
-        background: var(--color-1);
-        border-radius: 10px;
-        color: var(--color-6);
-        display: inline-flex;
-        font-size: 15px;
-        font-weight: 700;
-        line-height: 1;
-        padding: 15px 20px;
-        text-decoration: none;
-        transition: background 0.3s ease, color 0.3s ease;
-    }
-    .alex-blog-link:hover,
-    .alex-blog-search button:hover,
-    .alex-blog-cta a:hover {
-        background: var(--color-title);
-        color: var(--color-6);
-    }
-    .alex-blog-pagination {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 34px;
-    }
-    .alex-blog-pagination a,
-    .alex-blog-page-current {
-        align-items: center;
-        background: #fff;
-        border: 1px solid rgba(16, 55, 92, 0.14);
-        border-radius: 12px;
-        color: var(--color-title);
-        display: inline-flex;
-        font-size: 16px;
-        font-weight: 700;
-        height: 46px;
-        justify-content: center;
-        min-width: 46px;
-        padding: 0 16px;
-        text-decoration: none;
-        transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-    }
-    .alex-blog-page-current,
-    .alex-blog-pagination a:hover {
-        background: var(--color-1);
-        border-color: var(--color-1);
-        color: var(--color-6);
-    }
-    .alex-blog-next {
-        min-width: 86px;
-    }
-    .alex-blog-sidebar {
-        display: grid;
-        gap: 24px;
-        position: sticky;
-        top: 110px;
-    }
-    .alex-blog-widget {
-        padding: 28px;
-    }
-    .alex-blog-widget h3 {
-        color: var(--color-title);
-        font-size: 24px;
-        line-height: 1.25;
-        margin: 0 0 20px;
-    }
-    .alex-blog-search form {
-        display: grid;
-        gap: 12px;
-    }
-    .alex-blog-search input {
-        border: 1px solid rgba(16, 55, 92, 0.16);
-        border-radius: 10px;
-        color: var(--color-title);
-        font-size: 16px;
-        height: 52px;
-        padding: 0 16px;
-        width: 100%;
-    }
-    .alex-blog-search button {
-        border: 0;
-        cursor: pointer;
-        justify-content: center;
-        width: 100%;
-    }
-    .alex-blog-category-list {
-        display: grid;
-        gap: 12px;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-    .alex-blog-category-list a {
-        align-items: center;
-        background: var(--color-4);
-        border-radius: 12px;
-        color: var(--color-title);
-        display: flex;
-        font-weight: 700;
-        justify-content: space-between;
-        padding: 14px 16px;
-    }
-    .alex-blog-category-list a:after {
-        color: var(--color-1);
-        content: ">";
-    }
-    .alex-blog-category-list a:hover {
-        background: var(--color-1);
-        color: var(--color-6);
-    }
-    .alex-blog-category-list a:hover:after {
-        color: var(--color-6);
-    }
-    .alex-blog-recent {
-        display: grid;
-        gap: 16px;
-    }
-    .alex-blog-recent a {
-        align-items: center;
-        color: var(--color-title);
-        display: grid;
-        gap: 14px;
-        grid-template-columns: 86px minmax(0, 1fr);
-        font-size: 15px;
-        font-weight: 700;
-        line-height: 1.35;
-    }
-    .alex-blog-recent img {
-        border-radius: 14px;
-        height: 76px;
-        object-fit: cover;
-        width: 86px;
-    }
-    .alex-blog-recent a:hover {
-        color: var(--color-1);
-    }
-    .alex-blog-cta {
-        background: var(--color-grd);
-    }
-    .alex-blog-cta h3,
-    .alex-blog-cta p {
-        color: var(--color-6);
-    }
-    .alex-blog-cta p {
-        font-size: 16px;
-        line-height: 1.65;
-        margin: 0 0 22px;
-    }
-    .alex-blog-cta a {
-        background: var(--color-6);
-        color: var(--color-1);
-    }
-    .alex-blog-cta a:hover {
-        background: var(--color-title);
-        color: var(--color-6);
-    }
-    @media (max-width: 1200px) {
-        .alex-blog-layout {
-            grid-template-columns: 1fr;
-        }
-        .alex-blog-sidebar {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            position: static;
-        }
-    }
-    @media (max-width: 860px) {
-        .alex-blog-page {
-            padding: 65px 0 75px;
-        }
-        .alex-blog-heading h1 {
-            font-size: 38px;
-        }
-        .alex-blog-card-featured,
-        .alex-blog-grid,
-        .alex-blog-sidebar {
-            grid-template-columns: 1fr;
-        }
-        .alex-blog-card-featured .alex-blog-image img {
-            height: 260px;
-            min-height: 0;
-        }
-        .alex-blog-card-featured h2 {
-            font-size: 28px;
-        }
-    }
-    @media (max-width: 575px) {
-        .alex-blog-page {
-            padding: 45px 0 60px;
-        }
-        .alex-blog-heading h1 {
-            font-size: 32px;
-        }
-        .alex-blog-heading p {
-            font-size: 16px;
-        }
-        .alex-blog-content,
-        .alex-blog-card-featured .alex-blog-content,
-        .alex-blog-widget {
-            padding: 22px;
-        }
-        .alex-blog-image img {
-            height: 220px;
-        }
-    }
-</style>
 
 </main>
 
