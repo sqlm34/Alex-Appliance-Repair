@@ -15,7 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
 		menuLi.addEventListener('click', function (event) {
 			if (event.target.tagName !== 'A') {
 				event.preventDefault();
-				const subMenu = menuLi.querySelector('.sub-menu');
+				event.stopPropagation();
+				const subMenu = menuLi.querySelector(':scope > .sub-menu');
+				if (!subMenu) {
+					return;
+				}
 				if (subMenu.style.display === 'block' || subMenu.style.height !== '') {
 					slideUp(subMenu, 300);
 					subMenu.classList.remove('is-active');
