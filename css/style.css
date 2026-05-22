@@ -272,6 +272,14 @@
 	padding: 0;
 	margin: 0;
 }
+.breadcrumbs-wrap a{
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+}
+.breadcrumbs-wrap a:hover{
+	color: var(--color-4);
+}
 /*Breadcrumbs END*/
 
 /*Banner START*/
