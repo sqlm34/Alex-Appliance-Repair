@@ -449,37 +449,30 @@
     text-align: left;
 }
 
-/* FAQ styling inside old article content. */
-.alex-article-body .faq-container {
-    margin: 24px 0 0;
+/* Article FAQ: same structure as the home FAQ, scaled to fit inside article cards. */
+.alex-article-faq-wrap {
+    margin: 34px 0;
+}
+
+.alex-article-faq-wrap .faq-row {
+    align-items: center;
+    display: grid;
+    gap: 28px;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    padding: 34px;
+}
+
+.alex-article-faq-wrap .faq-left {
     max-width: none;
-    padding: 0;
+    padding: 34px 0;
+}
+
+.alex-article-faq-wrap .faq-right {
+    min-width: 0;
+}
+
+.alex-article-faq-wrap .faq-item {
     width: 100%;
-}
-
-.alex-article-body .faq-item {
-    border: 1px solid rgba(16, 55, 92, 0.12);
-    border-radius: 14px;
-    margin-bottom: 12px;
-    overflow: hidden;
-}
-
-.alex-article-body .faq-item a {
-    background: var(--color-4);
-    color: var(--color-title);
-    padding: 16px 18px;
-    text-decoration: none !important;
-    text-transform: none;
-}
-
-.alex-article-body .faq-item a:hover,
-.alex-article-body .faq-item a:hover::after {
-    background: var(--color-1);
-    color: var(--color-6);
-}
-
-.alex-article-body .answer {
-    background: #fff;
 }
 
 /* Visible article comments and reply form. */
@@ -661,6 +654,14 @@
     .alex-article-header h1 {
         font-size: 34px;
     }
+
+    .alex-article-faq-wrap .faq-row {
+        grid-template-columns: 1fr;
+    }
+
+    .alex-article-faq-wrap .faq-left {
+        padding: 0;
+    }
 }
 
 /* Small phones: reduce inner padding while keeping rounded cards. */
@@ -703,6 +704,10 @@
 
     .alex-article-header h1 {
         font-size: 30px;
+    }
+
+    .alex-article-faq-wrap .faq-row {
+        padding: 24px;
     }
 
     .alex-comment-item,
