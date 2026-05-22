@@ -1100,6 +1100,22 @@
 	width: 100%;
 	text-align: left;
 }
+.location-page-content .title,
+.location-page-content .subtitle,
+.location-page-content .desc-service,
+.location-page-content .desc-carmel h2{
+	color: var(--color-title);
+}
+.location-page-content .subtitle span{
+	color: var(--color-4);
+}
+.location-page-content .desc-carmel,
+.location-page-content .desc-carmel p,
+.location-page-content .desc-carmel li,
+.location-page-content .desc-carmel strong,
+.location-page-content .desc-carmel a{
+	color: var(--color-text);
+}
 .desc-service{
 	color: var(--color-title);
 	text-align: left;
