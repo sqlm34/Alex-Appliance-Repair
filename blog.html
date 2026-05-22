@@ -553,6 +553,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </article>
                 </div>
+
+                <nav class="alex-blog-pagination" aria-label="Blog pagination">
+                    <span class="alex-blog-page-current" aria-current="page">1</span>
+                    <a href="https://www.alex-repair.com/blog-page-2.html">2</a>
+                    <a href="https://www.alex-repair.com/blog-page-3.html">3</a>
+                    <a class="alex-blog-next" href="https://www.alex-repair.com/blog-page-2.html">Next</a>
+                </nav>
             </div>
 
             <aside class="alex-blog-sidebar">
@@ -734,6 +741,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .alex-blog-cta a:hover {
         background: var(--color-title);
         color: var(--color-6);
+    }
+    .alex-blog-pagination {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 34px;
+    }
+    .alex-blog-pagination a,
+    .alex-blog-page-current {
+        align-items: center;
+        background: #fff;
+        border: 1px solid rgba(16, 55, 92, 0.14);
+        border-radius: 12px;
+        color: var(--color-title);
+        display: inline-flex;
+        font-size: 16px;
+        font-weight: 700;
+        height: 46px;
+        justify-content: center;
+        min-width: 46px;
+        padding: 0 16px;
+        text-decoration: none;
+        transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+    .alex-blog-page-current,
+    .alex-blog-pagination a:hover {
+        background: var(--color-1);
+        border-color: var(--color-1);
+        color: var(--color-6);
+    }
+    .alex-blog-next {
+        min-width: 86px;
     }
     .alex-blog-sidebar {
         display: grid;
