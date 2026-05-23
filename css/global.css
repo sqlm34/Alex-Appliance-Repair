@@ -104,7 +104,8 @@ p {
 .df{
 	display: flex;
 }
-.button-v1{
+.button-v1,
+.booking-button{
     background-color: var(--color-4);
     color: var(--color-1);
     padding: 16px 30px;

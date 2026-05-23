@@ -1,4 +1,17 @@
-@import url('global.css');
+@import url('global.css?v=20260523-hours-buttons-2');
+
+.booking-button {
+	background-color: var(--color-4);
+	border-radius: 29px;
+	color: var(--color-1);
+	column-gap: 10px;
+	display: inline-flex;
+	align-items: center;
+	font-weight: 700;
+	padding: 16px 30px;
+	text-align: center;
+	text-transform: uppercase;
+}
 
 /*Header START*/
 .header{
@@ -4244,6 +4257,44 @@ li {
 	.offer-row {
 		min-width: 0;
 		width: 100%;
+	}
+
+	.schedule-blocks {
+		flex-direction: column !important;
+		gap: 18px !important;
+		max-width: 100% !important;
+	}
+
+	.days-blocks-left,
+	.days-blocks-right,
+	.day-item {
+		flex: none !important;
+		max-width: 100% !important;
+		min-width: 0 !important;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		width: 100% !important;
+	}
+
+	.day-item {
+		height: auto;
+		min-height: 118px;
+	}
+
+	.button-v1,
+	.booking-button {
+		align-items: center;
+		background-color: var(--color-4);
+		border-radius: 29px;
+		color: var(--color-1);
+		display: inline-flex;
+		font-weight: 700;
+		justify-content: center;
+		max-width: 100%;
+		min-height: 54px;
+		padding: 16px 30px;
+		text-align: center;
+		text-transform: uppercase;
 	}
 
 	.pricing-card {
