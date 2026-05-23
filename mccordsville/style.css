@@ -1,4 +1,4 @@
-@import url('global.css?v=20260523-mobile-menu-full-2');
+@import url('global.css?v=20260523-price-header-mobile-2');
 
 .booking-button {
 	background-color: var(--color-4);
@@ -4019,11 +4019,16 @@
 		flex-direction: column;
 		border: none;
 		justify-content: center;
+		max-width: 100%;
+		width: 100%;
 	}
 	.pricing-card{
 		border: 1px solid #D4CCCC;
     	border-radius: 20px;
-		max-width:calc(100% - 453px);
+		box-sizing: border-box;
+		max-width: 100%;
+		min-width: 0;
+		width: 100%;
 		margin-bottom: 50px;
 		-webkit-box-shadow: 10px 10px 24px -14px rgba(0,0,0,0.56);
 		-moz-box-shadow: 10px 10px 24px -14px rgba(0,0,0,0.56);
@@ -4245,6 +4250,38 @@ li {
 		width: 100vw;
 	}
 
+	.header,
+	.header .container,
+	.header-top-line,
+	.header-row {
+		left: 0;
+		margin-left: 0;
+		margin-right: 0;
+		max-width: none;
+		padding-left: 0;
+		padding-right: 0;
+		right: 0;
+		width: 100vw;
+	}
+
+	.header-row {
+		width: 100%;
+	}
+
+	.header-left {
+		margin-left: 0;
+	}
+
+	.header-right {
+		flex: 1 1 auto;
+		min-width: 0;
+		width: auto;
+	}
+
+	.header-top {
+		width: 100%;
+	}
+
 	.breadcrumbs-wrap {
 		padding: 120px 0 34px;
 	}
@@ -4316,8 +4353,17 @@ li {
 		text-transform: uppercase;
 	}
 
-	.pricing-card {
+	.pricing-table {
+		border-radius: 16px;
 		max-width: 100%;
+		overflow: hidden;
+		width: 100%;
+	}
+
+	.pricing-card {
+		box-sizing: border-box;
+		max-width: 100%;
+		min-width: 0;
 		width: 100%;
 	}
 
