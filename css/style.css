@@ -1418,6 +1418,64 @@ a.booking-button[href*="online-booking"] {
 }
 /*Why Choose END*/
 
+/*Home SEO Content START*/
+.home-areas-wrap,
+.home-process-wrap{
+	background-color: #fff;
+}
+.home-areas-grid,
+.home-process-grid{
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 24px;
+	margin-top: 42px;
+}
+.home-area-card,
+.home-process-card{
+	display: block;
+	background-color: #fff;
+	border: 1px solid #E3E3E3;
+	border-radius: 8px;
+	padding: 28px;
+	box-shadow: 0 4px 18px 3px rgba(133, 123, 123, 0.10);
+	transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.home-area-card:hover,
+.home-process-card:hover{
+	transform: translateY(-4px);
+	border-color: var(--color-6);
+	box-shadow: 0 8px 22px 4px rgba(133, 123, 123, 0.16);
+}
+.home-area-card strong,
+.home-process-card h3{
+	display: block;
+	color: var(--color-title);
+	font-size: 22px;
+	line-height: 1.3;
+	margin-bottom: 12px;
+}
+.home-area-card span,
+.home-process-card p{
+	display: block;
+	color: var(--color-text);
+	font-size: 16px;
+	line-height: 1.6;
+	margin-bottom: 0;
+}
+.home-process-card strong{
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 46px;
+	height: 46px;
+	border-radius: 8px;
+	background-color: var(--color-2);
+	color: var(--color-title);
+	font-weight: 800;
+	margin-bottom: 18px;
+}
+/*Home SEO Content END*/
+
 
 /*Team START*/
 .team-row{
@@ -4287,6 +4345,10 @@ a.booking-button[href*="online-booking"] {
 		line-height: 1.35;
 		padding: 14px 20px 14px 36px;
 	}
+	.home-areas-grid,
+	.home-process-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
 }
 
 /* Mobile layout guard: keep long SEO titles, breadcrumbs and media inside the viewport. */
@@ -4337,6 +4399,18 @@ li {
 	html,
 	body {
 		overflow-x: hidden;
+	}
+
+	.home-areas-grid,
+	.home-process-grid {
+		grid-template-columns: 1fr;
+		gap: 16px;
+		margin-top: 28px;
+	}
+
+	.home-area-card,
+	.home-process-card {
+		padding: 22px;
 	}
 
 	.header-mobile-wrap {
