@@ -408,6 +408,29 @@ a.booking-button[href*="online-booking"] {
 .banner-title span{
 	display: inline-block;
 }
+.banner-title-service{
+	max-width: 1120px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.banner-service-subtitle{
+	color: #FFC700;
+	font-weight: 700;
+	text-align: center;
+	margin: 0 auto;
+	max-width: 980px;
+}
+.banner-service-subtitle p{
+	color: #FFC700 !important;
+	font-size: 26px;
+	line-height: 1.35;
+	margin: 0;
+	text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+.banner-service-subtitle p + p{
+	font-size: 20px;
+	margin-top: 10px;
+}
 .banner-typing{
 	width: 100%;
 	display: flex;
@@ -3813,6 +3836,20 @@ a.booking-button[href*="online-booking"] {
 		flex-direction: column;
 		row-gap: 18px;
 		text-wrap: balance;
+	}
+	.banner-title-service {
+		row-gap: 8px;
+	}
+	.banner-service-subtitle {
+		max-width: 320px;
+	}
+	.banner-service-subtitle p {
+		font-size: 17px;
+		line-height: 1.35;
+	}
+	.banner-service-subtitle p + p {
+		font-size: 14px;
+		margin-top: 8px;
 	}
 	.banner-areas{
 		display: flex;
