@@ -1,4 +1,4 @@
-@import url('global.css?v=20260523-eight-repair-links');
+@import url('global.css?v=20260523-hero-title-air');
 
 .booking-button {
 	background-color: var(--color-4);
@@ -396,6 +396,17 @@ a.booking-button[href*="online-booking"] {
 	color: #FFC700;
 	margin: 0;
 	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	column-gap: 34px;
+	row-gap: 12px;
+	text-align: center;
+	line-height: 1.08;
+}
+.banner-title span{
+	display: inline-block;
 }
 .banner-typing{
 	width: 100%;
@@ -3741,6 +3752,8 @@ a.booking-button[href*="online-booking"] {
 	.banner-title{
 		font-size: 46px;
 		line-height: 1.12;
+		flex-direction: column;
+		row-gap: 18px;
 		text-wrap: balance;
 	}
 	.banner-areas{
