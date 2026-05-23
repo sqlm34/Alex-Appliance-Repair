@@ -381,6 +381,13 @@
     margin: 12px 0 0;
 }
 
+.alex-article-source-meta {
+    color: var(--color-text);
+    font-size: 15px;
+    line-height: 1.5;
+    margin-top: 14px;
+}
+
 .alex-article-hero {
     display: block;
     padding: 0 36px 34px;
@@ -606,6 +613,49 @@
 }
 
 .alex-comment-form button:hover {
+    background: var(--color-title);
+    color: var(--color-6);
+}
+
+.alex-article-body .highlight {
+    background: var(--color-4);
+    border-left: 4px solid var(--color-1);
+    border-radius: 14px;
+    color: var(--color-title);
+    margin: 26px 0;
+    padding: 20px 22px;
+}
+
+.alex-article-body .cta-box {
+    background: var(--color-grd);
+    border-radius: 20px;
+    color: var(--color-6);
+    margin: 32px 0;
+    padding: 30px;
+}
+
+.alex-article-body .cta-box h2,
+.alex-article-body .cta-box h3,
+.alex-article-body .cta-box p {
+    color: var(--color-6);
+}
+
+.alex-article-body .cta-box a,
+.alex-article-body .cta-button {
+    background: var(--color-6);
+    border-radius: 12px;
+    color: var(--color-1);
+    display: inline-flex;
+    font-family: var(--font-family);
+    font-weight: 700;
+    line-height: 1;
+    margin-top: 12px;
+    padding: 15px 22px;
+    text-decoration: none;
+}
+
+.alex-article-body .cta-box a:hover,
+.alex-article-body .cta-button:hover {
     background: var(--color-title);
     color: var(--color-6);
 }
