@@ -4094,3 +4094,10 @@
 	/* Footer 575 END */ 
 }
 /*Responsive END*/
+@media (max-width: 1199px) {
+	.mobile-menu-nav li.menu-has-children.is-active > ul.sub-menu li.menu-has-children > ul.sub-menu {
+		display: block !important;
+		height: auto !important;
+		overflow: visible !important;
+	}
+}
