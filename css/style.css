@@ -4246,6 +4246,23 @@ a.booking-button[href*="online-booking"] {
 		transform: none !important;
 		visibility: visible !important;
 		opacity: 1 !important;
+		background-color: #fff !important;
+	}
+	.mobile-menu-nav,
+	.mobile-menu-nav ul,
+	.mobile-menu-nav li,
+	.mobile-menu-nav a,
+	.mobile-menu-nav .sub-menu,
+	.mobile-menu-nav .sub-menu li,
+	.mobile-menu-nav .sub-menu li a {
+		background-color: #fff !important;
+	}
+	.mobile-menu-nav a,
+	.mobile-menu-nav .sub-menu li a {
+		color: var(--color-title) !important;
+	}
+	.mobile-menu-nav ul li.current-menu-item > a {
+		color: var(--color-6) !important;
 	}
 	.mobile-menu-nav li.menu-has-children.is-active > ul.sub-menu {
 		overflow: visible !important;
