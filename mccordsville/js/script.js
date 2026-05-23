@@ -22,6 +22,17 @@ document.addEventListener('DOMContentLoaded', () => {
 			slideDown(subMenu, 300);
 			subMenu.classList.add('is-active');
 			menuLi.classList.add('is-active');
+			const menuLabel = menuLi.querySelector(':scope > a')?.childNodes[0]?.textContent.trim();
+			if (menuLabel === 'Locations') {
+				menuLi.querySelectorAll(':scope > .sub-menu > .menu-has-children').forEach(cityLi => {
+					const citySubMenu = cityLi.querySelector(':scope > .sub-menu');
+					cityLi.classList.add('is-active');
+					if (citySubMenu) {
+						citySubMenu.style.display = 'block';
+						citySubMenu.style.height = '';
+					}
+				});
+			}
 			let parentLi = menuLi.parentElement.closest('.mobile-menu-nav .menu-has-children');
 			while (parentLi) {
 				const parentSubMenu = parentLi.querySelector(':scope > .sub-menu');
