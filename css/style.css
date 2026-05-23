@@ -1,4 +1,4 @@
-@import url('global.css?v=20260523-service-icon-links');
+@import url('global.css?v=20260523-eight-repair-links');
 
 .booking-button {
 	background-color: var(--color-4);
@@ -2349,7 +2349,7 @@ a.booking-button[href*="online-booking"] {
 /*Partners START*/
 .partners-row{
 	display: grid;
-	grid-template-columns: repeat(6, minmax(96px, 1fr));
+	grid-template-columns: repeat(8, minmax(82px, 1fr));
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
@@ -3006,7 +3006,7 @@ a.booking-button[href*="online-booking"] {
 	/* Partners 1120 START */
 	.partners-row{
 		gap: 16px;
-		grid-template-columns: repeat(6, minmax(78px, 1fr));
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 	.partners-item {
 		border-radius: 18px;
