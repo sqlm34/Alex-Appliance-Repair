@@ -44,16 +44,22 @@ function gtag_report_conversion(url) {
     
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+	<meta name="geo.region" content="US-IN">
+	<meta name="geo.placename" content="Carmel, Fishers, Noblesville, McCordsville, Zionsville, Westfield">
+	<meta name="ICBM" content="39.9784, -86.1180">
 	
 	<link rel="canonical" href="https://www.alex-repair.com/">
-	<meta property="og:title" content="Expert Appliance Repair Services Near You | Alex Appliance Repair Indiana">
-	<meta property="og:description" content="Professional appliance repair in Carmel, Fishers, Noblesville, McCordsville, Zionsville, and Westfield. Same-day service, certified technicians, fair pricing. Call (463) 248-8429.">
+	<meta property="og:title" content="Appliance Repair Near Me | Alex Appliance Repair Indiana">
+	<meta property="og:description" content="Same-day appliance repair near me in Carmel, Fishers, Noblesville, McCordsville, Zionsville and Westfield, IN. Call Alex Appliance Repair: (463) 248-8429.">
 	<meta property="og:image" content="https://www.alex-repair.com/images/logo.webp">
 	<meta property="og:url" content="https://www.alex-repair.com/">
 	<meta property="og:type" content="website">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:site_name" content="Alex Appliance Repair">
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Expert Appliance Repair Services Near You | Alex Appliance Repair Indiana">
-	<meta name="twitter:description" content="Professional appliance repair in Carmel, Fishers, Noblesville, McCordsville, Zionsville, and Westfield. Same-day service, certified technicians, fair pricing.">
+	<meta name="twitter:title" content="Appliance Repair Near Me | Alex Appliance Repair Indiana">
+	<meta name="twitter:description" content="Same-day appliance repair near me in Carmel, Fishers, Noblesville, McCordsville, Zionsville and Westfield, IN. Call (463) 248-8429.">
 	<meta name="twitter:image" content="https://www.alex-repair.com/images/logo.webp">
 	<meta name="twitter:url" content="https://www.alex-repair.com/">
 
@@ -74,41 +80,97 @@ function gtag_report_conversion(url) {
 	<!-- Styles END -->
 
 	<title>Appliance Repair Near Me | Alex Appliance Repair Indiana</title>
-	<meta name="description" content="Professional appliance repair near me in Carmel, Fishers, Noblesville, McCordsville, Zionsville, and Westfield, Indiana. Same-day service for refrigerators, washers, dryers, dishwashers and more. Licensed technicians, 12-month warranty.">
+	<meta name="description" content="Same-day appliance repair near me in Carmel, Fishers, Noblesville, McCordsville, Zionsville and Westfield, IN. Call Alex Appliance Repair: (463) 248-8429.">
 	<meta name="keywords" content="appliance repair near me, appliance repair Indiana, same-day appliance repair, professional appliance repair services, emergency appliance repair, affordable appliance repair">
 	<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
-		"@type": "LocalBusiness",
-		"name": "Alex Appliance Repair",
-		"image": "https://www.alex-repair.com/images/logo.webp",
-		"description": "Professional appliance repair services in Carmel, Fishers, Noblesville, McCordsville, Zionsville, Westfield, and nearby Indiana communities.",
-		"url": "https://www.alex-repair.com/",
-		"telephone": "+1-463-248-8429",
-		"email": "alexeasyrepair@gmail.com",
-		"priceRange": "$$",
-		"areaServed": [
-			"Carmel, Indiana",
-			"Fishers, Indiana",
-			"Noblesville, Indiana",
-			"McCordsville, Indiana",
-			"Zionsville, Indiana",
-			"Westfield, Indiana"
-		],
-		"openingHoursSpecification": {
-			"@type": "OpeningHoursSpecification",
-			"dayOfWeek": [
-				"Monday",
-				"Tuesday",
-				"Wednesday",
-				"Thursday",
-				"Friday",
-				"Saturday",
-				"Sunday"
-			],
-			"opens": "08:00",
-			"closes": "20:00"
-		}
+		"@graph": [
+			{
+				"@type": "LocalBusiness",
+				"@id": "https://www.alex-repair.com/#business",
+				"name": "Alex Appliance Repair",
+				"url": "https://www.alex-repair.com/",
+				"image": "https://www.alex-repair.com/images/logo.webp",
+				"logo": "https://www.alex-repair.com/images/logo.webp",
+				"description": "Same-day appliance repair services for refrigerators, washers, dryers, dishwashers, stoves, microwaves, cooktops, and freezers in Carmel, Fishers, Noblesville, McCordsville, Zionsville, Westfield, and nearby Indiana communities.",
+				"telephone": "+1-463-248-8429",
+				"email": "alexeasyrepair@gmail.com",
+				"priceRange": "$$",
+				"areaServed": [
+					{"@type": "City", "name": "Carmel, Indiana"},
+					{"@type": "City", "name": "Fishers, Indiana"},
+					{"@type": "City", "name": "Noblesville, Indiana"},
+					{"@type": "City", "name": "McCordsville, Indiana"},
+					{"@type": "City", "name": "Zionsville, Indiana"},
+					{"@type": "City", "name": "Westfield, Indiana"}
+				],
+				"sameAs": [
+					"https://x.com/AleksEska79"
+				],
+				"openingHoursSpecification": {
+					"@type": "OpeningHoursSpecification",
+					"dayOfWeek": [
+						"Monday",
+						"Tuesday",
+						"Wednesday",
+						"Thursday",
+						"Friday",
+						"Saturday",
+						"Sunday"
+					],
+					"opens": "08:00",
+					"closes": "20:00"
+				},
+				"hasOfferCatalog": {
+					"@type": "OfferCatalog",
+					"name": "Appliance Repair Services",
+					"itemListElement": [
+						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Refrigerator Repair"}},
+						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Washer Repair"}},
+						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Dryer Repair"}},
+						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Dishwasher Repair"}},
+						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Stove and Oven Repair"}},
+						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Microwave Repair"}},
+						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cooktop Repair"}},
+						{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Freezer Repair"}}
+					]
+				}
+			},
+			{
+				"@type": "WebSite",
+				"@id": "https://www.alex-repair.com/#website",
+				"url": "https://www.alex-repair.com/",
+				"name": "Alex Appliance Repair",
+				"publisher": {"@id": "https://www.alex-repair.com/#business"}
+			},
+			{
+				"@type": "FAQPage",
+				"@id": "https://www.alex-repair.com/#faq",
+				"mainEntity": [
+					{
+						"@type": "Question",
+						"name": "Do you offer same-day appliance repair?",
+						"acceptedAnswer": {"@type": "Answer", "text": "Yes. Most appliance repairs scheduled before noon can be completed the same day, depending on technician availability and parts."}
+					},
+					{
+						"@type": "Question",
+						"name": "What brands of appliances do you repair?",
+						"acceptedAnswer": {"@type": "Answer", "text": "We repair major brands including LG, Samsung, Whirlpool, Maytag, GE, Electrolux, Kenmore, Bosch, KitchenAid, and many others."}
+					},
+					{
+						"@type": "Question",
+						"name": "Do you provide warranties on repairs?",
+						"acceptedAnswer": {"@type": "Answer", "text": "Yes. Completed repairs are backed by a 12-month warranty on covered parts and labor for the same repaired issue."}
+					},
+					{
+						"@type": "Question",
+						"name": "What areas do you service?",
+						"acceptedAnswer": {"@type": "Answer", "text": "We provide appliance repair in Carmel, Fishers, Noblesville, McCordsville, Zionsville, Westfield, and nearby Indiana communities."}
+					}
+				]
+			}
+		]
 	}
 	</script>
 	
