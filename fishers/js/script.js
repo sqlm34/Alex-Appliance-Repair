@@ -28,6 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
 				slideDown(subMenu, 300);
 				subMenu.classList.add('is-active');
 				menuLi.classList.add('is-active');
+				let parentLi = menuLi.parentElement.closest('.mobile-menu-nav .menu-has-children');
+				while (parentLi) {
+					const parentSubMenu = parentLi.querySelector(':scope > .sub-menu');
+					parentLi.classList.add('is-active');
+					if (parentSubMenu) {
+						parentSubMenu.style.display = 'block';
+						parentSubMenu.style.height = '';
+					}
+					parentLi = parentLi.parentElement.closest('.mobile-menu-nav .menu-has-children');
+				}
 			}
 		});
 	});
