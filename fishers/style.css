@@ -1,4 +1,4 @@
-@import url('global.css?v=20260523-blog-center');
+@import url('global.css?v=20260523-scrolltop-blog-center');
 
 .booking-button {
 	background-color: var(--color-4);
@@ -2122,8 +2122,13 @@ a.booking-button[href*="online-booking"] {
 	width: 100%;
 	min-width: 0;
 	overflow: hidden;
+	display: flex;
+	justify-content: center;
 }
 .swiper-blog{
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1065px;
 	overflow: hidden;
 	width: 100%;
 }
@@ -4614,4 +4619,54 @@ li {
 	font-size: 13px;
 	line-height: 1.4;
 	margin-top: 3px;
+}
+
+.scroll-top-button {
+	align-items: center;
+	background: var(--color-6);
+	border: 0;
+	border-radius: 50%;
+	bottom: 24px;
+	box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+	cursor: pointer;
+	display: flex;
+	height: 52px;
+	justify-content: center;
+	opacity: 0;
+	pointer-events: none;
+	position: fixed;
+	right: 24px;
+	transform: translateY(14px);
+	transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+	width: 52px;
+	z-index: 999;
+}
+
+.scroll-top-button.is-visible {
+	opacity: 1;
+	pointer-events: auto;
+	transform: translateY(0);
+}
+
+.scroll-top-button:hover {
+	background: var(--color-1);
+}
+
+.scroll-top-button span {
+	border-left: 3px solid #fff;
+	border-top: 3px solid #fff;
+	display: block;
+	height: 14px;
+	margin-top: 7px;
+	transform: rotate(45deg);
+	width: 14px;
+}
+
+@media screen and (max-width: 575px) {
+	.scroll-top-button {
+		bottom: 18px;
+		height: 46px;
+		right: 18px;
+		width: 46px;
+	}
 }

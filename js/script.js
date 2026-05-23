@@ -72,6 +72,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	//Slide mobile menu open END
 
+	const scrollTopButton = document.createElement('button');
+	scrollTopButton.className = 'scroll-top-button';
+	scrollTopButton.type = 'button';
+	scrollTopButton.setAttribute('aria-label', 'Back to top');
+	scrollTopButton.innerHTML = '<span aria-hidden="true"></span>';
+	document.body.appendChild(scrollTopButton);
+
+	window.addEventListener('scroll', () => {
+		scrollTopButton.classList.toggle('is-visible', window.scrollY > 500);
+	}, { passive: true });
+
+	scrollTopButton.addEventListener('click', () => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	});
+
 	// Header END
 
 	// Counter START //
@@ -328,6 +346,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		speed: 1000,
 		slidesPerView: 1,
 		spaceBetween: 24,
+		centeredSlides: true,
+		centeredSlidesBounds: true,
 		watchOverflow: true,
 		centerInsufficientSlides: true,
 
