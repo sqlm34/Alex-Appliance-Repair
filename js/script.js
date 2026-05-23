@@ -19,20 +19,23 @@ document.addEventListener('DOMContentLoaded', () => {
 			subMenu.classList.remove('is-active');
 			menuLi.classList.remove('is-active');
 		} else {
-			slideDown(subMenu, 300);
-			subMenu.classList.add('is-active');
-			menuLi.classList.add('is-active');
-			const menuLabel = menuLi.querySelector(':scope > a')?.childNodes[0]?.textContent.trim();
-			if (menuLabel === 'Locations') {
-				menuLi.querySelectorAll(':scope > .sub-menu > .menu-has-children').forEach(cityLi => {
-					const citySubMenu = cityLi.querySelector(':scope > .sub-menu');
-					cityLi.classList.add('is-active');
-					if (citySubMenu) {
-						citySubMenu.style.display = 'block';
-						citySubMenu.style.height = '';
+			const parentMenu = menuLi.parentElement;
+			if (parentMenu && parentMenu.closest('.mobile-menu-nav')) {
+				parentMenu.querySelectorAll(':scope > .menu-has-children').forEach(siblingLi => {
+					if (siblingLi === menuLi) {
+						return;
+					}
+					const siblingSubMenu = siblingLi.querySelector(':scope > .sub-menu');
+					siblingLi.classList.remove('is-active');
+					if (siblingSubMenu) {
+						slideUp(siblingSubMenu, 300);
+						siblingSubMenu.classList.remove('is-active');
 					}
 				});
 			}
+			slideDown(subMenu, 300);
+			subMenu.classList.add('is-active');
+			menuLi.classList.add('is-active');
 			let parentLi = menuLi.parentElement.closest('.mobile-menu-nav .menu-has-children');
 			while (parentLi) {
 				const parentSubMenu = parentLi.querySelector(':scope > .sub-menu');

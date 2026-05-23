@@ -3165,7 +3165,7 @@ a.booking-button[href*="online-booking"] {
 		-ms-transition: transform 0.5s ease, color 0.5s ease, background-color 0.5s ease;
 		-o-transition: transform 0.5s ease, color 0.5s ease, background-color 0.5s ease;
 	}
-	.mobile-menu-nav ul li.menu-has-children.is-active .menu-item-plus{
+	.mobile-menu-nav ul li.menu-has-children.is-active > a > .menu-item-plus{
 		background-color: var(--color-1);
 		color: #fff;
 		transform: rotate(45deg);
@@ -4247,13 +4247,13 @@ a.booking-button[href*="online-booking"] {
 		visibility: visible !important;
 		opacity: 1 !important;
 	}
-	.mobile-menu-nav li.menu-has-children.is-active > ul.sub-menu li.menu-has-children > ul.sub-menu {
-		display: block !important;
-		height: auto !important;
+	.mobile-menu-nav li.menu-has-children.is-active > ul.sub-menu {
 		overflow: visible !important;
+	}
+	.mobile-menu-nav li.menu-has-children.is-active > ul.sub-menu > li.menu-has-children.is-active > ul.sub-menu {
 		background-color: #fff !important;
 	}
-	.mobile-menu-nav li.menu-has-children.is-active > ul.sub-menu li.menu-has-children > ul.sub-menu li a {
+	.mobile-menu-nav li.menu-has-children.is-active > ul.sub-menu > li.menu-has-children.is-active > ul.sub-menu li a {
 		background-color: #fff !important;
 		color: var(--color-title) !important;
 		font-size: 16px;
