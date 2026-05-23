@@ -1,4 +1,4 @@
-@import url('global.css?v=20260523-price-header-mobile-2');
+@import url('global.css?v=20260523-booking-blog-logo-2');
 
 .booking-button {
 	background-color: var(--color-4);
@@ -11,6 +11,19 @@
 	padding: 16px 30px;
 	text-align: center;
 	text-transform: uppercase;
+}
+
+a.button-v1[href*="online-booking"],
+a.booking-button[href*="online-booking"] {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	width: fit-content;
+}
+
+.header a.button-v1[href*="online-booking"] {
+	margin-left: 0;
+	margin-right: 0;
 }
 
 /*Header START*/
@@ -4269,7 +4282,7 @@ li {
 	}
 
 	.header-left {
-		margin-left: 0;
+		margin-left: 11px;
 	}
 
 	.header-right {
@@ -4351,6 +4364,19 @@ li {
 		padding: 16px 30px;
 		text-align: center;
 		text-transform: uppercase;
+	}
+
+	a.button-v1[href*="online-booking"],
+	a.booking-button[href*="online-booking"] {
+		display: flex;
+		margin-left: auto;
+		margin-right: auto;
+		width: fit-content;
+	}
+
+	.header a.button-v1[href*="online-booking"] {
+		margin-left: 0;
+		margin-right: 0;
 	}
 
 	.pricing-table {
