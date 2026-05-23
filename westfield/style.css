@@ -1,4 +1,4 @@
-@import url('global.css?v=20260523-google-reviews');
+@import url('global.css?v=20260523-blog-center');
 
 .booking-button {
 	background-color: var(--color-4);
@@ -2120,9 +2120,21 @@ a.booking-button[href*="online-booking"] {
 }
 .blog-right{
 	width: 100%;
+	min-width: 0;
+	overflow: hidden;
+}
+.swiper-blog{
+	overflow: hidden;
+	width: 100%;
+}
+.swiper-blog .swiper-wrapper{
+	align-items: stretch;
 }
 .swiper-blog .swiper-slide{
-	max-width: 335px;
+	display: flex;
+	height: auto;
+	justify-content: center;
+	max-width: none;
 	padding: 0;
 }
 .blog-item{
@@ -2130,6 +2142,7 @@ a.booking-button[href*="online-booking"] {
 	border: 1px solid #DEDEDE;
 	border-radius: 20px;
 	overflow: hidden;
+	width: min(100%, 335px);
 }
 .blog-thumb{
 	height: 250px;
@@ -3451,6 +3464,7 @@ a.booking-button[href*="online-booking"] {
 	}
 	.swiper-blog .swiper-slide{
 		max-width: none;
+		width: auto;
 	}
 	/* Blog 992 END */
 
@@ -4142,6 +4156,9 @@ a.booking-button[href*="online-booking"] {
 	}
 	.blog-left .title-left{
 		padding: 70px 0 0 0;
+	}
+	.blog-item{
+		width: min(100%, 360px);
 	}
 	/* Blog 575 END */ 
 

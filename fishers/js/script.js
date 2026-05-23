@@ -326,8 +326,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	//Swiper Blog START//
 	const swiperBlog = new Swiper('.swiper-blog', {
 		speed: 1000,
-		slidesPerView: 'auto',
-		spaceBetween: 30,
+		slidesPerView: 1,
+		spaceBetween: 24,
+		watchOverflow: true,
+		centerInsufficientSlides: true,
 
 		pagination: {
 			el: '.swiper-blog .swiper-pagination',
@@ -342,8 +344,13 @@ document.addEventListener('DOMContentLoaded', () => {
 				slidesPerView: 2,
 				spaceBetween: 20,
 			},
+			992: {
+				slidesPerView: 2,
+				spaceBetween: 24,
+			},
 			1200: {
-				slidesPerView: 'auto',
+				slidesPerView: 3,
+				spaceBetween: 30,
 			},
 		}
 	});
