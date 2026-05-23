@@ -4102,6 +4102,16 @@
 	.header-mobile-body {
 		padding-bottom: 32px;
 	}
+	.mobile-menu-nav .sub-menu {
+		position: static !important;
+		left: auto !important;
+		top: auto !important;
+		width: auto !important;
+		min-width: 0 !important;
+		transform: none !important;
+		visibility: visible !important;
+		opacity: 1 !important;
+	}
 	.mobile-menu-nav li.menu-has-children.is-active > ul.sub-menu li.menu-has-children > ul.sub-menu {
 		display: block !important;
 		height: auto !important;
