@@ -1,4 +1,4 @@
-@import url('global.css?v=20260523-hero-title-mobile');
+@import url('global.css?v=20260523-google-reviews');
 
 .booking-button {
 	background-color: var(--color-4);
@@ -4560,4 +4560,41 @@ li {
 	.service-thumb img {
 		min-height: 190px;
 	}
+}
+
+.google-review-item .review-stars {
+	align-items: center;
+	display: flex;
+	gap: 4px;
+}
+
+.google-review-item .review-stars span {
+	display: inline-flex;
+}
+
+.google-review-avatar img {
+	background: #fff;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.google-review-link {
+	color: #ff5f13;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.3;
+	margin-top: 4px;
+	text-decoration: none;
+}
+
+.google-review-link:hover {
+	color: #111;
+}
+
+.google-review-time {
+	color: #6f6f6f;
+	font-size: 13px;
+	line-height: 1.4;
+	margin-top: 3px;
 }
