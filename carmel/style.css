@@ -1,4 +1,4 @@
-@import url('global.css?v=20260523-booking-blog-logo-2');
+@import url('global.css?v=20260523-hero-title-mobile');
 
 .booking-button {
 	background-color: var(--color-4);
@@ -3677,11 +3677,29 @@ a.booking-button[href*="online-booking"] {
 	/*GLOBAL 575 END*/
 
 	/*Header 575 START*/
+	.banner-wrap{
+		margin-top: 0;
+		min-height: 100svh;
+	}
+
+	.banner-row{
+		margin-top: 76px;
+		padding-bottom: 18px;
+	}
+
+	.banner-top-title{
+		margin-bottom: 22px;
+	}
+
+	.wrapper-service-call{
+		margin-top: 34px;
+	}
+
 	.service-call{
 		width: auto;
 		height: 100px;
 		display: block;
-		margin-top: -50px;
+		margin-top: 0;
 	}
 	
 	.banner-container{
@@ -3689,8 +3707,9 @@ a.booking-button[href*="online-booking"] {
 	}
 
 	.banner-title{
-		font-size: 55px;
-		line-height: 1.6;
+		font-size: 46px;
+		line-height: 1.12;
+		text-wrap: balance;
 	}
 	.banner-areas{
 		display: flex;
