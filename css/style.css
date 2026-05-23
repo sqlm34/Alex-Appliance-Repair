@@ -4264,6 +4264,16 @@ a.booking-button[href*="online-booking"] {
 	.mobile-menu-nav ul li.current-menu-item > a {
 		color: var(--color-6) !important;
 	}
+	.mobile-menu-nav > ul > li > a,
+	.mobile-menu-nav > ul > li > .sub-menu > li > a {
+		font-size: 20px !important;
+		line-height: 1.35 !important;
+	}
+	.mobile-menu-nav > ul > li > .sub-menu > li > .sub-menu li a {
+		font-size: 16px !important;
+		line-height: 1.35 !important;
+		padding: 14px 20px 14px 36px !important;
+	}
 	.mobile-menu-nav li.menu-has-children.is-active > ul.sub-menu {
 		overflow: visible !important;
 	}
