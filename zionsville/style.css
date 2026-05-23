@@ -4117,6 +4117,13 @@ width: 742px;
         padding-top: 56px;
 }
 @media (max-width: 1199px) {
+	.header-mobile-wrap {
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	.header-mobile-body {
+		padding-bottom: 32px;
+	}
 	.mobile-menu-nav li.menu-has-children.is-active > ul.sub-menu li.menu-has-children > ul.sub-menu {
 		display: block !important;
 		height: auto !important;
