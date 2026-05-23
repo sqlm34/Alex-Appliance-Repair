@@ -9,36 +9,39 @@ document.addEventListener('DOMContentLoaded', () => {
 		link.appendChild(span);
 	});
 
+	function toggleMobileSubMenu(menuLi) {
+		const subMenu = menuLi ? menuLi.querySelector(':scope > .sub-menu') : null;
+		if (!subMenu) {
+			return;
+		}
+		if (subMenu.style.display === 'block' || subMenu.style.height !== '') {
+			slideUp(subMenu, 300);
+			subMenu.classList.remove('is-active');
+			menuLi.classList.remove('is-active');
+		} else {
+			slideDown(subMenu, 300);
+			subMenu.classList.add('is-active');
+			menuLi.classList.add('is-active');
+			let parentLi = menuLi.parentElement.closest('.mobile-menu-nav .menu-has-children');
+			while (parentLi) {
+				const parentSubMenu = parentLi.querySelector(':scope > .sub-menu');
+				parentLi.classList.add('is-active');
+				if (parentSubMenu) {
+					parentSubMenu.style.display = 'block';
+					parentSubMenu.style.height = '';
+				}
+				parentLi = parentLi.parentElement.closest('.mobile-menu-nav .menu-has-children');
+			}
+		}
+	}
+
 	// Mobile Sub Menu OPEN
-	const menuPlus = document.querySelectorAll('.mobile-menu-nav .menu-item-plus');
-	menuPlus.forEach(plus => {
-		plus.addEventListener('click', function (event) {
+	const mobileMenuLinks = document.querySelectorAll('.mobile-menu-nav .menu-has-children > a');
+	mobileMenuLinks.forEach(link => {
+		link.addEventListener('click', function (event) {
 			event.preventDefault();
 			event.stopPropagation();
-			const menuLi = plus.closest('.menu-has-children');
-			const subMenu = menuLi ? menuLi.querySelector(':scope > .sub-menu') : null;
-			if (!subMenu) {
-				return;
-			}
-			if (subMenu.style.display === 'block' || subMenu.style.height !== '') {
-				slideUp(subMenu, 300);
-				subMenu.classList.remove('is-active');
-				menuLi.classList.remove('is-active');
-			} else {
-				slideDown(subMenu, 300);
-				subMenu.classList.add('is-active');
-				menuLi.classList.add('is-active');
-				let parentLi = menuLi.parentElement.closest('.mobile-menu-nav .menu-has-children');
-				while (parentLi) {
-					const parentSubMenu = parentLi.querySelector(':scope > .sub-menu');
-					parentLi.classList.add('is-active');
-					if (parentSubMenu) {
-						parentSubMenu.style.display = 'block';
-						parentSubMenu.style.height = '';
-					}
-					parentLi = parentLi.parentElement.closest('.mobile-menu-nav .menu-has-children');
-				}
-			}
+			toggleMobileSubMenu(link.closest('.menu-has-children'));
 		});
 	});
 	// Mobile Sub Menu CLOSE
