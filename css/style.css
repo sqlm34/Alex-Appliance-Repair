@@ -1,4 +1,4 @@
-@import url('global.css?v=20260523-service-icon-grid');
+@import url('global.css?v=20260523-service-icon-links');
 
 .booking-button {
 	background-color: var(--color-4);
@@ -2358,12 +2358,15 @@ a.booking-button[href*="online-booking"] {
 .partners-item{
 	background-color: var(--color-2);
 	aspect-ratio: 1 / 1;
+	color: inherit;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	border-radius: 20px;
+	cursor: pointer;
 	min-height: 0;
 	padding: 26px;
+	text-decoration: none;
 	transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 	width: 100%;
 }
