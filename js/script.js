@@ -132,10 +132,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Counter END //
 
 	//Progress bar START//
-	const progressSection = document.querySelector('.progress-item');
+	const progressSection = document.querySelector('.progress-wrap');
 	const progressBars = document.querySelectorAll('.progress-drag');
 	const numbers = document.querySelectorAll('.progress-percent');
-	let start = false;
+	let progressStarted = false;
 
 	function showProgress() {
 		progressBars.forEach(progressBar => {
@@ -152,12 +152,15 @@ document.addEventListener('DOMContentLoaded', () => {
 			numbers.forEach(e => {
 
 				let start = 0;
-				let end = e.dataset.percent;
+				let end = Number(e.dataset.percent || 0);
+				if (!end) {
+					return;
+				}
 
 				let count = setInterval(() => {
 					start++;
 					e.textContent = start + '%';
-					if (start == end) {
+					if (start >= end) {
 						clearInterval(count);
 					}
 				}, 100 / end)
@@ -166,17 +169,39 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
-	window.addEventListener('scroll', () => {
-		const sectionPos = progressSection.getBoundingClientRect().top;
-		const screenPos = window.innerHeight / 2;
-
-		if (sectionPos < screenPos) {
-			showProgress();
-			showPercent();
-		} else {
-			// hideProgress();
+	const runProgress = () => {
+		if (progressStarted) {
+			return;
 		}
-	});
+		progressStarted = true;
+		showProgress();
+		showPercent();
+	};
+
+	if (progressSection && progressBars.length) {
+		if ('IntersectionObserver' in window) {
+			const progressObserver = new IntersectionObserver((entries) => {
+				if (entries.some((entry) => entry.isIntersecting)) {
+					runProgress();
+					progressObserver.disconnect();
+				}
+			}, { threshold: 0.25 });
+			progressObserver.observe(progressSection);
+		} else {
+			window.addEventListener('scroll', () => {
+				const sectionPos = progressSection.getBoundingClientRect().top;
+				const screenPos = window.innerHeight / 2;
+
+				if (sectionPos < screenPos) {
+					runProgress();
+				}
+			}, { passive: true });
+
+			if (progressSection.getBoundingClientRect().top < window.innerHeight) {
+				runProgress();
+			}
+		}
+	}
 
 	//Progress bar END//
 
