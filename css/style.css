@@ -2867,6 +2867,25 @@ a.booking-button[href*="online-booking"] {
 	font-weight: 300;
 	color: #E2DBDB;
 }
+.footer,
+.footer *,
+.footer a,
+.footer p,
+.footer li,
+.footer span,
+.footer-title,
+.footer-desc p,
+.footer-nav ul,
+.footer-nav ul li,
+.footer-nav ul li a,
+.footer-copyright,
+.footer-copyright p,
+.footer-info-item,
+.footer-info-item a,
+.footer-info-text,
+.footer-info-text a {
+	color: #fff;
+}
 /*Footer END*/
 
 /*Responsive START*/
