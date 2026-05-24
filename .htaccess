@@ -1,0 +1,9 @@
+RewriteEngine On
+
+Redirect 301 /refrigirator-repair.html https://www.alex-repair.com/refrigerator-repair.html
+Redirect 301 /carmel/refrigirator-repair-services.html https://www.alex-repair.com/carmel/refrigerator-repair-services.html
+Redirect 301 /fishers/refrigirator-repair-services.html https://www.alex-repair.com/fishers/refrigerator-repair-services.html
+Redirect 301 /noblesville/refrigirator-repair-services.html https://www.alex-repair.com/noblesville/refrigerator-repair-services.html
+Redirect 301 /mccordsville/refrigirator-repair-services.html https://www.alex-repair.com/mccordsville/refrigerator-repair-services.html
+Redirect 301 /westfield/refrigirator-repair-services.html https://www.alex-repair.com/westfield/refrigerator-repair-services.html
+Redirect 301 /zionsville/refrigirator-repair-services.html https://www.alex-repair.com/zionsville/refrigerator-repair-services.html

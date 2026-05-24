@@ -96,28 +96,37 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Header END
 
 	// Counter START //
-	let nums = document.querySelectorAll('.about-num-title');
-	let container = document.querySelector('.about-num-title');
-
-	let test = false;
-
-	window.onscroll = () => {
-		if (window.screenY = container.offsetTop) {
-			if (!test) {
-				nums.forEach((e) => {
-					let start = 0;
-					let end = e.dataset.value;
-
-					let count = setInterval(() => {
-						start++;
-						e.textContent = start;
-						if (start == end) {
-							clearInterval(count);
-						}
-					}, 5000 / end)
-				})
+	const nums = document.querySelectorAll('.about-num-title');
+	const runCounters = () => {
+		nums.forEach((num) => {
+			const end = Number(num.dataset.value || num.textContent || 0);
+			if (!end || num.dataset.counted === 'true') {
+				return;
 			}
-			test = true;
+			num.dataset.counted = 'true';
+			let start = 0;
+			const step = Math.max(1, Math.ceil(end / 80));
+			const count = setInterval(() => {
+				start = Math.min(end, start + step);
+				num.textContent = start;
+				if (start >= end) {
+					clearInterval(count);
+				}
+			}, 24);
+		});
+	};
+
+	if (nums.length) {
+		if ('IntersectionObserver' in window) {
+			const observer = new IntersectionObserver((entries) => {
+				if (entries.some((entry) => entry.isIntersecting)) {
+					runCounters();
+					observer.disconnect();
+				}
+			}, { threshold: 0.25 });
+			observer.observe(nums[0]);
+		} else {
+			runCounters();
 		}
 	}
 	// Counter END //
