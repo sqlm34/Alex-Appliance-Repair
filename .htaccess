@@ -1,5 +1,8 @@
 RewriteEngine On
 
+RewriteCond %{HTTP_HOST} ^alex-repair\.com$ [NC]
+RewriteRule ^(.*)$ https://www.alex-repair.com/$1 [R=301,L]
+
 RedirectMatch 410 ^/product-category/
 RedirectMatch 410 ^/product/
 RedirectMatch 410 ^/shop/
