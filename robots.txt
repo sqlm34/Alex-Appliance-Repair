@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.alex-repair.com/sitemap.xml
-Sitemap: https://www.alex-repair.com/sitemap-images.xml
+Sitemap: https://alex-repair.com/sitemap.xml
+Sitemap: https://alex-repair.com/sitemap-images.xml
