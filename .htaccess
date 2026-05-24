@@ -1,5 +1,9 @@
 RewriteEngine On
 
+RedirectMatch 410 ^/product-category/
+RedirectMatch 410 ^/product/
+RedirectMatch 410 ^/shop/
+
 Redirect 301 /refrigirator-repair.html https://www.alex-repair.com/refrigerator-repair.html
 Redirect 301 /carmel/refrigirator-repair-services.html https://www.alex-repair.com/carmel/refrigerator-repair-services.html
 Redirect 301 /fishers/refrigirator-repair-services.html https://www.alex-repair.com/fishers/refrigerator-repair-services.html
