@@ -4706,6 +4706,45 @@ li {
 	width: 14px;
 }
 
+/* Site-wide button color: match the yellow Booking now button on the home page. */
+.button-v1,
+.button-v1-banner,
+.booking-button,
+.banner-button a,
+.offer-btn-timer,
+.scroll-top-button,
+button,
+input[type="submit"],
+input[type="button"],
+a[class*="button"],
+a[class*="btn"] {
+	background: var(--color-4) !important;
+	background-color: var(--color-4) !important;
+	border-color: var(--color-4) !important;
+	color: var(--color-1) !important;
+}
+
+.button-v1:hover,
+.button-v1-banner:hover,
+.booking-button:hover,
+.banner-button a:hover,
+.offer-btn-timer:hover,
+.scroll-top-button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+a[class*="button"]:hover,
+a[class*="btn"]:hover {
+	background: var(--color-4) !important;
+	background-color: var(--color-4) !important;
+	border-color: var(--color-4) !important;
+	color: var(--color-1) !important;
+}
+
+.scroll-top-button span {
+	border-color: var(--color-1) !important;
+}
+
 section.services-wrap {
 	display: block;
 }

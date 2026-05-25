@@ -660,6 +660,36 @@
     color: var(--color-6);
 }
 
+/* Keep all blog buttons consistent with the yellow Booking now button. */
+.alex-blog-link,
+.alex-blog-search button,
+.alex-blog-cta a,
+.alex-article-search button,
+.alex-article-cta a,
+.alex-blog-pagination a,
+.alex-blog-page-current,
+.alex-article-body .cta-box a,
+.alex-article-body .cta-button,
+.alex-comment-form button {
+    background: var(--color-4) !important;
+    border-color: var(--color-4) !important;
+    color: var(--color-1) !important;
+}
+
+.alex-blog-link:hover,
+.alex-blog-search button:hover,
+.alex-blog-cta a:hover,
+.alex-article-search button:hover,
+.alex-article-cta a:hover,
+.alex-blog-pagination a:hover,
+.alex-article-body .cta-box a:hover,
+.alex-article-body .cta-button:hover,
+.alex-comment-form button:hover {
+    background: var(--color-4) !important;
+    border-color: var(--color-4) !important;
+    color: var(--color-1) !important;
+}
+
 /* Tablet layout: move sidebar below content in two columns. */
 @media (max-width: 1200px) {
     .alex-blog-layout,
