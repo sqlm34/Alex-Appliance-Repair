@@ -5061,11 +5061,12 @@ li {
 .banner-button a,
 .offer-btn-timer,
 .scroll-top-button,
-button,
-input[type="submit"],
-input[type="button"],
-a[class*="button"],
-a[class*="btn"] {
+.blog-readmore,
+.widget_search form button,
+.appiontment-form button,
+.newsletter-form button,
+.contact-form button,
+.mobile-button-wrap .button-v1 {
 	background: var(--color-4) !important;
 	background-color: var(--color-4) !important;
 	border-color: var(--color-4) !important;
@@ -5078,11 +5079,12 @@ a[class*="btn"] {
 .banner-button a:hover,
 .offer-btn-timer:hover,
 .scroll-top-button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover,
-a[class*="button"]:hover,
-a[class*="btn"]:hover {
+.blog-readmore:hover,
+.widget_search form button:hover,
+.appiontment-form button:hover,
+.newsletter-form button:hover,
+.contact-form button:hover,
+.mobile-button-wrap .button-v1:hover {
 	background: var(--color-4) !important;
 	background-color: var(--color-4) !important;
 	border-color: var(--color-4) !important;
@@ -5171,5 +5173,35 @@ section.services-wrap .services-item:hover .services-icon {
 		height: 46px;
 		right: 18px;
 		width: 46px;
+	}
+}
+
+/* Prevent home gallery, blog, and testimonials sliders from widening the page. */
+.testimonials-wrap,
+.gallery-wrap,
+.blog-wrap {
+	overflow-x: hidden;
+}
+
+@media screen and (max-width: 991px) {
+	.testimonials-row,
+	.testimonials-right,
+	.swiper-testimonials,
+	.swiper-testimonials .swiper-wrapper,
+	.swiper-testimonials .swiper-slide,
+	.gallery-wrap,
+	.blog-wrap,
+	.swiper-blog,
+	.swiper-blog .swiper-wrapper,
+	.swiper-blog .swiper-slide {
+		max-width: 100% !important;
+		min-width: 0 !important;
+		width: 100% !important;
+	}
+
+	.testimonials-right,
+	.swiper-testimonials,
+	.swiper-blog {
+		overflow: hidden !important;
 	}
 }
