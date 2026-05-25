@@ -452,77 +452,82 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Home sliders END//
 
 	//Swiper Testimonials V2 START//
-	const swiperTestimonialsV2 = new Swiper('.swiper-testimonials-v2', {
-		speed: 1000,
-		slidesPerView: 3,
-		spaceBetween: 30,
-		watchSlidesProgress: true,
-		pagination: {
-			el: '.swiper-testimonials-v2 .swiper-pagination-v2',
-			clickable: true
-		},
-		breakpoints: {
-			0: {
-				slidesPerView: 1,
-				spaceBetween: 0,
+	if (typeof Swiper !== 'undefined' && document.querySelector('.swiper-testimonials-v2')) {
+		new Swiper('.swiper-testimonials-v2', {
+			speed: 1000,
+			slidesPerView: 3,
+			spaceBetween: 30,
+			watchSlidesProgress: true,
+			pagination: {
+				el: '.swiper-testimonials-v2 .swiper-pagination-v2',
+				clickable: true
 			},
-			870: {
-				slidesPerView: 2,
-				spaceBetween: 0,
-			},
-			1198: {
-				slidesPerView: 3,
-				spaceBetween: 0,
-			},
-			1200: {
-				slidesPerView: 3,
-				spaceBetween: 0,
-			},
-		}
-	});
+			breakpoints: {
+				0: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+				},
+				870: {
+					slidesPerView: 2,
+					spaceBetween: 0,
+				},
+				1198: {
+					slidesPerView: 3,
+					spaceBetween: 0,
+				},
+				1200: {
+					slidesPerView: 3,
+					spaceBetween: 0,
+				},
+			}
+		});
+	}
 	//Swiper Testimonials V2 END//
 
 
-	//Magnific-popup VIDEO START//
-	$('.magnific-iframe').magnificPopup({
-		type: 'iframe',
-	});
-	//Magnific-popup Video END//
+	//Magnific-popup START//
+	if (typeof window.jQuery !== 'undefined' && typeof window.jQuery.fn.magnificPopup !== 'undefined') {
+		window.jQuery('.magnific-iframe').magnificPopup({
+			type: 'iframe',
+		});
 
-
-	//Magnific-popup Gallery START//
-	$('.magnific-image').magnificPopup({
-		type: 'image',
-		mainClass: 'mfp-with-zoom',
-		zoom: {
-			enabled: true,
-			duration: 600,
-			easing: 'ease-in-out',
-			opener: function (openerElement) {
-				return openerElement.is('img') ? openerElement : openerElement.find('img');
+		window.jQuery('.magnific-image').magnificPopup({
+			type: 'image',
+			mainClass: 'mfp-with-zoom',
+			zoom: {
+				enabled: true,
+				duration: 600,
+				easing: 'ease-in-out',
+				opener: function (openerElement) {
+					return openerElement.is('img') ? openerElement : openerElement.find('img');
+				}
 			}
-		}
-	});
-	//Magnific-popup Gallery END//
+		});
+	}
+	//Magnific-popup END//
 
 	//Swiper Partners START//
-	const swiperPartners = new Swiper('.swiper-partners', {
-		speed: 1000,
-		slidesPerView: 6,
-		spaceBetween: 18,
-	});
+	if (typeof Swiper !== 'undefined' && document.querySelector('.swiper-partners')) {
+		new Swiper('.swiper-partners', {
+			speed: 1000,
+			slidesPerView: 6,
+			spaceBetween: 18,
+		});
+	}
 	//Swiper Partners END//
 
 	//Swiper Services V2 START//
-	const swiperServices = new Swiper('.swiper-services', {
-		speed: 1000,
-		slidesPerView: 'auto',
-		watchSlidesProgress: true,
-		pagination: {
-			el: '.swiper-services .swiper-pagination',
-			clickable: true
-		},
-	});
+	if (typeof Swiper !== 'undefined' && document.querySelector('.swiper-services')) {
+		new Swiper('.swiper-services', {
+			speed: 1000,
+			slidesPerView: 'auto',
+			watchSlidesProgress: true,
+			pagination: {
+				el: '.swiper-services .swiper-pagination',
+				clickable: true
+			},
+		});
+	}
 	//Swiper Services V2 END//
 
 	//TIMER START
