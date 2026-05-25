@@ -2108,7 +2108,7 @@ a.booking-button[href*="online-booking"] {
 }
 .blog-row .icon-element{
 	left: 0;
-}
+overflow:hidden;}
 .blog-row .icon-element img{
 	max-width: 30px;
 }
@@ -4015,7 +4015,7 @@ a.booking-button[href*="online-booking"] {
 		-moz-transform: translateX(-50%);
 		-ms-transform: translateX(-50%);
 		-o-transform: translateX(-50%);
-	}
+	overflow:hidden;}
 	.faq-left{
 		padding: 70px 0px 0px 0px;
 	}
@@ -4202,7 +4202,7 @@ a.booking-button[href*="online-booking"] {
 		-moz-transform: translateX(-50%);
 		-ms-transform: translateX(-50%);
 		-o-transform: translateX(-50%);
-	}
+	overflow:hidden;}
 	.blog-left .title-left{
 		padding: 70px 0 0 0;
 	}
@@ -4990,4 +4990,59 @@ section.services-wrap .services-item:hover .services-icon {
 .native-slider .swiper-pagination-bullet-active::before {
 	background: var(--color-4);
 	width: 28px;
+}
+/* Mobile overflow guard: prevents 100vw sections from creating a white side stripe. */
+@media screen and (max-width: 768px) {
+  .banner-wrap,
+  .header,
+  .header .container,
+  .header-top-line,
+  .header-row {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .header-mobile-wrap {
+    left: 0 !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    right: 0 !important;
+    transform: translateX(100%) !important;
+    width: 100% !important;
+  }
+
+  .header-mobile-wrap.is-active {
+    transform: translateX(0) !important;
+  }
+
+  .header-mobile-top,
+  .header-mobile-body,
+  .header-mobile-footer,
+  .mobile-menu-nav {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .appointment-row,
+  .banner-row,
+  .faq-row,
+  .offer-row,
+  .pricing-table,
+  .testimonials-row {
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+}
+/* Keep decorative section icons inside their blue tab. */
+.icon-element {
+  overflow: hidden;
+}
+
+.icon-element img {
+  height: auto !important;
+  max-height: 36px !important;
+  max-width: 20px !important;
+  object-fit: contain;
+  width: 20px !important;
 }
