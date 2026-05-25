@@ -5768,6 +5768,39 @@ section.services-wrap .services-item:hover .services-icon {
   width: 20px !important;
 }
 
+@media screen and (max-width: 1199px) {
+  .header-mobile-top {
+    align-items: center;
+    min-height: 88px;
+    height: auto;
+    padding: 8px 0;
+  }
+
+  .header-mobile-logo {
+    align-items: center;
+    display: flex;
+    height: 72px;
+    margin-left: 12px;
+    overflow: visible;
+  }
+
+  .header-mobile-logo img {
+    display: block;
+    height: 72px;
+    max-height: 72px;
+    max-width: none;
+    object-fit: contain;
+    width: auto;
+  }
+
+  .header-mobile-close {
+    align-items: center;
+    display: flex;
+    height: 44px;
+    margin-top: 0;
+  }
+}
+
 .native-lightbox {
   align-items: center;
   background: rgba(10, 24, 44, 0.9);
