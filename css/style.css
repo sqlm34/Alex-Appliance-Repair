@@ -2563,8 +2563,8 @@ a.booking-button[href*="online-booking"] {
 }
 .contact-page-intro{
 	display: grid;
-	grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
-	gap: 36px;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 30px;
 	align-items: stretch;
 }
 .contact-page-copy,
