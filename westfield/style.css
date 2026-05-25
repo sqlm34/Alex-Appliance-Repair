@@ -4950,3 +4950,44 @@ section.services-wrap .services-item:hover .services-icon {
 		overflow: hidden !important;
 	}
 }
+
+.native-slider .swiper-pagination {
+	gap: 2px;
+}
+
+.native-slider .swiper-pagination-bullet {
+	align-items: center;
+	background: transparent;
+	border: 0;
+	border-radius: 999px;
+	cursor: pointer;
+	display: inline-flex;
+	height: 44px;
+	justify-content: center;
+	min-height: 44px;
+	min-width: 44px;
+	padding: 0;
+	position: relative;
+	width: 44px;
+}
+
+.native-slider .swiper-pagination-bullet::before {
+	background: rgba(20, 50, 90, .28);
+	border-radius: 999px;
+	content: "";
+	display: block;
+	height: 10px;
+	transition: background-color .25s ease, width .25s ease;
+	width: 10px;
+}
+
+.native-slider .swiper-pagination-bullet-active {
+	background: transparent;
+	height: 44px;
+	width: 44px;
+}
+
+.native-slider .swiper-pagination-bullet-active::before {
+	background: var(--color-4);
+	width: 28px;
+}
