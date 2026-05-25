@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		let index = 0;
 		let timer = null;
-		let sliderWidth = 0;
+		let buildFrame = null;
 
 		slider.classList.add('native-slider');
 
@@ -312,8 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			const max = maxIndex(perView);
 			index = Math.max(0, Math.min(nextIndex, max));
 			wrapper.style.transition = animate ? 'transform 500ms ease' : 'none';
-			const offset = index * ((sliderWidth + gap) / perView);
-			wrapper.style.transform = `translate3d(${-offset}px, 0, 0)`;
+			wrapper.style.transform = `translate3d(calc(-${index} * ((100% + ${gap}px) / ${perView})), 0, 0)`;
 
 			if (pagination) {
 				pagination.querySelectorAll('.swiper-pagination-bullet').forEach((bullet, bulletIndex) => {
@@ -337,7 +336,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			const currentSlides = slides();
 			const perView = Math.min(options.perView || 1, Math.max(currentSlides.length, 1));
 			const gap = options.gap || 0;
-			sliderWidth = slider.getBoundingClientRect().width;
 
 			wrapper.style.display = 'flex';
 			wrapper.style.gap = `${gap}px`;
@@ -395,7 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			window.clearTimeout(resizeTimer);
 			resizeTimer = window.setTimeout(() => {
 				nativeSliderViewportWidth = window.innerWidth;
-				build();
+				scheduleBuild();
 			}, 150);
 		});
 
@@ -419,7 +417,17 @@ document.addEventListener('DOMContentLoaded', () => {
 			start();
 		});
 
-		const observer = new MutationObserver(build);
+		function scheduleBuild() {
+			if (buildFrame) {
+				window.cancelAnimationFrame(buildFrame);
+			}
+			buildFrame = window.requestAnimationFrame(() => {
+				buildFrame = null;
+				build();
+			});
+		}
+
+		const observer = new MutationObserver(scheduleBuild);
 		observer.observe(wrapper, { childList: true });
 
 		build();

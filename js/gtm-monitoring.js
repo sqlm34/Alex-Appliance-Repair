@@ -5,6 +5,7 @@
 
   var scrollMarks = [25, 50, 75, 90];
   var sentScrollMarks = {};
+  var scrollFrame = null;
 
   document.documentElement.setAttribute("data-gtm-monitoring", "ready");
 
@@ -134,11 +135,21 @@
     });
   }
 
-  window.addEventListener("scroll", handleScrollDepth, { passive: true });
+  function scheduleScrollDepth() {
+    if (scrollFrame) {
+      return;
+    }
+    scrollFrame = window.requestAnimationFrame(function () {
+      scrollFrame = null;
+      handleScrollDepth();
+    });
+  }
+
+  window.addEventListener("scroll", scheduleScrollDepth, { passive: true });
   window.addEventListener("load", function () {
     sendEvent("site_monitoring_ready", {
       monitor_version: "20260523"
     });
-    handleScrollDepth();
+    scheduleScrollDepth();
   });
 })();
