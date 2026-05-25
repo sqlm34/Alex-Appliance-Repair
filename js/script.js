@@ -275,10 +275,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	//Accordeon FAQ Answer END//
 
 	// Home sliders START//
+	let nativeSliderViewportWidth = window.innerWidth;
+
 	function getSliderSettings(settings) {
-		const width = window.innerWidth;
 		const points = (settings.breakpoints || []).slice().sort((a, b) => a.width - b.width);
-		return points.reduce((current, point) => width >= point.width ? { ...current, ...point } : current, { ...settings });
+		return points.reduce((current, point) => nativeSliderViewportWidth >= point.width ? { ...current, ...point } : current, { ...settings });
 	}
 
 	function setupNativeSlider(selector, settings) {
@@ -292,6 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		let index = 0;
 		let timer = null;
+		let sliderWidth = 0;
 
 		slider.classList.add('native-slider');
 
@@ -310,7 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			const max = maxIndex(perView);
 			index = Math.max(0, Math.min(nextIndex, max));
 			wrapper.style.transition = animate ? 'transform 500ms ease' : 'none';
-			const offset = index * ((slider.clientWidth + gap) / perView);
+			const offset = index * ((sliderWidth + gap) / perView);
 			wrapper.style.transform = `translate3d(${-offset}px, 0, 0)`;
 
 			if (pagination) {
@@ -335,6 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			const currentSlides = slides();
 			const perView = Math.min(options.perView || 1, Math.max(currentSlides.length, 1));
 			const gap = options.gap || 0;
+			sliderWidth = slider.getBoundingClientRect().width;
 
 			wrapper.style.display = 'flex';
 			wrapper.style.gap = `${gap}px`;
@@ -390,7 +393,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		let resizeTimer = null;
 		window.addEventListener('resize', () => {
 			window.clearTimeout(resizeTimer);
-			resizeTimer = window.setTimeout(build, 150);
+			resizeTimer = window.setTimeout(() => {
+				nativeSliderViewportWidth = window.innerWidth;
+				build();
+			}, 150);
 		});
 
 		slider.addEventListener('mouseenter', stop);
