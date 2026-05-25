@@ -275,11 +275,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	//Accordeon FAQ Answer END//
 
 	// Home sliders START//
-	let nativeSliderViewportWidth = window.innerWidth;
-
 	function getSliderSettings(settings) {
 		const points = (settings.breakpoints || []).slice().sort((a, b) => a.width - b.width);
-		return points.reduce((current, point) => nativeSliderViewportWidth >= point.width ? { ...current, ...point } : current, { ...settings });
+		return points.reduce((current, point) => {
+			const matches = !point.width || window.matchMedia(`(min-width: ${point.width}px)`).matches;
+			return matches ? { ...current, ...point } : current;
+		}, { ...settings });
 	}
 
 	function setupNativeSlider(selector, settings) {
@@ -392,7 +393,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		window.addEventListener('resize', () => {
 			window.clearTimeout(resizeTimer);
 			resizeTimer = window.setTimeout(() => {
-				nativeSliderViewportWidth = window.innerWidth;
 				scheduleBuild();
 			}, 150);
 		});
