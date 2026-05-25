@@ -465,6 +465,73 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	// Home sliders END//
 
+	// Native gallery lightbox START//
+	const galleryLinks = Array.from(document.querySelectorAll('.gallery-item[href]'));
+	if (galleryLinks.length > 0) {
+		const lightboxPlaceholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+		const lightbox = document.createElement('div');
+		lightbox.className = 'native-lightbox';
+		lightbox.setAttribute('role', 'dialog');
+		lightbox.setAttribute('aria-modal', 'true');
+		lightbox.setAttribute('aria-label', 'Gallery image preview');
+		lightbox.innerHTML = `
+			<button type="button" class="native-lightbox-close" aria-label="Close gallery image">&times;</button>
+			<button type="button" class="native-lightbox-prev" aria-label="Previous gallery image">&#8249;</button>
+			<img src="${lightboxPlaceholder}" alt="Gallery image">
+			<button type="button" class="native-lightbox-next" aria-label="Next gallery image">&#8250;</button>
+		`;
+		document.body.appendChild(lightbox);
+
+		const preview = lightbox.querySelector('img');
+		const closeButton = lightbox.querySelector('.native-lightbox-close');
+		const previousButton = lightbox.querySelector('.native-lightbox-prev');
+		const nextButton = lightbox.querySelector('.native-lightbox-next');
+		let activeIndex = 0;
+
+		function showImage(index) {
+			activeIndex = (index + galleryLinks.length) % galleryLinks.length;
+			const link = galleryLinks[activeIndex];
+			const image = link.querySelector('img');
+			preview.src = link.getAttribute('href');
+			preview.alt = image ? image.alt : 'Gallery image';
+			lightbox.classList.add('is-open');
+			document.body.style.overflow = 'hidden';
+		}
+
+		function closeLightbox() {
+			lightbox.classList.remove('is-open');
+			document.body.style.overflow = '';
+			preview.src = lightboxPlaceholder;
+			preview.alt = 'Gallery image';
+		}
+
+		galleryLinks.forEach((link, index) => {
+			link.addEventListener('click', event => {
+				event.preventDefault();
+				event.stopImmediatePropagation();
+				showImage(index);
+			}, true);
+		});
+
+		closeButton.addEventListener('click', closeLightbox);
+		previousButton.addEventListener('click', () => showImage(activeIndex - 1));
+		nextButton.addEventListener('click', () => showImage(activeIndex + 1));
+		lightbox.addEventListener('click', event => {
+			if (event.target === lightbox) {
+				closeLightbox();
+			}
+		});
+		document.addEventListener('keydown', event => {
+			if (!lightbox.classList.contains('is-open')) {
+				return;
+			}
+			if (event.key === 'Escape') closeLightbox();
+			if (event.key === 'ArrowLeft') showImage(activeIndex - 1);
+			if (event.key === 'ArrowRight') showImage(activeIndex + 1);
+		});
+	}
+	// Native gallery lightbox END//
+
 	//Swiper Testimonials V2 START//
 	if (typeof Swiper !== 'undefined' && document.querySelector('.swiper-testimonials-v2')) {
 		new Swiper('.swiper-testimonials-v2', {

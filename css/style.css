@@ -5767,3 +5767,94 @@ section.services-wrap .services-item:hover .services-icon {
   object-fit: contain;
   width: 20px !important;
 }
+
+.hero-call-button {
+  display: inline-flex;
+  justify-content: center;
+  min-height: 58px;
+}
+
+.native-lightbox {
+  align-items: center;
+  background: rgba(10, 24, 44, 0.9);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  padding: 28px;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: opacity 0.2s ease;
+  z-index: 3000;
+}
+
+.native-lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.native-lightbox img {
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  max-height: min(82vh, 860px);
+  max-width: min(92vw, 1180px);
+  object-fit: contain;
+}
+
+.native-lightbox button {
+  align-items: center;
+  background: var(--color-4);
+  border: 0;
+  border-radius: 999px;
+  color: var(--color-1);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font);
+  font-size: 28px;
+  font-weight: 700;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  position: absolute;
+  width: 48px;
+}
+
+.native-lightbox-close {
+  right: 22px;
+  top: 22px;
+}
+
+.native-lightbox-prev,
+.native-lightbox-next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.native-lightbox-prev {
+  left: 22px;
+}
+
+.native-lightbox-next {
+  right: 22px;
+}
+
+@media screen and (max-width: 575px) {
+  .native-lightbox {
+    padding: 18px;
+  }
+
+  .native-lightbox img {
+    border-radius: 14px;
+    max-width: calc(100vw - 36px);
+  }
+
+  .native-lightbox-prev,
+  .native-lightbox-next {
+    bottom: 18px;
+    top: auto;
+    transform: none;
+  }
+}
