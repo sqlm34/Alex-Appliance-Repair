@@ -5768,12 +5768,6 @@ section.services-wrap .services-item:hover .services-icon {
   width: 20px !important;
 }
 
-.hero-call-button {
-  display: inline-flex;
-  justify-content: center;
-  min-height: 58px;
-}
-
 .native-lightbox {
   align-items: center;
   background: rgba(10, 24, 44, 0.9);
