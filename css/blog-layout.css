@@ -640,7 +640,7 @@
     color: var(--color-6);
 }
 
-.alex-article-body .cta-box a,
+.alex-article-body .cta-box a:not(.button-v1),
 .alex-article-body .cta-button {
     background: var(--color-6);
     border-radius: 12px;
@@ -654,7 +654,7 @@
     text-decoration: none;
 }
 
-.alex-article-body .cta-box a:hover,
+.alex-article-body .cta-box a:not(.button-v1):hover,
 .alex-article-body .cta-button:hover {
     background: var(--color-title);
     color: var(--color-6);
