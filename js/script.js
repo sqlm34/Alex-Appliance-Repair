@@ -274,25 +274,182 @@ document.addEventListener('DOMContentLoaded', () => {
 	// FAQ ACCORDIONS END
 	//Accordeon FAQ Answer END//
 
-	//Swiper Testimonials START//
-	const swiperTestimonials = new Swiper('.swiper-testimonials', {
+	// Home sliders START//
+	function getSliderSettings(settings) {
+		const width = window.innerWidth;
+		const points = (settings.breakpoints || []).slice().sort((a, b) => a.width - b.width);
+		return points.reduce((current, point) => width >= point.width ? { ...current, ...point } : current, { ...settings });
+	}
 
-		// Optional parameters
-		speed: 1000,
-		direction: 'horizontal',
-		loop: true,
-		effect: 'cube',
-		cubeEffect: {
-			shadow: false
-		},
+	function setupNativeSlider(selector, settings) {
+		const slider = document.querySelector(selector);
+		if (!slider) return;
 
-		// If we need pagination
-		pagination: {
-			el: '.swiper-testimonials .swiper-pagination',
-			clickable: true
-		},
+		const wrapper = slider.querySelector('.swiper-wrapper');
+		const pagination = slider.querySelector('.swiper-pagination');
+		const scrollbar = slider.querySelector('.swiper-scrollbar');
+		if (!wrapper) return;
+
+		let index = 0;
+		let timer = null;
+
+		slider.classList.add('native-slider');
+
+		function slides() {
+			return Array.from(wrapper.children).filter(slide => slide.classList.contains('swiper-slide'));
+		}
+
+		function maxIndex(perView) {
+			return Math.max(slides().length - perView, 0);
+		}
+
+		function moveTo(nextIndex, animate = true) {
+			const options = getSliderSettings(settings);
+			const perView = Math.min(options.perView || 1, Math.max(slides().length, 1));
+			const gap = options.gap || 0;
+			const max = maxIndex(perView);
+			index = Math.max(0, Math.min(nextIndex, max));
+			wrapper.style.transition = animate ? 'transform 500ms ease' : 'none';
+			const offset = index * ((slider.clientWidth + gap) / perView);
+			wrapper.style.transform = `translate3d(${-offset}px, 0, 0)`;
+
+			if (pagination) {
+				pagination.querySelectorAll('.swiper-pagination-bullet').forEach((bullet, bulletIndex) => {
+					bullet.classList.toggle('swiper-pagination-bullet-active', bulletIndex === index);
+				});
+			}
+
+			if (scrollbar) {
+				const drag = scrollbar.querySelector('.native-scrollbar-drag');
+				if (drag) {
+					const steps = Math.max(max, 1);
+					const width = Math.max(100 / (max + 1), 18);
+					drag.style.width = `${width}%`;
+					drag.style.transform = `translateX(${(100 - width) * (index / steps)}%)`;
+				}
+			}
+		}
+
+		function build() {
+			const options = getSliderSettings(settings);
+			const currentSlides = slides();
+			const perView = Math.min(options.perView || 1, Math.max(currentSlides.length, 1));
+			const gap = options.gap || 0;
+
+			wrapper.style.display = 'flex';
+			wrapper.style.gap = `${gap}px`;
+			wrapper.style.alignItems = 'stretch';
+
+			currentSlides.forEach(slide => {
+				slide.style.flex = `0 0 calc((100% - ${gap * (perView - 1)}px) / ${perView})`;
+				slide.style.maxWidth = `calc((100% - ${gap * (perView - 1)}px) / ${perView})`;
+				slide.style.marginRight = '0';
+			});
+
+			const max = maxIndex(perView);
+			if (pagination) {
+				pagination.innerHTML = '';
+				for (let i = 0; i <= max; i += 1) {
+					const bullet = document.createElement('button');
+					bullet.type = 'button';
+					bullet.className = 'swiper-pagination-bullet';
+					bullet.setAttribute('aria-label', `Go to slide ${i + 1}`);
+					bullet.addEventListener('click', () => {
+						stop();
+						moveTo(i);
+						start();
+					});
+					pagination.appendChild(bullet);
+				}
+			}
+
+			if (scrollbar) {
+				scrollbar.innerHTML = '<span class="native-scrollbar-drag"></span>';
+			}
+
+			moveTo(Math.min(index, max), false);
+		}
+
+		function next() {
+			const options = getSliderSettings(settings);
+			const max = maxIndex(Math.min(options.perView || 1, Math.max(slides().length, 1)));
+			moveTo(index >= max ? 0 : index + 1);
+		}
+
+		function start() {
+			if (!settings.autoplay || slides().length <= (getSliderSettings(settings).perView || 1)) return;
+			stop();
+			timer = window.setInterval(next, settings.autoplay);
+		}
+
+		function stop() {
+			if (timer) window.clearInterval(timer);
+			timer = null;
+		}
+
+		let resizeTimer = null;
+		window.addEventListener('resize', () => {
+			window.clearTimeout(resizeTimer);
+			resizeTimer = window.setTimeout(build, 150);
+		});
+
+		slider.addEventListener('mouseenter', stop);
+		slider.addEventListener('mouseleave', start);
+
+		let startX = 0;
+		let currentX = 0;
+		slider.addEventListener('touchstart', event => {
+			startX = event.touches[0].clientX;
+			currentX = startX;
+			stop();
+		}, { passive: true });
+		slider.addEventListener('touchmove', event => {
+			currentX = event.touches[0].clientX;
+		}, { passive: true });
+		slider.addEventListener('touchend', () => {
+			if (Math.abs(startX - currentX) > 45) {
+				moveTo(startX > currentX ? index + 1 : index - 1);
+			}
+			start();
+		});
+
+		const observer = new MutationObserver(build);
+		observer.observe(wrapper, { childList: true });
+
+		build();
+		start();
+	}
+
+	setupNativeSlider('.swiper-testimonials', {
+		perView: 1,
+		gap: 0,
+		autoplay: 6500
 	});
-	//Swiper Testimonials END//
+
+	setupNativeSlider('.swiper-gallery', {
+		perView: 4,
+		gap: 0,
+		autoplay: 4500,
+		breakpoints: [
+			{ width: 0, perView: 1 },
+			{ width: 575, perView: 2 },
+			{ width: 992, perView: 3 },
+			{ width: 1200, perView: 4 }
+		]
+	});
+
+	setupNativeSlider('.swiper-blog', {
+		perView: 2,
+		gap: 24,
+		autoplay: 5500,
+		breakpoints: [
+			{ width: 0, perView: 1, gap: 20 },
+			{ width: 575, perView: 2, gap: 20 },
+			{ width: 992, perView: 2, gap: 24 },
+			{ width: 1200, perView: 2, gap: 24 }
+		]
+	});
+	// Home sliders END//
 
 	//Swiper Testimonials V2 START//
 	const swiperTestimonialsV2 = new Swiper('.swiper-testimonials-v2', {
@@ -347,71 +504,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 	//Magnific-popup Gallery END//
-
-	//Swiper Gallery START//
-	const swiperGallery = new Swiper('.swiper-gallery', {
-		speed: 1000,
-		loop: true,
-		scrollbar: {
-			el: '.swiper-gallery .swiper-scrollbar',
-			draggable: true,
-			dragSize: 56
-		},
-		breakpoints: {
-			0: {
-				slidesPerView: 1,
-				spaceBetween: 0,
-			},
-			575: {
-				slidesPerView: 2,
-				spaceBetween: 0,
-			},
-			992: {
-				slidesPerView: 3,
-				spaceBetween: 0,
-			},
-			1200: {
-				slidesPerView: 4,
-				spaceBetween: 0,
-			},
-		}
-	});
-	//Swiper Gallery END//
-
-	//Swiper Blog START//
-	const swiperBlog = new Swiper('.swiper-blog', {
-		speed: 1000,
-		slidesPerView: 1,
-		spaceBetween: 24,
-		centeredSlides: true,
-		centeredSlidesBounds: true,
-		watchOverflow: true,
-		centerInsufficientSlides: true,
-
-		pagination: {
-			el: '.swiper-blog .swiper-pagination',
-			clickable: true
-		},
-		breakpoints: {
-			0: {
-				slidesPerView: 1,
-				spaceBetween: 20,
-			},
-			575: {
-				slidesPerView: 2,
-				spaceBetween: 20,
-			},
-			992: {
-				slidesPerView: 2,
-				spaceBetween: 24,
-			},
-			1200: {
-				slidesPerView: 3,
-				spaceBetween: 30,
-			},
-		}
-	});
-	//Swiper Blog END//
 
 	//Swiper Partners START//
 	const swiperPartners = new Swiper('.swiper-partners', {

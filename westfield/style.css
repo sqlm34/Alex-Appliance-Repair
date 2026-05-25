@@ -4835,6 +4835,99 @@ section.services-wrap .services-item:hover .services-icon {
 	overflow-x: hidden;
 }
 
+.native-slider {
+	overflow: hidden !important;
+	position: relative;
+	width: 100%;
+}
+
+.native-slider .swiper-wrapper {
+	box-sizing: border-box;
+	display: flex;
+	width: 100%;
+	will-change: transform;
+}
+
+.native-slider .swiper-slide {
+	box-sizing: border-box;
+	flex-shrink: 0;
+	height: auto;
+	transform: none !important;
+}
+
+.native-slider .swiper-pagination {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 34px;
+	position: static;
+}
+
+.native-slider .swiper-pagination-bullet {
+	background: rgba(20, 50, 90, .28);
+	border: 0;
+	border-radius: 999px;
+	cursor: pointer;
+	display: block;
+	height: 10px;
+	margin: 0 !important;
+	opacity: 1;
+	padding: 0;
+	transition: background-color .25s ease, width .25s ease;
+	width: 10px;
+}
+
+.native-slider .swiper-pagination-bullet-active {
+	background: var(--color-4);
+	width: 28px;
+}
+
+.native-slider .swiper-scrollbar {
+	background: rgba(255, 255, 255, .28);
+	border-radius: 999px;
+	height: 6px;
+	left: 50%;
+	margin-top: 30px;
+	max-width: min(620px, calc(100% - 40px));
+	overflow: hidden;
+	position: relative;
+	transform: translateX(-50%);
+	width: 100%;
+}
+
+.native-scrollbar-drag {
+	background: var(--color-4);
+	border-radius: inherit;
+	display: block;
+	height: 100%;
+	transition: transform .5s ease, width .5s ease;
+}
+
+.swiper-gallery.native-slider .swiper-slide,
+.swiper-gallery.native-slider .gallery-item {
+	border-radius: 0;
+	overflow: hidden;
+}
+
+.swiper-blog.native-slider .swiper-slide {
+	background: transparent;
+	padding: 0;
+}
+
+.swiper-blog.native-slider .blog-item {
+	height: 100%;
+	width: 100%;
+}
+
+.swiper-testimonials.native-slider {
+	overflow: hidden !important;
+}
+
+.swiper-testimonials.native-slider .swiper-slide {
+	background-color: #fff;
+	padding: 0 35px 110px 35px;
+}
+
 @media screen and (max-width: 991px) {
 	.testimonials-row,
 	.testimonials-right,
