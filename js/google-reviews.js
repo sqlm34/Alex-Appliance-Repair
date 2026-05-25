@@ -86,7 +86,7 @@
 
 	function stars(rating) {
 		const count = Math.max(1, Math.min(5, Math.round(Number(rating) || 5)));
-		return Array.from({ length: count }, () => '<span><img loading="lazy" src="/images/star.svg" alt="Google review star"></span>').join('');
+		return Array.from({ length: count }, () => '<span><img loading="lazy" src="/images/star.svg" width="18" height="18" alt="Google review star"></span>').join('');
 	}
 
 	function reviewSlide(review, place) {
@@ -99,7 +99,7 @@
 				<div class="review-item google-review-item">
 					<div class="review-top">
 						<div class="review-quote">
-							<img loading="lazy" src="/images/quote.webp" alt="Quote icon">
+							<img loading="lazy" src="/images/quote.webp" width="35" height="35" alt="Quote icon">
 						</div>
 						<div class="review-stars">${stars(review.rating)}</div>
 					</div>
@@ -110,7 +110,7 @@
 					</div>
 					<div class="review-footer">
 						<div class="review-avatar google-review-avatar">
-							<img loading="lazy" src="${escapeHtml(avatar)}" alt="${escapeHtml(review.author_name)} Google review avatar">
+							<img loading="lazy" src="${escapeHtml(avatar)}" width="100" height="107" alt="${escapeHtml(review.author_name)} Google review avatar">
 						</div>
 						<div class="review-info">
 							<div class="review-name">${escapeHtml(review.author_name)}</div>
