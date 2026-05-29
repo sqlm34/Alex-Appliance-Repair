@@ -29,6 +29,8 @@ RedirectMatch 410 ^/product-category/
 RedirectMatch 410 ^/product/
 RedirectMatch 410 ^/shop/
 
+Redirect 301 /blog-details.html https://alex-repair.com/blog.html
+
 Redirect 301 /refrigirator-repair.html https://alex-repair.com/refrigerator-repair.html
 Redirect 301 /carmel/refrigirator-repair-services.html https://alex-repair.com/carmel/refrigerator-repair-services.html
 Redirect 301 /fishers/refrigirator-repair-services.html https://alex-repair.com/fishers/refrigerator-repair-services.html
