@@ -192,7 +192,8 @@
 }
 
 .alex-blog-pagination a,
-.alex-blog-page-current {
+.alex-blog-page-current,
+.alex-blog-page-dots {
     align-items: center;
     background: #fff;
     border: 1px solid rgba(16, 55, 92, 0.14);
@@ -207,6 +208,14 @@
     padding: 0 16px;
     text-decoration: none;
     transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.alex-blog-page-dots {
+    background: transparent;
+    border-color: transparent;
+    color: var(--color-title);
+    min-width: 28px;
+    padding: 0 4px;
 }
 
 .alex-blog-page-current,
