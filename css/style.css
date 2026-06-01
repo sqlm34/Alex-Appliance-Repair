@@ -2842,6 +2842,9 @@ overflow:hidden;}
 	object-fit: contain;
 	width: 64px;
 }
+.partners-icon-light{
+	filter: brightness(0) invert(1);
+}
 .partners-desc{
 	display: none;
 }
