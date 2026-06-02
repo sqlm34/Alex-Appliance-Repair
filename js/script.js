@@ -93,10 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
-	const bookingNoticeText = 'Service call $89. Waived if repair is needed.';
+	const bookingNoticeText = '$89. Waived if repair is needed.';
 	const bookingLinks = document.querySelectorAll('a[href*="online-booking"]');
 	bookingLinks.forEach((link) => {
-		if (link.closest('.header, .header-mobile-wrap, .mobile-menu-nav')) {
+		if (link.closest('.header, .header-mobile-wrap, .mobile-menu-nav, .offer-wrap')) {
 			return;
 		}
 		if (link.nextElementSibling && link.nextElementSibling.classList.contains('booking-service-note')) {
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 		const note = document.createElement('div');
 		note.className = 'booking-service-note';
-		note.textContent = bookingNoticeText;
+		note.innerHTML = `<span class="booking-service-note-label">Service call</span> <span>${bookingNoticeText}</span>`;
 		link.insertAdjacentElement('afterend', note);
 	});
 

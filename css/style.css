@@ -6986,3 +6986,206 @@ main a.booking-button[href*="online-booking"] {
     transform: translateX(-50%) !important;
   }
 }
+
+/* Site rhythm and consistent content width */
+:root {
+  --site-content-width: 1180px;
+  --site-section-y: 80px;
+  --site-section-x: 20px;
+}
+
+main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap),
+main > .washer-issues,
+main > .repair-sec {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  padding-bottom: var(--site-section-y) !important;
+  padding-top: var(--site-section-y) !important;
+}
+
+main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .container,
+main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .section-container,
+main > .washer-issues,
+main > .repair-sec,
+main .page-row,
+main .section-container,
+main .appointment-row,
+main .faq-row,
+main .why-wrap,
+main .offer-row,
+main .numbers-row,
+main .pricing-table,
+main .home-areas-grid,
+main .home-process-grid,
+main .partners-row,
+main .blog-row,
+main .contact-page-intro,
+main .contact-grid {
+  box-sizing: border-box;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: var(--site-content-width) !important;
+  min-width: 0 !important;
+  width: min(var(--site-content-width), calc(100% - (var(--site-section-x) * 2))) !important;
+}
+
+main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+main > section.service-section,
+main:has(.location-page-content) .appointment-wrap,
+main:has(.location-page-content) .faq-wrap {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+main:has(.location-page-content) .service-section,
+main:has(.location-page-content) .appointment-wrap,
+main:has(.location-page-content) .faq-wrap {
+  padding-bottom: var(--site-section-y) !important;
+  padding-top: var(--site-section-y) !important;
+}
+
+main:has(.location-page-content) .washer-issues {
+  padding-bottom: var(--site-section-y) !important;
+  padding-top: var(--site-section-y) !important;
+}
+
+main:has(.location-page-content) .why-wrap {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Service call note should read like helpful text, not a button. */
+.booking-service-note {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  color: var(--color-text) !important;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 10px auto 0 !important;
+  max-width: 360px;
+  padding: 0 !important;
+  text-align: center;
+}
+
+.booking-service-note-label {
+  color: var(--color-4);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.offer-wrap .booking-service-note {
+  display: none !important;
+}
+
+/* Airier, centered counters */
+.numbers-wrap {
+  border-bottom: 0 !important;
+  border-top: 0 !important;
+  padding-bottom: var(--site-section-y) !important;
+  padding-top: var(--site-section-y) !important;
+}
+
+.numbers-row {
+  align-items: stretch !important;
+  display: grid !important;
+  gap: 24px !important;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  justify-content: center !important;
+  padding: 0 !important;
+}
+
+.numbers-item {
+  align-items: center !important;
+  background: #fff !important;
+  border: 1px solid rgba(16, 55, 92, 0.12) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 14px 30px rgba(16, 55, 92, 0.08) !important;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+  min-height: 150px;
+  padding: 30px 24px !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.numbers-title,
+.numbers-desc {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center !important;
+}
+
+@media screen and (max-width: 575px) {
+  :root {
+    --site-section-y: 80px;
+    --site-section-x: 18px;
+  }
+
+  main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .container,
+  main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .section-container,
+  main > .washer-issues,
+  main > .repair-sec,
+  main .page-row,
+  main .section-container,
+  main .appointment-row,
+  main .faq-row,
+  main .why-wrap,
+  main .offer-row,
+  main .numbers-row,
+  main .pricing-table,
+  main .home-areas-grid,
+  main .home-process-grid,
+  main .partners-row,
+  main .blog-row,
+  main .contact-page-intro,
+  main .contact-grid {
+    width: calc(100% - (var(--site-section-x) * 2)) !important;
+  }
+
+  main:has(.location-page-content) .service-section,
+  main:has(.location-page-content) .washer-issues {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  main:has(.location-page-content) .service-section .section-container,
+  main:has(.location-page-content) .washer-issues .row,
+  main:has(.location-page-content) .appointment-row,
+  main:has(.location-page-content) .faq-row,
+  main:has(.location-page-content) .why-wrap {
+    box-sizing: border-box;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: var(--site-content-width) !important;
+    width: calc(100% - (var(--site-section-x) * 2)) !important;
+  }
+}
+
+main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .container > :is(
+  .appointment-row,
+  .blog-row,
+  .contact-grid,
+  .contact-page-intro,
+  .faq-row,
+  .home-areas-grid,
+  .home-process-grid,
+  .numbers-row,
+  .offer-row,
+  .page-row,
+  .partners-row,
+  .pricing-table,
+  .section-container,
+  .why-wrap
+) {
+  max-width: 100% !important;
+  width: 100% !important;
+}
