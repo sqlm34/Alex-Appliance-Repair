@@ -7423,3 +7423,186 @@ main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .co
   max-width: 100% !important;
   width: 100% !important;
 }
+
+/* Visual polish: CTA alignment, service hover, counters, pricing, and why panels */
+@keyframes alexButtonTextShine {
+  0% {
+    background-position: 0 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.button-text-shine .button-shine-text {
+  animation: alexButtonTextShine 3s linear infinite;
+  background: linear-gradient(90deg, var(--color-1) 0%, var(--color-2) 36%, var(--color-1) 72%, var(--color-2) 100%);
+  background-clip: text;
+  background-size: 200% 100%;
+  color: transparent !important;
+  display: inline-block;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.offer-btn-row {
+  align-items: center !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  gap: 16px !important;
+}
+
+.offer-btn-button {
+  align-items: center;
+  display: flex;
+}
+
+.offer-btn-timer,
+.offer-btn-button .button-v1 {
+  align-items: center !important;
+  box-sizing: border-box;
+  display: inline-flex !important;
+  height: 55px !important;
+  justify-content: center !important;
+  margin: 0 !important;
+}
+
+main .offer-btn-button .button-v1[href*="online-booking"] {
+  margin: 0 !important;
+}
+
+.why-wrap {
+  overflow: hidden;
+}
+
+.why-wrap .why-row {
+  align-items: center !important;
+  box-sizing: border-box;
+  gap: clamp(30px, 5vw, 84px) !important;
+  padding: 34px !important;
+}
+
+.why-wrap .why-left,
+.why-wrap .why-right {
+  min-width: 0;
+}
+
+.why-wrap .why-right {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+}
+
+.why-wrap .why-right img {
+  border-radius: inherit !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+section.services-wrap .services-item {
+  isolation: isolate;
+  overflow: hidden !important;
+  position: relative;
+}
+
+section.services-wrap .services-item::before {
+  background: rgba(119, 176, 232, 0.18);
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 360ms ease;
+  z-index: 0;
+}
+
+section.services-wrap .services-item:hover::before {
+  transform: scaleX(1);
+}
+
+section.services-wrap .services-item > * {
+  position: relative;
+  z-index: 1;
+}
+
+section.services-wrap .services-item:hover .services-icon {
+  background-color: var(--color-5) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.about-num-wrap {
+  box-sizing: border-box;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 42px !important;
+}
+
+.about-num-item {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 28px 42px !important;
+  width: auto !important;
+}
+
+.pricing-table {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  gap: 24px !important;
+}
+
+.pricing-call {
+  display: none !important;
+}
+
+.pricing-price {
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .why-wrap .why-row {
+    padding: 26px !important;
+  }
+
+  .why-wrap .why-right {
+    border-radius: 16px !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .offer-btn-row {
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+    justify-content: center !important;
+    width: 100%;
+  }
+
+  .offer-btn-button {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .offer-btn-timer,
+  .offer-btn-button .button-v1 {
+    flex: 1 1 0;
+    font-size: 13px !important;
+    min-width: 0;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    white-space: nowrap;
+    width: auto !important;
+  }
+
+  .about-num-wrap {
+    grid-template-columns: 1fr;
+    padding: 24px !important;
+  }
+
+  .about-num-item {
+    border-right: 0 !important;
+    padding: 24px 18px !important;
+  }
+}
