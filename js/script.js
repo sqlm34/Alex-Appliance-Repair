@@ -110,6 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const shineButtons = document.querySelectorAll('a.button-v1[href*="online-booking"], a.booking-button[href*="online-booking"], .button-v1-banner[href*="online-booking"], .offer-btn-button .button-v1');
 	shineButtons.forEach((button) => {
+		if (button.closest('.header, .header-mobile-wrap, .mobile-menu-nav')) {
+			return;
+		}
 		if (button.classList.contains('button-bg-shine')) {
 			return;
 		}

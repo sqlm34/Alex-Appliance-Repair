@@ -7430,6 +7430,7 @@ main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .co
     transform: translate3d(0, 0, 0);
   }
 
+  10%,
   100% {
     transform: translate3d(-50%, 0, 0);
   }
@@ -7453,7 +7454,7 @@ main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .co
 }
 
 .button-bg-shine::before {
-  animation: alexButtonBackgroundFlow 7s linear infinite;
+  animation: alexButtonBackgroundFlow 30s ease-in-out infinite;
   background: linear-gradient(
     90deg,
     var(--color-4) 0%,
@@ -7598,6 +7599,50 @@ section.services-wrap .services-item:hover .services-icon {
 
 .pricing-table .booking-service-note {
   display: none !important;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-page-wrap {
+    box-sizing: border-box;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+  }
+
+  .contact-page-wrap > .container,
+  main .contact-page-intro,
+  main .contact-grid {
+    box-sizing: border-box;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 100% !important;
+    width: calc(100% - 36px) !important;
+  }
+
+  .contact-page-copy,
+  .contact-info-panel,
+  .contact-form-panel,
+  .contact-map-panel {
+    box-sizing: border-box;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .contact-actions,
+  .contact-info-panel,
+  .contact-city-list {
+    justify-content: center !important;
+    justify-items: center !important;
+  }
+
+  .contact-info-card {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
