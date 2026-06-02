@@ -108,6 +108,102 @@ document.addEventListener('DOMContentLoaded', () => {
 		link.insertAdjacentElement('afterend', note);
 	});
 
+	const recentPostContainers = document.querySelectorAll('.alex-blog-recent, .alex-article-recent');
+	if (recentPostContainers.length) {
+		const normalizePath = (url) => {
+			try {
+				return new URL(url, window.location.origin).pathname.replace(/\/$/, '');
+			} catch (error) {
+				return url;
+			}
+		};
+		const escapeHtml = (value) => value.replace(/[&<>"']/g, (char) => ({
+			'&': '&amp;',
+			'<': '&lt;',
+			'>': '&gt;',
+			'"': '&quot;',
+			"'": '&#39;'
+		}[char]));
+		const shufflePosts = (items) => items
+			.map((item) => ({ item, sort: Math.random() }))
+			.sort((a, b) => a.sort - b.sort)
+			.map(({ item }) => item);
+
+		async function collectBlogArchivePosts() {
+			const visited = new Set();
+			const queued = new Set();
+			const queue = [new URL('/blog.html', window.location.origin).href];
+			const posts = new Map();
+			queued.add(queue[0]);
+
+			while (queue.length && visited.size < 14) {
+				const archiveUrl = queue.shift();
+				if (visited.has(archiveUrl)) {
+					continue;
+				}
+				visited.add(archiveUrl);
+
+				let html = '';
+				try {
+					const response = await fetch(archiveUrl, { cache: 'no-store' });
+					if (!response.ok) {
+						continue;
+					}
+					html = await response.text();
+				} catch (error) {
+					continue;
+				}
+
+				const doc = new DOMParser().parseFromString(html, 'text/html');
+				doc.querySelectorAll('.alex-blog-card').forEach((card) => {
+					const imageLink = card.querySelector('.alex-blog-image[href]');
+					const titleLink = card.querySelector('h1 a[href], h2 a[href], h3 a[href], .alex-blog-link[href]') || imageLink;
+					const image = card.querySelector('.alex-blog-image img, img');
+					if (!titleLink || !imageLink || !image) {
+						return;
+					}
+					const href = new URL(titleLink.getAttribute('href'), window.location.origin).href;
+					const title = titleLink.textContent.trim();
+					const src = new URL(image.getAttribute('src'), archiveUrl).href;
+					if (href && title && src && !posts.has(href)) {
+						posts.set(href, { href, title, src });
+					}
+				});
+
+				doc.querySelectorAll('.alex-blog-pagination a[href]').forEach((link) => {
+					const nextUrl = new URL(link.getAttribute('href'), window.location.origin);
+					if (!/^\/blog(?:-page-\d+)?\.html$/.test(nextUrl.pathname)) {
+						return;
+					}
+					const href = nextUrl.href;
+					if (!visited.has(href) && !queued.has(href)) {
+						queued.add(href);
+						queue.push(href);
+					}
+				});
+			}
+
+			return Array.from(posts.values());
+		}
+
+		collectBlogArchivePosts().then((posts) => {
+			const currentPath = normalizePath(window.location.href);
+			const selectedPosts = shufflePosts(posts.filter((post) => normalizePath(post.href) !== currentPath)).slice(0, 3);
+			if (!selectedPosts.length) {
+				return;
+			}
+			const html = selectedPosts.map((post) => `
+				<a href="${escapeHtml(post.href)}">
+					<img src="${escapeHtml(post.src)}" alt="${escapeHtml(post.title)}">
+					<span>${escapeHtml(post.title)}</span>
+				</a>
+			`).join('');
+			recentPostContainers.forEach((container) => {
+				container.innerHTML = html;
+			});
+		});
+	}
+
 	// Header END
 
 	// Counter START //

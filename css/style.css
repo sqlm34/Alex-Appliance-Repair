@@ -7035,6 +7035,7 @@ main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .co
 }
 
 main > section.service-section,
+main > section.service-wrap,
 main:has(.location-page-content) .appointment-wrap,
 main:has(.location-page-content) .faq-wrap {
   padding-left: 0 !important;
@@ -7183,9 +7184,242 @@ main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .co
   .page-row,
   .partners-row,
   .pricing-table,
+  .schedule-block-wrapper,
   .section-container,
   .why-wrap
 ) {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* UX polish: readable service notes, compact mobile rhythm, schedule cards, and image ratios */
+.booking-service-note {
+  color: var(--color-title) !important;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0;
+  max-width: 460px;
+}
+
+.booking-service-note-label {
+  color: inherit !important;
+}
+
+:is(.banner-wrap, .why-wrap, .footer, .alex-blog-cta, .alex-article-cta) .booking-service-note {
+  color: #fff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+}
+
+.banner-button {
+  align-items: center !important;
+  display: flex !important;
+  flex-direction: column;
+  height: auto !important;
+  justify-content: center !important;
+  margin-top: 40px !important;
+  width: 100% !important;
+}
+
+.banner-button .booking-service-note {
+  color: #fff !important;
+  font-size: 15px;
+  line-height: 1.55;
+  margin-top: 16px !important;
+  max-width: 540px;
+  text-align: center;
+}
+
+.button-v1-banner + .booking-service-note {
+  display: block;
+}
+
+.schedule-block-wrapper {
+  background: #fff !important;
+  border: 1px solid rgba(16, 55, 92, 0.12) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 18px 42px rgba(16, 55, 92, 0.08) !important;
+  box-sizing: border-box;
+  margin: 50px auto 0 !important;
+  max-width: var(--site-content-width) !important;
+  padding: 28px !important;
+  width: min(var(--site-content-width), calc(100% - (var(--site-section-x) * 2))) !important;
+}
+
+.schedule-title {
+  margin-bottom: 22px !important;
+  text-align: center !important;
+}
+
+.schedule-title h2 {
+  margin-bottom: 0 !important;
+}
+
+.schedule-blocks {
+  display: grid !important;
+  gap: 14px !important;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)) !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+.days-blocks-left,
+.days-blocks-right {
+  display: contents !important;
+  max-width: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.day-item {
+  height: auto !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.day-wrapper {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+  justify-content: space-between;
+  min-height: 76px;
+  padding: 18px !important;
+}
+
+.day-row {
+  align-items: center !important;
+  display: flex !important;
+  gap: 10px;
+  justify-content: flex-start !important;
+  min-width: 0;
+}
+
+.day-row h4,
+.time-row h5 {
+  margin: 0 !important;
+}
+
+.day-row h4 {
+  color: var(--color-title) !important;
+  font-size: 17px;
+}
+
+.time-row {
+  min-width: 0;
+  text-align: right;
+}
+
+.time-row h5 {
+  color: var(--color-text) !important;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.day-row img {
+  flex: 0 0 22px;
+  height: 22px !important;
+  object-fit: contain !important;
+  width: 22px !important;
+}
+
+.alex-blog-recent a,
+.alex-article-recent a {
+  align-items: center;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 72px 1fr;
+}
+
+.alex-blog-recent img,
+.alex-article-recent img {
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  display: block;
+  height: 72px !important;
+  object-fit: cover !important;
+  width: 72px !important;
+}
+
+.about-img img,
+.about-v2-image-item img,
+.appointment-left img,
+.appiontment-left img,
+.gallery-item img,
+.service-carmel-thumb img,
+.service-thumb img,
+.team-item img,
+.testimonials-image img,
+.why-right img,
+.alex-blog-image img,
+.alex-article-hero img,
+.image-50 img {
+  display: block;
+  object-fit: cover !important;
+}
+
+.appointment-left img,
+.appiontment-left img,
+.service-carmel-thumb img,
+.service-thumb img,
+.testimonials-image img,
+.why-right img,
+.alex-blog-image img,
+.alex-article-hero img,
+.image-50 img {
+  width: 100% !important;
+}
+
+.alex-blog-image img,
+.alex-article-hero img,
+.image-50 img {
+  aspect-ratio: 16 / 10;
+  height: auto !important;
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --site-section-y: 64px;
+  }
+
+  .banner-button {
+    margin-top: 30px !important;
+  }
+
+  .banner-button .booking-service-note {
+    font-size: 14px;
+    margin-top: 12px !important;
+    max-width: 320px;
+  }
+
+  .schedule-block-wrapper {
+    padding: 22px !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  :root {
+    --site-section-y: 52px;
+  }
+
+  .schedule-blocks {
+    grid-template-columns: 1fr !important;
+  }
+
+  .day-wrapper {
+    align-items: flex-start;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .time-row {
+    text-align: left;
+  }
+}
+
+main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .container > .schedule-block-wrapper {
   max-width: 100% !important;
   width: 100% !important;
 }
