@@ -5979,3 +5979,649 @@ section.services-wrap .services-item:hover .services-icon {
     transform: none;
   }
 }
+
+/* Site-wide content design layer: keeps service, city, and contact pages aligned with the blog guide style. */
+.service-content,
+.service-location-content,
+.location-page-content {
+  color: var(--color-text);
+}
+
+.service-content .title,
+.service-location-content .title1,
+.location-page-content .title {
+  background: var(--color-grd);
+  border-radius: 8px;
+  color: #fff !important;
+  line-height: 1.12;
+  margin: 0 0 24px;
+  overflow: hidden;
+  padding: 28px 30px;
+  position: relative;
+}
+
+.service-content .title::after,
+.service-location-content .title1::after,
+.location-page-content .title::after {
+  background: rgba(255, 199, 0, 0.18);
+  border-radius: 999px;
+  content: "";
+  height: 180px;
+  position: absolute;
+  right: -72px;
+  top: -88px;
+  width: 180px;
+}
+
+.service-content .title .subtitle,
+.service-location-content .subtitle,
+.location-page-content .title .subtitle {
+  color: rgba(255, 255, 255, 0.9) !important;
+  display: block;
+  font-size: 18px;
+  line-height: 1.4;
+  margin-top: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.service-content .title .subtitle span,
+.service-location-content .subtitle span,
+.location-page-content .title .subtitle span {
+  color: var(--color-4) !important;
+}
+
+.service-content .title > *,
+.service-location-content .title1 > *,
+.location-page-content .title > * {
+  position: relative;
+  z-index: 1;
+}
+
+.service-carmel-thumb,
+.service-thumb,
+.about-v2-image-item,
+.contact-map,
+.why-right {
+  border-radius: 8px !important;
+  box-shadow: 0 18px 45px rgba(16, 55, 92, 0.1);
+}
+
+.desc-carmel > h2,
+.service-content h2.desc-service,
+.service-section .subtitle,
+.why-wrap .subtitle,
+.repair-sec .subtitle,
+.faq-wrap .subtitle,
+.faq-left .subtitle,
+.schedule-title h2,
+.contact-form-panel h2,
+.contact-map-panel h2,
+.contact-local-seo h2 {
+  background: var(--color-grd);
+  border-radius: 8px;
+  color: #fff !important;
+  line-height: 1.2;
+  margin: 34px 0 18px;
+  overflow: hidden;
+  padding: 24px 28px;
+  position: relative;
+}
+
+.desc-carmel > h2::after,
+.service-content h2.desc-service::after,
+.service-section .subtitle::after,
+.why-wrap .subtitle::after,
+.repair-sec .subtitle::after,
+.faq-wrap .subtitle::after,
+.faq-left .subtitle::after,
+.schedule-title h2::after,
+.contact-form-panel h2::after,
+.contact-map-panel h2::after,
+.contact-local-seo h2::after {
+  background: rgba(255, 199, 0, 0.18);
+  border-radius: 999px;
+  content: "";
+  height: 150px;
+  position: absolute;
+  right: -58px;
+  top: -74px;
+  width: 150px;
+}
+
+.desc-carmel > h2 span,
+.service-section .subtitle span,
+.why-wrap .subtitle span,
+.repair-sec .subtitle span,
+.faq-wrap .subtitle span,
+.faq-left .subtitle span {
+  color: var(--color-4) !important;
+}
+
+.desc-carmel > h2 *,
+.service-section .subtitle *,
+.why-wrap .subtitle *,
+.repair-sec .subtitle *,
+.faq-wrap .subtitle *,
+.faq-left .subtitle *,
+.schedule-title h2 *,
+.contact-form-panel h2 *,
+.contact-map-panel h2 *,
+.contact-local-seo h2 * {
+  position: relative;
+  z-index: 1;
+}
+
+.desc-carmel > ul:not(.repair-highlights):not(.repair-list):not(.repair-steps),
+.desc-carmel > ol,
+.service-content > ul:not(.repair-highlights):not(.repair-list):not(.repair-steps),
+.service-content > ol {
+  background: #fff;
+  border: 1px solid rgba(16, 55, 92, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 14px 30px rgba(16, 55, 92, 0.08);
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 24px 0 28px !important;
+  padding: 18px !important;
+}
+
+.desc-carmel > ol,
+.service-content > ol {
+  counter-reset: site-step;
+}
+
+.desc-carmel > ul:not(.repair-highlights):not(.repair-list):not(.repair-steps) > li,
+.desc-carmel > ol > li,
+.service-content > ul:not(.repair-highlights):not(.repair-list):not(.repair-steps) > li,
+.service-content > ol > li {
+  background: rgba(246, 236, 255, 0.62);
+  border: 1px solid rgba(16, 55, 92, 0.08);
+  border-radius: 8px;
+  color: var(--color-title);
+  line-height: 1.55;
+  margin: 0 !important;
+  min-height: 46px;
+  padding: 12px 14px 12px 48px;
+  position: relative;
+}
+
+.desc-carmel > ol > li,
+.service-content > ol > li {
+  counter-increment: site-step;
+}
+
+.desc-carmel > ul:not(.repair-highlights):not(.repair-list):not(.repair-steps) > li::before,
+.desc-carmel > ol > li::before,
+.service-content > ul:not(.repair-highlights):not(.repair-list):not(.repair-steps) > li::before,
+.service-content > ol > li::before {
+  align-items: center;
+  background: #fff;
+  border-radius: 50%;
+  color: var(--color-1);
+  display: inline-flex;
+  font-size: 17px;
+  font-weight: 800;
+  height: 22px;
+  justify-content: center;
+  left: 14px;
+  line-height: 1;
+  position: absolute;
+  top: 13px;
+  width: 22px;
+}
+
+.desc-carmel > ul:not(.repair-highlights):not(.repair-list):not(.repair-steps) > li::before,
+.service-content > ul:not(.repair-highlights):not(.repair-list):not(.repair-steps) > li::before {
+  content: "+";
+}
+
+.desc-carmel > ol > li::before,
+.service-content > ol > li::before {
+  content: counter(site-step);
+  font-size: 13px;
+}
+
+.repair-highlights,
+.repair-list,
+.repair-steps,
+.contact-city-list {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 20px 0 0 !important;
+  padding: 0 !important;
+}
+
+.repair-highlights {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.repair-list,
+.repair-steps {
+  background: #fff;
+  border: 1px solid rgba(16, 55, 92, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 14px 30px rgba(16, 55, 92, 0.08);
+  padding: 18px !important;
+}
+
+.repair-steps {
+  counter-reset: repair-step;
+}
+
+.repair-highlights li,
+.repair-list li,
+.repair-steps li,
+.contact-city-list a {
+  align-items: center;
+  background: rgba(246, 236, 255, 0.62) !important;
+  border: 1px solid rgba(16, 55, 92, 0.08);
+  border-radius: 8px;
+  color: var(--color-title) !important;
+  display: flex;
+  font-weight: 700;
+  gap: 10px;
+  line-height: 1.35;
+  margin: 0 !important;
+  min-height: 46px;
+  padding: 12px 14px !important;
+  text-align: left;
+}
+
+.repair-steps li {
+  counter-increment: repair-step;
+}
+
+.repair-highlights li::before,
+.repair-list li::before,
+.repair-steps li::before,
+.contact-city-list a::before {
+  align-items: center;
+  background: #fff;
+  border-radius: 50%;
+  color: var(--color-1);
+  content: "+";
+  display: inline-flex;
+  flex: 0 0 22px;
+  font-size: 17px;
+  font-weight: 800;
+  height: 22px;
+  justify-content: center;
+  line-height: 1;
+  width: 22px;
+}
+
+.service-content .repair-highlights li::before,
+.service-content .repair-list li::before,
+.service-content .repair-steps li::before,
+.desc-carmel .repair-highlights li::before,
+.desc-carmel .repair-list li::before,
+.desc-carmel .repair-steps li::before {
+  align-items: center !important;
+  background: #fff !important;
+  border-radius: 50% !important;
+  color: var(--color-1) !important;
+  content: "+" !important;
+  display: inline-flex !important;
+  flex: 0 0 22px !important;
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  height: 22px !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  position: static !important;
+  transform: none !important;
+  width: 22px !important;
+}
+
+.repair-steps li::before {
+  content: counter(repair-step);
+  font-size: 13px;
+}
+
+.service-content .repair-steps li::before,
+.desc-carmel .repair-steps li::before {
+  content: counter(repair-step) !important;
+  font-size: 13px !important;
+}
+
+.washer-issues,
+.repair-sec,
+.why-wrap,
+.faq-wrap,
+.schedule-block-wrapper,
+.contact-page-copy,
+.contact-info-panel,
+.contact-form-panel,
+.contact-map-panel,
+.contact-local-seo {
+  border-radius: 8px !important;
+}
+
+.washer-issues {
+  gap: 18px !important;
+  padding: 28px 0 !important;
+}
+
+.washer-issues .row,
+.repair-sec,
+.schedule-blocks {
+  display: grid !important;
+  gap: 18px !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.washer-issues .issue-box,
+.services-item,
+.numbers-item,
+.day-item,
+.faq-item,
+.contact-info-card,
+.pricing-card,
+.home-area-card,
+.home-process-card {
+  background: #fff !important;
+  border: 1px solid rgba(16, 55, 92, 0.12) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 14px 30px rgba(16, 55, 92, 0.08) !important;
+}
+
+.washer-issues .issue-box,
+.services-item,
+.day-item,
+.faq-item,
+.contact-info-card {
+  padding: 20px !important;
+}
+
+.washer-issues .issue-box:hover,
+.services-item:hover,
+.day-item:hover,
+.faq-item:hover,
+.contact-info-card:hover {
+  border-color: rgba(37, 129, 217, 0.42) !important;
+  box-shadow: 0 20px 38px rgba(16, 55, 92, 0.13) !important;
+  transform: translateY(-3px);
+}
+
+.washer-issues .issue-box,
+.services-item,
+.day-item,
+.faq-item,
+.contact-info-card {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.services-title,
+.washer-issues .issue-box .services-title,
+.faq-question,
+.day-row h4,
+.contact-label {
+  color: var(--color-title) !important;
+}
+
+.services-title::before,
+.washer-issues .issue-box .services-title::before {
+  background: var(--color-4);
+  border-radius: 50%;
+  color: var(--color-1);
+  content: "+";
+  display: inline-flex;
+  font-size: 17px;
+  font-weight: 800;
+  height: 24px;
+  justify-content: center;
+  line-height: 1;
+  margin-right: 10px;
+  vertical-align: middle;
+  width: 24px;
+}
+
+.services-desc,
+.faq-answer p,
+.contact-info-card a,
+.contact-info-card p {
+  color: var(--color-text) !important;
+}
+
+.why-wrap {
+  background: var(--color-grd) !important;
+  box-shadow: 0 20px 42px rgba(16, 55, 92, 0.16);
+  margin-left: auto !important;
+  margin-right: auto !important;
+  overflow: hidden;
+}
+
+.why-wrap .white-text,
+.why-wrap p,
+.why-wrap .desc p {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.why-wrap .repair-list {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+
+.why-wrap .repair-list li {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #fff !important;
+}
+
+.why-wrap .booking-button,
+.booking-button,
+.offer-btn-timer,
+.contact-form button {
+  background: var(--color-4) !important;
+  border-color: var(--color-4) !important;
+  border-radius: 8px !important;
+  color: var(--color-1) !important;
+  font-weight: 800;
+}
+
+.faq-row {
+  background: transparent !important;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  padding: 0 !important;
+}
+
+.faq-left {
+  max-width: none;
+  padding: 0 !important;
+}
+
+.faq-right {
+  min-width: 0;
+}
+
+.faq-item {
+  cursor: pointer;
+  margin-bottom: 12px !important;
+  width: 100% !important;
+}
+
+.faq-question::after {
+  align-items: center;
+  background: var(--color-4);
+  border-radius: 50%;
+  color: var(--color-1);
+  display: inline-flex;
+  font-size: 22px;
+  font-weight: 800;
+  height: 28px;
+  justify-content: center;
+  line-height: 1;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+}
+
+.faq-item.is-active .faq-question::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.sidebar-wrap .widget,
+.widget_services,
+.contact-page-copy,
+.contact-info-panel,
+.contact-form-panel,
+.contact-map-panel,
+.contact-local-seo {
+  background: #fff !important;
+  border: 1px solid rgba(16, 55, 92, 0.12) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 14px 30px rgba(16, 55, 92, 0.08) !important;
+}
+
+.sidebar-wrap .widget,
+.widget_services {
+  padding: 24px;
+}
+
+.sidebar-wrap .widget-title,
+.widget_services .widget-title {
+  background: var(--color-grd);
+  border-radius: 8px;
+  color: #fff !important;
+  margin: 0 0 16px;
+  padding: 18px 20px;
+}
+
+.sidebar-wrap ul,
+.widget_services ul {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-wrap li a,
+.widget_services li a {
+  align-items: center;
+  background: rgba(246, 236, 255, 0.62);
+  border: 1px solid rgba(16, 55, 92, 0.08);
+  border-radius: 8px;
+  color: var(--color-title) !important;
+  display: flex;
+  font-weight: 700;
+  gap: 10px;
+  line-height: 1.35;
+  min-height: 46px;
+  padding: 12px 14px;
+}
+
+.sidebar-wrap li a::before,
+.widget_services li a::before {
+  align-items: center;
+  background: #fff;
+  border-radius: 50%;
+  color: var(--color-1);
+  content: "+";
+  display: inline-flex;
+  flex: 0 0 22px;
+  font-size: 17px;
+  font-weight: 800;
+  height: 22px;
+  justify-content: center;
+  line-height: 1;
+  width: 22px;
+}
+
+.contact-page-wrap {
+  background: #fff !important;
+  color: var(--color-text) !important;
+}
+
+.contact-page-copy h1,
+.contact-page-copy .title,
+.contact-page-copy h2 {
+  color: var(--color-title) !important;
+}
+
+.contact-page-copy p,
+.contact-local-seo p {
+  color: var(--color-text) !important;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  border: 1px solid rgba(16, 55, 92, 0.16) !important;
+  border-radius: 8px !important;
+}
+
+.contact-city-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media screen and (max-width: 991px) {
+  .page-row,
+  .faq-row,
+  .contact-page-intro,
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .page-row {
+    display: grid !important;
+  }
+
+  .page-right {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .repair-highlights,
+  .washer-issues .row,
+  .repair-sec,
+  .schedule-blocks {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .service-content .title,
+  .service-location-content .title1,
+  .location-page-content .title,
+  .desc-carmel > h2,
+  .service-content h2.desc-service,
+  .service-section .subtitle,
+  .why-wrap .subtitle,
+  .repair-sec .subtitle,
+  .faq-wrap .subtitle,
+  .faq-left .subtitle,
+  .schedule-title h2,
+  .contact-form-panel h2,
+  .contact-map-panel h2,
+  .contact-local-seo h2 {
+    font-size: 24px !important;
+    padding: 22px !important;
+  }
+
+  .repair-list,
+  .repair-steps,
+  .desc-carmel > ul:not(.repair-highlights):not(.repair-list):not(.repair-steps),
+  .desc-carmel > ol,
+  .service-content > ul:not(.repair-highlights):not(.repair-list):not(.repair-steps),
+  .service-content > ol,
+  .washer-issues .issue-box,
+  .services-item,
+  .day-item,
+  .faq-item,
+  .contact-info-card {
+    padding: 16px !important;
+  }
+
+  .contact-city-list {
+    grid-template-columns: 1fr;
+  }
+}
