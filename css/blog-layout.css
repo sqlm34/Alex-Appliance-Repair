@@ -818,6 +818,103 @@
     padding: 20px 22px;
 }
 
+.alex-article-body .related-services,
+.alex-article-body .alex-related {
+    background: transparent !important;
+    border: 0;
+    border-radius: 0 !important;
+    box-shadow: none;
+    margin: 34px 0 !important;
+    padding: 0 !important;
+}
+
+.alex-article-body .related-services h2,
+.alex-article-body .alex-related h3 {
+    background: var(--color-grd);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 28px;
+    line-height: 1.2;
+    margin: 0 0 16px;
+    overflow: hidden;
+    padding: 24px 26px;
+    position: relative;
+}
+
+.alex-article-body .related-services h2::after,
+.alex-article-body .alex-related h3::after {
+    background: rgba(255, 199, 0, 0.18);
+    border-radius: 999px;
+    content: "";
+    height: 130px;
+    position: absolute;
+    right: -54px;
+    top: -62px;
+    width: 130px;
+}
+
+.alex-article-body .related-services ul,
+.alex-article-body .alex-related ul {
+    display: grid;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.alex-article-body .related-services li,
+.alex-article-body .alex-related li {
+    margin: 0;
+}
+
+.alex-article-body .related-services a,
+.alex-article-body .alex-related a {
+    align-items: center;
+    background: rgba(246, 236, 255, 0.62);
+    border: 1px solid rgba(16, 55, 92, 0.08);
+    border-radius: 8px;
+    color: var(--color-title);
+    display: flex;
+    font-weight: 700;
+    gap: 10px;
+    line-height: 1.35;
+    min-height: 46px;
+    padding: 12px 14px;
+    text-decoration: none;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.alex-article-body .related-services a::before,
+.alex-article-body .alex-related a::before {
+    align-items: center;
+    background: #fff;
+    border-radius: 50%;
+    color: var(--color-1);
+    content: "+";
+    display: inline-flex;
+    flex: 0 0 22px;
+    font-size: 17px;
+    font-weight: 800;
+    height: 22px;
+    justify-content: center;
+    line-height: 1;
+    width: 22px;
+}
+
+.alex-article-body .related-services a:hover,
+.alex-article-body .alex-related a:hover {
+    background: var(--color-1);
+    border-color: var(--color-1);
+    color: #fff;
+    transform: translateX(3px);
+}
+
+.alex-article-body .related-services a:hover::before,
+.alex-article-body .alex-related a:hover::before {
+    background: var(--color-4);
+    color: var(--color-1);
+}
+
 .alex-article-body .cta-box {
     background: var(--color-grd);
     border-radius: 20px;
