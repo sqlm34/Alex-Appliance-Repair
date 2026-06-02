@@ -93,6 +93,21 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
+	const bookingNoticeText = 'Service call $89. Waived if repair is needed.';
+	const bookingLinks = document.querySelectorAll('a[href*="online-booking"]');
+	bookingLinks.forEach((link) => {
+		if (link.closest('.header, .header-mobile-wrap, .mobile-menu-nav')) {
+			return;
+		}
+		if (link.nextElementSibling && link.nextElementSibling.classList.contains('booking-service-note')) {
+			return;
+		}
+		const note = document.createElement('div');
+		note.className = 'booking-service-note';
+		note.textContent = bookingNoticeText;
+		link.insertAdjacentElement('afterend', note);
+	});
+
 	// Header END
 
 	// Counter START //

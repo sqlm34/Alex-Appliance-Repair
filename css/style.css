@@ -6910,3 +6910,79 @@ main:has(.location-page-content) .faq-wrap {
     min-height: 220px !important;
   }
 }
+
+/* Booking service call notice and CTA spacing */
+main a.button-v1[href*="online-booking"],
+main a.booking-button[href*="online-booking"] {
+  margin-top: 22px !important;
+}
+
+.booking-service-note {
+  background: rgba(255, 199, 0, 0.16);
+  border: 1px solid rgba(255, 199, 0, 0.45);
+  border-radius: 8px;
+  color: var(--color-title) !important;
+  flex: 0 0 100%;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+  margin: 12px auto 0;
+  max-width: 380px;
+  padding: 10px 14px;
+  text-align: center;
+}
+
+.button-v1 + .booking-service-note,
+.booking-button + .booking-service-note {
+  display: block;
+}
+
+.why-wrap .title,
+.why-wrap .subtitle,
+.why-wrap .subtitle strong,
+.why-wrap .desc,
+.why-wrap .desc p,
+.why-wrap .white-text,
+.why-wrap p,
+.why-wrap li,
+.why-wrap strong {
+  color: #fff !important;
+}
+
+.why-wrap .subtitle span,
+.why-wrap .title span {
+  color: var(--color-4) !important;
+}
+
+.why-wrap .title,
+.why-wrap .subtitle,
+.why-wrap .desc,
+.why-wrap p,
+.why-wrap li {
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.faq-row {
+  overflow: visible;
+}
+
+.faq-row .icon-element {
+  left: 34px !important;
+  top: 0 !important;
+  transform: none !important;
+  z-index: 3;
+}
+
+@media screen and (max-width: 575px) {
+  .faq-row {
+    padding-bottom: 112px !important;
+  }
+
+  .faq-row .icon-element {
+    border-radius: 32px 32px 0 0 !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    top: auto !important;
+    transform: translateX(-50%) !important;
+  }
+}
