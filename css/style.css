@@ -6625,3 +6625,288 @@ section.services-wrap .services-item:hover .services-icon {
     grid-template-columns: 1fr;
   }
 }
+
+/* Service page layout repair layer */
+main:has(.location-page-content) .service-section {
+  margin: 42px auto 24px !important;
+  padding: 0 20px !important;
+  text-align: left !important;
+}
+
+main:has(.location-page-content) .service-section .section-container,
+main:has(.location-page-content) .appointment-row,
+main:has(.location-page-content) .faq-row {
+  background: #fff;
+  border: 1px solid rgba(16, 55, 92, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 18px 42px rgba(16, 55, 92, 0.08);
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 1180px !important;
+  padding: 28px !important;
+  width: min(1180px, calc(100% - 40px)) !important;
+}
+
+main:has(.location-page-content) .service-section .section-container {
+  display: grid;
+  gap: 16px;
+}
+
+main:has(.location-page-content) .service-section .subtitle,
+main:has(.location-page-content) .appointment-wrap .subtitle,
+main:has(.location-page-content) .faq-wrap .subtitle {
+  margin-top: 0 !important;
+}
+
+main:has(.location-page-content) .service-section .desc,
+main:has(.location-page-content) .service-section .desc p {
+  font-size: 17px;
+  line-height: 1.75;
+  margin-bottom: 0 !important;
+}
+
+main:has(.location-page-content) .washer-issues {
+  display: grid !important;
+  gap: 18px !important;
+  margin: 0 auto 42px !important;
+  max-width: 1180px !important;
+  padding: 0 20px !important;
+  width: 100% !important;
+}
+
+main:has(.location-page-content) .washer-issues .row {
+  align-items: stretch;
+  display: grid !important;
+  gap: 18px !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+main:has(.location-page-content) .washer-issues .issue-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 100%;
+}
+
+main:has(.location-page-content) .washer-issues .services-title,
+main:has(.location-page-content) .washer-issues .services-desc {
+  margin-bottom: 0 !important;
+}
+
+main:has(.location-page-content) .why-wrap {
+  align-items: stretch !important;
+  display: grid !important;
+  gap: 28px !important;
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+  margin: 42px auto !important;
+  max-width: 1180px !important;
+  padding: 32px !important;
+  width: min(1180px, calc(100% - 40px)) !important;
+}
+
+main:has(.location-page-content) .why-left,
+main:has(.location-page-content) .why-right {
+  max-width: none !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+main:has(.location-page-content) .why-right {
+  display: flex !important;
+  height: auto !important;
+  min-height: 100% !important;
+}
+
+main:has(.location-page-content) .why-right img {
+  height: 100% !important;
+  min-height: 360px;
+  object-fit: cover !important;
+  width: 100% !important;
+}
+
+main:has(.location-page-content) .why-wrap .title-left {
+  margin-bottom: 0 !important;
+  text-align: left !important;
+}
+
+main:has(.location-page-content) .appointment-wrap {
+  background: linear-gradient(180deg, #f8fbff 0%, #fff 100%) !important;
+  margin: 42px auto !important;
+  padding: 42px 0 !important;
+}
+
+main:has(.location-page-content) .appointment-row {
+  align-items: stretch;
+  column-gap: 28px;
+  display: grid !important;
+  grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
+  row-gap: 28px;
+}
+
+main:has(.location-page-content) .appointment-row > .appointment-right:first-child {
+  order: 1;
+}
+
+main:has(.location-page-content) .appointment-row > .appointment-left:last-child {
+  order: 2;
+}
+
+main:has(.location-page-content) .appointment-left,
+main:has(.location-page-content) .appointment-right {
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+main:has(.location-page-content) .appointment-left {
+  display: flex;
+  height: auto !important;
+  min-height: 100% !important;
+}
+
+main:has(.location-page-content) .appointment-left img,
+main:has(.location-page-content) .appiontment-left img {
+  border-radius: 8px !important;
+  height: 100% !important;
+  min-height: 360px !important;
+  object-fit: cover !important;
+  width: 100% !important;
+}
+
+main:has(.location-page-content) .appointment-right {
+  align-self: center;
+}
+
+main:has(.location-page-content) .faq-wrap {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+.why-wrap .progress-text {
+  color: #fff !important;
+  gap: 16px;
+}
+
+.why-wrap .progress-percent {
+  color: var(--color-4) !important;
+}
+
+.why-wrap .progress-line {
+  background: rgba(255, 255, 255, 0.28) !important;
+  max-width: 100%;
+  width: 100% !important;
+}
+
+.why-wrap .progress-drag {
+  background: var(--color-4) !important;
+  transition: width 0.8s ease, opacity 0.25s ease !important;
+}
+
+.numbers-title,
+.progress-percent {
+  display: inline-block;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-variant-numeric: tabular-nums lining-nums;
+  line-height: 1.05;
+  min-width: 4ch;
+  text-align: center;
+}
+
+.progress-percent {
+  min-width: 5ch;
+  text-align: right;
+}
+
+.numbers-row {
+  align-items: stretch;
+}
+
+.numbers-item {
+  min-width: 190px;
+}
+
+.repair-highlights li::before,
+.repair-list li::before,
+.repair-steps li::before,
+.contact-city-list a::before,
+.services-title::before,
+.washer-issues .issue-box .services-title::before,
+.service-content .repair-highlights li::before,
+.service-content .repair-list li::before,
+.service-content .repair-steps li::before,
+.desc-carmel .repair-highlights li::before,
+.desc-carmel .repair-list li::before,
+.desc-carmel .repair-steps li::before {
+  align-items: center !important;
+  display: inline-grid !important;
+  font-family: Arial, sans-serif !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  place-items: center !important;
+  text-align: center !important;
+}
+
+.services-title::before,
+.washer-issues .issue-box .services-title::before {
+  vertical-align: -3px;
+}
+
+.repair-list li,
+.repair-steps li {
+  display: block !important;
+  padding: 14px 16px 14px 52px !important;
+  position: relative !important;
+}
+
+.repair-list li::before,
+.repair-steps li::before {
+  left: 16px !important;
+  margin-top: 0 !important;
+  position: absolute !important;
+  top: 14px !important;
+}
+
+@media screen and (max-width: 991px) {
+  main:has(.location-page-content) .washer-issues .row,
+  main:has(.location-page-content) .why-wrap,
+  main:has(.location-page-content) .appointment-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  main:has(.location-page-content) .why-right img,
+  main:has(.location-page-content) .appointment-left img,
+  main:has(.location-page-content) .appiontment-left img {
+    aspect-ratio: 16 / 10;
+    height: auto !important;
+    min-height: 280px !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  main:has(.location-page-content) .appointment-row,
+  main:has(.location-page-content) .faq-row,
+  main:has(.location-page-content) .why-wrap {
+    padding: 20px !important;
+    width: calc(100% - 36px) !important;
+  }
+
+  main:has(.location-page-content) .service-section {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  main:has(.location-page-content) .service-section .section-container {
+    padding: 20px !important;
+    width: 100% !important;
+  }
+
+  main:has(.location-page-content) .washer-issues {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  main:has(.location-page-content) .why-right img,
+  main:has(.location-page-content) .appointment-left img,
+  main:has(.location-page-content) .appiontment-left img {
+    min-height: 220px !important;
+  }
+}
