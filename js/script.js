@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const bookingNoticeText = '$89. Waived if repair is needed.';
 	const bookingLinks = document.querySelectorAll('a[href*="online-booking"]');
 	bookingLinks.forEach((link) => {
-		if (link.closest('.header, .header-mobile-wrap, .mobile-menu-nav, .offer-wrap')) {
+		if (link.closest('.header, .header-mobile-wrap, .mobile-menu-nav, .offer-wrap, .pricing-table')) {
 			return;
 		}
 		if (link.nextElementSibling && link.nextElementSibling.classList.contains('booking-service-note')) {
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const shineButtons = document.querySelectorAll('a.button-v1[href*="online-booking"], a.booking-button[href*="online-booking"], .button-v1-banner[href*="online-booking"], .offer-btn-button .button-v1');
 	shineButtons.forEach((button) => {
-		if (button.classList.contains('button-text-shine')) {
+		if (button.classList.contains('button-bg-shine')) {
 			return;
 		}
 		let wrapped = false;
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			wrapped = true;
 		});
 		if (wrapped) {
-			button.classList.add('button-text-shine');
+			button.classList.add('button-bg-shine');
 		}
 	});
 
