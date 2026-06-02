@@ -108,30 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		link.insertAdjacentElement('afterend', note);
 	});
 
-	const shineButtons = document.querySelectorAll('a.button-v1[href*="online-booking"], a.booking-button[href*="online-booking"], .button-v1-banner[href*="online-booking"], .offer-btn-button .button-v1');
-	shineButtons.forEach((button) => {
-		if (button.closest('.header, .header-mobile-wrap, .mobile-menu-nav')) {
-			return;
-		}
-		if (button.classList.contains('button-bg-shine')) {
-			return;
-		}
-		let wrapped = false;
-		Array.from(button.childNodes).forEach((node) => {
-			if (node.nodeType !== Node.TEXT_NODE || !node.textContent.trim()) {
-				return;
-			}
-			const shineText = document.createElement('span');
-			shineText.className = 'button-shine-text';
-			shineText.textContent = node.textContent.trim();
-			node.replaceWith(shineText);
-			wrapped = true;
-		});
-		if (wrapped) {
-			button.classList.add('button-bg-shine');
-		}
-	});
-
 	const recentPostContainers = document.querySelectorAll('.alex-blog-recent, .alex-article-recent');
 	if (recentPostContainers.length) {
 		const normalizePath = (url) => {

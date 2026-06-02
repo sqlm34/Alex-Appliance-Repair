@@ -7425,66 +7425,6 @@ main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .co
 }
 
 /* Visual polish: CTA alignment, service hover, counters, pricing, and why panels */
-@keyframes alexButtonBackgroundFlow {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  10%,
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-.button-bg-shine {
-  background: transparent !important;
-  background-color: transparent !important;
-  border-color: var(--color-4) !important;
-  color: var(--color-1) !important;
-  isolation: isolate;
-  overflow: hidden !important;
-  position: relative !important;
-  z-index: 0;
-}
-
-.button-bg-shine:hover {
-  background: transparent !important;
-  background-color: transparent !important;
-  color: var(--color-1) !important;
-}
-
-.button-bg-shine::before {
-  animation: alexButtonBackgroundFlow 30s ease-in-out infinite;
-  background: linear-gradient(
-    90deg,
-    var(--color-4) 0%,
-    #ffe47d 12.5%,
-    var(--color-6) 25%,
-    #ffe47d 37.5%,
-    var(--color-4) 50%,
-    #ffe47d 62.5%,
-    var(--color-6) 75%,
-    #ffe47d 87.5%,
-    var(--color-4) 100%
-  );
-  content: "";
-  height: 100%;
-  inset: 0 auto 0 0;
-  position: absolute;
-  width: 200%;
-  z-index: -1;
-}
-
-.button-bg-shine .button-shine-text {
-  animation: none !important;
-  background: none !important;
-  color: inherit !important;
-  display: inline-block;
-  position: relative;
-  z-index: 1;
-  -webkit-text-fill-color: currentColor;
-}
-
 .offer-btn-row {
   align-items: center !important;
   display: flex !important;
@@ -7745,4 +7685,161 @@ section.services-wrap .services-item::after {
 
 section.services-wrap .services-icon img {
   transform: none !important;
+}
+
+/* Sidebar Our Services: restore full-row fill hover, no circular pseudo layer. */
+.page-right .widget_services ul li a {
+  align-items: center !important;
+  background: #fff !important;
+  border: 1px solid rgba(16, 55, 92, 0.1) !important;
+  border-radius: 8px !important;
+  color: var(--color-title) !important;
+  display: flex !important;
+  font-weight: 700;
+  justify-content: space-between;
+  min-height: 52px;
+  overflow: hidden !important;
+  padding: 14px 48px 14px 18px !important;
+  position: relative !important;
+  transition: color 300ms ease, border-color 300ms ease !important;
+  z-index: 0;
+}
+
+.page-right .widget_services ul li a::before {
+  background: var(--color-8) !important;
+  border-radius: inherit !important;
+  content: "" !important;
+  display: block !important;
+  flex: none !important;
+  height: auto !important;
+  inset: 0 !important;
+  pointer-events: none;
+  position: absolute !important;
+  transform: translateX(calc(-100% - 2px)) !important;
+  transition: transform 360ms ease !important;
+  width: auto !important;
+  z-index: -1 !important;
+}
+
+.page-right .widget_services ul li a:hover {
+  border-color: var(--color-8) !important;
+  color: #fff !important;
+}
+
+.page-right .widget_services ul li a:hover::before {
+  transform: translateX(0) !important;
+}
+
+.page-right .widget_services ul li a::after {
+  background-image: url(../images/services-arrow-next.svg) !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+  content: "" !important;
+  display: block !important;
+  filter: none !important;
+  height: 19px !important;
+  position: absolute !important;
+  right: 19px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  transition: filter 200ms ease !important;
+  width: 19px !important;
+  z-index: 1;
+}
+
+.page-right .widget_services ul li a:hover::after {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* Static CTA buttons: no shimmer or button animation. */
+.button-v1,
+.button-v1-banner,
+.booking-button,
+.banner-button a,
+.offer-btn-timer,
+.blog-readmore,
+.widget_search form button,
+.appiontment-form button,
+.newsletter-form button,
+.contact-form button,
+.mobile-button-wrap .button-v1 {
+  animation: none !important;
+  background: var(--color-4) !important;
+  background-color: var(--color-4) !important;
+  border-color: var(--color-4) !important;
+  color: var(--color-1) !important;
+}
+
+.button-v1:hover,
+.button-v1-banner:hover,
+.booking-button:hover,
+.banner-button a:hover,
+.offer-btn-timer:hover,
+.blog-readmore:hover,
+.widget_search form button:hover,
+.appiontment-form button:hover,
+.newsletter-form button:hover,
+.contact-form button:hover,
+.mobile-button-wrap .button-v1:hover {
+  animation: none !important;
+  background: var(--color-4) !important;
+  background-color: var(--color-4) !important;
+  border-color: var(--color-4) !important;
+  color: var(--color-1) !important;
+}
+
+.button-v1::before,
+.button-v1-banner::before,
+.booking-button::before,
+.banner-button a::before,
+.offer-btn-timer::before,
+.blog-readmore::before,
+.appiontment-form button::before,
+.newsletter-form button::before,
+.contact-form button::before {
+  animation: none !important;
+}
+
+/* Home counter spacing and stable digit width. */
+.about-num-wrap {
+  max-width: 560px !important;
+  padding: 48px 58px !important;
+}
+
+.about-num-item {
+  align-items: center;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  padding: 34px 42px !important;
+  text-align: center;
+}
+
+.about-num-title {
+  display: inline-block;
+  font-size: clamp(48px, 5vw, 58px) !important;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.05 !important;
+  min-width: 4ch;
+  text-align: center;
+}
+
+.about-num-desc {
+  line-height: 1.45 !important;
+  margin-bottom: 0 !important;
+}
+
+@media screen and (max-width: 575px) {
+  .about-num-wrap {
+    max-width: 100% !important;
+    padding: 28px 24px !important;
+  }
+
+  .about-num-item {
+    padding: 26px 18px !important;
+  }
+
+  .about-num-title {
+    font-size: 42px !important;
+  }
 }
