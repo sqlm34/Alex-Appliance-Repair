@@ -577,7 +577,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Home sliders END//
 
 	// Native gallery lightbox START//
-	const galleryLinks = Array.from(document.querySelectorAll('.gallery-item[href]'));
+	const galleryLinks = Array.from(document.querySelectorAll('.gallery-item[data-gallery-src], .gallery-item[href]'));
 	if (galleryLinks.length > 0) {
 		const lightboxPlaceholder = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 		const lightbox = document.createElement('div');
@@ -603,7 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			activeIndex = (index + galleryLinks.length) % galleryLinks.length;
 			const link = galleryLinks[activeIndex];
 			const image = link.querySelector('img');
-			preview.src = link.getAttribute('href');
+			preview.src = link.dataset.gallerySrc || link.getAttribute('href');
 			preview.alt = image ? image.alt : 'Gallery image';
 			lightbox.classList.add('is-open');
 			document.body.style.overflow = 'hidden';
