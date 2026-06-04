@@ -1,5 +1,13 @@
 RewriteEngine On
 
+# Canonical host: force every public request to https://alex-repair.com.
+RewriteCond %{HTTP_HOST} ^www\.alex-repair\.com$ [NC]
+RewriteRule ^ https://alex-repair.com%{REQUEST_URI} [R=301,L,NE]
+
+RewriteCond %{HTTP_HOST} ^alex-repair\.com$ [NC]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://alex-repair.com%{REQUEST_URI} [R=301,L,NE]
+
 <IfModule mod_expires.c>
 ExpiresActive On
 ExpiresByType text/css "access plus 1 year"
@@ -19,10 +27,6 @@ Header set Cache-Control "public, max-age=31536000, immutable"
 </IfModule>
 
 RewriteCond %{HTTP_HOST} ^(www\.)?alexrepair\.us$ [NC]
-RewriteRule ^(.*)$ https://alex-repair.com/$1 [R=301,L]
-
-RewriteCond %{HTTPS} !=on [OR]
-RewriteCond %{HTTP_HOST} ^www\.alex-repair\.com$ [NC]
 RewriteRule ^(.*)$ https://alex-repair.com/$1 [R=301,L]
 
 RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
