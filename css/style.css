@@ -7591,11 +7591,33 @@ section.services-wrap .services-item:hover .services-icon {
   }
 
   .why-wrap .why-right {
+    aspect-ratio: 16 / 9;
     border-radius: 16px !important;
+    height: auto !important;
+    max-height: 280px;
+    min-height: 0 !important;
+    width: 100% !important;
+  }
+
+  .why-wrap .why-right img {
+    height: 100% !important;
+    min-height: 0 !important;
+    object-fit: cover !important;
+    object-position: center center;
+    width: 100% !important;
   }
 }
 
 @media screen and (max-width: 575px) {
+  .why-wrap .why-row {
+    gap: 22px !important;
+    padding: 22px !important;
+  }
+
+  .why-wrap .why-right {
+    max-height: 235px;
+  }
+
   .offer-btn-row {
     flex-wrap: nowrap !important;
     gap: 10px !important;
