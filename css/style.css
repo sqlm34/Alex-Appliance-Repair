@@ -7843,3 +7843,19 @@ section.services-wrap .services-icon img {
     font-size: 42px !important;
   }
 }
+
+/* Prevent off-screen slider and marquee items from increasing page width. */
+main,
+.marquee-wrap,
+.testimonials-wrap,
+.gallery-wrap,
+.blog-wrap,
+.native-slider {
+  contain: paint;
+  overflow-x: clip !important;
+}
+
+.marquee-row,
+.native-slider .swiper-wrapper {
+  max-width: 100%;
+}
