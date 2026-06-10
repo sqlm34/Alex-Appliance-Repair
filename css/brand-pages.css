@@ -14,6 +14,10 @@ body {
   background: #f7f9fd;
 }
 
+header.header + main {
+  padding-top: 176px;
+}
+
 .site-header {
   background: #14325a;
   color: #fff;
@@ -277,29 +281,30 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  padding: 13px 22px;
+  min-height: 56px;
+  padding: 16px 30px;
   border: 2px solid transparent;
-  border-radius: 4px;
+  border-radius: 29px;
   font-weight: 900;
   line-height: 1.2;
   text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  transition: box-shadow .25s ease, transform .25s ease;
 }
 
-.btn--primary {
+.btn--primary,
+.btn--secondary,
+.btn--outline {
   background: #ffc700;
   color: #14325a;
+  border-color: #ffc700;
+  box-shadow: 0 14px 26px rgba(255, 199, 0, .24);
 }
 
-.btn--secondary {
-  background: #2581d9;
-  color: #fff;
-}
-
-.btn--outline {
-  background: #fff;
-  color: #14325a;
-  border-color: #77b0e8;
+.btn:hover {
+  box-shadow: 0 18px 34px rgba(20, 50, 90, .18);
+  transform: translateY(-2px);
 }
 
 .section {
@@ -525,7 +530,7 @@ body {
 }
 
 .brands-directory-hero {
-  padding: 58px 0 36px;
+  padding: 46px 0 36px;
 }
 
 .brands-directory-hero-inner,
@@ -536,15 +541,33 @@ body {
 
 .brands-directory-hero-inner {
   padding: 42px;
-  border: 1px solid #dfe8f3;
+  border: 0;
   border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 22px 60px rgba(20, 50, 90, .10);
+  background: linear-gradient(115deg, #142f57 0%, #113261 38%, #0c397e 100%);
+  box-shadow: 0 24px 70px rgba(20, 50, 90, .20);
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.brands-directory-hero-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255, 199, 0, .18), transparent 34%),
+    radial-gradient(circle at 92% 16%, rgba(119, 176, 232, .28), transparent 30%);
+  pointer-events: none;
+}
+
+.brands-directory-hero-inner > * {
+  position: relative;
+  z-index: 1;
 }
 
 .brands-directory-kicker {
   margin: 0 0 12px;
-  color: #2581d9;
+  color: #ffc700;
   font-size: 14px;
   font-weight: 900;
   letter-spacing: .02em;
@@ -554,7 +577,7 @@ body {
 .brands-directory h1 {
   max-width: 900px;
   margin: 0 0 18px;
-  color: #14325a;
+  color: #fff;
   font-size: clamp(36px, 5vw, 58px);
   line-height: 1.1;
   letter-spacing: 0;
@@ -562,7 +585,7 @@ body {
 
 .brands-directory-hero p {
   max-width: 880px;
-  color: #454b57;
+  color: rgba(255, 255, 255, .88);
   font-size: 18px;
   line-height: 1.72;
 }
@@ -571,8 +594,8 @@ body {
   padding: 14px 16px;
   border-left: 4px solid #ffc700;
   border-radius: 6px;
-  background: #f7fbff;
-  color: #14325a !important;
+  background: rgba(255, 255, 255, .10);
+  color: #fff !important;
   font-style: italic;
 }
 
@@ -581,6 +604,24 @@ body {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 24px;
+}
+
+.brands-directory-actions .booking-service-note {
+  flex: 1 0 100% !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 2px 0 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: rgba(255, 255, 255, .88) !important;
+  font-size: 14px;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.brands-directory-actions .booking-service-note-label {
+  color: inherit !important;
 }
 
 .brands-directory-section {
@@ -612,18 +653,66 @@ body {
 }
 
 .brand-directory-card {
-  padding: 24px;
-  border: 1px solid #dfe8f3;
+  position: relative;
+  overflow: hidden;
+  padding: 28px;
+  border: 1px solid rgba(119, 176, 232, .30);
   border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 14px 38px rgba(20, 50, 90, .08);
+  background:
+    linear-gradient(180deg, rgba(247, 251, 255, .96), #fff 48%),
+    #fff;
+  box-shadow: 0 16px 42px rgba(20, 50, 90, .09);
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+
+.brand-directory-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #ffc700 0%, #2581d9 52%, #14325a 100%);
+}
+
+.brand-directory-card::after {
+  content: "";
+  position: absolute;
+  right: -36px;
+  top: -36px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 199, 0, .16);
+  pointer-events: none;
+}
+
+.brand-directory-card:hover {
+  border-color: rgba(37, 129, 217, .45);
+  box-shadow: 0 24px 54px rgba(20, 50, 90, .14);
+  transform: translateY(-3px);
 }
 
 .brand-directory-card h3 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin: 0 0 10px;
   color: #14325a;
   font-size: 22px;
   line-height: 1.25;
+}
+
+.brand-directory-card h3::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #14325a 0 4px, transparent 5px),
+    #ffc700;
+  box-shadow: 0 8px 18px rgba(255, 199, 0, .30);
 }
 
 .brand-directory-card p {
@@ -641,25 +730,30 @@ body {
 }
 
 .brand-city-links a {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 42px;
   padding: 9px 10px;
-  border: 1px solid #dfe8f3;
+  border: 1px solid rgba(119, 176, 232, .36);
   border-radius: 4px;
-  background: #f7fbff;
+  background: #fff;
   color: #14325a;
   font-size: 13px;
   font-weight: 800;
   line-height: 1.2;
   text-align: center;
   text-decoration: none;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
 }
 
 .brand-city-links a:hover {
-  border-color: #77b0e8;
-  color: #2581d9;
+  border-color: #ffc700;
+  background: #ffc700;
+  color: #14325a;
+  transform: translateY(-1px);
 }
 
 @media (max-width: 1080px) {
@@ -687,7 +781,7 @@ body {
 
 @media (max-width: 720px) {
   header.header + main {
-    padding-top: 48px;
+    padding-top: 136px;
   }
 
   .header-inner,
@@ -878,5 +972,9 @@ body {
     min-width: 0;
     overflow-wrap: anywhere;
     white-space: normal;
+  }
+
+  .brands-directory-actions .booking-service-note {
+    text-align: center;
   }
 }
