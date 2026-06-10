@@ -1194,4 +1194,20 @@ body header.header + main.brands-directory > section.brands-directory-hero:not(.
   body header.header + main.brands-directory > section.brands-directory-hero:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) {
     padding: 20px 0 46px !important;
   }
+
+  body header.header + main > section.section.section--cta-bottom {
+    background:
+      linear-gradient(115deg, #142f57 0%, #113261 38%, #0c397e 100%) !important;
+    color: #fff !important;
+  }
+
+  body header.header + main .section--cta-bottom .container {
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    max-width: none !important;
+    width: 100vw !important;
+  }
 }

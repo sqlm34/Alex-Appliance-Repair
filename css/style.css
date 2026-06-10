@@ -7951,3 +7951,118 @@ main,
     grid-template-columns: 1fr;
   }
 }
+
+/* Site-wide page top rhythm: keep breadcrumbs close to the first real content block. */
+.breadcrumbs-wrap {
+  background-image: url(../images/about-top-bg.png) !important;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+main > .breadcrumbs-wrap + section:not(.banner-wrap):not(.marquee-wrap),
+main > .breadcrumbs-wrap + .contact-page-wrap,
+main > .breadcrumbs-wrap + .alex-blog-page,
+main > .breadcrumbs-wrap + .alex-article-page,
+main > .breadcrumbs-wrap + .service-wrap {
+  padding-top: 20px !important;
+}
+
+/* Consistent CTA button spacing and mobile width across regular pages. */
+.contact-actions,
+.alex-cta-block,
+.alex-blog-cta,
+.alex-article-cta,
+.team-button,
+.pricing-footer,
+.mobile-button-wrap,
+main .button-wrap {
+  column-gap: 16px !important;
+  row-gap: 12px !important;
+}
+
+.alex-cta-block {
+  align-items: center !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 14px !important;
+  justify-content: center !important;
+}
+
+.alex-cta-block a {
+  margin: 0 !important;
+}
+
+.alex-cta-block br {
+  display: none !important;
+}
+
+main .alex-cta-block h2,
+main .alex-cta-block p {
+  flex: 0 0 100% !important;
+  order: 1;
+}
+
+main .alex-cta-block a {
+  margin: 0 !important;
+  order: 2;
+}
+
+main .alex-cta-block .booking-service-note {
+  flex: 0 0 100% !important;
+  margin-top: 0 !important;
+  order: 3;
+}
+
+@media screen and (max-width: 768px) {
+  main > .breadcrumbs-wrap + section:not(.banner-wrap):not(.marquee-wrap),
+  main > .breadcrumbs-wrap + .contact-page-wrap,
+  main > .breadcrumbs-wrap + .alex-blog-page,
+  main > .breadcrumbs-wrap + .alex-article-page,
+  main > .breadcrumbs-wrap + .service-wrap {
+    padding-top: 20px !important;
+  }
+
+  .alex-blog-sidebar .alex-blog-cta,
+  .alex-article-sidebar .alex-article-cta {
+    border-radius: 0 !important;
+    box-sizing: border-box;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    max-width: none !important;
+    padding-left: max(22px, calc((100vw - 335px) / 2)) !important;
+    padding-right: max(22px, calc((100vw - 335px) / 2)) !important;
+    width: 100vw !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  main .alex-cta-block {
+    box-sizing: border-box;
+    margin-left: -16px !important;
+    margin-right: -16px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    width: calc(100% + 32px) !important;
+  }
+
+  main a.button-v1[href*="online-booking"],
+  main a.booking-button[href*="online-booking"],
+  main .contact-actions a,
+  main .alex-cta-block a,
+  main .alex-blog-cta a,
+  main .alex-article-cta a {
+    box-sizing: border-box;
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    max-width: 335px !important;
+    width: 100% !important;
+  }
+
+  main .offer-btn-button .button-v1[href*="online-booking"] {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: auto !important;
+  }
+}
