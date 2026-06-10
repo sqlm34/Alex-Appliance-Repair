@@ -400,6 +400,28 @@ header.header + main > * {
   gap: 20px;
 }
 
+.section--local-scenarios .container {
+  max-width: 1180px;
+}
+
+.section--local-scenarios .service-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.section--local-scenarios .service-card {
+  background:
+    linear-gradient(180deg, rgba(247, 251, 255, .96), #fff 58%),
+    #fff;
+}
+
+.section--brand-depth .container {
+  max-width: 1180px;
+}
+
+.section--brand-depth .service-card {
+  border-top: 4px solid #ffc700;
+}
+
 .service-card,
 .symptom-card,
 .why-card,
@@ -502,7 +524,7 @@ header.header + main > * {
 .section--cta-bottom .container {
   overflow: hidden;
   position: relative;
-  padding: 58px;
+  padding: 68px 86px !important;
   border: 0;
   border-radius: 8px;
   background: linear-gradient(115deg, #142f57 0%, #113261 38%, #0c397e 100%);
@@ -555,7 +577,7 @@ header.header + main > * {
 
 .section--cta-bottom .cta-details {
   margin-top: 28px;
-  padding: 22px 24px;
+  padding: 26px 32px;
   border: 1px solid rgba(255, 255, 255, .16);
   border-radius: 8px;
   background: rgba(255, 255, 255, .10);
@@ -1080,7 +1102,7 @@ header.header + main > * {
     width: 100% !important;
     max-width: none !important;
     border-radius: 0;
-    padding: 36px 20px;
+    padding: 36px 20px !important;
   }
 
   .section--cta-bottom .cta-actions {
@@ -1209,5 +1231,37 @@ body header.header + main.brands-directory > section.brands-directory-hero:not(.
     margin-right: calc(50% - 50vw) !important;
     max-width: none !important;
     width: 100vw !important;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 1080px) {
+  .section--cta-bottom .container {
+    padding-left: 58px !important;
+    padding-right: 58px !important;
+  }
+}
+
+body header.header + main > section.section.section--cta-bottom:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .container {
+  padding: 68px 86px !important;
+}
+
+@media (min-width: 721px) and (max-width: 1080px) {
+  body header.header + main > section.section.section--cta-bottom:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .container {
+    padding-left: 58px !important;
+    padding-right: 58px !important;
+  }
+
+  .section--local-scenarios .service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  body header.header + main > section.section.section--cta-bottom:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .container {
+    padding: 36px 20px !important;
+  }
+
+  .section--local-scenarios .service-grid {
+    grid-template-columns: 1fr;
   }
 }
