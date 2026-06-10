@@ -7881,3 +7881,73 @@ main,
 .native-slider .swiper-wrapper {
   max-width: 100%;
 }
+/* Brand page internal links on city landing pages */
+.brand-link-section {
+  padding: 80px 0;
+  background: #eef5fd;
+}
+
+.brand-link-section .brand-link-inner {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.brand-link-section h2 {
+  margin: 0 0 14px;
+  color: #163568;
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+
+.brand-link-section p {
+  max-width: 780px;
+  color: #454b57;
+  line-height: 1.7;
+}
+
+.brand-link-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.brand-link-grid a {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  padding: 14px 16px;
+  border: 1px solid #dfe8f3;
+  border-radius: 4px;
+  background: #fff;
+  color: #14325a;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 10px 26px rgba(20, 50, 90, .06);
+}
+
+.brand-link-grid a:hover {
+  border-color: #77b0e8;
+  color: #2581d9;
+}
+
+@media (max-width: 980px) {
+  .brand-link-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .brand-link-section {
+    padding: 48px 0;
+  }
+
+  .brand-link-section .brand-link-inner {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .brand-link-grid {
+    grid-template-columns: 1fr;
+  }
+}
