@@ -520,6 +520,148 @@ body {
   color: #2581d9;
 }
 
+.brands-directory {
+  background: #f7f9fd;
+}
+
+.brands-directory-hero {
+  padding: 58px 0 36px;
+}
+
+.brands-directory-hero-inner,
+.brands-directory-inner {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.brands-directory-hero-inner {
+  padding: 42px;
+  border: 1px solid #dfe8f3;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 22px 60px rgba(20, 50, 90, .10);
+}
+
+.brands-directory-kicker {
+  margin: 0 0 12px;
+  color: #2581d9;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+.brands-directory h1 {
+  max-width: 900px;
+  margin: 0 0 18px;
+  color: #14325a;
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.brands-directory-hero p {
+  max-width: 880px;
+  color: #454b57;
+  font-size: 18px;
+  line-height: 1.72;
+}
+
+.brands-directory-note {
+  padding: 14px 16px;
+  border-left: 4px solid #ffc700;
+  border-radius: 6px;
+  background: #f7fbff;
+  color: #14325a !important;
+  font-style: italic;
+}
+
+.brands-directory-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.brands-directory-section {
+  padding: 44px 0 84px;
+}
+
+.brands-directory-heading {
+  max-width: 780px;
+  margin-bottom: 26px;
+}
+
+.brands-directory-heading h2 {
+  margin: 0 0 12px;
+  color: #163568;
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.16;
+}
+
+.brands-directory-heading p {
+  color: #454b57;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.brands-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.brand-directory-card {
+  padding: 24px;
+  border: 1px solid #dfe8f3;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 14px 38px rgba(20, 50, 90, .08);
+}
+
+.brand-directory-card h3 {
+  margin: 0 0 10px;
+  color: #14325a;
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+.brand-directory-card p {
+  min-height: 58px;
+  margin: 0 0 18px;
+  color: #454b57;
+  font-size: 15px;
+  line-height: 1.62;
+}
+
+.brand-city-links {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.brand-city-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 9px 10px;
+  border: 1px solid #dfe8f3;
+  border-radius: 4px;
+  background: #f7fbff;
+  color: #14325a;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+
+.brand-city-links a:hover {
+  border-color: #77b0e8;
+  color: #2581d9;
+}
+
 @media (max-width: 1080px) {
   .main-nav a {
     padding: 16px 12px;
@@ -537,6 +679,10 @@ body {
   .footer-inner {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .brands-directory-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 720px) {
@@ -550,6 +696,11 @@ body {
   .hero--brand .hero__inner {
     width: calc(100% - 28px) !important;
     max-width: 1180px;
+  }
+
+  .brands-directory-hero-inner,
+  .brands-directory-inner {
+    width: calc(100% - 28px);
   }
 
   .header-inner {
@@ -603,12 +754,15 @@ body {
 
   .hero--brand,
   .section,
-  .brand-link-section {
+  .brand-link-section,
+  .brands-directory-hero,
+  .brands-directory-section {
     padding: 46px 0;
   }
 
   .hero--brand .hero__inner,
-  .section--cta-bottom .container {
+  .section--cta-bottom .container,
+  .brands-directory-hero-inner {
     padding: 24px 18px;
     overflow: hidden;
   }
@@ -632,13 +786,36 @@ body {
   }
 
   .hero__cta,
-  .cta-actions {
+  .cta-actions,
+  .brands-directory-actions {
     align-items: stretch;
     width: 100%;
   }
 
   .btn {
     width: 100%;
+  }
+
+  .brands-directory h1 {
+    font-size: clamp(28px, 8vw, 36px);
+    line-height: 1.14;
+  }
+
+  .brands-directory-hero p {
+    font-size: 15px;
+    line-height: 1.58;
+  }
+
+  .brand-directory-card {
+    padding: 20px;
+  }
+
+  .brand-directory-card p {
+    min-height: 0;
+  }
+
+  .brand-city-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero__trust-badges,

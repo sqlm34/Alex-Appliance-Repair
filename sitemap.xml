@@ -1848,4 +1848,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
   </url>
-</urlset>
+  <url>
+    <loc>https://alex-repair.com/brands.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url></urlset>
