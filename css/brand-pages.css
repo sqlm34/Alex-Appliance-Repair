@@ -686,6 +686,10 @@ body {
 }
 
 @media (max-width: 720px) {
+  header.header + main {
+    padding-top: 48px;
+  }
+
   .header-inner,
   .main-nav ul,
   .breadcrumb,
@@ -830,5 +834,49 @@ body {
   .brand-link-grid,
   .footer-inner {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 575px) {
+  header.header + main {
+    padding-top: 170px;
+  }
+
+  .hero--brand .hero__inner,
+  .brands-directory-hero-inner {
+    width: calc(100vw - 32px) !important;
+    max-width: calc(100vw - 32px) !important;
+    padding: 24px 18px;
+  }
+
+  .brands-directory-inner,
+  .brand-link-section .brand-link-inner {
+    width: calc(100vw - 32px) !important;
+    max-width: calc(100vw - 32px) !important;
+  }
+
+  .brands-directory-inner,
+  .brand-link-section .brand-link-inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .hero--brand h1,
+  .brands-directory h1,
+  .brands-directory-heading h2 {
+    font-size: clamp(26px, 7.2vw, 32px);
+    overflow-wrap: anywhere;
+  }
+
+  .hero--brand p,
+  .brands-directory-hero p,
+  .brands-directory-note,
+  .brands-directory-heading p,
+  .hero__badges li,
+  .btn {
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    white-space: normal;
   }
 }
