@@ -16,6 +16,27 @@ body {
 
 header.header + main {
   padding-top: 232px;
+  position: relative;
+  overflow: hidden;
+  background-color: #f7f9fd;
+}
+
+header.header + main::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 430px;
+  background:
+    linear-gradient(180deg, rgba(20, 50, 90, .62), rgba(20, 50, 90, .34) 48%, rgba(247, 249, 253, 0) 100%),
+    url("../images/about-top-bg.png") top center / cover no-repeat,
+    #14325a;
+  pointer-events: none;
+  z-index: 0;
+}
+
+header.header + main > * {
+  position: relative;
+  z-index: 1;
 }
 
 .site-header {
@@ -173,29 +194,46 @@ header.header + main {
 
 .breadcrumb {
   margin-top: 0;
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .breadcrumb ol {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 0;
   list-style: none;
   padding: 0;
   margin: 0;
-  color: #636060;
+  color: rgba(255, 255, 255, .82);
   font-size: 14px;
 }
 
+.breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.breadcrumb li + li::before {
+  content: "/";
+  margin: 0 9px;
+  color: rgba(255, 255, 255, .72);
+  font-weight: 800;
+}
+
 .breadcrumb a {
-  color: #2581d9;
+  color: #fff;
   text-decoration: none;
   font-weight: 800;
 }
 
+.breadcrumb a:hover {
+  color: #ffc700;
+}
+
 .hero--brand {
-  padding: 10px 0 68px;
-  background: #f7f9fd;
+  padding: 20px 0 68px;
+  background: transparent;
   color: #14325a;
 }
 
@@ -499,6 +537,8 @@ header.header + main {
 
 .section--cta-bottom .cta-actions {
   margin-top: 28px;
+  column-gap: 16px;
+  row-gap: 12px;
 }
 
 .section--cta-bottom .booking-service-note {
@@ -649,7 +689,8 @@ header.header + main {
 }
 
 .brands-directory-hero {
-  padding: 10px 0 36px;
+  padding: 20px 0 36px;
+  background: transparent;
 }
 
 .brands-directory-hero-inner,
@@ -906,6 +947,10 @@ header.header + main {
     padding-top: 178px;
   }
 
+  header.header + main::before {
+    height: 332px;
+  }
+
   .header-inner,
   .main-nav ul,
   .breadcrumb,
@@ -970,7 +1015,12 @@ header.header + main {
 
   .breadcrumb {
     margin-top: 0;
-    margin-bottom: 8px;
+    margin-bottom: 0;
+  }
+
+  .breadcrumb ol {
+    font-size: 13px;
+    line-height: 1.45;
   }
 
   .section,
@@ -981,7 +1031,7 @@ header.header + main {
 
   .hero--brand,
   .brands-directory-hero {
-    padding: 8px 0 46px;
+    padding: 20px 0 46px;
   }
 
   .hero--brand .hero__inner,
@@ -1014,10 +1064,33 @@ header.header + main {
   .brands-directory-actions {
     align-items: stretch;
     width: 100%;
+    gap: 12px;
   }
 
   .btn {
     width: 100%;
+  }
+
+  .section--cta-bottom {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .section--cta-bottom .container {
+    width: 100% !important;
+    max-width: none !important;
+    border-radius: 0;
+    padding: 36px 20px;
+  }
+
+  .section--cta-bottom .cta-actions {
+    justify-content: center;
+  }
+
+  .section--cta-bottom .btn {
+    width: min(100%, 335px);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .brands-directory h1 {
@@ -1108,5 +1181,17 @@ header.header + main {
 
   .brands-directory-actions .booking-service-note {
     text-align: center;
+  }
+}
+
+body header.header + main > section.hero.hero--brand:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap),
+body header.header + main.brands-directory > section.brands-directory-hero:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) {
+  padding: 20px 0 68px !important;
+}
+
+@media (max-width: 720px) {
+  body header.header + main > section.hero.hero--brand:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap),
+  body header.header + main.brands-directory > section.brands-directory-hero:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) {
+    padding: 20px 0 46px !important;
   }
 }
