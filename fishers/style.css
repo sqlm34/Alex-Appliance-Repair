@@ -5046,3 +5046,22 @@ section.services-wrap .services-item:hover .services-icon {
   object-fit: contain;
   width: 20px !important;
 }
+.footer-legal-name{
+	color: rgba(255, 255, 255, .78) !important;
+	font-size: 13px !important;
+	line-height: 1.55;
+	margin-top: 12px !important;
+	max-width: 360px;
+}
+.business-identity-note{
+	border-left: 4px solid var(--color-4);
+	color: var(--color-title) !important;
+	font-size: 15px;
+	font-style: italic;
+	line-height: 1.65;
+	margin-top: 18px;
+	padding-left: 16px;
+}
+.business-identity-note-light{
+	color: rgba(255, 255, 255, .88) !important;
+}

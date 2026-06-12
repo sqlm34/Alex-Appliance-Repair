@@ -31,90 +31,123 @@
 
   <!-- Schema: LocalBusiness -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Alex Appliance Repair",
-    "url": "https://alex-repair.com/fishers/smeg-appliance-repair.html",
-    "telephone": "+14632488429",
-    "email": "alexeasyrepair@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Fishers",
-      "addressRegion": "IN",
-      "postalCode": "46037",
-      "addressCountry": "US"
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Alex Appliance Repair",
+  "url": "https://alex-repair.com/",
+  "telephone": "+14632488429",
+  "email": "alexeasyrepair@gmail.com",
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Carmel",
+      "sameAs": "https://en.wikipedia.org/wiki/Carmel,_Indiana"
     },
-    "areaServed": [
-      {
-        "@type": "City",
-        "name": "Carmel",
-        "sameAs": "https://en.wikipedia.org/wiki/Carmel,_Indiana"
-      },
-      {
-        "@type": "City",
-        "name": "Fishers",
-        "sameAs": "https://en.wikipedia.org/wiki/Fishers,_Indiana"
-      },
-      {
-        "@type": "City",
-        "name": "Noblesville",
-        "sameAs": "https://en.wikipedia.org/wiki/Noblesville,_Indiana"
-      },
-      {
-        "@type": "City",
-        "name": "Westfield",
-        "sameAs": "https://en.wikipedia.org/wiki/Westfield,_Indiana"
-      },
-      {
-        "@type": "City",
-        "name": "Zionsville",
-        "sameAs": "https://en.wikipedia.org/wiki/Zionsville,_Indiana"
-      },
-      {
-        "@type": "City",
-        "name": "McCordsville",
-        "sameAs": "https://en.wikipedia.org/wiki/McCordsville,_Indiana"
-      }
-    ],
-    "serviceType": "Smeg Appliance Repair",
-    "description": "Same-day SMEG appliance repair in Fishers, IN for ranges, ovens, dishwashers, refrigeration and built-in kitchen units. 12-month warranty. Call (463) 248-8429.",
-    "openingHours": "Mo-Sa 08:00-18:00",
-    "priceRange": "$",
-    "currenciesAccepted": "USD",
-    "paymentAccepted": "Cash, Credit Card, Check",
-    "sameAs": [
-      "https://alex-repair.com",
-      "https://x.com/AleksEska79"
-    ]
+    {
+      "@type": "City",
+      "name": "Fishers",
+      "sameAs": "https://en.wikipedia.org/wiki/Fishers,_Indiana"
+    },
+    {
+      "@type": "City",
+      "name": "Noblesville",
+      "sameAs": "https://en.wikipedia.org/wiki/Noblesville,_Indiana"
+    },
+    {
+      "@type": "City",
+      "name": "Westfield",
+      "sameAs": "https://en.wikipedia.org/wiki/Westfield,_Indiana"
+    },
+    {
+      "@type": "City",
+      "name": "Zionsville",
+      "sameAs": "https://en.wikipedia.org/wiki/Zionsville,_Indiana"
+    },
+    {
+      "@type": "City",
+      "name": "McCordsville",
+      "sameAs": "https://en.wikipedia.org/wiki/McCordsville,_Indiana"
+    }
+  ],
+  "serviceType": "Smeg Appliance Repair",
+  "description": "Same-day SMEG appliance repair in Fishers, IN for ranges, ovens, dishwashers, refrigeration and built-in kitchen units. 12-month warranty. Call (463) 248-8429.",
+  "openingHours": "Mo-Su 08:00-18:00",
+  "priceRange": "$",
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Cash, Credit Card, Check",
+  "sameAs": [
+    "https://alex-repair.com",
+    "https://x.com/AleksEska79"
+  ],
+  "@id": "https://alex-repair.com/#business",
+  "legalName": "Aksenov LLC",
+  "alternateName": "Aksenov LLC",
+  "brand": {
+    "@type": "Brand",
+    "name": "Alex Appliance Repair"
+  },
+  "identifier": {
+    "@type": "PropertyValue",
+    "name": "Legal business name",
+    "value": "Aksenov LLC"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "6463 Bayside S Dr",
+    "addressLocality": "Indianapolis",
+    "addressRegion": "IN",
+    "postalCode": "46250",
+    "addressCountry": "US"
   }
-  </script>
+}
+</script>
 
   <!-- Schema: Service -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Smeg Appliance Repair in Fishers, Indiana",
-    "description": "Professional SMEG appliance repair service in Fishers, IN for ranges, ovens, dishwashers, refrigeration and built-in kitchen units with same-day scheduling and a 12-month repair warranty.",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "Alex Appliance Repair",
-      "telephone": "+14632488429",
-      "url": "https://alex-repair.com"
-    },
-    "areaServed": {
-      "@type": "City",
-      "name": "Fishers",
-      "addressRegion": "IN"
-    },
-    "serviceType": "Appliance Repair",
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Smeg Appliance Repair in Fishers, Indiana",
+  "description": "Professional SMEG appliance repair service in Fishers, IN for ranges, ovens, dishwashers, refrigeration and built-in kitchen units with same-day scheduling and a 12-month repair warranty.",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Alex Appliance Repair",
+    "telephone": "+14632488429",
+    "url": "https://alex-repair.com/",
+    "@id": "https://alex-repair.com/#business",
+    "legalName": "Aksenov LLC",
+    "alternateName": "Aksenov LLC",
     "brand": {
       "@type": "Brand",
-      "name": "Smeg"
+      "name": "Alex Appliance Repair"
+    },
+    "identifier": {
+      "@type": "PropertyValue",
+      "name": "Legal business name",
+      "value": "Aksenov LLC"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "6463 Bayside S Dr",
+      "addressLocality": "Indianapolis",
+      "addressRegion": "IN",
+      "postalCode": "46250",
+      "addressCountry": "US"
     }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Fishers",
+    "addressRegion": "IN"
+  },
+  "serviceType": "Appliance Repair",
+  "brand": {
+    "@type": "Brand",
+    "name": "Smeg"
   }
-  </script>
+}
+</script>
   <!-- Schema: FAQPage -->
   <script type="application/ld+json">
   {
@@ -937,7 +970,7 @@
       </div>
       <div class="cta-details">
         <p>
-          <strong>Hours:</strong> Monday - Saturday, 8:00 AM - 6:00 PM &nbsp;|&nbsp;
+          <strong>Hours:</strong> Monday - Sunday, 8:00 AM - 6:00 PM &nbsp;|&nbsp;
           <strong>Service area:</strong> Fishers and Hamilton County &nbsp;|&nbsp;
           <strong>Service call:</strong> $89, waived if repair is completed
         </p>
@@ -993,6 +1026,7 @@
             <div class="footer-left">
                 <div class="footer-desc">
                     <p>Professional service for appliance repair. We offer fast and reliable repair services for all types of appliances, ensuring quality and excellent customer service.</p>
+                    <p class="footer-legal-name">Alex Appliance Repair is operated by Aksenov LLC.</p>
                 </div>
                 <div class="footer-social-wrap">
                     <a href="https://wa.me/14632488429">
@@ -1041,12 +1075,12 @@
                     </ul>
                 </nav>
                 <nav class="footer-nav">
-                    <div class="footer-title">Our Technician</div>
+                    <div class="footer-title">Service Expertise</div>
                     <ul>
-                        <li><div>John Sbarrow</div></li>
-                        <li><div>Tim Baret</div></li>
-                        <li><div>Nathan Crett</div></li>
-                        <li><div>William Foth</div></li>
+                        <li><div>Lead Appliance Technician</div></li>
+                        <li><div>Laundry Appliance Specialist</div></li>
+                        <li><div>Kitchen Appliance Specialist</div></li>
+                        <li><div>Refrigeration Specialist</div></li>
                     </ul>
                 </nav>
             </div>
