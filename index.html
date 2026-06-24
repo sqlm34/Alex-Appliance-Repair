@@ -9,55 +9,13 @@
 
 
 <!-- Twitter Card Meta Tags -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  function gtag_report_conversion(url) {
-    var called = false;
-    var callback = function () {
-      if (called) return;
-      called = true;
-      if (typeof(url) !== 'undefined') window.location = url;
-    };
-    if (typeof window.loadMarketingTags === 'function') window.loadMarketingTags();
-    gtag('event', 'conversion', {
-      'send_to': 'AW-16661576737/O7RjCJ_r6OIZEKH47Yg-',
-      'value': 1.0,
-      'currency': 'USD',
-      'event_callback': callback
-    });
-    setTimeout(callback, 900);
-    return false;
-  }
-
-  (function () {
-    var loaded = false;
-    function addScript(src, attrs) {
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = src;
-      if (attrs) Object.keys(attrs).forEach(function (key) { script.setAttribute(key, attrs[key]); });
-      document.head.appendChild(script);
-    }
-    window.loadMarketingTags = function loadMarketingTags() {
-      if (loaded) return;
-      loaded = true;
-      addScript('https://www.googletagmanager.com/gtag/js?id=AW-16661576737');
-      addScript('https://www.googletagmanager.com/gtag/js?id=G-TVQFBP0DPH');
-      gtag('config', 'AW-16661576737');
-      gtag('config', 'G-TVQFBP0DPH');
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;d.head.appendChild(j);})(window,document,'script','dataLayer','GTM-5WJD84VP');
-      (function(c,l,a,r,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};addScript('https://www.clarity.ms/tag/'+i);})(window, document, 'clarity', 'script', 'qidznpy9kz');
-      addScript('https://analytics.ahrefs.com/analytics.js', {'data-key': 'eOAe5DzLIxtHmhnQvrm6Iw'});
-    }
-    window.addEventListener('load', function () { setTimeout(window.loadMarketingTags, 30000); }, { once: true });
-    ['pointerdown','keydown','scroll','touchstart'].forEach(function (eventName) {
-      window.addEventListener(eventName, window.loadMarketingTags, { once: true, passive: true });
-    });
-  })();
-</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5WJD84VP');</script>
+<!-- End Google Tag Manager -->
 
     
 	<meta charset="UTF-8">
@@ -1863,7 +1821,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="/js/google-reviews-config.js?v=20260525-inline-critical" defer></script>
 <script src="/js/google-reviews.js?v=20260525-inline-critical" defer></script>
 <script src="js/script.js?v=20260603-gallery-sidebar-fix" defer></script>
-<script src="/js/gtm-monitoring.js?v=20260525-reflow-fix" defer></script>
+<script src="/js/gtm-monitoring.js?v=20260624-gtm-rebuild" defer></script>
 </body>
 
 </html>
