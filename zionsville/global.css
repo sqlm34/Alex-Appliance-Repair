@@ -297,6 +297,12 @@ fieldset{
 	margin: 0;
 	border: none;
 }
+
+@media screen and (max-width: 768px) {
+	.breadcrumbs-wrap {
+		padding-top: 168px !important;
+	}
+}
 input[type="text"],
 input[type="search"],
 input[type="number"],

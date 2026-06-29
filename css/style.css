@@ -8034,6 +8034,10 @@ main .alex-cta-block .booking-service-note {
 }
 
 @media screen and (max-width: 768px) {
+  .breadcrumbs-wrap {
+    padding-top: 168px !important;
+  }
+
   main > .breadcrumbs-wrap + section:not(.banner-wrap):not(.marquee-wrap),
   main > .breadcrumbs-wrap + .contact-page-wrap,
   main > .breadcrumbs-wrap + .alex-blog-page,
