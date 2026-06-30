@@ -8127,21 +8127,27 @@ main:has(.location-page-content) .appiontment-left img {
   align-items: flex-start !important;
 }
 
-.why-right.has-service-media-cta,
-.appointment-left.has-service-media-cta,
-.appiontment-left.has-service-media-cta {
+main:has(.location-page-content) .why-right.has-service-media-cta,
+main:has(.location-page-content) .appointment-left.has-service-media-cta,
+main:has(.location-page-content) .appiontment-left.has-service-media-cta {
+  align-items: center !important;
   aspect-ratio: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
   height: auto !important;
+  justify-content: flex-start !important;
   max-height: none !important;
+  min-height: 0 !important;
   overflow: visible !important;
 }
 
-.why-right.has-service-media-cta > img,
-.appointment-left.has-service-media-cta > img,
-.appiontment-left.has-service-media-cta > img {
+main:has(.location-page-content) .why-right.has-service-media-cta > img,
+main:has(.location-page-content) .appointment-left.has-service-media-cta > img,
+main:has(.location-page-content) .appiontment-left.has-service-media-cta > img {
   aspect-ratio: 16 / 10 !important;
   border-radius: 8px !important;
   display: block !important;
+  flex: 0 0 auto !important;
   height: auto !important;
   max-height: 360px !important;
   min-height: 0 !important;
@@ -8154,6 +8160,7 @@ main:has(.location-page-content) .appiontment-left img {
   align-items: center !important;
   box-sizing: border-box;
   display: flex !important;
+  flex: 0 0 auto !important;
   flex-direction: column !important;
   gap: 14px !important;
   justify-content: center !important;
