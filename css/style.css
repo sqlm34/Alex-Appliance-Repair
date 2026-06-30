@@ -8089,3 +8089,35 @@ main .alex-cta-block .booking-service-note {
     width: auto !important;
   }
 }
+
+/* Keep service-page photos as compact cards instead of stretching to text height. */
+main:has(.location-page-content) .why-wrap,
+main:has(.location-page-content) .appointment-row {
+  align-items: center !important;
+}
+
+main:has(.location-page-content) .why-right,
+main:has(.location-page-content) .appointment-left,
+main:has(.location-page-content) .appiontment-left {
+  align-self: center !important;
+  aspect-ratio: 16 / 10 !important;
+  display: block !important;
+  height: auto !important;
+  max-height: 360px !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+main:has(.location-page-content) .why-right img,
+main:has(.location-page-content) .appointment-left img,
+main:has(.location-page-content) .appiontment-left img {
+  aspect-ratio: 16 / 10 !important;
+  border-radius: 8px !important;
+  display: block !important;
+  height: auto !important;
+  max-height: 360px !important;
+  min-height: 0 !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  width: 100% !important;
+}
