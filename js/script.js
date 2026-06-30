@@ -108,6 +108,76 @@ document.addEventListener('DOMContentLoaded', () => {
 		link.insertAdjacentElement('afterend', note);
 	});
 
+	function moveServiceMediaCtas() {
+		const moveCta = ({ wrap, source, media }) => {
+			if (!wrap || !source || !media) {
+				return;
+			}
+
+			const link = source.querySelector('a[href*="online-booking"]');
+			const image = media.querySelector('img');
+			if (!link || !image || link.closest('.service-media-cta')) {
+				return;
+			}
+
+			const closestButtonWrap = link.closest('.team-button, .text-center');
+			const buttonUnit = closestButtonWrap && source.contains(closestButtonWrap)
+				? closestButtonWrap
+				: link;
+			if (!source.contains(buttonUnit)) {
+				return;
+			}
+
+			const note = link.nextElementSibling && link.nextElementSibling.classList.contains('booking-service-note')
+				? link.nextElementSibling
+				: null;
+			const text = buttonUnit.previousElementSibling && buttonUnit.previousElementSibling.tagName === 'P'
+				? buttonUnit.previousElementSibling
+				: null;
+
+			let cta = media.querySelector(':scope > .service-media-cta');
+			if (!cta) {
+				cta = document.createElement('div');
+				cta.className = 'service-media-cta';
+				image.insertAdjacentElement('afterend', cta);
+			}
+
+			wrap.classList.add('has-service-media-cta-wrap');
+			media.classList.add('has-service-media-cta');
+
+			if (text) {
+				text.classList.add('service-media-cta-text');
+				cta.appendChild(text);
+			}
+
+			buttonUnit.classList.add('service-media-cta-action');
+			cta.appendChild(buttonUnit);
+
+			if (note && buttonUnit === link) {
+				note.classList.add('service-media-cta-note');
+				cta.appendChild(note);
+			}
+		};
+
+		document.querySelectorAll('.why-wrap').forEach((wrap) => {
+			moveCta({
+				wrap,
+				source: wrap.querySelector('.why-left'),
+				media: wrap.querySelector('.why-right')
+			});
+		});
+
+		document.querySelectorAll('.appointment-row').forEach((wrap) => {
+			moveCta({
+				wrap,
+				source: wrap.querySelector('.appointment-right'),
+				media: wrap.querySelector('.appointment-left, .appiontment-left')
+			});
+		});
+	}
+
+	moveServiceMediaCtas();
+
 	const recentPostContainers = document.querySelectorAll('.alex-blog-recent, .alex-article-recent');
 	if (recentPostContainers.length) {
 		const normalizePath = (url) => {

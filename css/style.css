@@ -8121,3 +8121,81 @@ main:has(.location-page-content) .appiontment-left img {
   object-position: center !important;
   width: 100% !important;
 }
+
+.why-wrap.has-service-media-cta-wrap,
+.appointment-row.has-service-media-cta-wrap {
+  align-items: flex-start !important;
+}
+
+.why-right.has-service-media-cta,
+.appointment-left.has-service-media-cta,
+.appiontment-left.has-service-media-cta {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.why-right.has-service-media-cta > img,
+.appointment-left.has-service-media-cta > img,
+.appiontment-left.has-service-media-cta > img {
+  aspect-ratio: 16 / 10 !important;
+  border-radius: 8px !important;
+  display: block !important;
+  height: auto !important;
+  max-height: 360px !important;
+  min-height: 0 !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  width: 100% !important;
+}
+
+.service-media-cta {
+  align-items: center !important;
+  box-sizing: border-box;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+  justify-content: center !important;
+  margin: 22px auto 0 !important;
+  max-width: 520px;
+  text-align: center !important;
+  width: 100%;
+}
+
+.service-media-cta .service-media-cta-text {
+  margin: 0 !important;
+  max-width: 520px;
+  text-align: center !important;
+}
+
+.service-media-cta .service-media-cta-action {
+  align-items: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  width: 100%;
+}
+
+.service-media-cta .service-media-cta-action br {
+  display: none !important;
+}
+
+.service-media-cta :is(.button-v1, .booking-button) {
+  margin: 0 auto !important;
+}
+
+.service-media-cta .booking-service-note {
+  margin: 0 !important;
+  max-width: 460px;
+  text-align: center !important;
+}
+
+@media screen and (max-width: 575px) {
+  .service-media-cta {
+    gap: 12px !important;
+    margin-top: 18px !important;
+  }
+}
