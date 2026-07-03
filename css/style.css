@@ -696,7 +696,7 @@ a.booking-button[href*="online-booking"] {
 	z-index: 0;
 	cursor: default;
 	user-select: none;
-	background-image: url(../images/header-bg.webp);
+	background-image: url(../images/home-hero-refrigerator.webp);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -8310,5 +8310,23 @@ main:has(.location-page-content) .pricing-table + .why-wrap {
 
   .team-wrap .team-thumb {
     max-height: 130px !important;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1360px) {
+  .header-bottom .menu-nav > ul > li > a {
+    font-size: 15px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+    white-space: nowrap !important;
+  }
+
+  .header-bottom .button-wrap {
+    margin-right: 18px !important;
+  }
+
+  .header-bottom .button-wrap .button-v1 {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
   }
 }
