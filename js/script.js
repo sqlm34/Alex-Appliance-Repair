@@ -505,10 +505,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			if (scrollbar) {
 				const drag = scrollbar.querySelector('.native-scrollbar-drag');
 				if (drag) {
-					const steps = Math.max(max, 1);
 					const width = Math.max(100 / (max + 1), 18);
+					const trackWidth = scrollbar.clientWidth || 0;
+					const dragWidth = trackWidth * (width / 100);
+					const offset = max > 0 ? (trackWidth - dragWidth) * (index / max) : 0;
 					drag.style.width = `${width}%`;
-					drag.style.transform = `translateX(${(100 - width) * (index / steps)}%)`;
+					drag.style.transform = `translateX(${offset}px)`;
 				}
 			}
 		}
@@ -580,6 +582,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		slider.addEventListener('mouseenter', stop);
 		slider.addEventListener('mouseleave', start);
+
+		if (scrollbar) {
+			let isDraggingScrollbar = false;
+
+			function moveFromScrollbar(clientX) {
+				const options = getSliderSettings(settings);
+				const perView = Math.min(options.perView || 1, Math.max(slides().length, 1));
+				const max = maxIndex(perView);
+				if (max <= 0) return;
+
+				const rect = scrollbar.getBoundingClientRect();
+				const ratio = Math.max(0, Math.min((clientX - rect.left) / rect.width, 1));
+				moveTo(Math.round(ratio * max));
+			}
+
+			function finishScrollbarDrag(event) {
+				if (!isDraggingScrollbar) return;
+				isDraggingScrollbar = false;
+				if (event && typeof scrollbar.releasePointerCapture === 'function') {
+					try {
+						if (!scrollbar.hasPointerCapture || scrollbar.hasPointerCapture(event.pointerId)) {
+							scrollbar.releasePointerCapture(event.pointerId);
+						}
+					} catch (error) {
+						// The pointer may already be released by the browser.
+					}
+				}
+				start();
+			}
+
+			scrollbar.addEventListener('pointerdown', event => {
+				if (event.button !== undefined && event.button !== 0) return;
+				isDraggingScrollbar = true;
+				stop();
+				if (typeof scrollbar.setPointerCapture === 'function') {
+					scrollbar.setPointerCapture(event.pointerId);
+				}
+				moveFromScrollbar(event.clientX);
+				event.preventDefault();
+			});
+
+			scrollbar.addEventListener('pointermove', event => {
+				if (!isDraggingScrollbar) return;
+				moveFromScrollbar(event.clientX);
+			});
+
+			scrollbar.addEventListener('pointerup', finishScrollbarDrag);
+			scrollbar.addEventListener('pointercancel', finishScrollbarDrag);
+		}
 
 		let startX = 0;
 		let currentX = 0;

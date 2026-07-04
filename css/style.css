@@ -1817,9 +1817,14 @@ a.booking-button[href*="online-booking"] {
 .home-areas-grid,
 .home-process-grid{
 	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: 24px;
 	margin-top: 42px;
+}
+.home-areas-grid{
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.home-process-grid{
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .home-area-card,
 .home-process-card{
@@ -2618,6 +2623,10 @@ overflow:hidden;}
 .blog-image img{
 	display: block;
 }
+.blog-image{
+	height: 100%;
+	width: 100%;
+}
 .blog-image img{
 	width: 100%;
 	height: 100%;
@@ -2804,6 +2813,19 @@ overflow:hidden;}
 	margin-bottom: 20px;
 }
 
+.appointment-cta{
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	justify-content: center;
+	margin-top: 34px;
+	text-align: center;
+}
+.appointment-cta .button-v1{
+	margin-left: auto;
+	margin-right: auto;
+}
 /*Appointment END*/
 
 /*Partners START*/
@@ -8328,5 +8350,107 @@ main:has(.location-page-content) .pricing-table + .why-wrap {
   .header-bottom .button-wrap .button-v1 {
     padding-left: 24px !important;
     padding-right: 24px !important;
+  }
+}
+
+/* Home page polish: process grid, gallery scrollbar, blog cards, and appointment CTA. */
+.home-process-wrap .home-process-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.swiper-gallery.native-slider {
+  padding-bottom: 6px;
+}
+
+.swiper-gallery.native-slider .swiper-scrollbar {
+  background: rgba(20, 50, 90, 0.24) !important;
+  border-radius: 999px !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.42);
+  cursor: pointer;
+  display: block !important;
+  height: 10px !important;
+  left: auto !important;
+  margin: 56px auto 0 auto !important;
+  max-width: min(560px, calc(100% - 48px)) !important;
+  overflow: hidden !important;
+  position: relative !important;
+  transform: none !important;
+  width: 100% !important;
+}
+
+.swiper-gallery.native-slider .native-scrollbar-drag {
+  background: var(--color-4) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 18px rgba(20, 50, 90, 0.18);
+  cursor: grab;
+  min-width: 72px;
+}
+
+.swiper-gallery.native-slider .native-scrollbar-drag:active {
+  cursor: grabbing;
+}
+
+.swiper-blog.native-slider .blog-item {
+  border-radius: 20px !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.swiper-blog.native-slider .blog-thumb {
+  aspect-ratio: 3 / 2;
+  height: auto !important;
+  max-width: 100% !important;
+  min-height: 260px;
+  width: 100% !important;
+}
+
+.swiper-blog.native-slider .blog-image {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.swiper-blog.native-slider .blog-image img {
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  width: 100% !important;
+}
+
+.appointment-wrap .appointment-cta {
+  align-items: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+  justify-content: center !important;
+  margin-top: 34px !important;
+  text-align: center !important;
+}
+
+.appointment-wrap .appointment-cta .button-v1 {
+  margin-top: 0 !important;
+}
+
+.appointment-wrap .booking-service-note {
+  color: var(--color-title) !important;
+  font-size: 16px !important;
+  font-style: italic !important;
+  font-weight: 700 !important;
+  line-height: 1.45 !important;
+  margin: 0 !important;
+  max-width: 520px !important;
+}
+
+@media screen and (max-width: 768px) {
+  .home-process-wrap .home-process-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .swiper-gallery.native-slider .swiper-scrollbar {
+    margin-top: 38px !important;
+    max-width: calc(100% - 36px) !important;
+  }
+
+  .swiper-blog.native-slider .blog-thumb {
+    min-height: 220px;
   }
 }
