@@ -1,5 +1,8 @@
 RewriteEngine On
 
+# Keep request backups and SMTP config private.
+RewriteRule ^private/ - [F,L]
+
 # Canonical host: force every public request to https://alex-repair.com.
 RewriteCond %{HTTP_HOST} ^www\.alex-repair\.com$ [NC]
 RewriteRule ^ https://alex-repair.com%{REQUEST_URI} [R=301,L,NE]

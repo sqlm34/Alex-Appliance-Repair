@@ -1,1 +1,4 @@
 images/_backup_before_photo_refresh/
+private/smtp-config.php
+private/submissions/*
+!private/submissions/.gitkeep
