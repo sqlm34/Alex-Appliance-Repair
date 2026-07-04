@@ -168,6 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 
 		document.querySelectorAll('.appointment-row').forEach((wrap) => {
+			const title = wrap.querySelector('.appointment-right h2');
+			if (title && /book\s+an\s+appointment/i.test(title.textContent || '')) {
+				return;
+			}
 			moveCta({
 				wrap,
 				source: wrap.querySelector('.appointment-right'),
