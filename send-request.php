@@ -128,6 +128,10 @@ $bodyLines = [
     $message,
 ];
 
+if ($attachment !== null) {
+    array_splice($bodyLines, 9, 0, 'Model number photo: attached as ' . $attachment['name']);
+}
+
 $fromAddress = 'no-reply@alex-repair.com';
 $messageId = sprintf('<%s@alex-repair.com>', bin2hex(random_bytes(16)));
 $replyToName = str_replace(['"', '<', '>'], '', $name);

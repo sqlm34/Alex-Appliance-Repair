@@ -211,8 +211,11 @@
   }
 
   async function sendRequest() {
-    const primaryEndpoint = form.dataset.endpoint;
-    const backupEndpoint = form.dataset.backupEndpoint || form.dataset.fallbackEndpoint;
+    const hasAttachment = Boolean(fields.photo.files && fields.photo.files[0]);
+    const formSubmitEndpoint = form.dataset.endpoint;
+    const serverEndpoint = form.dataset.backupEndpoint || form.dataset.fallbackEndpoint;
+    const primaryEndpoint = hasAttachment ? serverEndpoint : formSubmitEndpoint;
+    const backupEndpoint = hasAttachment ? formSubmitEndpoint : serverEndpoint;
     let primaryError = null;
 
     try {

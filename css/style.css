@@ -9285,12 +9285,26 @@ main :is(.mb-50, .mb-80, .mb-100) {
 }
 
 /* Contact page booking buttons: keep the CTA group inside the card. */
+main .contact-page-copy {
+	justify-content: flex-start !important;
+}
+
+main .contact-page-copy .title-left-white {
+	margin-bottom: 0 !important;
+}
+
+main .contact-page-copy .subtitle {
+	margin-bottom: 18px !important;
+}
+
 main .contact-actions {
-	align-items: center !important;
+	align-items: flex-start !important;
 	flex-direction: column !important;
 	flex-wrap: nowrap !important;
 	gap: 14px !important;
-	justify-content: center !important;
+	justify-content: flex-start !important;
+	margin-top: 34px !important;
+	width: 100% !important;
 }
 
 main .contact-actions .button-v1 {
@@ -9315,9 +9329,9 @@ main .contact-actions .button-v1 {
 main .contact-actions .booking-service-note {
 	box-sizing: border-box !important;
 	display: block !important;
-	margin: 0 auto !important;
+	margin: 0 !important;
 	max-width: 360px !important;
-	text-align: center !important;
+	text-align: left !important;
 	white-space: normal !important;
 	width: 100% !important;
 }
