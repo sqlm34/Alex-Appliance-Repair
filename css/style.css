@@ -8987,3 +8987,105 @@ main:has(.location-page-content) .why-wrap :is(.repair-list, .repair-steps) li s
 		grid-template-columns: 1fr;
 	}
 }
+
+/* Final site-wide vertical rhythm: consistent section spacing across pages. */
+:root {
+	--site-section-y: 72px;
+	--site-section-y-first: 20px;
+	--site-section-title-gap: 24px;
+	--site-text-section-y: 56px;
+	--site-block-gap: 32px;
+}
+
+main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) {
+	box-sizing: border-box;
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+	padding-bottom: var(--site-section-y) !important;
+	padding-top: var(--site-section-y) !important;
+}
+
+main > .breadcrumbs-wrap + section:not(.banner-wrap):not(.marquee-wrap),
+main > .breadcrumbs-wrap + .contact-page-wrap,
+main > .breadcrumbs-wrap + .alex-blog-page,
+main > .breadcrumbs-wrap + .alex-article-page,
+main > .breadcrumbs-wrap + .service-wrap {
+	padding-top: var(--site-section-y-first) !important;
+}
+
+main > section:has(+ :is(.washer-issues, .service-area-logo-grid, .repair-sec)) {
+	padding-bottom: var(--site-section-title-gap) !important;
+}
+
+main > :is(.washer-issues, .service-area-logo-grid, .repair-sec) {
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+}
+
+main > :is(.washer-issues, .service-area-logo-grid, .repair-sec) + section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) {
+	padding-top: var(--site-section-y) !important;
+}
+
+main:has(.location-page-content) > section.service-section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) {
+	padding-bottom: var(--site-text-section-y) !important;
+	padding-top: var(--site-text-section-y) !important;
+}
+
+main:has(.location-page-content) > :is(.washer-issues, .service-area-logo-grid, .repair-sec, .schedule-block-wrapper) {
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+}
+
+main :is(.title-row, .brands-directory-heading, .section-heading, .section-header) {
+	margin-bottom: var(--site-block-gap) !important;
+}
+
+main :is(.about-num-wrap, .schedule-block-wrapper, .home-process-grid, .home-areas-grid, .pricing-table, .partners-row, .gallery-row, .blog-row) {
+	margin-top: var(--site-block-gap) !important;
+}
+
+main :is(.appointment-row, .faq-row, .why-wrap, .offer-row, .numbers-row, .testimonials-row, .brands-directory-inner, .brands-directory-hero-inner) {
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
+}
+
+main :is(.mt-50, .mt-80, .mt-100) {
+	margin-top: var(--site-block-gap) !important;
+}
+
+main :is(.mb-50, .mb-80, .mb-100) {
+	margin-bottom: var(--site-block-gap) !important;
+}
+
+@media screen and (max-width: 768px) {
+	:root {
+		--site-section-y: 56px;
+		--site-section-y-first: 20px;
+		--site-section-title-gap: 20px;
+		--site-text-section-y: 44px;
+		--site-block-gap: 26px;
+	}
+}
+
+@media screen and (max-width: 575px) {
+	:root {
+		--site-section-y: 46px;
+		--site-section-y-first: 18px;
+		--site-section-title-gap: 18px;
+		--site-text-section-y: 38px;
+		--site-block-gap: 22px;
+	}
+
+	main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) {
+		padding-bottom: var(--site-section-y) !important;
+		padding-top: var(--site-section-y) !important;
+	}
+
+	main > .breadcrumbs-wrap + section:not(.banner-wrap):not(.marquee-wrap),
+	main > .breadcrumbs-wrap + .contact-page-wrap,
+	main > .breadcrumbs-wrap + .alex-blog-page,
+	main > .breadcrumbs-wrap + .alex-article-page,
+	main > .breadcrumbs-wrap + .service-wrap {
+		padding-top: var(--site-section-y-first) !important;
+	}
+}
