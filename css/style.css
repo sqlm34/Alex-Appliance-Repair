@@ -8733,14 +8733,16 @@ main:has(.location-page-content) .pricing-table + .why-wrap {
 	line-height: 1.72;
 }
 
-.google-floating-badge-loader {
+.google-floating-badge-loader,
+.site-floating-badge-loader {
 	height: 0;
 	overflow: visible;
 	position: relative;
 	width: 0;
 }
 
-.google-floating-badge-loader .elfsight-app-652e7dfb-6033-4b95-bde5-d9b9185f2192 {
+.google-floating-badge-loader .elfsight-app-652e7dfb-6033-4b95-bde5-d9b9185f2192,
+.site-floating-badge-loader .elfsight-app-652e7dfb-6033-4b95-bde5-d9b9185f2192 {
 	height: 0;
 	min-height: 0;
 	overflow: hidden;
@@ -8779,5 +8781,61 @@ main:has(.location-page-content) .pricing-table + .why-wrap {
 
 	.google-review-slide p {
 		font-size: 15px;
+	}
+}
+
+.appointment-wrap .appointment-right :is(.appointment-cta, .team-button, .button-container) {
+	align-items: center !important;
+	display: flex !important;
+	flex-direction: column !important;
+	gap: 14px !important;
+	justify-content: center !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	text-align: center !important;
+	width: 100% !important;
+}
+
+.appointment-wrap .appointment-right :is(.appointment-cta, .team-button, .button-container).mt-50 {
+	margin-top: 34px !important;
+}
+
+.appointment-wrap .appointment-right :is(.appointment-cta, .team-button, .button-container) > a[href*="online-booking"] {
+	align-self: center !important;
+	justify-content: center !important;
+	margin: 0 auto !important;
+	text-align: center !important;
+}
+
+.appointment-wrap .appointment-right :is(.appointment-cta, .team-button, .button-container) > .booking-service-note {
+	align-self: center !important;
+	display: block !important;
+	margin: 0 auto !important;
+	max-width: min(100%, 520px) !important;
+	text-align: center !important;
+	width: 100% !important;
+}
+
+.schedule-block-wrapper .schedule-blocks {
+	gap: 20px !important;
+	grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+	margin: 0 auto !important;
+	max-width: 1020px !important;
+	width: 100% !important;
+}
+
+.schedule-block-wrapper .days-blocks-left,
+.schedule-block-wrapper .days-blocks-right {
+	display: contents !important;
+}
+
+.schedule-block-wrapper .day-wrapper {
+	align-items: center !important;
+	min-height: 96px !important;
+}
+
+@media screen and (max-width: 700px) {
+	.schedule-block-wrapper .schedule-blocks {
+		grid-template-columns: 1fr !important;
 	}
 }

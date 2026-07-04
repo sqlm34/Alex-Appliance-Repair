@@ -93,6 +93,31 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
+	function ensureFloatingReviewsBadge() {
+		const appClass = 'elfsight-app-652e7dfb-6033-4b95-bde5-d9b9185f2192';
+		if (!document.querySelector(`.${appClass}`)) {
+			const loader = document.createElement('div');
+			loader.className = 'site-floating-badge-loader';
+			loader.setAttribute('aria-hidden', 'true');
+
+			const app = document.createElement('div');
+			app.className = appClass;
+			app.setAttribute('data-elfsight-app-lazy', '');
+
+			loader.appendChild(app);
+			document.body.appendChild(loader);
+		}
+
+		if (!document.querySelector('script[src*="static.elfsight.com/platform/platform.js"]')) {
+			const script = document.createElement('script');
+			script.src = 'https://static.elfsight.com/platform/platform.js';
+			script.async = true;
+			document.head.appendChild(script);
+		}
+	}
+
+	ensureFloatingReviewsBadge();
+
 	const bookingNoticeText = '$89. Waived if repair is needed.';
 	const bookingLinks = document.querySelectorAll('a[href*="online-booking"]');
 	bookingLinks.forEach((link) => {
