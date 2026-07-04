@@ -9284,10 +9284,12 @@ main :is(.mb-50, .mb-80, .mb-100) {
 	}
 }
 
-/* Contact page booking buttons: keep Call Now and Booking Now aligned as a pair. */
+/* Contact page booking buttons: keep the CTA group inside the card. */
 main .contact-actions {
 	align-items: center !important;
+	flex-direction: column !important;
 	flex-wrap: nowrap !important;
+	gap: 14px !important;
 	justify-content: center !important;
 }
 
@@ -9295,33 +9297,43 @@ main .contact-actions .button-v1 {
 	align-items: center !important;
 	box-sizing: border-box !important;
 	display: inline-flex !important;
-	flex: 0 0 190px !important;
+	flex: 0 0 auto !important;
 	height: 55px !important;
 	justify-content: center !important;
 	line-height: 1 !important;
 	margin-left: 0 !important;
 	margin-right: 0 !important;
-	max-width: 190px !important;
-	min-width: 190px !important;
+	max-width: 260px !important;
+	min-width: 0 !important;
 	padding-left: 18px !important;
 	padding-right: 18px !important;
 	text-align: center !important;
 	white-space: nowrap !important;
-	width: 190px !important;
+	width: min(260px, 100%) !important;
+}
+
+main .contact-actions .booking-service-note {
+	box-sizing: border-box !important;
+	display: block !important;
+	margin: 0 auto !important;
+	max-width: 360px !important;
+	text-align: center !important;
+	white-space: normal !important;
+	width: 100% !important;
 }
 
 @media screen and (max-width: 575px) {
 	main .contact-actions {
-		gap: 10px !important;
+		gap: 12px !important;
 	}
 
 	main .contact-actions .button-v1 {
-		flex-basis: min(156px, calc((100vw - 52px) / 2)) !important;
+		flex-basis: auto !important;
 		font-size: 13px !important;
-		max-width: none !important;
+		max-width: 335px !important;
 		min-width: 0 !important;
 		padding-left: 10px !important;
 		padding-right: 10px !important;
-		width: min(156px, calc((100vw - 52px) / 2)) !important;
+		width: 100% !important;
 	}
 }
