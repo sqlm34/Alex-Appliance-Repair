@@ -128,31 +128,45 @@ $bodyLines = [
     $message,
 ];
 
-$boundary = 'alex_' . bin2hex(random_bytes(12));
+$fromAddress = 'no-reply@alex-repair.com';
+$messageId = sprintf('<%s@alex-repair.com>', bin2hex(random_bytes(16)));
+$replyToName = str_replace(['"', '<', '>'], '', $name);
 $headers = [
-    'From: Alex Appliance Repair <no-reply@alex-repair.com>',
-    'Reply-To: ' . $name . ' <' . $email . '>',
+    'From: Alex Appliance Repair Website <' . $fromAddress . '>',
+    'Reply-To: "' . $replyToName . '" <' . $email . '>',
+    'To: ' . RECIPIENT_EMAIL,
+    'Date: ' . date(DATE_RFC2822),
+    'Message-ID: ' . $messageId,
     'MIME-Version: 1.0',
-    'Content-Type: multipart/mixed; boundary="' . $boundary . '"',
+    'X-Mailer: PHP/' . phpversion(),
 ];
 
-$emailBody = "--{$boundary}\r\n";
-$emailBody .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$emailBody .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
-$emailBody .= implode("\r\n", $bodyLines) . "\r\n";
+if ($attachment === null || !is_uploaded_file($attachment['path'])) {
+    $headers[] = 'Content-Type: text/plain; charset=UTF-8';
+    $headers[] = 'Content-Transfer-Encoding: 8bit';
+    $emailBody = implode("\r\n", $bodyLines) . "\r\n";
+} else {
+    $boundary = 'alex_' . bin2hex(random_bytes(12));
+    $headers[] = 'Content-Type: multipart/mixed; boundary="' . $boundary . '"';
 
-if ($attachment !== null && is_uploaded_file($attachment['path'])) {
+    $emailBody = "--{$boundary}\r\n";
+    $emailBody .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $emailBody .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
+    $emailBody .= implode("\r\n", $bodyLines) . "\r\n";
+
     $fileData = chunk_split(base64_encode((string)file_get_contents($attachment['path'])));
     $emailBody .= "--{$boundary}\r\n";
     $emailBody .= 'Content-Type: ' . $attachment['type'] . '; name="' . $attachment['name'] . "\"\r\n";
     $emailBody .= "Content-Transfer-Encoding: base64\r\n";
     $emailBody .= 'Content-Disposition: attachment; filename="' . $attachment['name'] . "\"\r\n\r\n";
     $emailBody .= $fileData . "\r\n";
+    $emailBody .= "--{$boundary}--\r\n";
 }
 
-$emailBody .= "--{$boundary}--\r\n";
-
-$sent = mail(RECIPIENT_EMAIL, $subject, $emailBody, implode("\r\n", $headers));
+$sent = @mail(RECIPIENT_EMAIL, $subject, $emailBody, implode("\r\n", $headers), '-f ' . $fromAddress);
+if (!$sent) {
+    $sent = @mail(RECIPIENT_EMAIL, $subject, $emailBody, implode("\r\n", $headers));
+}
 if (!$sent) {
     respond(500, ['success' => false, 'message' => 'Mail delivery failed.']);
 }

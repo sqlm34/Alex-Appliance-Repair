@@ -201,6 +201,12 @@
       failed.errors = data.errors;
       throw failed;
     }
+    if (String(data.success).toLowerCase() === 'false') {
+      const failed = new Error(data.message || 'Request failed');
+      failed.status = response.status;
+      failed.errors = data.errors;
+      throw failed;
+    }
     return data;
   }
 
