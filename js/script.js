@@ -797,6 +797,44 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 	//Swiper Testimonials V2 END//
 
+	// Google Reviews widget fallback START
+	function setupGoogleReviewsFallback() {
+		const widgetCard = document.querySelector('.google-reviews-widget-card');
+		const elfsightApp = widgetCard ? widgetCard.querySelector('.elfsight-app-652e7dfb-6033-4b95-bde5-d9b9185f2192') : null;
+		const fallback = widgetCard ? widgetCard.querySelector('[data-google-reviews-fallback]') : null;
+
+		if (!widgetCard || !elfsightApp || !fallback) {
+			return;
+		}
+
+		function isElfsightRendered() {
+			const box = elfsightApp.getBoundingClientRect();
+			const text = (elfsightApp.innerText || '').trim();
+			const richContent = elfsightApp.querySelector('iframe, [class*="Review"], [class*="Card"], [class*="Widget"]');
+
+			return box.height > 80 || text.length > 20 || Boolean(richContent);
+		}
+
+		function updateFallback() {
+			fallback.hidden = isElfsightRendered();
+		}
+
+		const observer = new MutationObserver(updateFallback);
+		observer.observe(elfsightApp, {
+			attributes: true,
+			childList: true,
+			subtree: true
+		});
+
+		updateFallback();
+		setTimeout(updateFallback, 4000);
+		setTimeout(updateFallback, 8000);
+		setTimeout(updateFallback, 14000);
+	}
+
+	setupGoogleReviewsFallback();
+	// Google Reviews widget fallback END
+
 
 	//Magnific-popup START//
 	if (typeof window.jQuery !== 'undefined' && typeof window.jQuery.fn.magnificPopup !== 'undefined') {
