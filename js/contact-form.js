@@ -181,6 +181,9 @@
   }
 
   async function sendPayload(endpoint, payload) {
+    if (!endpoint) {
+      throw new Error('Missing endpoint');
+    }
     const response = await fetch(endpoint, {
       method: 'POST',
       body: payload,
@@ -199,6 +202,35 @@
       throw failed;
     }
     return data;
+  }
+
+  async function sendRequest() {
+    const primaryEndpoint = form.dataset.endpoint;
+    const backupEndpoint = form.dataset.backupEndpoint || form.dataset.fallbackEndpoint;
+    let primaryError = null;
+
+    try {
+      await sendPayload(primaryEndpoint, buildPayload());
+      return;
+    } catch (error) {
+      primaryError = error;
+      if (error.status === 422) {
+        throw error;
+      }
+    }
+
+    if (!backupEndpoint || backupEndpoint === primaryEndpoint) {
+      throw primaryError;
+    }
+
+    try {
+      await sendPayload(backupEndpoint, buildPayload());
+    } catch (backupError) {
+      if (backupError.status === 422) {
+        throw backupError;
+      }
+      throw primaryError || backupError;
+    }
   }
 
   fields.name.addEventListener('input', () => {
@@ -242,7 +274,7 @@
     setStatus('Sending your request...', false);
 
     try {
-      await sendPayload(form.dataset.endpoint, buildPayload());
+      await sendRequest();
 
       form.reset();
       if (fileName) fileName.textContent = 'No file selected';
@@ -251,16 +283,6 @@
     } catch (error) {
       if (error.status === 422 && applyServerErrors(error.errors)) {
         setStatus('Please correct the highlighted fields and send again.', true);
-      } else if (form.dataset.fallbackEndpoint) {
-        try {
-          await sendPayload(form.dataset.fallbackEndpoint, buildPayload());
-          form.reset();
-          if (fileName) fileName.textContent = 'No file selected';
-          setStatus('', false);
-          showModal();
-        } catch (fallbackError) {
-          setStatus('We could not send the request automatically. Please call us at (463) 248-8429 or try again.', true);
-        }
       } else {
         setStatus('We could not send the request automatically. Please call us at (463) 248-8429 or try again.', true);
       }

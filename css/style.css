@@ -9283,3 +9283,45 @@ main :is(.mb-50, .mb-80, .mb-100) {
 		padding-top: var(--site-section-y-first) !important;
 	}
 }
+
+/* Contact page booking buttons: keep Call Now and Booking Now aligned as a pair. */
+main .contact-actions {
+	align-items: center !important;
+	flex-wrap: nowrap !important;
+	justify-content: center !important;
+}
+
+main .contact-actions .button-v1 {
+	align-items: center !important;
+	box-sizing: border-box !important;
+	display: inline-flex !important;
+	flex: 0 0 190px !important;
+	height: 55px !important;
+	justify-content: center !important;
+	line-height: 1 !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	max-width: 190px !important;
+	min-width: 190px !important;
+	padding-left: 18px !important;
+	padding-right: 18px !important;
+	text-align: center !important;
+	white-space: nowrap !important;
+	width: 190px !important;
+}
+
+@media screen and (max-width: 575px) {
+	main .contact-actions {
+		gap: 10px !important;
+	}
+
+	main .contact-actions .button-v1 {
+		flex-basis: min(156px, calc((100vw - 52px) / 2)) !important;
+		font-size: 13px !important;
+		max-width: none !important;
+		min-width: 0 !important;
+		padding-left: 10px !important;
+		padding-right: 10px !important;
+		width: min(156px, calc((100vw - 52px) / 2)) !important;
+	}
+}
