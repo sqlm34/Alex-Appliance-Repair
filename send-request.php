@@ -412,7 +412,8 @@ respond(200, [
     'success' => true,
     'message' => 'Request received.',
     'stored' => true,
-    'email_sent' => $delivery['smtp_sent'] || $delivery['php_mail_sent'],
+    'email_sent' => $delivery['smtp_sent'],
+    'php_mail_accepted' => $delivery['php_mail_sent'],
     'smtp_configured' => $delivery['smtp_configured'],
     'submission_id' => $submissionId,
 ]);
