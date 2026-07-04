@@ -29,7 +29,7 @@
 	<!-- Styles START -->
 	<link rel="stylesheet" href="css/magnific-popup.min.css">
 	<link rel="stylesheet" href="css/swiper-bundle.min.css">
-	<link rel="stylesheet" href="css/style.css?v=20260704-site-rhythm-standard">
+	<link rel="stylesheet" href="css/style.css?v=20260704-contact-form-areas">
 	<!-- Styles END -->
 
 	<title>Contact Alex Appliance Repair | Book Appliance Service</title>
@@ -503,16 +503,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<div class="contact-grid">
 				<div class="contact-form-panel">
 					<h2>Request Service</h2>
-					<form class="contact-form" action="mailto:alexeasyrepair@gmail.com" method="post" enctype="text/plain">
+					<form class="contact-form" action="/send-request.php" method="POST" enctype="multipart/form-data" data-request-service-form data-endpoint="/send-request.php" data-fallback-endpoint="https://formsubmit.co/ajax/alexeasyrepair@gmail.com" novalidate>
+						<input type="hidden" name="_subject" value="New service request from alex-repair.com">
+						<input type="hidden" name="_template" value="table">
+						<input type="hidden" name="_captcha" value="false">
+						<input type="hidden" name="_next" value="https://alex-repair.com/contacts.html?request=sent">
+						<input type="hidden" name="Source_Page" value="https://alex-repair.com/contacts.html">
 						<div class="input-row">
-							<input type="text" name="name" placeholder="Your Name" required>
-							<input type="tel" name="phone" placeholder="Phone Number" required>
+							<div class="form-field">
+								<input id="service-name" type="text" name="Name" placeholder="Your Name" autocomplete="name" maxlength="60" required>
+								<small class="field-error" data-error-for="name"></small>
+							</div>
+							<div class="form-field">
+								<input id="service-phone" type="tel" name="Phone" placeholder="Phone Number (10 digits)" autocomplete="tel" inputmode="numeric" maxlength="11" required>
+								<small class="field-error" data-error-for="phone"></small>
+							</div>
 						</div>
 						<div class="input-row">
-							<input type="email" name="email" placeholder="Email Address">
-							<input type="text" name="city" placeholder="City">
+							<div class="form-field">
+								<input id="service-email" type="email" name="Email" placeholder="Email Address" autocomplete="email" maxlength="80" required>
+								<small class="field-error" data-error-for="email"></small>
+							</div>
+							<div class="form-field">
+								<input id="service-city" type="text" name="City" placeholder="City" autocomplete="address-level2" maxlength="60" list="service-city-options" required>
+								<small class="field-error" data-error-for="city"></small>
+							</div>
 						</div>
-						<select name="service" aria-label="Select appliance repair service">
+						<datalist id="service-city-options">
+							<option value="Carmel">
+							<option value="Fishers">
+							<option value="Noblesville">
+							<option value="McCordsville">
+							<option value="Zionsville">
+							<option value="Westfield">
+						</datalist>
+						<div class="form-field">
+						<select id="service-type" name="Service" aria-label="Select appliance repair service" required>
 							<option value="">Select Service</option>
 							<option value="Refrigerator Repair">Refrigerator Repair</option>
 							<option value="Washer Repair">Washer Repair</option>
@@ -523,7 +549,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<option value="Cooktop Repair">Cooktop Repair</option>
 							<option value="Freezer Repair">Freezer Repair</option>
 						</select>
-						<textarea name="message" placeholder="Tell us what appliance is not working"></textarea>
+							<small class="field-error" data-error-for="service"></small>
+						</div>
+						<div class="form-field">
+							<textarea id="service-message" name="Message" placeholder="Tell us what appliance is not working" maxlength="1200" required></textarea>
+							<small class="field-error" data-error-for="message"></small>
+						</div>
+						<div class="form-field form-field-file">
+							<label for="model-photo">Photo of model number sticker</label>
+							<input id="model-photo" type="file" name="Model_Number_Photo" accept="image/jpeg,image/png,image/webp,image/heic,image/heif">
+							<span class="file-hint">Attach a clear photo if you have it. JPG, PNG, WEBP, HEIC up to 8 MB.</span>
+							<span class="file-name" data-file-name>No file selected</span>
+							<small class="field-error" data-error-for="photo"></small>
+						</div>
+						<p class="form-submit-status" data-form-status role="status" aria-live="polite"></p>
 						<button type="submit" class="button-v1">Send Request</button>
 					</form>
 				</div>
@@ -557,6 +596,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			</div>
 		</div>
 	</section>
+	<div class="request-service-modal" id="request-service-modal" aria-hidden="true">
+		<div class="request-service-modal-backdrop" data-modal-close></div>
+		<div class="request-service-modal-card" role="dialog" aria-modal="true" aria-labelledby="request-service-modal-title">
+			<button class="request-service-modal-close" type="button" aria-label="Close message" data-modal-close>&times;</button>
+			<h2 id="request-service-modal-title">Thank you for your request!</h2>
+			<p>We appreciate you choosing Alex Appliance Repair. Your service request has been sent, and we will respond within about 30 minutes during working hours.</p>
+			<button class="button-v1" type="button" data-modal-close>Close</button>
+		</div>
+	</div>
 
 </main>
 
@@ -660,6 +708,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="/js/google-reviews-config.js?v=2026?60523-google-reviews" defer></script>
 <script src="/js/google-reviews.js?v=2026?60523-google-reviews" defer></script>
 <script src="js/script.js?v=20260704-appointment-badge-schedule"></script>
+<script src="js/contact-form.js?v=20260704-contact-form-areas" defer></script>
 <script src="/js/gtm-monitoring.js?v=20260624-gtm-rebuild" defer></script>
 </body>
 
