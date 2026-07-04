@@ -50,6 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $name = clean_text(value('Name'));
 $phone = preg_replace('/\D+/', '', value('Phone')) ?? '';
+if (strlen($phone) === 10) {
+    $phone = '1' . $phone;
+}
+$phoneDisplay = '+' . $phone;
 $email = filter_var(value('Email'), FILTER_SANITIZE_EMAIL);
 $city = clean_text(value('City'));
 $service = clean_text(value('Service'));
@@ -60,7 +64,7 @@ $errors = [];
 if (!is_letters_only($name)) {
     $errors['name'] = 'Please enter a real name using letters only.';
 }
-if (!preg_match('/^1?\d{10}$/', $phone)) {
+if (!preg_match('/^1\d{10}$/', $phone)) {
     $errors['phone'] = 'Please enter a valid 10-digit phone number.';
 }
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -114,7 +118,7 @@ $bodyLines = [
     'New Request Service submission',
     '',
     'Name: ' . $name,
-    'Phone: ' . $phone,
+    'Phone: ' . $phoneDisplay,
     'Email: ' . $email,
     'City: ' . $city,
     'Service: ' . $service,

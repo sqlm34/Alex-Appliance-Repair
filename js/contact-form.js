@@ -17,6 +17,7 @@
   const submitButton = form.querySelector('button[type="submit"]');
   const modal = document.querySelector('#request-service-modal');
   const modalCloseButtons = modal ? modal.querySelectorAll('[data-modal-close]') : [];
+  let previousScrollY = 0;
   const maxFileBytes = 8 * 1024 * 1024;
   const allowedImageTypes = new Set([
     'image/jpeg',
@@ -55,6 +56,21 @@
     return value.replace(/[0-9]/g, '').replace(/[^A-Za-z\s'.-]/g, '');
   }
 
+  function getLocalPhoneDigits(value) {
+    const digits = value.replace(/\D/g, '');
+    return digits.startsWith('1') ? digits.slice(1, 11) : digits.slice(0, 10);
+  }
+
+  function formatPhone(value) {
+    const digits = getLocalPhoneDigits(value);
+    return digits ? `+1 ${digits}` : '';
+  }
+
+  function normalizedPhone() {
+    const digits = getLocalPhoneDigits(fields.phone.value);
+    return digits.length === 10 ? `+1${digits}` : '';
+  }
+
   function shortenFileName(name) {
     if (!name || name.length <= 48) return name;
     const dotIndex = name.lastIndexOf('.');
@@ -65,9 +81,15 @@
 
   function showModal() {
     if (!modal) return;
+    if (modal.parentElement !== document.body) {
+      document.body.appendChild(modal);
+    }
+    previousScrollY = window.scrollY || document.documentElement.scrollTop || 0;
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
+    document.documentElement.classList.add('request-modal-open');
     document.body.classList.add('request-modal-open');
+    document.body.style.top = `-${previousScrollY}px`;
     const closeButton = modal.querySelector('[data-modal-close]');
     if (closeButton) closeButton.focus({ preventScroll: true });
   }
@@ -76,7 +98,10 @@
     if (!modal) return;
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
+    document.documentElement.classList.remove('request-modal-open');
     document.body.classList.remove('request-modal-open');
+    document.body.style.top = '';
+    window.scrollTo(0, previousScrollY);
   }
 
   function validate() {
@@ -86,16 +111,16 @@
 
     fields.name.value = trimSpaces(cleanName(fields.name.value));
     fields.city.value = trimSpaces(cleanCity(fields.city.value));
-    fields.phone.value = fields.phone.value.replace(/\D/g, '').slice(0, 11);
+    fields.phone.value = formatPhone(fields.phone.value);
 
     if (!/^[A-Za-z][A-Za-z\s'.-]{1,59}$/.test(fields.name.value)) {
       setError('name', 'Please enter a real name using letters only.');
       isValid = false;
     }
 
-    const phone = fields.phone.value;
-    if (!(/^1?\d{10}$/.test(phone))) {
-      setError('phone', 'Enter 10 digits, or 11 digits starting with 1.');
+    const phone = normalizedPhone();
+    if (!phone) {
+      setError('phone', 'Enter a valid 10-digit U.S. phone number.');
       isValid = false;
     }
 
@@ -137,7 +162,7 @@
     const payload = new FormData(form);
     const file = fields.photo.files && fields.photo.files[0];
     payload.set('Name', fields.name.value);
-    payload.set('Phone', fields.phone.value);
+    payload.set('Phone', normalizedPhone());
     payload.set('Email', fields.email.value.trim());
     payload.set('_replyto', fields.email.value.trim());
     payload.set('City', fields.city.value);
@@ -187,7 +212,15 @@
   });
 
   fields.phone.addEventListener('input', () => {
-    fields.phone.value = fields.phone.value.replace(/\D/g, '').slice(0, 11);
+    fields.phone.value = formatPhone(fields.phone.value);
+  });
+
+  fields.phone.addEventListener('focus', () => {
+    if (!fields.phone.value) fields.phone.value = '+1 ';
+  });
+
+  fields.phone.addEventListener('blur', () => {
+    if (!getLocalPhoneDigits(fields.phone.value)) fields.phone.value = '';
   });
 
   fields.photo.addEventListener('change', () => {

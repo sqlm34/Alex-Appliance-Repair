@@ -2983,15 +2983,18 @@ overflow:hidden;}
 	justify-content: space-between;
 }
 .contact-actions{
+	align-items: center;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 16px;
+	justify-content: center;
 	margin-top: 28px;
 }
 .contact-actions .button-v1{
 	align-items: center;
 	box-sizing: border-box;
 	display: inline-flex;
+	flex: 0 0 190px;
 	height: 55px;
 	justify-content: center;
 	min-width: 190px;
@@ -3140,6 +3143,12 @@ overflow:hidden;}
 .contact-form button{
 	justify-self: center;
 	border: 0;
+	cursor: pointer;
+}
+
+.contact-form button:disabled{
+	cursor: wait;
+	opacity: 0.76;
 }
 
 @media screen and (max-width: 575px) {
@@ -9084,19 +9093,25 @@ main:has(.location-page-content) .why-wrap :is(.repair-list, .repair-steps) li s
 .request-service-modal {
 	align-items: center;
 	display: flex;
-	inset: 0;
+	bottom: 0;
 	justify-content: center;
+	left: 0;
+	min-height: 100dvh;
 	opacity: 0;
 	padding: 24px;
 	pointer-events: none;
 	position: fixed;
+	right: 0;
+	top: 0;
 	transition: opacity 0.22s ease;
-	z-index: 10000;
+	visibility: hidden;
+	z-index: 2147483000;
 }
 
 .request-service-modal.is-open {
 	opacity: 1;
 	pointer-events: auto;
+	visibility: visible;
 }
 
 .request-service-modal-backdrop {
@@ -9111,6 +9126,7 @@ main:has(.location-page-content) .why-wrap :is(.repair-list, .repair-steps) li s
 	border-radius: 8px;
 	box-shadow: 0 30px 80px rgba(7, 23, 44, 0.28);
 	box-sizing: border-box;
+	margin: auto;
 	max-width: 520px;
 	padding: 42px 34px;
 	position: relative;
@@ -9150,8 +9166,20 @@ main:has(.location-page-content) .why-wrap :is(.repair-list, .repair-steps) li s
 	width: 38px;
 }
 
+.request-service-modal-card .button-v1 {
+	cursor: pointer;
+}
+
+html.request-modal-open,
 body.request-modal-open {
-	overflow: hidden;
+	overflow: hidden !important;
+}
+
+body.request-modal-open {
+	left: 0;
+	position: fixed;
+	right: 0;
+	width: 100%;
 }
 
 /* Final site-wide vertical rhythm: consistent section spacing across pages. */
