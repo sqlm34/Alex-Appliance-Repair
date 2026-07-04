@@ -10,7 +10,12 @@
 	}
 
 	function hasReviewSlider() {
-		return document.querySelector('.swiper-testimonials, .swiper-testimonials-v2');
+		return getLegacyReviewSliders().length > 0;
+	}
+
+	function getLegacyReviewSliders() {
+		return Array.from(document.querySelectorAll('.swiper-testimonials, .swiper-testimonials-v2'))
+			.filter(swiperEl => !swiperEl.classList.contains('google-reviews-slider') && !swiperEl.closest('.google-reviews-slider-card'));
 	}
 
 	function loadGoogleMaps() {
@@ -144,11 +149,15 @@
 			return;
 		}
 		const slides = reviews.map(review => reviewSlide(review, place)).join('');
-		document.querySelectorAll('.swiper-testimonials .swiper-wrapper, .swiper-testimonials-v2 .swiper-wrapper').forEach(wrapper => {
+		getLegacyReviewSliders().forEach(swiperEl => {
+			const wrapper = swiperEl.querySelector('.swiper-wrapper');
+			if (!wrapper) {
+				return;
+			}
 			wrapper.innerHTML = slides;
-			updateSwiper(wrapper.closest('.swiper'));
+			updateSwiper(swiperEl);
 		});
-		document.querySelectorAll('.testimonials-wrap .title-left .desc p, .testimonials-v2-wrap .title-left .desc p').forEach(desc => {
+		document.querySelectorAll('.testimonials-wrap:not(.testimonials-google-section) .title-left .desc p, .testimonials-v2-wrap .title-left .desc p').forEach(desc => {
 			desc.textContent = `${place.name || 'Alex Appliance Repair'} is rated ${place.rating || '5.0'} on Google from ${place.user_ratings_total || ''} customer reviews.`;
 		});
 	}
