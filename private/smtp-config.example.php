@@ -1,7 +1,8 @@
 <?php
 return [
     // Create a mailbox in Hostinger Email, then copy this file to:
-    // private/smtp-config.php
+    // /smtp-config.php on the Hostinger account root, one level above public_html.
+    // The app also supports public_html/private/smtp-config.php for local tests.
     // Do not commit the real smtp-config.php file.
     'smtp_host' => 'smtp.hostinger.com',
     'smtp_port' => '465',

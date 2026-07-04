@@ -8,6 +8,7 @@ const MAX_FILE_BYTES = 8388608;
 const PRIVATE_DIR = __DIR__ . '/private';
 const SUBMISSIONS_DIR = PRIVATE_DIR . '/submissions';
 const SMTP_CONFIG_FILE = PRIVATE_DIR . '/smtp-config.php';
+const HOSTING_SMTP_CONFIG_FILE = __DIR__ . '/../smtp-config.php';
 
 function respond(int $status, array $payload): void
 {
@@ -79,10 +80,13 @@ function smtp_env(string $key): string
 function load_smtp_config(): array
 {
     $fileConfig = [];
-    if (is_file(SMTP_CONFIG_FILE)) {
-        $loaded = require SMTP_CONFIG_FILE;
-        if (is_array($loaded)) {
-            $fileConfig = $loaded;
+    foreach ([HOSTING_SMTP_CONFIG_FILE, SMTP_CONFIG_FILE] as $configFile) {
+        if (is_file($configFile)) {
+            $loaded = require $configFile;
+            if (is_array($loaded)) {
+                $fileConfig = $loaded;
+                break;
+            }
         }
     }
 
