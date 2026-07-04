@@ -8839,3 +8839,61 @@ main:has(.location-page-content) .pricing-table + .why-wrap {
 		grid-template-columns: 1fr !important;
 	}
 }
+
+/* Service page card polish: balanced issue grids and readable numbered process cards. */
+main:has(.location-page-content) .washer-issues {
+	align-items: stretch !important;
+	display: grid !important;
+	gap: 18px !important;
+	grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	margin: 0 auto 42px !important;
+	max-width: 1180px !important;
+	padding: 0 20px !important;
+	width: 100% !important;
+}
+
+main:has(.location-page-content) .washer-issues > .row {
+	display: contents !important;
+}
+
+main:has(.location-page-content) .washer-issues .issue-box {
+	box-sizing: border-box !important;
+	min-width: 0 !important;
+	width: 100% !important;
+}
+
+main:has(.location-page-content) .washer-issues .services-title,
+main:has(.location-page-content) .washer-issues .services-desc {
+	color: var(--color-title) !important;
+	text-shadow: none !important;
+}
+
+main:has(.location-page-content) .washer-issues .services-desc {
+	color: var(--color-text) !important;
+}
+
+main:has(.location-page-content) .why-wrap :is(.repair-list, .repair-steps) {
+	background: #fff !important;
+	border: 1px solid rgba(16, 55, 92, 0.12) !important;
+	box-shadow: 0 14px 30px rgba(16, 55, 92, 0.08) !important;
+}
+
+main:has(.location-page-content) .why-wrap :is(.repair-list, .repair-steps) li {
+	background: rgba(246, 236, 255, 0.62) !important;
+	border-color: rgba(16, 55, 92, 0.08) !important;
+	color: var(--color-title) !important;
+	text-shadow: none !important;
+}
+
+main:has(.location-page-content) .why-wrap :is(.repair-list, .repair-steps) li strong {
+	color: inherit !important;
+	text-shadow: none !important;
+}
+
+@media screen and (max-width: 700px) {
+	main:has(.location-page-content) .washer-issues {
+		grid-template-columns: 1fr !important;
+		padding-left: 18px !important;
+		padding-right: 18px !important;
+	}
+}
