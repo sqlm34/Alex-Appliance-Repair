@@ -7503,6 +7503,12 @@ main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .co
   object-fit: cover !important;
 }
 
+.about-img img {
+  height: auto;
+  max-width: 709px;
+  width: 100%;
+}
+
 .appointment-left img,
 .appiontment-left img,
 .service-carmel-thumb img,
