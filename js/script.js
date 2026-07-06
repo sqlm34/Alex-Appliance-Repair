@@ -1,5 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+	// Copyright year range START
+	document.querySelectorAll('.copyright-year-range').forEach((yearRange) => {
+		const startYear = yearRange.dataset.startYear || '2022';
+		yearRange.textContent = `${startYear} - ${new Date().getFullYear()}`;
+	});
+	// Copyright year range END
+
 	// Header START
 	let headerLinks = document.querySelectorAll('.menu-item.menu-has-children > a');
 	headerLinks.forEach(function (link) {
