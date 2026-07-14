@@ -945,6 +945,22 @@ document.addEventListener('DOMContentLoaded', () => {
 		const previousGalleryButton = galleryModal.querySelector('.carmel-gallery-prev');
 		const nextGalleryButton = galleryModal.querySelector('.carmel-gallery-next');
 
+		carmelGalleryCards.forEach((card, index) => {
+			const cardLink = carmelGalleryLinks[index];
+			card.setAttribute('role', 'button');
+			card.setAttribute('tabindex', '0');
+			card.setAttribute('aria-label', cardLink.getAttribute('aria-label') || 'View completed repair photo');
+			card.addEventListener('click', event => {
+				event.preventDefault();
+				openGallery(index);
+			});
+			card.addEventListener('keydown', event => {
+				if (event.key !== 'Enter' && event.key !== ' ') return;
+				event.preventDefault();
+				openGallery(index);
+			});
+		});
+
 		function showGalleryImage(index) {
 			currentGalleryIndex = (index + carmelGalleryLinks.length) % carmelGalleryLinks.length;
 			const activeLink = carmelGalleryLinks[currentGalleryIndex];
