@@ -837,7 +837,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (typeof Swiper !== 'undefined' && document.querySelector('.carmel-repairs-slider')) {
 		new Swiper('.carmel-repairs-slider', {
 			speed: 700,
-			spaceBetween: 18,
+			slidesPerView: 'auto',
+			centeredSlides: true,
+			spaceBetween: 20,
 			watchSlidesProgress: true,
 			navigation: {
 				nextEl: '.carmel-repairs-slider .carmel-repairs-next',
@@ -845,13 +847,13 @@ document.addEventListener('DOMContentLoaded', () => {
 			},
 			breakpoints: {
 				0: {
-					slidesPerView: 1
+					spaceBetween: 16
 				},
 				768: {
-					slidesPerView: 2
+					spaceBetween: 18
 				},
 				1200: {
-					slidesPerView: 3
+					spaceBetween: 22
 				}
 			}
 		});

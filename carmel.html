@@ -139,21 +139,33 @@
 		.carmel-repairs-slider {
 			position: relative;
 			overflow: hidden;
-			padding: 4px 4px 8px;
+			max-width: 1180px;
+			margin: 0 auto;
+			padding: 8px 0 10px;
+		}
+
+		.carmel-repairs-slider .swiper-wrapper {
+			align-items: stretch;
 		}
 
 		.carmel-repair-proof-card {
 			display: flex;
 			flex-direction: column;
-			height: auto;
-			background: #fff;
-			border: 1px solid rgba(16, 55, 92, 0.12);
-			border-radius: 18px;
+			min-height: 410px;
+			background: linear-gradient(135deg, #14325A 0%, #0C397E 52%, #2581D9 100%);
+			border: 1px solid rgba(255, 255, 255, 0.18);
+			border-radius: 22px;
 			overflow: visible;
-			box-shadow: 0 18px 38px rgba(16, 55, 92, 0.10);
+			box-shadow: 0 22px 44px rgba(16, 55, 92, 0.20);
 			margin: 0;
-			padding: 12px;
-			width: 100%;
+			padding: 18px;
+			width: 350px;
+		}
+
+		.carmel-repair-proof-card .magnific-image {
+			display: block;
+			width: 92%;
+			margin: 0 auto;
 		}
 
 		.carmel-repair-proof-card img {
@@ -167,12 +179,13 @@
 
 		.carmel-repair-proof-card figcaption {
 			margin: 0;
-			padding: 14px 4px 4px;
-			color: var(--color-title);
-			font-size: 13px;
+			padding: 20px 8px 4px;
+			color: #fff;
+			font-size: 14px;
 			font-weight: 600;
 			line-height: 1.45;
-			min-height: 66px;
+			min-height: 88px;
+			text-align: center;
 		}
 
 		.carmel-repair-proof-note {
@@ -231,10 +244,17 @@
 				padding: 52px 0;
 			}
 
+			.carmel-repair-proof-card {
+				min-height: 390px;
+				width: calc(100vw - 54px);
+				max-width: 340px;
+				padding: 16px;
+			}
+
 			.carmel-repair-proof-card figcaption {
 				font-size: 12px;
-				padding: 12px 2px 2px;
-				min-height: 58px;
+				padding: 16px 4px 2px;
+				min-height: 72px;
 			}
 		}
 
@@ -1333,7 +1353,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="js/swiper-bundle.min.js"></script>
 <script src="/js/google-reviews-config.js?v=2026?60523-google-reviews" defer></script>
 <script src="/js/google-reviews.js?v=2026?60523-google-reviews" defer></script>
-<script src="js/script.js?v=20260714-carmel-repairs-rounded"></script>
+<script src="js/script.js?v=20260714-carmel-repairs-gradient"></script>
 <script src="/js/gtm-monitoring.js?v=20260624-gtm-rebuild" defer></script>
 </body>
 
