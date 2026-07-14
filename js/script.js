@@ -835,11 +835,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	//Carmel completed repairs carousel START//
 	if (typeof Swiper !== 'undefined' && document.querySelector('.carmel-repairs-slider')) {
-		new Swiper('.carmel-repairs-slider', {
+		const carmelRepairsSlider = document.querySelector('.carmel-repairs-slider');
+		const getCarmelRepairsOffset = () => {
+			const firstSlide = carmelRepairsSlider.querySelector('.swiper-slide');
+			if (!firstSlide || window.innerWidth >= 768) return 0;
+			return Math.max((carmelRepairsSlider.clientWidth - firstSlide.getBoundingClientRect().width) / 2, 0);
+		};
+		const carmelRepairsSwiper = new Swiper('.carmel-repairs-slider', {
 			speed: 700,
 			slidesPerView: 'auto',
-			centeredSlides: true,
 			spaceBetween: 20,
+			slidesOffsetBefore: getCarmelRepairsOffset(),
+			slidesOffsetAfter: getCarmelRepairsOffset(),
+			roundLengths: true,
 			watchSlidesProgress: true,
 			navigation: {
 				nextEl: '.carmel-repairs-slider .carmel-repairs-next',
@@ -847,16 +855,24 @@ document.addEventListener('DOMContentLoaded', () => {
 			},
 			breakpoints: {
 				0: {
-					spaceBetween: 16
+					spaceBetween: 20
 				},
 				768: {
-					spaceBetween: 18
+					spaceBetween: 20
 				},
 				1200: {
-					spaceBetween: 22
+					spaceBetween: 24
 				}
 			}
 		});
+		const updateCarmelRepairsOffset = () => {
+			const offset = getCarmelRepairsOffset();
+			carmelRepairsSwiper.params.slidesOffsetBefore = offset;
+			carmelRepairsSwiper.params.slidesOffsetAfter = offset;
+			carmelRepairsSwiper.update();
+		};
+		window.addEventListener('resize', updateCarmelRepairsOffset);
+		window.addEventListener('load', updateCarmelRepairsOffset);
 	}
 	//Carmel completed repairs carousel END//
 
