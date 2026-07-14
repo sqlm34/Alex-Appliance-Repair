@@ -890,6 +890,18 @@ document.addEventListener('DOMContentLoaded', () => {
 			didDrag = false;
 		}, true);
 
+		slides.forEach(slide => {
+			slide.addEventListener('click', event => {
+				if (event.target.closest('.carmel-repairs-lightbox')) return;
+				const lightboxLink = slide.querySelector('.carmel-repairs-lightbox');
+				lightboxLink?.dispatchEvent(new MouseEvent('click', {
+					bubbles: true,
+					cancelable: true,
+					view: window
+				}));
+			});
+		});
+
 		window.addEventListener('resize', () => moveTo(activeIndex, false));
 		window.addEventListener('load', () => moveTo(activeIndex, false));
 		moveTo(0, false);
