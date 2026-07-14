@@ -967,12 +967,15 @@ document.addEventListener('DOMContentLoaded', () => {
 			galleryImage.removeAttribute('src');
 		}
 
-		carmelGalleryLinks.forEach((link, index) => {
-			link.addEventListener('click', event => {
-				event.preventDefault();
-				openGallery(index);
-			});
-		});
+		document.addEventListener('click', event => {
+			const galleryLink = event.target.closest('.carmel-repairs-lightbox');
+			if (!galleryLink) return;
+			const galleryIndex = carmelGalleryLinks.indexOf(galleryLink);
+			if (galleryIndex === -1) return;
+			event.preventDefault();
+			event.stopPropagation();
+			openGallery(galleryIndex);
+		}, true);
 
 		closeGalleryButton.addEventListener('click', closeGallery);
 		previousGalleryButton.addEventListener('click', () => showGalleryImage(currentGalleryIndex - 1));
