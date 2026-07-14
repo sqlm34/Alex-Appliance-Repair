@@ -833,6 +833,35 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 	//Swiper Testimonials V2 END//
 
+	//Carmel completed repairs carousel START//
+	if (typeof Swiper !== 'undefined' && document.querySelector('.carmel-repairs-slider')) {
+		new Swiper('.carmel-repairs-slider', {
+			speed: 700,
+			spaceBetween: 18,
+			watchSlidesProgress: true,
+			pagination: {
+				el: '.carmel-repairs-slider .carmel-repairs-pagination',
+				clickable: true
+			},
+			navigation: {
+				nextEl: '.carmel-repairs-slider .carmel-repairs-next',
+				prevEl: '.carmel-repairs-slider .carmel-repairs-prev'
+			},
+			breakpoints: {
+				0: {
+					slidesPerView: 1
+				},
+				768: {
+					slidesPerView: 2
+				},
+				1200: {
+					slidesPerView: 3
+				}
+			}
+		});
+	}
+	//Carmel completed repairs carousel END//
+
 	//Magnific-popup START//
 	if (typeof window.jQuery !== 'undefined' && typeof window.jQuery.fn.magnificPopup !== 'undefined') {
 		window.jQuery('.magnific-iframe').magnificPopup({
