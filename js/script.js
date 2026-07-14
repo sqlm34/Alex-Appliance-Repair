@@ -915,6 +915,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	//Carmel completed repairs gallery START//
 	const carmelGalleryLinks = Array.from(document.querySelectorAll('.carmel-repairs-lightbox'));
 	if (carmelGalleryLinks.length > 0) {
+		const carmelGalleryCards = carmelGalleryLinks
+			.map(link => link.closest('.carmel-repair-proof-card'))
+			.filter(Boolean);
 		let currentGalleryIndex = 0;
 		const galleryModal = document.createElement('div');
 		galleryModal.className = 'carmel-gallery-modal';
@@ -975,9 +978,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		};
 
 		document.addEventListener('click', event => {
-			const galleryLink = event.target.closest('.carmel-repairs-lightbox');
-			if (!galleryLink) return;
-			const galleryIndex = carmelGalleryLinks.indexOf(galleryLink);
+			const galleryCard = event.target.closest('.carmel-repair-proof-card');
+			if (!galleryCard) return;
+			const galleryIndex = carmelGalleryCards.indexOf(galleryCard);
 			if (galleryIndex === -1) return;
 			event.preventDefault();
 			event.stopPropagation();
