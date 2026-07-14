@@ -845,6 +845,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		let movedX = 0;
 		let didDrag = false;
 		let isPointerDown = false;
+		let shouldSuppressClick = false;
 
 		function normalizeIndex(index) {
 			return (index + slides.length) % slides.length;
@@ -871,6 +872,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			movedX = 0;
 			didDrag = false;
 			isPointerDown = true;
+			shouldSuppressClick = false;
 			track.setPointerCapture?.(event.pointerId);
 		});
 
@@ -884,6 +886,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			if (!isPointerDown) return;
 			isPointerDown = false;
 			if (Math.abs(movedX) > 45) {
+				shouldSuppressClick = true;
 				moveTo(activeIndex + (movedX < 0 ? 1 : -1));
 			}
 		});
@@ -892,13 +895,15 @@ document.addEventListener('DOMContentLoaded', () => {
 			isPointerDown = false;
 			movedX = 0;
 			didDrag = false;
+			shouldSuppressClick = false;
 		});
 
 		track?.addEventListener('click', event => {
-			if (!didDrag) return;
+			if (!shouldSuppressClick) return;
 			event.preventDefault();
 			event.stopPropagation();
 			didDrag = false;
+			shouldSuppressClick = false;
 		}, true);
 
 		window.addEventListener('resize', () => moveTo(activeIndex, false));
