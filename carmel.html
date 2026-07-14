@@ -165,20 +165,29 @@
 			box-shadow: 0 22px 44px rgba(16, 55, 92, 0.20);
 			margin: 0;
 			padding: 18px;
+			position: relative;
 			width: 350px;
 			cursor: pointer;
 		}
 
-		.carmel-repair-proof-card .carmel-repairs-lightbox {
+		.carmel-repair-card-link {
 			display: block;
-			width: 92%;
-			margin: 0 auto;
+			position: absolute;
+			inset: 0;
+			z-index: 3;
+			border-radius: 22px;
 			cursor: zoom-in;
+		}
+
+		.carmel-repair-card-link:focus-visible {
+			outline: 3px solid #fff;
+			outline-offset: 4px;
 		}
 
 		.carmel-repair-proof-card img {
 			display: block;
-			width: 100%;
+			width: 92%;
+			margin: 0 auto;
 			aspect-ratio: 4 / 3;
 			height: auto;
 			object-fit: cover;
@@ -1085,58 +1094,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			<div class="carmel-repairs-native-slider" aria-label="Selected completed appliance repairs in Carmel">
 				<div class="carmel-repairs-track">
 					<figure class="carmel-repair-proof-card">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-27.webp" class="carmel-repairs-lightbox" aria-label="View freezer evaporator fan motor replacement photo">
-							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-27.webp" width="640" height="480" alt="Freezer evaporator fan motor replacement for a Carmel appliance repair customer">
-						</a>
+						<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-27.webp" width="640" height="480" alt="Freezer evaporator fan motor replacement for a Carmel appliance repair customer">
 						<figcaption>Freezer evaporator fan motor replacement</figcaption>
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-27.webp" class="carmel-repairs-lightbox carmel-repair-card-link" aria-label="View freezer evaporator fan motor replacement photo"></a>
 					</figure>
 					<figure class="carmel-repair-proof-card">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-31.webp" class="carmel-repairs-lightbox" aria-label="View dishwasher fill funnel leak repair photo">
-							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-31.webp" width="640" height="480" alt="Dishwasher fill funnel replacement for a Carmel appliance repair customer with a water leak">
-						</a>
+						<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-31.webp" width="640" height="480" alt="Dishwasher fill funnel replacement for a Carmel appliance repair customer with a water leak">
 						<figcaption>Dishwasher fill funnel replacement for a water leak</figcaption>
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-31.webp" class="carmel-repairs-lightbox carmel-repair-card-link" aria-label="View dishwasher fill funnel leak repair photo"></a>
 					</figure>
 					<figure class="carmel-repair-proof-card">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-32.webp" class="carmel-repairs-lightbox" aria-label="View refrigerator door switch replacement photo">
-							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-32.webp" width="640" height="480" alt="KitchenAid refrigerator door switch replacement for a Carmel appliance repair customer">
-						</a>
+						<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-32.webp" width="640" height="480" alt="KitchenAid refrigerator door switch replacement for a Carmel appliance repair customer">
 						<figcaption>KitchenAid refrigerator door switch replacement</figcaption>
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-32.webp" class="carmel-repairs-lightbox carmel-repair-card-link" aria-label="View refrigerator door switch replacement photo"></a>
 					</figure>
 					<figure class="carmel-repair-proof-card">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-36.webp" class="carmel-repairs-lightbox" aria-label="View appliance wiring harness inspection photo">
-							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-36.webp" width="640" height="480" alt="Appliance wiring harness and connector inspection for a Carmel repair customer">
-						</a>
+						<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-36.webp" width="640" height="480" alt="Appliance wiring harness and connector inspection for a Carmel repair customer">
 						<figcaption>Appliance wiring harness and connector inspection</figcaption>
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-36.webp" class="carmel-repairs-lightbox carmel-repair-card-link" aria-label="View appliance wiring harness inspection photo"></a>
 					</figure>
 					<figure class="carmel-repair-proof-card">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-38.webp" class="carmel-repairs-lightbox" aria-label="View range control panel wiring diagnosis photo">
-							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-38.webp" width="640" height="480" alt="Range control panel wiring diagnosis for a Carmel appliance repair customer">
-						</a>
+						<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-38.webp" width="640" height="480" alt="Range control panel wiring diagnosis for a Carmel appliance repair customer">
 						<figcaption>Range control panel wiring diagnosis</figcaption>
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-38.webp" class="carmel-repairs-lightbox carmel-repair-card-link" aria-label="View range control panel wiring diagnosis photo"></a>
 					</figure>
 					<figure class="carmel-repair-proof-card">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-41.webp" class="carmel-repairs-lightbox" aria-label="View refrigerator temperature verification photo">
-							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-41.webp" width="640" height="480" alt="Refrigerator temperature verification after service for a Carmel appliance repair customer">
-						</a>
+						<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-41.webp" width="640" height="480" alt="Refrigerator temperature verification after service for a Carmel appliance repair customer">
 						<figcaption>Refrigerator temperature verification after service</figcaption>
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-41.webp" class="carmel-repairs-lightbox carmel-repair-card-link" aria-label="View refrigerator temperature verification photo"></a>
 					</figure>
 					<figure class="carmel-repair-proof-card">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-42.webp" class="carmel-repairs-lightbox" aria-label="View refrigerator ice compartment service photo">
-							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-42.webp" width="640" height="480" alt="Refrigerator ice compartment service and inspection for a Carmel appliance repair customer">
-						</a>
+						<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-42.webp" width="640" height="480" alt="Refrigerator ice compartment service and inspection for a Carmel appliance repair customer">
 						<figcaption>Refrigerator ice compartment service and inspection</figcaption>
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-42.webp" class="carmel-repairs-lightbox carmel-repair-card-link" aria-label="View refrigerator ice compartment service photo"></a>
 					</figure>
 					<figure class="carmel-repair-proof-card">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-48.webp" class="carmel-repairs-lightbox" aria-label="View refrigerator drain line leak cleaning photo">
-							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-48.webp" width="640" height="480" alt="Refrigerator drain line cleaning for a Carmel appliance repair customer with a water leak">
-						</a>
+						<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-48.webp" width="640" height="480" alt="Refrigerator drain line cleaning for a Carmel appliance repair customer with a water leak">
 						<figcaption>Refrigerator drain line cleaning for a water leak</figcaption>
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-48.webp" class="carmel-repairs-lightbox carmel-repair-card-link" aria-label="View refrigerator drain line leak cleaning photo"></a>
 					</figure>
 					<figure class="carmel-repair-proof-card">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-50.webp" class="carmel-repairs-lightbox" aria-label="View frozen evaporator coil defrost service photo">
-							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-50.webp" width="640" height="480" alt="Frozen refrigerator evaporator coil defrost service for a Carmel appliance repair customer">
-						</a>
+						<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-50.webp" width="640" height="480" alt="Frozen refrigerator evaporator coil defrost service for a Carmel appliance repair customer">
 						<figcaption>Frozen refrigerator evaporator coil defrost service</figcaption>
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-50.webp" class="carmel-repairs-lightbox carmel-repair-card-link" aria-label="View frozen evaporator coil defrost service photo"></a>
 					</figure>
 				</div>
 				<div class="carmel-repairs-controls" aria-label="Completed repair photo controls">
@@ -1362,7 +1362,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="js/swiper-bundle.min.js"></script>
 <script src="/js/google-reviews-config.js?v=2026?60523-google-reviews" defer></script>
 <script src="/js/google-reviews.js?v=2026?60523-google-reviews" defer></script>
-<script src="js/script.js?v=20260714-carmel-card-click-v2"></script>
+<script src="js/script.js?v=20260714-carmel-card-link"></script>
 <script src="/js/gtm-monitoring.js?v=20260624-gtm-rebuild" defer></script>
 </body>
 

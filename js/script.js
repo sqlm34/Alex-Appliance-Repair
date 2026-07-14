@@ -890,14 +890,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			didDrag = false;
 		}, true);
 
-		slides.forEach(slide => {
-			slide.addEventListener('click', event => {
-				if (event.target.closest('.carmel-repairs-lightbox')) return;
-				const lightboxLink = slide.querySelector('.carmel-repairs-lightbox');
-				lightboxLink?.click();
-			});
-		});
-
 		window.addEventListener('resize', () => moveTo(activeIndex, false));
 		window.addEventListener('load', () => moveTo(activeIndex, false));
 		moveTo(0, false);
@@ -921,7 +913,8 @@ document.addEventListener('DOMContentLoaded', () => {
 				duration: 600,
 				easing: 'ease-in-out',
 				opener: function (openerElement) {
-					return openerElement.is('img') ? openerElement : openerElement.find('img');
+					const cardImage = openerElement.closest('.carmel-repair-proof-card').find('img');
+					return cardImage.length ? cardImage : openerElement.find('img');
 				}
 			}
 		});
