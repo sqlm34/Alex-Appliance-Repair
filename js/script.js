@@ -874,13 +874,15 @@ document.addEventListener('DOMContentLoaded', () => {
 			didDrag = false;
 			isPointerDown = true;
 			shouldSuppressClick = false;
-			track.setPointerCapture?.(event.pointerId);
 		});
 
 		track?.addEventListener('pointermove', event => {
 			if (!isPointerDown) return;
 			movedX = event.clientX - startX;
-			if (Math.abs(movedX) > 8) didDrag = true;
+			if (Math.abs(movedX) > 8) {
+				didDrag = true;
+				track.setPointerCapture?.(event.pointerId);
+			}
 		});
 
 		track?.addEventListener('pointerup', () => {
