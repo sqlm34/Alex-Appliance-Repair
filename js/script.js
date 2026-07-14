@@ -894,11 +894,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			slide.addEventListener('click', event => {
 				if (event.target.closest('.carmel-repairs-lightbox')) return;
 				const lightboxLink = slide.querySelector('.carmel-repairs-lightbox');
-				lightboxLink?.dispatchEvent(new MouseEvent('click', {
-					bubbles: true,
-					cancelable: true,
-					view: window
-				}));
+				lightboxLink?.click();
 			});
 		});
 
