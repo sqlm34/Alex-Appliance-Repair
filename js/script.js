@@ -839,10 +839,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			speed: 700,
 			spaceBetween: 18,
 			watchSlidesProgress: true,
-			pagination: {
-				el: '.carmel-repairs-slider .carmel-repairs-pagination',
-				clickable: true
-			},
 			navigation: {
 				nextEl: '.carmel-repairs-slider .carmel-repairs-next',
 				prevEl: '.carmel-repairs-slider .carmel-repairs-prev'
