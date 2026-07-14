@@ -205,6 +205,107 @@
 			text-align: center;
 		}
 
+		body.carmel-gallery-open {
+			overflow: hidden;
+		}
+
+		.carmel-gallery-modal {
+			position: fixed;
+			inset: 0;
+			z-index: 99999;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			padding: 28px;
+			background: rgba(3, 12, 25, 0.92);
+		}
+
+		.carmel-gallery-modal.is-open {
+			display: flex;
+		}
+
+		.carmel-gallery-frame {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			max-width: min(1100px, 92vw);
+			margin: 0;
+		}
+
+		.carmel-gallery-image {
+			display: block;
+			max-width: min(1100px, 92vw);
+			max-height: 78vh;
+			width: auto;
+			height: auto;
+			border-radius: 16px;
+			box-shadow: 0 26px 70px rgba(0, 0, 0, 0.42);
+		}
+
+		.carmel-gallery-caption {
+			display: flex;
+			justify-content: center;
+			gap: 16px;
+			width: 100%;
+			padding-top: 14px;
+			color: #fff;
+			font-size: 15px;
+			font-weight: 600;
+			line-height: 1.45;
+			text-align: center;
+		}
+
+		.carmel-gallery-counter {
+			color: rgba(255, 255, 255, 0.72);
+			font-weight: 500;
+			white-space: nowrap;
+		}
+
+		.carmel-gallery-close,
+		.carmel-gallery-prev,
+		.carmel-gallery-next {
+			position: absolute;
+			z-index: 2;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 46px;
+			height: 46px;
+			border: 1px solid rgba(255, 255, 255, 0.35);
+			border-radius: 50%;
+			background: rgba(12, 57, 126, 0.92);
+			color: #fff;
+			font-size: 24px;
+			line-height: 1;
+			cursor: pointer;
+		}
+
+		.carmel-gallery-close:hover,
+		.carmel-gallery-prev:hover,
+		.carmel-gallery-next:hover {
+			background: #2581D9;
+		}
+
+		.carmel-gallery-close {
+			top: 18px;
+			right: 18px;
+		}
+
+		.carmel-gallery-prev,
+		.carmel-gallery-next {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.carmel-gallery-prev {
+			left: 18px;
+		}
+
+		.carmel-gallery-next {
+			right: 18px;
+		}
+
 		.carmel-repair-proof-note {
 			max-width: 900px;
 			margin: 34px auto 0;
@@ -273,6 +374,37 @@
 				font-size: 12px;
 				padding: 16px 4px 2px;
 				min-height: 72px;
+			}
+
+			.carmel-gallery-modal {
+				padding: 18px;
+			}
+
+			.carmel-gallery-image {
+				max-height: 72vh;
+				border-radius: 12px;
+			}
+
+			.carmel-gallery-caption {
+				flex-direction: column;
+				gap: 4px;
+				font-size: 13px;
+			}
+
+			.carmel-gallery-close,
+			.carmel-gallery-prev,
+			.carmel-gallery-next {
+				width: 40px;
+				height: 40px;
+				font-size: 20px;
+			}
+
+			.carmel-gallery-prev {
+				left: 8px;
+			}
+
+			.carmel-gallery-next {
+				right: 8px;
 			}
 		}
 
@@ -1362,7 +1494,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="js/swiper-bundle.min.js"></script>
 <script src="/js/google-reviews-config.js?v=2026?60523-google-reviews" defer></script>
 <script src="/js/google-reviews.js?v=2026?60523-google-reviews" defer></script>
-<script src="js/script.js?v=20260714-carmel-card-link"></script>
+<script src="js/script.js?v=20260714-carmel-vanilla-gallery"></script>
 <script src="/js/gtm-monitoring.js?v=20260624-gtm-rebuild" defer></script>
 </body>
 

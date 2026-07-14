@@ -896,27 +896,87 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 	//Carmel completed repairs carousel END//
 
+	//Carmel completed repairs gallery START//
+	const carmelGalleryLinks = Array.from(document.querySelectorAll('.carmel-repairs-lightbox'));
+	if (carmelGalleryLinks.length > 0) {
+		let currentGalleryIndex = 0;
+		const galleryModal = document.createElement('div');
+		galleryModal.className = 'carmel-gallery-modal';
+		galleryModal.setAttribute('role', 'dialog');
+		galleryModal.setAttribute('aria-modal', 'true');
+		galleryModal.setAttribute('aria-label', 'Completed repair photo gallery');
+		galleryModal.innerHTML = `
+			<button class="carmel-gallery-close" type="button" aria-label="Close gallery">x</button>
+			<button class="carmel-gallery-prev" type="button" aria-label="Previous photo">&lt;</button>
+			<figure class="carmel-gallery-frame">
+				<img class="carmel-gallery-image" alt="">
+				<figcaption class="carmel-gallery-caption">
+					<span class="carmel-gallery-title"></span>
+					<span class="carmel-gallery-counter"></span>
+				</figcaption>
+			</figure>
+			<button class="carmel-gallery-next" type="button" aria-label="Next photo">&gt;</button>
+		`;
+		document.body.appendChild(galleryModal);
+
+		const galleryImage = galleryModal.querySelector('.carmel-gallery-image');
+		const galleryTitle = galleryModal.querySelector('.carmel-gallery-title');
+		const galleryCounter = galleryModal.querySelector('.carmel-gallery-counter');
+		const closeGalleryButton = galleryModal.querySelector('.carmel-gallery-close');
+		const previousGalleryButton = galleryModal.querySelector('.carmel-gallery-prev');
+		const nextGalleryButton = galleryModal.querySelector('.carmel-gallery-next');
+
+		function showGalleryImage(index) {
+			currentGalleryIndex = (index + carmelGalleryLinks.length) % carmelGalleryLinks.length;
+			const activeLink = carmelGalleryLinks[currentGalleryIndex];
+			const activeCard = activeLink.closest('.carmel-repair-proof-card');
+			const activeImage = activeCard?.querySelector('img');
+			const activeCaption = activeCard?.querySelector('figcaption');
+			galleryImage.src = activeLink.href;
+			galleryImage.alt = activeImage?.alt || activeLink.getAttribute('aria-label') || 'Completed repair photo';
+			galleryTitle.textContent = activeCaption?.textContent || '';
+			galleryCounter.textContent = `${currentGalleryIndex + 1} of ${carmelGalleryLinks.length}`;
+		}
+
+		function openGallery(index) {
+			showGalleryImage(index);
+			galleryModal.classList.add('is-open');
+			document.body.classList.add('carmel-gallery-open');
+			closeGalleryButton.focus({ preventScroll: true });
+		}
+
+		function closeGallery() {
+			galleryModal.classList.remove('is-open');
+			document.body.classList.remove('carmel-gallery-open');
+			galleryImage.removeAttribute('src');
+		}
+
+		carmelGalleryLinks.forEach((link, index) => {
+			link.addEventListener('click', event => {
+				event.preventDefault();
+				openGallery(index);
+			});
+		});
+
+		closeGalleryButton.addEventListener('click', closeGallery);
+		previousGalleryButton.addEventListener('click', () => showGalleryImage(currentGalleryIndex - 1));
+		nextGalleryButton.addEventListener('click', () => showGalleryImage(currentGalleryIndex + 1));
+		galleryModal.addEventListener('click', event => {
+			if (event.target === galleryModal) closeGallery();
+		});
+		document.addEventListener('keydown', event => {
+			if (!galleryModal.classList.contains('is-open')) return;
+			if (event.key === 'Escape') closeGallery();
+			if (event.key === 'ArrowLeft') showGalleryImage(currentGalleryIndex - 1);
+			if (event.key === 'ArrowRight') showGalleryImage(currentGalleryIndex + 1);
+		});
+	}
+	//Carmel completed repairs gallery END//
+
 	//Magnific-popup START//
 	if (typeof window.jQuery !== 'undefined' && typeof window.jQuery.fn.magnificPopup !== 'undefined') {
 		window.jQuery('.magnific-iframe').magnificPopup({
 			type: 'iframe',
-		});
-
-		window.jQuery('.carmel-repairs-lightbox').magnificPopup({
-			type: 'image',
-			mainClass: 'mfp-with-zoom',
-			gallery: {
-				enabled: true
-			},
-			zoom: {
-				enabled: true,
-				duration: 600,
-				easing: 'ease-in-out',
-				opener: function (openerElement) {
-					const cardImage = openerElement.closest('.carmel-repair-proof-card').find('img');
-					return cardImage.length ? cardImage : openerElement.find('img');
-				}
-			}
 		});
 
 		window.jQuery('.magnific-image').magnificPopup({
