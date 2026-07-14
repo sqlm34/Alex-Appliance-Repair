@@ -846,6 +846,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		let didDrag = false;
 		let isPointerDown = false;
 		let shouldSuppressClick = false;
+		window.carmelRepairsShouldSuppressClick = () => shouldSuppressClick;
 
 		function normalizeIndex(index) {
 			return (index + slides.length) % slides.length;
@@ -987,6 +988,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		window.openCarmelGalleryFromCard = function (event, index) {
+			if (window.carmelRepairsShouldSuppressClick?.()) return false;
 			event?.preventDefault();
 			event?.stopPropagation();
 			openGallery(index);
@@ -998,6 +1000,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			if (!galleryCard) return;
 			const galleryIndex = carmelGalleryCards.indexOf(galleryCard);
 			if (galleryIndex === -1) return;
+			if (window.carmelRepairsShouldSuppressClick?.()) return;
 			event.preventDefault();
 			event.stopPropagation();
 			openGallery(galleryIndex);
