@@ -844,6 +844,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		let startX = 0;
 		let movedX = 0;
 		let didDrag = false;
+		let isPointerDown = false;
 
 		function normalizeIndex(index) {
 			return (index + slides.length) % slides.length;
@@ -869,18 +870,28 @@ document.addEventListener('DOMContentLoaded', () => {
 			startX = event.clientX;
 			movedX = 0;
 			didDrag = false;
+			isPointerDown = true;
 			track.setPointerCapture?.(event.pointerId);
 		});
 
 		track?.addEventListener('pointermove', event => {
+			if (!isPointerDown) return;
 			movedX = event.clientX - startX;
 			if (Math.abs(movedX) > 8) didDrag = true;
 		});
 
 		track?.addEventListener('pointerup', () => {
+			if (!isPointerDown) return;
+			isPointerDown = false;
 			if (Math.abs(movedX) > 45) {
 				moveTo(activeIndex + (movedX < 0 ? 1 : -1));
 			}
+		});
+
+		track?.addEventListener('pointercancel', () => {
+			isPointerDown = false;
+			movedX = 0;
+			didDrag = false;
 		});
 
 		track?.addEventListener('click', event => {
