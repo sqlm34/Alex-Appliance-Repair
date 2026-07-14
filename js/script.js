@@ -967,6 +967,13 @@ document.addEventListener('DOMContentLoaded', () => {
 			galleryImage.removeAttribute('src');
 		}
 
+		window.openCarmelGalleryFromCard = function (event, index) {
+			event?.preventDefault();
+			event?.stopPropagation();
+			openGallery(index);
+			return false;
+		};
+
 		document.addEventListener('click', event => {
 			const galleryLink = event.target.closest('.carmel-repairs-lightbox');
 			if (!galleryLink) return;
