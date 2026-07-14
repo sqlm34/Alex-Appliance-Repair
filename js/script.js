@@ -834,45 +834,65 @@ document.addEventListener('DOMContentLoaded', () => {
 	//Swiper Testimonials V2 END//
 
 	//Carmel completed repairs carousel START//
-	if (typeof Swiper !== 'undefined' && document.querySelector('.carmel-repairs-slider')) {
-		const carmelRepairsSlider = document.querySelector('.carmel-repairs-slider');
-		const getCarmelRepairsOffset = () => {
-			const firstSlide = carmelRepairsSlider.querySelector('.swiper-slide');
-			if (!firstSlide || window.innerWidth >= 768) return 0;
-			return Math.max((carmelRepairsSlider.clientWidth - firstSlide.getBoundingClientRect().width) / 2, 0);
-		};
-		const carmelRepairsSwiper = new Swiper('.carmel-repairs-slider', {
-			speed: 700,
-			slidesPerView: 'auto',
-			spaceBetween: 20,
-			slidesOffsetBefore: getCarmelRepairsOffset(),
-			slidesOffsetAfter: getCarmelRepairsOffset(),
-			roundLengths: true,
-			watchSlidesProgress: true,
-			navigation: {
-				nextEl: '.carmel-repairs-slider .carmel-repairs-next',
-				prevEl: '.carmel-repairs-slider .carmel-repairs-prev'
-			},
-			breakpoints: {
-				0: {
-					spaceBetween: 20
-				},
-				768: {
-					spaceBetween: 20
-				},
-				1200: {
-					spaceBetween: 24
-				}
+	const carmelRepairsSlider = document.querySelector('.carmel-repairs-native-slider');
+	if (carmelRepairsSlider) {
+		const track = carmelRepairsSlider.querySelector('.carmel-repairs-track');
+		const slides = Array.from(carmelRepairsSlider.querySelectorAll('.carmel-repair-proof-card'));
+		const previousButton = carmelRepairsSlider.querySelector('.carmel-repairs-prev');
+		const nextButton = carmelRepairsSlider.querySelector('.carmel-repairs-next');
+		let activeIndex = 0;
+		let startX = 0;
+		let movedX = 0;
+		let didDrag = false;
+
+		function normalizeIndex(index) {
+			return (index + slides.length) % slides.length;
+		}
+
+		function moveTo(index, animate = true) {
+			if (!track || slides.length === 0) return;
+			activeIndex = normalizeIndex(index);
+			const slide = slides[activeIndex];
+			const sliderCenter = carmelRepairsSlider.clientWidth / 2;
+			const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+			track.style.transition = animate ? 'transform .45s ease' : 'none';
+			track.style.transform = `translate3d(${sliderCenter - slideCenter}px, 0, 0)`;
+			slides.forEach((item, itemIndex) => {
+				item.classList.toggle('is-active', itemIndex === activeIndex);
+			});
+		}
+
+		previousButton?.addEventListener('click', () => moveTo(activeIndex - 1));
+		nextButton?.addEventListener('click', () => moveTo(activeIndex + 1));
+
+		track?.addEventListener('pointerdown', event => {
+			startX = event.clientX;
+			movedX = 0;
+			didDrag = false;
+			track.setPointerCapture?.(event.pointerId);
+		});
+
+		track?.addEventListener('pointermove', event => {
+			movedX = event.clientX - startX;
+			if (Math.abs(movedX) > 8) didDrag = true;
+		});
+
+		track?.addEventListener('pointerup', () => {
+			if (Math.abs(movedX) > 45) {
+				moveTo(activeIndex + (movedX < 0 ? 1 : -1));
 			}
 		});
-		const updateCarmelRepairsOffset = () => {
-			const offset = getCarmelRepairsOffset();
-			carmelRepairsSwiper.params.slidesOffsetBefore = offset;
-			carmelRepairsSwiper.params.slidesOffsetAfter = offset;
-			carmelRepairsSwiper.update();
-		};
-		window.addEventListener('resize', updateCarmelRepairsOffset);
-		window.addEventListener('load', updateCarmelRepairsOffset);
+
+		track?.addEventListener('click', event => {
+			if (!didDrag) return;
+			event.preventDefault();
+			event.stopPropagation();
+			didDrag = false;
+		}, true);
+
+		window.addEventListener('resize', () => moveTo(activeIndex, false));
+		window.addEventListener('load', () => moveTo(activeIndex, false));
+		moveTo(0, false);
 	}
 	//Carmel completed repairs carousel END//
 
@@ -880,6 +900,22 @@ document.addEventListener('DOMContentLoaded', () => {
 	if (typeof window.jQuery !== 'undefined' && typeof window.jQuery.fn.magnificPopup !== 'undefined') {
 		window.jQuery('.magnific-iframe').magnificPopup({
 			type: 'iframe',
+		});
+
+		window.jQuery('.carmel-repairs-lightbox').magnificPopup({
+			type: 'image',
+			mainClass: 'mfp-with-zoom',
+			gallery: {
+				enabled: true
+			},
+			zoom: {
+				enabled: true,
+				duration: 600,
+				easing: 'ease-in-out',
+				opener: function (openerElement) {
+					return openerElement.is('img') ? openerElement : openerElement.find('img');
+				}
+			}
 		});
 
 		window.jQuery('.magnific-image').magnificPopup({

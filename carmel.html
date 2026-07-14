@@ -136,7 +136,7 @@
 			margin-bottom: 42px;
 		}
 
-		.carmel-repairs-slider {
+		.carmel-repairs-native-slider {
 			position: relative;
 			overflow: hidden;
 			max-width: 1180px;
@@ -144,13 +144,19 @@
 			padding: 8px 0 10px;
 		}
 
-		.carmel-repairs-slider .swiper-wrapper {
+		.carmel-repairs-track {
+			display: flex;
 			align-items: stretch;
+			gap: 20px;
+			transition: transform .45s ease;
+			will-change: transform;
+			touch-action: pan-y;
 		}
 
 		.carmel-repair-proof-card {
 			display: flex;
 			flex-direction: column;
+			flex: 0 0 350px;
 			min-height: 410px;
 			background: linear-gradient(135deg, #14325A 0%, #0C397E 52%, #2581D9 100%);
 			border: 1px solid rgba(255, 255, 255, 0.18);
@@ -162,7 +168,7 @@
 			width: 350px;
 		}
 
-		.carmel-repair-proof-card .magnific-image {
+		.carmel-repair-proof-card .carmel-repairs-lightbox {
 			display: block;
 			width: 92%;
 			margin: 0 auto;
@@ -245,6 +251,7 @@
 			}
 
 			.carmel-repair-proof-card {
+				flex-basis: calc(100vw - 54px);
 				min-height: 390px;
 				width: calc(100vw - 54px);
 				max-width: 340px;
@@ -1073,58 +1080,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<p>Recent real repair photos from Alex Appliance Repair jobs for Carmel-area and Hamilton County homeowners. These examples show the kind of diagnostics, parts access, cleaning, and careful repair work we perform on washers, dryers, refrigerators, dishwashers, freezers, cooktops, stoves, and related appliance systems.</p>
 				</div>
 			</div>
-			<div class="carmel-repairs-slider swiper" aria-label="Selected completed appliance repairs in Carmel">
-				<div class="swiper-wrapper">
-					<figure class="carmel-repair-proof-card swiper-slide">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-27.webp" class="magnific-image" aria-label="View freezer evaporator fan motor replacement photo">
+			<div class="carmel-repairs-native-slider" aria-label="Selected completed appliance repairs in Carmel">
+				<div class="carmel-repairs-track">
+					<figure class="carmel-repair-proof-card">
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-27.webp" class="carmel-repairs-lightbox" aria-label="View freezer evaporator fan motor replacement photo">
 							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-27.webp" width="640" height="480" alt="Freezer evaporator fan motor replacement for a Carmel appliance repair customer">
 						</a>
 						<figcaption>Freezer evaporator fan motor replacement</figcaption>
 					</figure>
-					<figure class="carmel-repair-proof-card swiper-slide">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-31.webp" class="magnific-image" aria-label="View dishwasher fill funnel leak repair photo">
+					<figure class="carmel-repair-proof-card">
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-31.webp" class="carmel-repairs-lightbox" aria-label="View dishwasher fill funnel leak repair photo">
 							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-31.webp" width="640" height="480" alt="Dishwasher fill funnel replacement for a Carmel appliance repair customer with a water leak">
 						</a>
 						<figcaption>Dishwasher fill funnel replacement for a water leak</figcaption>
 					</figure>
-					<figure class="carmel-repair-proof-card swiper-slide">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-32.webp" class="magnific-image" aria-label="View refrigerator door switch replacement photo">
+					<figure class="carmel-repair-proof-card">
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-32.webp" class="carmel-repairs-lightbox" aria-label="View refrigerator door switch replacement photo">
 							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-32.webp" width="640" height="480" alt="KitchenAid refrigerator door switch replacement for a Carmel appliance repair customer">
 						</a>
 						<figcaption>KitchenAid refrigerator door switch replacement</figcaption>
 					</figure>
-					<figure class="carmel-repair-proof-card swiper-slide">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-36.webp" class="magnific-image" aria-label="View appliance wiring harness inspection photo">
+					<figure class="carmel-repair-proof-card">
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-36.webp" class="carmel-repairs-lightbox" aria-label="View appliance wiring harness inspection photo">
 							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-36.webp" width="640" height="480" alt="Appliance wiring harness and connector inspection for a Carmel repair customer">
 						</a>
 						<figcaption>Appliance wiring harness and connector inspection</figcaption>
 					</figure>
-					<figure class="carmel-repair-proof-card swiper-slide">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-38.webp" class="magnific-image" aria-label="View range control panel wiring diagnosis photo">
+					<figure class="carmel-repair-proof-card">
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-38.webp" class="carmel-repairs-lightbox" aria-label="View range control panel wiring diagnosis photo">
 							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-38.webp" width="640" height="480" alt="Range control panel wiring diagnosis for a Carmel appliance repair customer">
 						</a>
 						<figcaption>Range control panel wiring diagnosis</figcaption>
 					</figure>
-					<figure class="carmel-repair-proof-card swiper-slide">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-41.webp" class="magnific-image" aria-label="View refrigerator temperature verification photo">
+					<figure class="carmel-repair-proof-card">
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-41.webp" class="carmel-repairs-lightbox" aria-label="View refrigerator temperature verification photo">
 							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-41.webp" width="640" height="480" alt="Refrigerator temperature verification after service for a Carmel appliance repair customer">
 						</a>
 						<figcaption>Refrigerator temperature verification after service</figcaption>
 					</figure>
-					<figure class="carmel-repair-proof-card swiper-slide">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-42.webp" class="magnific-image" aria-label="View refrigerator ice compartment service photo">
+					<figure class="carmel-repair-proof-card">
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-42.webp" class="carmel-repairs-lightbox" aria-label="View refrigerator ice compartment service photo">
 							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-42.webp" width="640" height="480" alt="Refrigerator ice compartment service and inspection for a Carmel appliance repair customer">
 						</a>
 						<figcaption>Refrigerator ice compartment service and inspection</figcaption>
 					</figure>
-					<figure class="carmel-repair-proof-card swiper-slide">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-48.webp" class="magnific-image" aria-label="View refrigerator drain line leak cleaning photo">
+					<figure class="carmel-repair-proof-card">
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-48.webp" class="carmel-repairs-lightbox" aria-label="View refrigerator drain line leak cleaning photo">
 							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-48.webp" width="640" height="480" alt="Refrigerator drain line cleaning for a Carmel appliance repair customer with a water leak">
 						</a>
 						<figcaption>Refrigerator drain line cleaning for a water leak</figcaption>
 					</figure>
-					<figure class="carmel-repair-proof-card swiper-slide">
-						<a href="images/carmel-completed-repairs/carmel-completed-repair-50.webp" class="magnific-image" aria-label="View frozen evaporator coil defrost service photo">
+					<figure class="carmel-repair-proof-card">
+						<a href="images/carmel-completed-repairs/carmel-completed-repair-50.webp" class="carmel-repairs-lightbox" aria-label="View frozen evaporator coil defrost service photo">
 							<img loading="lazy" src="images/carmel-completed-repairs/carmel-completed-repair-50.webp" width="640" height="480" alt="Frozen refrigerator evaporator coil defrost service for a Carmel appliance repair customer">
 						</a>
 						<figcaption>Frozen refrigerator evaporator coil defrost service</figcaption>
@@ -1353,7 +1360,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="js/swiper-bundle.min.js"></script>
 <script src="/js/google-reviews-config.js?v=2026?60523-google-reviews" defer></script>
 <script src="/js/google-reviews.js?v=2026?60523-google-reviews" defer></script>
-<script src="js/script.js?v=20260714-carmel-repairs-mobile-center"></script>
+<script src="js/script.js?v=20260714-carmel-native-slider"></script>
 <script src="/js/gtm-monitoring.js?v=20260624-gtm-rebuild" defer></script>
 </body>
 
