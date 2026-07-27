@@ -9140,6 +9140,32 @@ main:has(.location-page-content) .why-wrap :is(.repair-list, .repair-steps) li s
 	text-wrap: balance;
 }
 
+.service-area-logo-card .area-zip {
+	color: var(--color-text);
+	font-size: 13px;
+	line-height: 1.45;
+	margin: 8px 0 0;
+}
+
+.desc-carmel .service-area-logo-grid {
+	margin-bottom: 34px;
+	margin-top: 26px;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.carmel-service-coverage {
+	background: rgba(255, 193, 7, 0.12);
+	border-left: 4px solid #ffc107;
+	border-radius: 8px;
+	color: var(--color-title);
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1.6;
+	margin: 16px 0 0;
+	padding: 12px 16px;
+}
+
 @media screen and (max-width: 1199px) {
 	.service-area-logo-grid {
 		grid-template-columns: repeat(4, minmax(0, 1fr));
