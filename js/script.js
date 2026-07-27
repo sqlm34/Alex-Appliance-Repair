@@ -81,9 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	hamburgerBtn.addEventListener('click', (e) => {
 		mobileMenu.classList.add('is-active');
+		document.body.classList.add('mobile-menu-open');
 	});
 	closeBtn.addEventListener('click', (e) => {
 		mobileMenu.classList.remove('is-active');
+		document.body.classList.remove('mobile-menu-open');
 	});
 
 	//Slide mobile menu open END
