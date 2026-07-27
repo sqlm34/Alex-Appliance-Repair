@@ -9758,3 +9758,10 @@ main .contact-actions .booking-service-note {
 		grid-template-columns: 1fr !important;
 	}
 }
+
+/* Mobile homepage hero: keep the image vertically centered while showing more of the refrigerator side. */
+@media screen and (max-width: 768px) {
+	.banner-wrap {
+		background-position: 74% center !important;
+	}
+}
