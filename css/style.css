@@ -9154,6 +9154,55 @@ main:has(.location-page-content) .why-wrap :is(.repair-list, .repair-steps) li s
 	padding-right: 0;
 }
 
+.location-area-grid {
+	align-items: stretch;
+	gap: 22px;
+	grid-auto-rows: 1fr;
+	grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+	margin-top: 34px;
+}
+
+.location-area-intro {
+	margin: 18px 0 0 !important;
+}
+
+.location-area-grid .service-area-logo-card {
+	align-self: stretch;
+	height: 100%;
+	justify-content: flex-start;
+	min-height: 224px;
+	padding: 28px 18px 22px;
+}
+
+.location-area-grid .service-area-logo-card img {
+	flex: 0 0 76px;
+	height: 76px;
+	margin: 0 auto 18px;
+	width: 76px;
+}
+
+.location-area-grid .service-area-logo-card h3 {
+	align-items: center;
+	display: flex;
+	font-size: 16px;
+	justify-content: center;
+	line-height: 1.25;
+	margin: 0;
+	min-height: 42px;
+	text-align: center;
+	width: 100%;
+}
+
+.location-area-grid .service-area-logo-card .area-zip {
+	color: var(--color-text) !important;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.45;
+	margin: 12px 0 0;
+	text-align: center;
+	width: 100%;
+}
+
 .carmel-service-coverage {
 	background: rgba(255, 193, 7, 0.12);
 	border-left: 4px solid #ffc107;
@@ -9170,11 +9219,19 @@ main:has(.location-page-content) .why-wrap :is(.repair-list, .repair-steps) li s
 	.service-area-logo-grid {
 		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
+
+	.location-area-grid {
+		grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+	}
 }
 
 @media screen and (max-width: 991px) {
 	.service-area-logo-grid {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.location-area-grid {
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 	}
 }
 
@@ -9199,6 +9256,35 @@ main:has(.location-page-content) .why-wrap :is(.repair-list, .repair-steps) li s
 
 	.service-area-logo-card h3 {
 		font-size: 13px;
+	}
+
+	.location-area-grid {
+		gap: 16px;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.location-area-grid .service-area-logo-card {
+		min-height: 210px;
+		padding: 22px 12px 18px;
+	}
+
+	.location-area-grid .service-area-logo-card img {
+		flex-basis: 64px;
+		height: 64px;
+		margin-bottom: 16px;
+		width: 64px;
+	}
+
+	.location-area-grid .service-area-logo-card h3 {
+		font-size: 14px;
+		min-height: 42px;
+	}
+
+	.location-area-grid .service-area-logo-card .area-zip {
+		font-size: 13px;
+		margin-top: 10px;
 	}
 }
 
