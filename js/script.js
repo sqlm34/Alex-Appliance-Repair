@@ -60,6 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	const mobileMenuLinks = document.querySelectorAll('.mobile-menu-nav .menu-has-children > a');
 	mobileMenuLinks.forEach(link => {
 		link.addEventListener('click', function (event) {
+			const clickedPlus = event.target.closest('.menu-item-plus');
+			const href = (link.getAttribute('href') || '').trim();
+			const shouldToggle = (clickedPlus && link.contains(clickedPlus)) || href === '' || href === '#';
+			if (!shouldToggle) {
+				return;
+			}
 			event.preventDefault();
 			event.stopPropagation();
 			toggleMobileSubMenu(link.closest('.menu-has-children'));
