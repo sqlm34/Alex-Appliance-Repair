@@ -9923,8 +9923,141 @@ main .contact-actions .booking-service-note {
 		width: 100%;
 	}
 
-	.alex-blog-decision-media figcaption {
+.alex-blog-decision-media figcaption {
 		position: static;
+	}
+}
+
+/* Blog archive pagination: compact, crawler-friendly, and mobile readable. */
+.alex-blog-pagination-modern {
+	align-items: center;
+	background: #fff;
+	border: 1px solid rgba(20, 50, 90, 0.12);
+	border-radius: 20px;
+	box-shadow: 0 18px 42px rgba(20, 50, 90, 0.08);
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	justify-content: space-between;
+	margin: 44px 0;
+	padding: 16px;
+}
+
+.alex-pagination-status {
+	background: rgba(37, 129, 217, 0.08);
+	border-radius: 999px;
+	color: var(--color-title);
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.35;
+	padding: 12px 18px;
+	white-space: nowrap;
+}
+
+.alex-pagination-status strong {
+	color: var(--color-6);
+}
+
+.alex-pagination-controls {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	justify-content: flex-end;
+}
+
+.alex-pagination-controls a,
+.alex-pagination-controls span {
+	align-items: center;
+	border-radius: 999px;
+	display: inline-flex;
+	font-size: 14px;
+	font-weight: 700;
+	justify-content: center;
+	line-height: 1;
+	min-height: 42px;
+	min-width: 42px;
+	padding: 12px 14px;
+	text-align: center;
+}
+
+.alex-pagination-number {
+	background: #f7fbff;
+	border: 1px solid rgba(37, 129, 217, 0.18);
+	color: var(--color-title);
+}
+
+.alex-pagination-number:hover,
+.alex-pagination-number:focus-visible {
+	background: var(--color-4);
+	border-color: var(--color-4);
+	color: var(--color-1);
+}
+
+.alex-pagination-number.active {
+	background: var(--color-1);
+	border: 1px solid var(--color-1);
+	box-shadow: 0 10px 22px rgba(20, 50, 90, 0.18);
+	color: #fff;
+}
+
+.alex-pagination-arrow {
+	background: var(--color-4);
+	border: 1px solid var(--color-4);
+	color: var(--color-1);
+	padding-left: 18px !important;
+	padding-right: 18px !important;
+}
+
+.alex-pagination-arrow:hover,
+.alex-pagination-arrow:focus-visible {
+	background: var(--color-1);
+	border-color: var(--color-1);
+	color: #fff;
+}
+
+.alex-pagination-ellipsis {
+	color: rgba(20, 50, 90, 0.48);
+	min-width: 24px !important;
+	padding-left: 4px !important;
+	padding-right: 4px !important;
+}
+
+@media screen and (max-width: 768px) {
+	.alex-blog-pagination-modern {
+		justify-content: center;
+		margin: 34px 0;
+		padding: 14px;
+	}
+
+	.alex-pagination-status {
+		text-align: center;
+		width: 100%;
+	}
+
+	.alex-pagination-controls {
+		justify-content: center;
+		width: 100%;
+	}
+
+	.alex-pagination-controls a,
+	.alex-pagination-controls span {
+		font-size: 13px;
+		min-height: 40px;
+		min-width: 40px;
+		padding: 11px 12px;
+	}
+}
+
+@media screen and (max-width: 390px) {
+	.alex-pagination-controls {
+		gap: 6px;
+	}
+
+	.alex-pagination-controls a,
+	.alex-pagination-controls span {
+		min-height: 38px;
+		min-width: 38px;
 	}
 }
 
