@@ -9768,6 +9768,166 @@ main .contact-actions .booking-service-note {
 	}
 }
 
+/* Blog SEO helper block: adds a useful repair decision guide without touching metadata. */
+.alex-blog-decision-guide {
+	background: linear-gradient(135deg, #f8fbff 0%, #ffffff 54%, #fff8d8 100%);
+	border: 1px solid rgba(20, 50, 90, 0.12);
+	border-radius: 20px;
+	box-shadow: 0 18px 44px rgba(20, 50, 90, 0.08);
+	display: grid;
+	gap: 28px;
+	grid-template-columns: minmax(0, 1.18fr) minmax(260px, 0.82fr);
+	margin: 46px 0;
+	overflow: hidden;
+	padding: 34px;
+}
+
+.alex-blog-decision-copy {
+	min-width: 0;
+}
+
+.alex-blog-decision-copy > span {
+	color: var(--color-6);
+	display: block;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+.alex-blog-decision-copy h2 {
+	color: var(--color-title);
+	font-size: 32px;
+	line-height: 1.22;
+	margin-bottom: 18px;
+	text-transform: none;
+}
+
+.alex-blog-decision-copy p {
+	color: var(--color-text);
+	font-size: 15px;
+	line-height: 1.6;
+	margin-bottom: 16px;
+}
+
+.alex-blog-decision-points {
+	display: grid;
+	gap: 12px;
+	list-style: none;
+	margin: 20px 0;
+	padding: 0;
+}
+
+.alex-blog-decision-points li {
+	border-left: 4px solid var(--color-4);
+	color: var(--color-text);
+	font-size: 14px;
+	line-height: 1.52;
+	padding-left: 14px;
+}
+
+.alex-blog-decision-points strong {
+	color: var(--color-title);
+}
+
+.alex-blog-decision-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 22px;
+}
+
+.alex-blog-decision-links a {
+	background: var(--color-1);
+	border-radius: 999px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.35;
+	padding: 11px 16px;
+	transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.alex-blog-decision-links a:hover {
+	background: var(--color-4);
+	color: var(--color-1);
+}
+
+.alex-blog-decision-media {
+	align-self: start;
+	border-radius: 18px;
+	margin: 0;
+	min-width: 0;
+	overflow: hidden;
+	position: relative;
+}
+
+.alex-blog-decision-media img {
+	aspect-ratio: 4 / 3;
+	display: block;
+	height: auto;
+	min-height: 0;
+	object-fit: cover;
+	object-position: center;
+	width: 100%;
+}
+
+.alex-blog-decision-media figcaption {
+	background: rgba(20, 50, 90, 0.92);
+	bottom: 0;
+	color: #fff;
+	font-size: 13px;
+	font-weight: 600;
+	left: 0;
+	line-height: 1.5;
+	margin: 0;
+	padding: 16px 18px;
+	position: absolute;
+	right: 0;
+}
+
+@media screen and (max-width: 991px) {
+	.alex-blog-decision-guide {
+		grid-template-columns: 1fr;
+		padding: 28px;
+	}
+
+	.alex-blog-decision-media img {
+		aspect-ratio: 16 / 10;
+	}
+}
+
+@media screen and (max-width: 575px) {
+	.alex-blog-decision-guide {
+		border-radius: 16px;
+		margin: 34px 0;
+		padding: 22px;
+	}
+
+	.alex-blog-decision-copy h2 {
+		font-size: 23px;
+	}
+
+	.alex-blog-decision-links {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.alex-blog-decision-links a {
+		justify-content: center;
+		font-size: 12px;
+		padding-left: 10px;
+		padding-right: 10px;
+		text-align: center;
+		width: 100%;
+	}
+
+	.alex-blog-decision-media figcaption {
+		position: static;
+	}
+}
+
 /* Mobile navigation: keep Booking Now visible immediately after the menu list. */
 @media screen and (max-width: 1199px) {
 	.header-mobile-wrap {
