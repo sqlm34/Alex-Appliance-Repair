@@ -10,6 +10,32 @@ const PHONE_LINK = "+14632488429";
 const BOOKING_URL = "https://online-booking.workiz.com/?ac=15ab9daf88d12ad393d83f0f3c762b884cd0200e5775f1427d547de24cac55a4";
 const CITY_SLUGS = ["carmel", "fishers", "westfield", "noblesville", "mccordsville", "zionsville"];
 const SERVICE_SLUGS = ["refrigerator", "washer", "dryer", "dishwasher", "stove", "microwave", "cooktop", "freezer"];
+const BLOG_ARCHIVES = ["blog.html", ...Array.from({ length: 9 }, (_, index) => `blog-page-${index + 2}.html`)];
+const BLOG_ARTICLES = [
+  "10-warning-signs-your-refrigerator.html",
+  "blog-dishwasher-cleaning-problems.html",
+  "blog-dryer-vent-safety.html",
+  "blog-freezer-frost-problems.html",
+  "blog-microwave-repair-guide.html",
+  "blog-refrigerator-maintenance.html",
+  "blog-repair-vs-replacement.html",
+  "blog-stove-burner-repair.html",
+  "blog-washer-drain-problems.html",
+  "finding-reliable-microwave-repair-near-carmel-what-to-look-for.html",
+  "how-to-spot-and-fix-an-overworking-refrigerator-before-your-energy-bill-skyrockets.html",
+  "keeping-your-cool-why-timely-refrigerator-repair-is-crucial-in-carmel.html",
+  "keeping-your-home-running-smoothly-why-choose-a-local-appliance-repair-expert.html",
+  "signs-your-dryer-needs-repairs-before-it-breaks-down.html",
+  "top-5-common-microwave-problems-and-how-to-fix-them.html",
+  "top-5-most-common-refrigerator-issues.html"
+];
+const ARTICLE_HERO_OVERRIDES = {
+  "keeping-your-cool-why-timely-refrigerator-repair-is-crucial-in-carmel.html": "images/refrigerator-repair.webp",
+  "keeping-your-home-running-smoothly-why-choose-a-local-appliance-repair-expert.html": "images/service-maintenance-worker-repairing.webp"
+};
+const INFORMATION_PAGES = ["about.html", "services.html", "contacts.html", "brands.html"];
+const CORE_SERVICE_PAGES = SERVICE_SLUGS.map((serviceSlug) => `${serviceSlug}-repair.html`);
+const UNIFIED_PAGE_PATHS = new Set([...CORE_SERVICE_PAGES, ...INFORMATION_PAGES, ...BLOG_ARCHIVES, ...BLOG_ARTICLES]);
 
 const carmelCompletedRepairs = [
   {
@@ -386,6 +412,7 @@ function write(relativePath, content) {
   fs.mkdirSync(path.dirname(destination), { recursive: true });
   const normalized = content
     .replace(/\r\n/g, "\n")
+    .replace(/[ \t]+$/gm, "")
     .replace(
       /js\/script\.js\?v=(?:20260727-mobile-booking-menu|20260728-local-seo)/g,
       "js/script.js?v=20260728-city-hubs"
@@ -399,6 +426,21 @@ function escapeHtml(value) {
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+}
+
+function decodeHtmlEntities(value) {
+  let decoded = String(value);
+  let previous;
+  do {
+    previous = decoded;
+    decoded = decoded
+      .replaceAll("&amp;", "&")
+      .replaceAll("&quot;", '"')
+      .replaceAll("&#39;", "'")
+      .replaceAll("&lt;", "<")
+      .replaceAll("&gt;", ">");
+  } while (decoded !== previous);
+  return decoded;
 }
 
 function rotate(items, amount) {
@@ -431,12 +473,22 @@ function updateHead(html, { title, description, canonical, image, schema, nested
   html = upsertHeadTag(html, /<meta\s+name=["']twitter:image["'][^>]*>/i, `<meta name="twitter:image" content="${absoluteImage}">`);
   html = upsertHeadTag(html, /<meta\s+name=["']twitter:url["'][^>]*>/i, `<meta name="twitter:url" content="${canonical}">`);
   html = html.replace(/<script\s+type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>\s*/gi, "");
-  const cssHref = nested ? "../css/local-seo.css?v=20260728" : "css/local-seo.css?v=20260728";
+  const cssHref = nested ? "../css/local-seo.css?v=20260728-unified-site" : "css/local-seo.css?v=20260728-unified-site";
   if (!html.includes("local-seo.css")) {
     html = html.replace("</head>", `\t<link rel="stylesheet" href="${cssHref}">\n</head>`);
+  } else {
+    html = html.replace(/(?:\.\.\/|\/)?css\/local-seo\.css\?v=[^"']+/i, cssHref);
   }
-  html = html.replace("</head>", `<script type="application/ld+json">\n${schemaString(schema)}\n</script>\n</head>`);
+  html = html.replace("</head>", () => `<script type="application/ld+json">\n${schemaString(schema)}\n</script>\n</head>`);
   return html;
+}
+
+function ensureLocalSeoCss(html, nested = false) {
+  const cssHref = nested ? "../css/local-seo.css?v=20260728-unified-site" : "css/local-seo.css?v=20260728-unified-site";
+  if (html.includes("local-seo.css")) {
+    return html.replace(/(?:\.\.\/|\/)?css\/local-seo\.css\?v=[^"']+/i, cssHref);
+  }
+  return html.replace("</head>", `\t<link rel="stylesheet" href="${cssHref}">\n</head>`);
 }
 
 function localBusinessSchema(city) {
@@ -1131,6 +1183,341 @@ function updateBrandsDirectory(brands) {
   write("brands.html", html);
 }
 
+function allServiceAreasSchema() {
+  return Object.values(cities).map((city) => ({
+    "@type": "City",
+    name: city.name,
+    addressRegion: "IN",
+    addressCountry: "US"
+  }));
+}
+
+function coreServiceSchema(serviceSlug) {
+  const service = services[serviceSlug];
+  const url = `https://alex-repair.com/${serviceSlug}-repair.html`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        ...localBusinessSchema(cities.fishers),
+        areaServed: allServiceAreasSchema()
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: service.label,
+        serviceType: service.label,
+        description: service.summary,
+        url,
+        provider: { "@id": "https://alex-repair.com/#business" },
+        areaServed: allServiceAreasSchema(),
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+          description: "The service call is $89 and is waived when the quoted repair is completed."
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://alex-repair.com/" },
+          { "@type": "ListItem", position: 2, name: "Services", item: "https://alex-repair.com/services.html" },
+          { "@type": "ListItem", position: 3, name: service.label, item: url }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        mainEntity: service.faq.map(([question, answer]) => ({
+          "@type": "Question",
+          name: question,
+          acceptedAnswer: { "@type": "Answer", text: answer }
+        }))
+      }
+    ]
+  };
+}
+
+function extractCoreServiceGuide(html) {
+  const marked = html.match(/<!-- CORE-GUIDE-START -->([\s\S]*?)<!-- CORE-GUIDE-END -->/i);
+  if (marked) return marked[1].trim();
+  const original = html.match(/<div class="desc-carmel">([\s\S]*?)<\/div>\s*<\/div>\s*<div class="image-50">/i);
+  if (original) return original[1].trim();
+  return "";
+}
+
+function renderCoreServiceMain(serviceSlug, detailedGuide) {
+  const service = services[serviceSlug];
+  const cityLinks = Object.entries(cities)
+    .map(([citySlug, city]) => `<li><a href="https://alex-repair.com/${citySlug}/${serviceSlug}-repair-services.html">${escapeHtml(service.label)} in ${escapeHtml(city.name)}</a></li>`)
+    .join("\n");
+  const relatedLinks = SERVICE_SLUGS
+    .filter((slug) => slug !== serviceSlug)
+    .map((slug) => `<li><a href="https://alex-repair.com/${slug}-repair.html">${escapeHtml(services[slug].label)}</a></li>`)
+    .join("\n");
+  return `<main class="local-seo-page unified-service-page">
+<nav class="local-breadcrumbs" aria-label="Breadcrumb">
+  <div class="local-shell"><ol><li><a href="https://alex-repair.com/">Home</a></li><li><a href="https://alex-repair.com/services.html">Services</a></li><li aria-current="page">${escapeHtml(service.label)}</li></ol></div>
+</nav>
+
+<section class="local-hero">
+  <div class="local-hero-media"><img src="images/${service.image}" alt="${escapeHtml(service.label)} by Alex Appliance Repair" width="1200" height="800" fetchpriority="high"></div>
+  <div class="local-shell local-hero-content">
+    <p class="local-eyebrow">Kitchen and laundry appliance service</p>
+    <h1>${escapeHtml(service.label)} in the Indianapolis Area</h1>
+    <p class="local-hero-lead">${escapeHtml(service.summary)} Appointments are available in Carmel, Fishers, Westfield, Noblesville, McCordsville and Zionsville.</p>
+    <ul class="local-proof-list"><li>$89 service call</li><li>Fee waived with completed repair</li><li>12-month parts and labor warranty</li></ul>
+    <div class="local-actions"><a class="local-button" href="${BOOKING_URL}">Book service online</a><a class="local-button local-button--secondary" href="tel:${PHONE_LINK}">Call ${PHONE_DISPLAY}</a></div>
+  </div>
+</section>
+
+<section class="local-section">
+  <div class="local-shell">
+    <header class="local-section-header"><p class="local-eyebrow">Problems we diagnose</p><h2>Common ${escapeHtml(service.singular)} symptoms</h2><p>A visible symptom identifies the place to begin. Model-specific testing determines whether the cause is a component, installation condition or utility connection.</p></header>
+    <div class="local-grid local-grid--three">${service.issues.map(([title, description]) => `<div class="local-feature"><h3>${escapeHtml(title)}</h3><p>${escapeHtml(description)}</p></div>`).join("\n")}</div>
+  </div>
+</section>
+
+<section class="local-section local-section--soft">
+  <div class="local-shell local-media-copy">
+    <div class="local-media-frame"><img src="images/service-details.webp" alt="Professional appliance testing and diagnosis" width="900" height="720" loading="lazy"></div>
+    <div class="local-copy">
+      <p class="local-eyebrow">Diagnosis before parts</p>
+      <h2>A repair recommendation based on testing</h2>
+      <p>We review the reported symptom, inspect the appliance and test the systems related to the failure. The result and estimate are explained before a repair is approved.</p>
+      <ul class="local-check-list">${service.components.map((component) => `<li>${escapeHtml(component)}</li>`).join("\n")}</ul>
+      <p><strong>Safety note:</strong> ${escapeHtml(service.safety)}</p>
+    </div>
+  </div>
+</section>
+
+<section class="local-section local-section--blue">
+  <div class="local-shell">
+    <header class="local-section-header"><p class="local-eyebrow">A clear service visit</p><h2>From booking to final test</h2></header>
+    <ol class="local-process">
+      <li><strong>Share the details</strong>Provide the brand, model, symptom, error code and service address.</li>
+      <li><strong>Inspect and test</strong>The technician checks the appliance and conditions connected to the failure.</li>
+      <li><strong>Review the estimate</strong>You receive an explanation and repair option before work continues.</li>
+      <li><strong>Repair and verify</strong>Approved work is completed and tested under applicable operating conditions.</li>
+    </ol>
+  </div>
+</section>
+
+${detailedGuide ? `<section class="local-section local-service-guide">
+  <div class="local-shell local-article-copy">
+    <p class="local-eyebrow">Detailed service guide</p>
+    <!-- CORE-GUIDE-START -->
+${detailedGuide}
+    <!-- CORE-GUIDE-END -->
+  </div>
+</section>` : ""}
+
+<section class="local-section local-section--soft">
+  <div class="local-shell">
+    <header class="local-section-header"><p class="local-eyebrow">Local service routes</p><h2>Choose your city for local ${escapeHtml(service.label.toLowerCase())}</h2><p>Each city page contains route, ZIP code and local scheduling information for this appliance category.</p></header>
+    <ul class="local-link-list">${cityLinks}</ul>
+  </div>
+</section>
+
+<section class="local-section">
+  <div class="local-shell">
+    <header class="local-section-header"><p class="local-eyebrow">Frequently asked questions</p><h2>${escapeHtml(service.label)} questions</h2></header>
+    <div class="local-faq-list">${service.faq.map(([question, answer]) => `<details><summary>${escapeHtml(question)}</summary><p>${escapeHtml(answer)}</p></details>`).join("\n")}</div>
+    <ul class="local-link-list">${relatedLinks}</ul>
+  </div>
+</section>
+
+<section class="local-cta">
+  <div class="local-shell local-cta-row"><div><h2>Schedule ${escapeHtml(service.label.toLowerCase())}</h2><p>Include the model number and current symptom when possible.</p></div><a class="local-button" href="${BOOKING_URL}">Book service online</a></div>
+</section>
+</main>`;
+}
+
+function rebuildCoreServicePages() {
+  for (const serviceSlug of SERVICE_SLUGS) {
+    const relativePath = `${serviceSlug}-repair.html`;
+    let html = read(relativePath);
+    const service = services[serviceSlug];
+    const guide = extractCoreServiceGuide(html);
+    const existingTitle = decodeHtmlEntities(html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim() || `${service.label} Indianapolis Area | Alex Appliance Repair`);
+    const existingDescription = decodeHtmlEntities(html.match(/<meta\s+name=["']description["']\s+content=["']([^"']*)["'][^>]*>/i)?.[1] || `${service.label} for ${service.metaIssues} across Carmel, Fishers, Westfield, Noblesville, McCordsville and Zionsville.`);
+    html = updateHead(html, {
+      title: existingTitle,
+      description: existingDescription,
+      canonical: `https://alex-repair.com/${relativePath}`,
+      image: `images/${service.image}`,
+      schema: coreServiceSchema(serviceSlug),
+      nested: false
+    });
+    html = html.replace(/<main[\s\S]*?<\/main>/i, renderCoreServiceMain(serviceSlug, guide));
+    write(relativePath, html);
+  }
+}
+
+function renderServicesMain() {
+  const cards = SERVICE_SLUGS.map((serviceSlug) => {
+    const service = services[serviceSlug];
+    return `<article class="local-service-card">
+      <a class="local-service-card-media" href="https://alex-repair.com/${serviceSlug}-repair.html"><img src="images/${service.image}" alt="${escapeHtml(service.label)}" width="720" height="520" loading="lazy"></a>
+      <div class="local-service-card-copy"><h2><a href="https://alex-repair.com/${serviceSlug}-repair.html">${escapeHtml(service.label)}</a></h2><p>${escapeHtml(service.summary)}</p><a class="local-text-link" href="https://alex-repair.com/${serviceSlug}-repair.html">View service details</a></div>
+    </article>`;
+  }).join("\n");
+  const cityLinks = Object.entries(cities).map(([slug, city]) => `<li><a href="https://alex-repair.com/${slug}.html">Appliance Repair in ${escapeHtml(city.name)}</a></li>`).join("\n");
+  return `<main class="local-seo-page unified-services-page">
+<nav class="local-breadcrumbs" aria-label="Breadcrumb"><div class="local-shell"><ol><li><a href="https://alex-repair.com/">Home</a></li><li aria-current="page">Services</li></ol></div></nav>
+<section class="local-hero">
+  <div class="local-hero-media"><img src="images/service-maintenance-worker-repairing.webp" alt="Alex Appliance Repair technician servicing a household appliance" width="1536" height="900" fetchpriority="high"></div>
+  <div class="local-shell local-hero-content"><p class="local-eyebrow">Kitchen and laundry appliance service</p><h1>Appliance Repair Services in the Indianapolis Area</h1><p class="local-hero-lead">Model-specific diagnosis and repair for refrigerators, washers, dryers, dishwashers, cooking appliances, microwaves and freezers across six Central Indiana service routes.</p><ul class="local-proof-list"><li>$89 service call</li><li>Fee waived with completed repair</li><li>12-month parts and labor warranty</li></ul><div class="local-actions"><a class="local-button" href="${BOOKING_URL}">Book service online</a><a class="local-button local-button--secondary" href="tel:${PHONE_LINK}">Call ${PHONE_DISPLAY}</a></div></div>
+</section>
+<section class="local-section"><div class="local-shell"><header class="local-section-header"><p class="local-eyebrow">Choose an appliance</p><h2>Repair services for the equipment in your home</h2><p>Open the service guide that matches the appliance. Each page explains common symptoms, diagnostic steps and direct links to city-specific coverage.</p></header><div class="local-service-card-grid">${cards}</div></div></section>
+<section class="local-section local-section--blue"><div class="local-shell"><header class="local-section-header"><p class="local-eyebrow">Repair process</p><h2>Clear information at every step</h2></header><ol class="local-process"><li><strong>Book</strong>Share the appliance, model, symptom and address.</li><li><strong>Diagnose</strong>We inspect and test the systems related to the failure.</li><li><strong>Approve</strong>You review the recommendation and estimate.</li><li><strong>Verify</strong>Approved work is completed and tested.</li></ol></div></section>
+<section class="local-section local-section--soft"><div class="local-shell"><header class="local-section-header"><p class="local-eyebrow">Central Indiana routes</p><h2>Local appliance repair pages</h2><p>Use the city page for neighborhood coverage, ZIP codes and scheduling information.</p></header><ul class="local-link-list">${cityLinks}</ul></div></section>
+<section class="local-cta"><div class="local-shell local-cta-row"><div><h2>Tell us which appliance needs help</h2><p>Have the model number and error code ready when available.</p></div><a class="local-button" href="${BOOKING_URL}">Book service online</a></div></section>
+</main>`;
+}
+
+function renderAboutMain() {
+  const serviceLinks = SERVICE_SLUGS.map((slug) => `<li><a href="https://alex-repair.com/${slug}-repair.html">${escapeHtml(services[slug].label)}</a></li>`).join("\n");
+  const cityLinks = Object.entries(cities).map(([slug, city]) => `<li><a href="https://alex-repair.com/${slug}.html">${escapeHtml(city.name)}, IN</a></li>`).join("\n");
+  return `<main class="local-seo-page unified-about-page">
+<nav class="local-breadcrumbs" aria-label="Breadcrumb"><div class="local-shell"><ol><li><a href="https://alex-repair.com/">Home</a></li><li aria-current="page">About</li></ol></div></nav>
+<section class="local-hero">
+  <div class="local-hero-media"><img src="images/about-washer-repair-technician.webp" alt="Alex Appliance Repair technician working on a household appliance" width="1536" height="900" fetchpriority="high"></div>
+  <div class="local-shell local-hero-content"><p class="local-eyebrow">Aksenov LLC operates as Alex Appliance Repair</p><h1>Local Appliance Repair With Clear Answers</h1><p class="local-hero-lead">Owner-operated appliance service for Central Indiana homes, focused on careful diagnosis, an explained estimate and a repair that is tested before the visit is complete.</p><div class="local-actions"><a class="local-button" href="${BOOKING_URL}">Book service online</a><a class="local-button local-button--secondary" href="tel:${PHONE_LINK}">Call ${PHONE_DISPLAY}</a></div></div>
+</section>
+<section class="local-section"><div class="local-shell local-media-copy"><div class="local-media-frame"><img src="images/about-img.webp" alt="Professional appliance service by Alex Appliance Repair" width="900" height="720" loading="lazy"></div><div class="local-copy"><p class="local-eyebrow">About the business</p><h2>Practical service built around the actual failure</h2><p>Alex Appliance Repair is the customer-facing trade name operated by Aksenov LLC, a local Indiana appliance repair business. We service household kitchen and laundry appliances at customer locations throughout our published service area.</p><p>The goal is straightforward: collect useful details before the visit, test the appliance instead of guessing, explain what was found and complete approved work with respect for the home.</p><p>The service call is $89 and is waived when the quoted repair is completed. Completed repairs include a 12-month parts and labor warranty under the applicable service terms.</p></div></div></section>
+<section class="local-section local-section--soft"><div class="local-shell"><header class="local-section-header"><p class="local-eyebrow">What customers can expect</p><h2>Standards that guide each appointment</h2></header><div class="local-grid local-grid--three"><div class="local-feature"><h3>Prepared scheduling</h3><p>Brand, model, symptom and address information help us plan the route and research the appliance.</p></div><div class="local-feature"><h3>Measured diagnosis</h3><p>Operating checks, visual inspection and applicable electrical, temperature, airflow or water tests support the recommendation.</p></div><div class="local-feature"><h3>Clear estimate</h3><p>The failure and repair option are explained before approved work begins.</p></div><div class="local-feature"><h3>Home protection</h3><p>Work areas are protected and appliance access is planned around the installation.</p></div><div class="local-feature"><h3>Final verification</h3><p>The appliance is tested under applicable conditions after the repair.</p></div><div class="local-feature"><h3>Documented warranty</h3><p>Completed repairs are backed by a 12-month parts and labor warranty under the service terms.</p></div></div></div></section>
+<section class="local-section local-section--blue"><div class="local-shell"><header class="local-section-header"><p class="local-eyebrow">Service categories</p><h2>Kitchen and laundry appliance repair</h2></header><ul class="local-link-list local-link-list--on-blue">${serviceLinks}</ul></div></section>
+<section class="local-section"><div class="local-shell local-coverage"><div class="local-copy"><p class="local-eyebrow">Service area</p><h2>Six local Central Indiana routes</h2><p>Appointments are organized by address, appliance type, expected diagnostic time and current technician availability. City references describe service coverage and do not represent separate office locations.</p></div><aside class="local-coverage-aside"><h3>Local pages</h3><ul>${cityLinks}</ul></aside></div></section>
+<section class="local-cta"><div class="local-shell local-cta-row"><div><h2>Schedule local appliance service</h2><p>Share the appliance details and choose an available appointment.</p></div><a class="local-button" href="${BOOKING_URL}">Book service online</a></div></section>
+</main>`;
+}
+
+function extractContactForm(html) {
+  return html.match(/<form class="contact-form"[\s\S]*?<\/form>/i)?.[0] || "";
+}
+
+function contactModalMarkup() {
+  return `<div class="request-service-modal" id="request-service-modal" aria-hidden="true">
+  <div class="request-service-modal-backdrop" data-modal-close></div>
+  <div class="request-service-modal-card" role="dialog" aria-modal="true" aria-labelledby="request-service-modal-title">
+    <button class="request-service-modal-close" type="button" aria-label="Close message" data-modal-close>&times;</button>
+    <h2 id="request-service-modal-title">Thank you for your request!</h2>
+    <p>We appreciate you choosing Alex Appliance Repair. Your service request has been sent, and we will respond within about 30 minutes during working hours.</p>
+    <button class="button-v1" type="button" data-modal-close>Close</button>
+  </div>
+</div>`;
+}
+
+function renderContactMain(form, modal) {
+  const cityLinks = Object.entries(cities).map(([slug, city]) => `<li><a href="https://alex-repair.com/${slug}.html">${escapeHtml(city.name)}</a></li>`).join("\n");
+  return `<main class="local-seo-page unified-contact-page">
+<nav class="local-breadcrumbs" aria-label="Breadcrumb"><div class="local-shell"><ol><li><a href="https://alex-repair.com/">Home</a></li><li aria-current="page">Contact</li></ol></div></nav>
+<section class="local-hero">
+  <div class="local-hero-media"><img src="images/service-call.webp" alt="Book local appliance repair service" width="1536" height="900" fetchpriority="high"></div>
+  <div class="local-shell local-hero-content"><p class="local-eyebrow">Contact Alex Appliance Repair</p><h1>Book Appliance Repair in Central Indiana</h1><p class="local-hero-lead">Tell us which appliance is not working, where service is needed and what symptom you see. Photos of the model label can help us prepare.</p><div class="local-actions"><a class="local-button" href="${BOOKING_URL}">Book service online</a><a class="local-button local-button--secondary" href="tel:${PHONE_LINK}">Call ${PHONE_DISPLAY}</a></div></div>
+</section>
+<section class="local-contact-strip"><div class="local-shell local-contact-strip-grid"><div><strong>Phone</strong><a href="tel:${PHONE_LINK}">${PHONE_DISPLAY}</a></div><div><strong>Email</strong><a href="mailto:alexeasyrepair@gmail.com">alexeasyrepair@gmail.com</a></div><div><strong>Hours</strong><span>Daily, 8:00 a.m. - 6:00 p.m.</span></div></div></section>
+<section class="local-section local-section--soft"><div class="local-shell local-contact-layout"><div class="local-contact-form"><p class="local-eyebrow">Service request</p><h2>Send appliance details</h2><p>Required fields help us respond with the right scheduling questions.</p>${form}</div><aside class="local-contact-aside"><div class="local-contact-map"><iframe title="Alex Appliance Repair service area in Central Indiana" src="https://www.google.com/maps?q=39.9784,-86.1180&amp;ll=39.9784,-86.1180&amp;z=11&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><h2>Service area</h2><ul>${cityLinks}</ul><p>Alex Appliance Repair is operated by Aksenov LLC. Service is provided at customer locations.</p></aside></div></section>
+<section class="local-section"><div class="local-shell"><header class="local-section-header"><p class="local-eyebrow">Before submitting</p><h2>Details that help us prepare</h2></header><div class="local-grid local-grid--three"><div class="local-feature"><h3>Model number</h3><p>Usually found inside a door, cabinet, drawer or storage compartment.</p></div><div class="local-feature"><h3>Current symptom</h3><p>Include error codes, unusual sounds, leaks and the cycle stage where operation stops.</p></div><div class="local-feature"><h3>Installation access</h3><p>Tell us if the appliance is stacked, built in, panel-ready or difficult to move.</p></div></div></div></section>
+${modal}
+</main>`;
+}
+
+function rebuildInformationPages() {
+  let servicesHtml = ensureLocalSeoCss(read("services.html"));
+  servicesHtml = servicesHtml.replace(/<main[\s\S]*?<\/main>/i, renderServicesMain());
+  write("services.html", servicesHtml);
+
+  let aboutHtml = ensureLocalSeoCss(read("about.html"));
+  aboutHtml = aboutHtml.replace(/<main[\s\S]*?<\/main>/i, renderAboutMain());
+  write("about.html", aboutHtml);
+
+  let contactHtml = ensureLocalSeoCss(read("contacts.html"));
+  const form = extractContactForm(contactHtml);
+  const mainStart = contactHtml.indexOf("<main");
+  const footerStart = contactHtml.lastIndexOf('<footer class="footer">');
+  if (mainStart === -1 || footerStart === -1) {
+    throw new Error("Unable to identify the contact page main and footer boundaries.");
+  }
+  contactHtml = `${contactHtml.slice(0, mainStart)}${renderContactMain(form, contactModalMarkup())}\n\n${contactHtml.slice(footerStart)}`;
+  write("contacts.html", contactHtml);
+
+  let brandsHtml = ensureLocalSeoCss(read("brands.html"));
+  if (!brandsHtml.includes("unified-brands-page")) {
+    const directorySection = brandsHtml.match(/<section class="brands-directory-section"[\s\S]*?<\/section>/i)?.[0] || "";
+    const main = `<main class="local-seo-page brands-directory unified-brands-page">
+<nav class="local-breadcrumbs" aria-label="Breadcrumb"><div class="local-shell"><ol><li><a href="https://alex-repair.com/">Home</a></li><li aria-current="page">Brands</li></ol></div></nav>
+<section class="local-hero"><div class="local-hero-media"><img src="images/repair-room.webp" alt="Appliance brands serviced by Alex Appliance Repair" width="1536" height="900" fetchpriority="high"></div><div class="local-shell local-hero-content"><p class="local-eyebrow">Independent appliance repair</p><h1>Appliance Brands We Service</h1><p class="local-hero-lead">Browse one consolidated page for each supported brand, with appliance categories and links to local service routes across Central Indiana.</p><div class="local-actions"><a class="local-button" href="${BOOKING_URL}">Book service online</a><a class="local-button local-button--secondary" href="tel:${PHONE_LINK}">Call ${PHONE_DISPLAY}</a></div></div></section>
+${directorySection}
+<section class="local-cta"><div class="local-shell local-cta-row"><div><h2>Have the model number ready</h2><p>Brand and model details help confirm documentation and parts support.</p></div><a class="local-button" href="${BOOKING_URL}">Book service online</a></div></section>
+</main>`;
+    brandsHtml = brandsHtml.replace(/<main[\s\S]*?<\/main>/i, main);
+  }
+  write("brands.html", brandsHtml);
+}
+
+function unifiedBreadcrumb(currentLabel, includeBlog = false) {
+  return `<nav class="local-breadcrumbs" aria-label="Breadcrumb"><div class="local-shell"><ol><li><a href="https://alex-repair.com/">Home</a></li>${includeBlog ? '<li><a href="https://alex-repair.com/blog.html">Blog</a></li>' : ""}<li aria-current="page">${currentLabel}</li></ol></div></nav>`;
+}
+
+function rebuildBlogArchives() {
+  for (const relativePath of BLOG_ARCHIVES) {
+    let html = ensureLocalSeoCss(read(relativePath));
+    if (html.includes("unified-blog-page")) {
+      write(relativePath, html);
+      continue;
+    }
+    const heading = html.match(/<div class="alex-blog-heading">[\s\S]*?<h1>([\s\S]*?)<\/h1>[\s\S]*?<p>([\s\S]*?)<\/p>[\s\S]*?<\/div>/i);
+    const h1 = heading?.[1]?.trim() || "Appliance Repair Blog";
+    const lead = heading?.[2]?.trim() || "Practical appliance repair and maintenance information for Central Indiana homeowners.";
+    const hero = `<section class="local-hero local-hero--content"><div class="local-hero-media"><img src="images/repair-room.webp" alt="Appliance repair guides from Alex Appliance Repair" width="1536" height="900" fetchpriority="high"></div><div class="local-shell local-hero-content"><p class="local-eyebrow">Appliance repair resources</p><h1>${h1}</h1><p class="local-hero-lead">${lead}</p><div class="local-actions"><a class="local-button" href="${BOOKING_URL}">Book service online</a><a class="local-button local-button--secondary" href="https://alex-repair.com/services.html">Browse services</a></div></div></section>`;
+    html = html.replace(/<main>/i, '<main class="local-seo-page unified-blog-page">');
+    html = html.replace(/<section class="breadcrumbs-wrap">[\s\S]*?<\/section>/i, `${unifiedBreadcrumb("Blog")}\n${hero}`);
+    html = html.replace(/<div class="alex-blog-heading">[\s\S]*?<\/div>/i, "");
+    write(relativePath, html);
+  }
+}
+
+function rebuildBlogArticles() {
+  for (const relativePath of BLOG_ARTICLES) {
+    let html = ensureLocalSeoCss(read(relativePath));
+    if (ARTICLE_HERO_OVERRIDES[relativePath] && html.includes("local-hero--article")) {
+      html = html.replace(
+        /(<section class="local-hero local-hero--article">[\s\S]*?<img\s+src=")[^"]+/i,
+        `$1${ARTICLE_HERO_OVERRIDES[relativePath]}`
+      );
+    }
+    html = html.replace(
+      /(<article class="alex-article-card">)\s*<h1[\s\S]*?<\/h1>\s*(?:<div class="alex-article-source-meta">[\s\S]*?<\/div>\s*)?<\/div>\s*/i,
+      "$1\n"
+    );
+    if (html.includes("unified-article-page")) {
+      write(relativePath, html);
+      continue;
+    }
+    const title = html.match(/<div class="alex-article-header">[\s\S]*?<h1>([\s\S]*?)<\/h1>/i)?.[1]?.trim() || "Appliance Repair Guide";
+    const meta = html.match(/<div class="alex-article-meta">([\s\S]*?)<\/div>/i)?.[1]?.trim() || "Appliance Repair Guide";
+    const heroImage = ARTICLE_HERO_OVERRIDES[relativePath] || html.match(/<div class="alex-article-hero">[\s\S]*?<img[^>]+src=["']([^"']+)["'][^>]*>/i)?.[1] || "images/repair-room.webp";
+    const heroAlt = html.match(/<div class="alex-article-hero">[\s\S]*?<img[^>]+alt=["']([^"']*)["'][^>]*>/i)?.[1] || "Appliance repair guide";
+    const hero = `<section class="local-hero local-hero--article"><div class="local-hero-media"><img src="${heroImage}" alt="${escapeHtml(heroAlt)}" width="1536" height="900" fetchpriority="high"></div><div class="local-shell local-hero-content"><p class="local-eyebrow">${meta}</p><h1>${title}</h1><p class="local-hero-lead">Practical guidance from Alex Appliance Repair for understanding appliance symptoms, maintenance decisions and the point where professional diagnosis is appropriate.</p><div class="local-actions"><a class="local-button" href="${BOOKING_URL}">Book service online</a><a class="local-button local-button--secondary" href="https://alex-repair.com/blog.html">More repair guides</a></div></div></section>`;
+    html = html.replace(/<main>/i, '<main class="local-seo-page unified-article-page">');
+    html = html.replace(/<section class="breadcrumbs-wrap">[\s\S]*?<\/section>/i, `${unifiedBreadcrumb(title, true)}\n${hero}`);
+    html = html.replace(/<div class="alex-article-header">[\s\S]*?(?=<div class="alex-article-hero">)/i, "");
+    html = html.replace(/<div class="alex-article-hero">[\s\S]*?<\/div>/i, "");
+    write(relativePath, html);
+  }
+}
+
+function rebuildUnifiedContentPages() {
+  rebuildCoreServicePages();
+  rebuildInformationPages();
+  rebuildBlogArchives();
+  rebuildBlogArticles();
+}
+
 function replaceLegacyInternalLinks() {
   const htmlFiles = [];
   const walk = (directory) => {
@@ -1185,6 +1572,7 @@ function rebuildSitemap(brands) {
     if (
       CITY_SLUGS.some((citySlug) => location === `https://alex-repair.com/${citySlug}.html`) ||
       CITY_SLUGS.some((citySlug) => SERVICE_SLUGS.some((serviceSlug) => location === `https://alex-repair.com/${citySlug}/${serviceSlug}-repair-services.html`)) ||
+      UNIFIED_PAGE_PATHS.has(location.replace("https://alex-repair.com/", "")) ||
       location === "https://alex-repair.com/brands.html"
     ) {
       block = block.replace(/<lastmod>[^<]+<\/lastmod>/, `<lastmod>${TODAY}</lastmod>`);
@@ -1207,12 +1595,14 @@ function main() {
   rebuildMainCityPages();
   const brands = rebuildBrandPages();
   updateBrandsDirectory(brands);
+  rebuildUnifiedContentPages();
   replaceLegacyInternalLinks();
   rebuildSitemap(brands);
   console.log(JSON.stringify({
     servicePages: Object.keys(cities).length * Object.keys(services).length,
     mainCityPages: CITY_SLUGS.length,
-    brandPages: brands.length
+    brandPages: brands.length,
+    unifiedPages: UNIFIED_PAGE_PATHS.size
   }, null, 2));
 }
 
