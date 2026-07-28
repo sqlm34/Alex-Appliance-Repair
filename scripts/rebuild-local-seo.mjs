@@ -336,7 +336,13 @@ function read(relativePath) {
 function write(relativePath, content) {
   const destination = path.join(ROOT, relativePath);
   fs.mkdirSync(path.dirname(destination), { recursive: true });
-  fs.writeFileSync(destination, content.replace(/\r\n/g, "\n"), "utf8");
+  const normalized = content
+    .replace(/\r\n/g, "\n")
+    .replace(
+      /js\/script\.js\?v=20260727-mobile-booking-menu/g,
+      "js/script.js?v=20260728-local-seo"
+    );
+  fs.writeFileSync(destination, normalized, "utf8");
 }
 
 function escapeHtml(value) {
