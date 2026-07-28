@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const bookingNoticeText = '$89. Waived if repair is needed.';
 	const bookingLinks = document.querySelectorAll('a[href*="online-booking"]');
 	bookingLinks.forEach((link) => {
-		if (link.closest('.header, .header-mobile-wrap, .mobile-menu-nav, .offer-wrap, .pricing-table')) {
+		if (link.closest('.header, .header-mobile-wrap, .mobile-menu-nav, .offer-wrap, .pricing-table, .local-seo-page')) {
 			return;
 		}
 		if (link.nextElementSibling && link.nextElementSibling.classList.contains('booking-service-note')) {

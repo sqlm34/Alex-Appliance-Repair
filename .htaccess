@@ -99,10 +99,20 @@ Redirect 301 /freezer-repair-carmel-indiana.html https://alex-repair.com/carmel/
 Redirect 301 /stove-repair-carmel-indiana.html https://alex-repair.com/carmel/stove-repair-services.html
 Redirect 301 /washer-repair-carmel-indiana.html https://alex-repair.com/carmel/washer-repair-services.html
 
-# Brand information remains available in the brand directory. City-brand
-# templates consolidate into the primary Carmel location page.
-RedirectMatch 301 ^/carmel/[^/]+-appliance-repair\.html$ https://alex-repair.com/carmel.html
+# Consolidate legacy Fishers articles into the canonical local service pages.
+Redirect 301 /cooktop-repair-fishers-indiana.html https://alex-repair.com/fishers/cooktop-repair-services.html
+Redirect 301 /dishwasher-repair-fishers-indiana.html https://alex-repair.com/fishers/dishwasher-repair-services.html
+Redirect 301 /dryer-repair-fishers-indiana.html https://alex-repair.com/fishers/dryer-repair-services.html
+Redirect 301 /freezer-repair-fishers-indiana.html https://alex-repair.com/fishers/freezer-repair-services.html
+Redirect 301 /microwave-repair-fishers-indiana.html https://alex-repair.com/fishers/microwave-repair-services.html
+Redirect 301 /refrigerator-repair-fishers-indiana.html https://alex-repair.com/fishers/refrigerator-repair-services.html
+Redirect 301 /stove-repair-fishers-indiana.html https://alex-repair.com/fishers/stove-repair-services.html
+Redirect 301 /washer-repair-fishers-indiana.html https://alex-repair.com/fishers/washer-repair-services.html
 
-# Brand information remains available in the brand directory. City-brand
-# templates consolidate into the primary Westfield location page.
-RedirectMatch 301 ^/westfield/[^/]+-appliance-repair\.html$ https://alex-repair.com/westfield.html
+# Keep one useful page per brand instead of six substantially similar
+# city-brand templates.
+RedirectMatch 301 ^/(carmel|fishers|westfield|noblesville|mccordsville|zionsville)/([^/]+-appliance-repair\.html)$ https://alex-repair.com/brands/$2
+
+# Consolidate city-cloned symptom articles into the matching canonical
+# city-service page.
+RedirectMatch 301 ^/blog-(carmel|fishers|westfield|noblesville|mccordsville|zionsville)-(refrigerator|washer|dryer|dishwasher|stove|microwave|cooktop|freezer)-repair\.html$ https://alex-repair.com/$1/$2-repair-services.html
