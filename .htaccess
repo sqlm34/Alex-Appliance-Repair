@@ -90,3 +90,15 @@ Redirect 301 /noblesville/refrigirator-repair-services.html https://alex-repair.
 Redirect 301 /mccordsville/refrigirator-repair-services.html https://alex-repair.com/mccordsville/refrigerator-repair-services.html
 Redirect 301 /westfield/refrigirator-repair-services.html https://alex-repair.com/westfield/refrigerator-repair-services.html
 Redirect 301 /zionsville/refrigirator-repair-services.html https://alex-repair.com/zionsville/refrigerator-repair-services.html
+
+# Consolidate legacy Carmel service URLs into the canonical service pages.
+Redirect 301 /cooktop-repair-carmel-indiana.html https://alex-repair.com/carmel/cooktop-repair-services.html
+Redirect 301 /dishwasher-repair-carmel-indiana.html https://alex-repair.com/carmel/dishwasher-repair-services.html
+Redirect 301 /dryer-repair-carmel-indiana.html https://alex-repair.com/carmel/dryer-repair-services.html
+Redirect 301 /freezer-repair-carmel-indiana.html https://alex-repair.com/carmel/freezer-repair-services.html
+Redirect 301 /stove-repair-carmel-indiana.html https://alex-repair.com/carmel/stove-repair-services.html
+Redirect 301 /washer-repair-carmel-indiana.html https://alex-repair.com/carmel/washer-repair-services.html
+
+# Brand information remains available in the brand directory. City-brand
+# templates consolidate into the primary Carmel location page.
+RedirectMatch 301 ^/carmel/[^/]+-appliance-repair\.html$ https://alex-repair.com/carmel.html
