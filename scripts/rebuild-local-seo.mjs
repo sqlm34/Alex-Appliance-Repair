@@ -11,6 +11,54 @@ const BOOKING_URL = "https://online-booking.workiz.com/?ac=15ab9daf88d12ad393d83
 const CITY_SLUGS = ["carmel", "fishers", "westfield", "noblesville", "mccordsville", "zionsville"];
 const SERVICE_SLUGS = ["refrigerator", "washer", "dryer", "dishwasher", "stove", "microwave", "cooktop", "freezer"];
 
+const carmelCompletedRepairs = [
+  {
+    image: "carmel-completed-repair-27.webp",
+    title: "Freezer evaporator fan motor replacement",
+    alt: "Freezer evaporator fan motor replacement for a Carmel appliance repair customer"
+  },
+  {
+    image: "carmel-completed-repair-31.webp",
+    title: "Dishwasher fill funnel replacement for a water leak",
+    alt: "Dishwasher fill funnel replacement for a Carmel appliance repair customer with a water leak"
+  },
+  {
+    image: "carmel-completed-repair-32.webp",
+    title: "KitchenAid refrigerator door switch replacement",
+    alt: "KitchenAid refrigerator door switch replacement for a Carmel appliance repair customer"
+  },
+  {
+    image: "carmel-completed-repair-36.webp",
+    title: "Appliance wiring harness and connector inspection",
+    alt: "Appliance wiring harness and connector inspection for a Carmel repair customer"
+  },
+  {
+    image: "carmel-completed-repair-38.webp",
+    title: "Range control panel wiring diagnosis",
+    alt: "Range control panel wiring diagnosis for a Carmel appliance repair customer"
+  },
+  {
+    image: "carmel-completed-repair-41.webp",
+    title: "Refrigerator temperature verification after service",
+    alt: "Refrigerator temperature verification after service for a Carmel appliance repair customer"
+  },
+  {
+    image: "carmel-completed-repair-42.webp",
+    title: "Refrigerator ice compartment service and inspection",
+    alt: "Refrigerator ice compartment service and inspection for a Carmel appliance repair customer"
+  },
+  {
+    image: "carmel-completed-repair-48.webp",
+    title: "Refrigerator drain line cleaning for a water leak",
+    alt: "Refrigerator drain line cleaning for a Carmel appliance repair customer with a water leak"
+  },
+  {
+    image: "carmel-completed-repair-50.webp",
+    title: "Frozen refrigerator evaporator coil defrost service",
+    alt: "Frozen refrigerator evaporator coil defrost service for a Carmel appliance repair customer"
+  }
+];
+
 const cities = {
   carmel: {
     name: "Carmel",
@@ -339,8 +387,8 @@ function write(relativePath, content) {
   const normalized = content
     .replace(/\r\n/g, "\n")
     .replace(
-      /js\/script\.js\?v=20260727-mobile-booking-menu/g,
-      "js/script.js?v=20260728-local-seo"
+      /js\/script\.js\?v=(?:20260727-mobile-booking-menu|20260728-local-seo)/g,
+      "js/script.js?v=20260728-city-hubs"
     );
   fs.writeFileSync(destination, normalized, "utf8");
 }
@@ -679,12 +727,7 @@ function rebuildServicePages() {
 function cityMainSchema(citySlug) {
   const city = cities[citySlug];
   const url = `https://alex-repair.com/${citySlug}.html`;
-  const faqs = [
-    [`Which appliances do you repair in ${city.name}?`, "We repair refrigerators, freezers, washers, dryers, dishwashers, stoves, ovens, cooktops and many built-in or over-the-range microwaves."],
-    [`How much is the service call in ${city.name}?`, "The service call is $89 and is waived when the quoted repair is completed."],
-    ["Is same-day service guaranteed?", "No. Same-day or next-day appointments may be available, but the confirmed window depends on the active route, job duration and parts."],
-    ["Is repair work covered by a warranty?", "Completed repairs include a 12-month parts and labor warranty under the applicable service terms."]
-  ];
+  const faqs = cityMainFaq(citySlug);
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -726,6 +769,50 @@ function cityMainSchema(citySlug) {
   };
 }
 
+function cityMainFaq(citySlug) {
+  const city = cities[citySlug];
+  return [
+    [`Which appliances do you repair in ${city.name}?`, "We repair refrigerators, freezers, washers, dryers, dishwashers, stoves, ovens, cooktops and many built-in or over-the-range microwaves."],
+    [`Which parts of ${city.name} do you serve?`, `Service is available across ${city.zipCodes.join(", ")} and local areas including ${city.areas.join(", ")}. The exact address is confirmed during booking.`],
+    [`How much is the service call in ${city.name}?`, "The service call is $89 and is waived when the quoted repair is completed."],
+    ["Is same-day service guaranteed?", "No. Same-day or next-day appointments may be available, but the confirmed window depends on the active route, job duration and parts."],
+    ["What should I provide when booking?", "The appliance type, brand, model number, address and a short description of the symptom help us prepare for the visit."],
+    ["Is repair work covered by a warranty?", "Completed repairs include a 12-month parts and labor warranty under the applicable service terms."]
+  ];
+}
+
+function renderCarmelCompletedRepairs() {
+  const cards = carmelCompletedRepairs.map((repair, index) => {
+    const imageUrl = `images/carmel-completed-repairs/${repair.image}`;
+    return `<figure class="carmel-repair-proof-card">
+        <img loading="lazy" src="${imageUrl}" width="640" height="480" alt="${escapeHtml(repair.alt)}">
+        <figcaption>${escapeHtml(repair.title)}</figcaption>
+        <a href="${imageUrl}" class="carmel-repairs-lightbox carmel-repair-card-link" aria-label="View ${escapeHtml(repair.title.toLowerCase())} photo" onclick="return window.openCarmelGalleryFromCard ? window.openCarmelGalleryFromCard(event, ${index}) : true;"></a>
+        <button class="carmel-repair-card-button" type="button" aria-label="View ${escapeHtml(repair.title.toLowerCase())} photo" onclick="return window.openCarmelGalleryFromCard(event, ${index});"></button>
+      </figure>`;
+  }).join("\n");
+  return `
+<section class="local-section local-section--soft carmel-completed-repairs" aria-labelledby="carmel-completed-repairs-title">
+  <div class="local-shell">
+    <header class="local-section-header">
+      <p class="local-eyebrow">Actual appliance repair work</p>
+      <h2 id="carmel-completed-repairs-title">Real Completed Repairs in Carmel</h2>
+      <p>Original job photos from Carmel-area and Hamilton County service calls. The examples show diagnostics, component access, cleaning and completed work on refrigeration, dishwashing and cooking appliances.</p>
+    </header>
+    <div class="carmel-repairs-native-slider" aria-label="Selected completed appliance repairs in Carmel">
+      <div class="carmel-repairs-track">
+        ${cards}
+      </div>
+      <div class="carmel-repairs-controls" aria-label="Completed repair photo controls">
+        <button class="carmel-repairs-prev" type="button" aria-label="Previous repair photo">&#8592;</button>
+        <button class="carmel-repairs-next" type="button" aria-label="Next repair photo">&#8594;</button>
+      </div>
+    </div>
+    <p class="carmel-repair-proof-note">These photographs document the equipment and components encountered during local service. Every repair recommendation is based on the appliance model, measured failure and condition found during diagnosis.</p>
+  </div>
+</section>`;
+}
+
 function renderCityMain(citySlug) {
   const city = cities[citySlug];
   const cityIndex = CITY_SLUGS.indexOf(citySlug);
@@ -736,12 +823,8 @@ function renderCityMain(citySlug) {
       return `<div class="local-feature"><h3><a href="https://alex-repair.com/${citySlug}/${serviceSlug}-repair-services.html">${escapeHtml(service.label)}</a></h3><p>${escapeHtml(issue[0])}, ${escapeHtml(issue[1].charAt(0).toLowerCase() + issue[1].slice(1))}</p></div>`;
     })
     .join("\n");
-  const faq = [
-    [`Which appliances do you repair in ${city.name}?`, "We repair refrigerators, freezers, washers, dryers, dishwashers, stoves, ovens, cooktops and many built-in or over-the-range microwaves."],
-    [`How much is the service call in ${city.name}?`, "The service call is $89 and is waived when the quoted repair is completed."],
-    ["Is same-day service guaranteed?", "No. Same-day or next-day appointments may be available, but the confirmed window depends on the active route, job duration and parts."],
-    ["Is repair work covered by a warranty?", "Completed repairs include a 12-month parts and labor warranty under the applicable service terms."]
-  ];
+  const faq = cityMainFaq(citySlug);
+  const localProof = citySlug === "carmel" ? renderCarmelCompletedRepairs() : "";
   return `<main class="local-seo-page">
 <nav class="local-breadcrumbs" aria-label="Breadcrumb">
   <div class="local-shell"><ol><li><a href="https://alex-repair.com/">Home</a></li><li aria-current="page">${escapeHtml(city.name)}</li></ol></div>
@@ -795,6 +878,8 @@ function renderCityMain(citySlug) {
   </div>
 </section>
 
+${localProof}
+
 <section class="local-section local-section--blue">
   <div class="local-shell">
     <header class="local-section-header"><p class="local-eyebrow">No guesswork</p><h2>A practical service process</h2></header>
@@ -824,7 +909,7 @@ function renderCityMain(citySlug) {
 }
 
 function rebuildMainCityPages() {
-  for (const citySlug of ["fishers", "noblesville", "mccordsville", "zionsville"]) {
+  for (const citySlug of CITY_SLUGS) {
     const city = cities[citySlug];
     const relativePath = `${citySlug}.html`;
     let html = read(relativePath);
@@ -1126,7 +1211,7 @@ function main() {
   rebuildSitemap(brands);
   console.log(JSON.stringify({
     servicePages: Object.keys(cities).length * Object.keys(services).length,
-    mainCityPages: 4,
+    mainCityPages: CITY_SLUGS.length,
     brandPages: brands.length
   }, null, 2));
 }

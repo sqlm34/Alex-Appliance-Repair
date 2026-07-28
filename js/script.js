@@ -862,6 +862,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		function moveTo(index, animate = true) {
 			if (!track || slides.length === 0) return;
+			carmelRepairsSlider.scrollLeft = 0;
 			activeIndex = normalizeIndex(index);
 			const slide = slides[activeIndex];
 			const sliderCenter = carmelRepairsSlider.clientWidth / 2;
@@ -872,6 +873,12 @@ document.addEventListener('DOMContentLoaded', () => {
 				item.classList.toggle('is-active', itemIndex === activeIndex);
 			});
 		}
+
+		carmelRepairsSlider.addEventListener('scroll', () => {
+			if (carmelRepairsSlider.scrollLeft !== 0) {
+				carmelRepairsSlider.scrollLeft = 0;
+			}
+		}, { passive: true });
 
 		previousButton?.addEventListener('click', () => moveTo(activeIndex - 1));
 		nextButton?.addEventListener('click', () => moveTo(activeIndex + 1));
@@ -985,6 +992,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		function openGallery(index) {
+			if (carmelRepairsSlider) carmelRepairsSlider.scrollLeft = 0;
 			showGalleryImage(index);
 			galleryModal.classList.add('is-open');
 			document.body.classList.add('carmel-gallery-open');
@@ -995,6 +1003,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			galleryModal.classList.remove('is-open');
 			document.body.classList.remove('carmel-gallery-open');
 			galleryImage.removeAttribute('src');
+			if (carmelRepairsSlider) carmelRepairsSlider.scrollLeft = 0;
 		}
 
 		window.openCarmelGalleryFromCard = function (event, index) {
