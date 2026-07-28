@@ -559,6 +559,12 @@
     <priority>0.85</priority>
   </url>
 <url>
+    <loc>https://alex-repair.com/locations.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+<url>
     <loc>https://alex-repair.com/brands/amana-appliance-repair.html</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>

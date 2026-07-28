@@ -585,6 +585,35 @@ a.booking-button[href*="online-booking"] {
 .menu-item-plus{
 	margin-left: 5px;
 	display: inline-block;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	line-height: 1;
+	padding: 0;
+	cursor: pointer;
+}
+.header-bottom .menu-nav .menu-has-children{
+	position: relative;
+}
+.header-bottom .menu-nav .menu-has-children > a{
+	padding-right: 48px;
+}
+.header-bottom .menu-nav .menu-has-children > .menu-item-plus{
+	position: absolute;
+	right: 14px;
+	top: 50%;
+	z-index: 2;
+	margin: 0;
+	transform: translateY(-50%);
+	transition: color .25s ease, transform .25s ease;
+}
+.header-bottom .menu-nav .menu-has-children > .menu-item-plus:hover,
+.header-bottom .menu-nav .menu-has-children > .menu-item-plus:focus-visible{
+	color: var(--color-6);
+}
+.header-bottom .menu-nav .menu-has-children.is-active > .menu-item-plus{
+	transform: translateY(-50%) rotate(45deg);
 }
 .header-bottom .menu-nav .sub-menu{
 	z-index: 1001;
@@ -612,7 +641,12 @@ a.booking-button[href*="online-booking"] {
 	-ms-transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
 	-o-transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
 }
-.header-bottom .menu-nav ul li.menu-has-children:hover .sub-menu{
+.header-bottom .menu-nav > ul > .menu-has-children > .sub-menu{
+	min-width: 225px;
+}
+.header-bottom .menu-nav ul li.menu-has-children:hover > .sub-menu,
+.header-bottom .menu-nav ul li.menu-has-children:focus-within > .sub-menu,
+.header-bottom .menu-nav ul li.menu-has-children.is-active > .sub-menu{
 	opacity: 1;
 	visibility: visible;
 	transform: none;
@@ -3939,7 +3973,7 @@ overflow:hidden;}
 		-ms-transition: transform 0.5s ease, color 0.5s ease, background-color 0.5s ease;
 		-o-transition: transform 0.5s ease, color 0.5s ease, background-color 0.5s ease;
 	}
-	.mobile-menu-nav ul li.menu-has-children.is-active > a > .menu-item-plus{
+	.mobile-menu-nav ul li.menu-has-children.is-active > .menu-item-plus{
 		background-color: var(--color-1);
 		color: #fff;
 		transform: rotate(45deg);

@@ -10,14 +10,23 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Header START
 	let headerLinks = document.querySelectorAll('.menu-item.menu-has-children > a');
 	headerLinks.forEach(function (link) {
-		let span = document.createElement('span');
-		span.className = 'menu-item-plus';
-		span.textContent = '+';
-		link.appendChild(span);
+		if (link.nextElementSibling?.classList.contains('menu-item-plus')) {
+			return;
+		}
+		const menuLabel = link.textContent.trim();
+		const toggle = document.createElement('button');
+		toggle.className = 'menu-item-plus';
+		toggle.type = 'button';
+		toggle.textContent = '+';
+		toggle.setAttribute('aria-label', `Toggle ${menuLabel} submenu`);
+		toggle.setAttribute('aria-expanded', 'false');
+		toggle.setAttribute('aria-haspopup', 'true');
+		link.insertAdjacentElement('afterend', toggle);
 	});
 
 	function toggleMobileSubMenu(menuLi) {
 		const subMenu = menuLi ? menuLi.querySelector(':scope > .sub-menu') : null;
+		const toggle = menuLi ? menuLi.querySelector(':scope > .menu-item-plus') : null;
 		if (!subMenu) {
 			return;
 		}
@@ -25,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			slideUp(subMenu, 300);
 			subMenu.classList.remove('is-active');
 			menuLi.classList.remove('is-active');
+			toggle?.setAttribute('aria-expanded', 'false');
 		} else {
 			const parentMenu = menuLi.parentElement;
 			if (parentMenu && parentMenu.closest('.mobile-menu-nav')) {
@@ -33,7 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
 						return;
 					}
 					const siblingSubMenu = siblingLi.querySelector(':scope > .sub-menu');
+					const siblingToggle = siblingLi.querySelector(':scope > .menu-item-plus');
 					siblingLi.classList.remove('is-active');
+					siblingToggle?.setAttribute('aria-expanded', 'false');
 					if (siblingSubMenu) {
 						slideUp(siblingSubMenu, 300);
 						siblingSubMenu.classList.remove('is-active');
@@ -43,10 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
 			slideDown(subMenu, 300);
 			subMenu.classList.add('is-active');
 			menuLi.classList.add('is-active');
+			toggle?.setAttribute('aria-expanded', 'true');
 			let parentLi = menuLi.parentElement.closest('.mobile-menu-nav .menu-has-children');
 			while (parentLi) {
 				const parentSubMenu = parentLi.querySelector(':scope > .sub-menu');
+				const parentToggle = parentLi.querySelector(':scope > .menu-item-plus');
 				parentLi.classList.add('is-active');
+				parentToggle?.setAttribute('aria-expanded', 'true');
 				if (parentSubMenu) {
 					parentSubMenu.style.display = 'block';
 					parentSubMenu.style.height = '';
@@ -57,22 +72,37 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	// Mobile Sub Menu OPEN
-	const mobileMenuLinks = document.querySelectorAll('.mobile-menu-nav .menu-has-children > a');
-	mobileMenuLinks.forEach(link => {
-		link.addEventListener('click', function (event) {
-			const clickedPlus = event.target.closest('.menu-item-plus');
-			const href = (link.getAttribute('href') || '').trim();
-			const shouldToggle = (clickedPlus && link.contains(clickedPlus)) || href === '' || href === '#';
-			if (!shouldToggle) {
-				return;
-			}
+	const mobileMenuToggles = document.querySelectorAll('.mobile-menu-nav .menu-has-children > .menu-item-plus');
+	mobileMenuToggles.forEach(toggle => {
+		toggle.addEventListener('click', function (event) {
 			event.preventDefault();
 			event.stopPropagation();
-			toggleMobileSubMenu(link.closest('.menu-has-children'));
+			toggleMobileSubMenu(toggle.closest('.menu-has-children'));
 		});
 	});
 	// Mobile Sub Menu CLOSE
-	
+
+	const desktopMenuToggles = document.querySelectorAll('.menu-nav .menu-has-children > .menu-item-plus');
+	desktopMenuToggles.forEach(toggle => {
+		toggle.addEventListener('click', function (event) {
+			event.preventDefault();
+			event.stopPropagation();
+			const menuLi = toggle.closest('.menu-has-children');
+			const isActive = menuLi.classList.toggle('is-active');
+			toggle.setAttribute('aria-expanded', String(isActive));
+		});
+	});
+
+	document.addEventListener('click', (event) => {
+		if (event.target.closest('.menu-nav .menu-has-children')) {
+			return;
+		}
+		document.querySelectorAll('.menu-nav .menu-has-children.is-active').forEach(menuLi => {
+			menuLi.classList.remove('is-active');
+			menuLi.querySelector(':scope > .menu-item-plus')?.setAttribute('aria-expanded', 'false');
+		});
+	});
+
 	//Slide mobile menu open START
 
 	let hamburgerBtn = document.querySelector('.hamburger');
