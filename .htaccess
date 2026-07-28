@@ -102,3 +102,7 @@ Redirect 301 /washer-repair-carmel-indiana.html https://alex-repair.com/carmel/w
 # Brand information remains available in the brand directory. City-brand
 # templates consolidate into the primary Carmel location page.
 RedirectMatch 301 ^/carmel/[^/]+-appliance-repair\.html$ https://alex-repair.com/carmel.html
+
+# Brand information remains available in the brand directory. City-brand
+# templates consolidate into the primary Westfield location page.
+RedirectMatch 301 ^/westfield/[^/]+-appliance-repair\.html$ https://alex-repair.com/westfield.html
