@@ -62,11 +62,16 @@
 
 .local-seo-page .local-hero {
   position: relative;
-  min-height: 500px;
+  min-height: 100vh;
   display: grid;
   align-items: center;
   overflow: hidden;
   background: var(--local-navy);
+}
+
+html body main.local-seo-page > section.local-hero.local-hero {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .local-seo-page .local-hero-media {
@@ -100,7 +105,7 @@
 
 @media (min-width: 681px) {
   main.local-seo-page:not(.unified-home-page) > .local-hero.local-hero {
-    min-height: 650px;
+    min-height: 100vh;
   }
 
   main.local-seo-page:not(.unified-home-page) > .local-hero .local-hero-content {
@@ -480,7 +485,8 @@ body .mobile-button-wrap .button-v1:focus-visible {
 
 @media (max-width: 680px) {
   main.local-seo-page:not(.unified-home-page) > .local-hero.local-hero {
-    padding-top: calc(var(--site-section-y) + 51px) !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   .local-seo-page .local-shell {
@@ -488,7 +494,7 @@ body .mobile-button-wrap .button-v1:focus-visible {
   }
 
   .local-seo-page .local-hero {
-    min-height: 560px;
+    min-height: 100vh;
   }
 
   .local-seo-page .local-hero-media::after {
@@ -537,7 +543,7 @@ body .mobile-button-wrap .button-v1:focus-visible {
 /* Shared presentation for the primary service, information, directory and editorial pages. */
 .local-seo-page .local-hero--content,
 .local-seo-page .local-hero--article {
-  min-height: 460px;
+  min-height: 100vh;
 }
 
 .local-seo-page .local-media-copy {
@@ -1024,7 +1030,7 @@ body header.header + main.unified-brands-page::before {
 }
 
 .unified-home-page .local-hero--home {
-  min-height: 720px;
+  min-height: 100vh;
 }
 
 .unified-home-page .local-hero--home .local-hero-content {
@@ -1345,7 +1351,7 @@ body header.header + main.unified-brands-page::before {
 
 @media (max-width: 680px) {
   .unified-home-page .local-hero--home {
-    min-height: 0;
+    min-height: 100vh;
   }
 
   .unified-home-page .local-hero--home .local-hero-content {
@@ -1422,7 +1428,7 @@ body header.header + main.unified-brands-page::before {
 
   .local-seo-page .local-hero--content,
   .local-seo-page .local-hero--article {
-    min-height: 560px;
+    min-height: 100vh;
   }
 
   .local-seo-page .local-check-list,
