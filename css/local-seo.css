@@ -2287,3 +2287,37 @@ body.home-gallery-open .scroll-top-button {
     text-align: left;
   }
 }
+
+/* Keep hero copy aligned while giving long headings room to extend right. */
+main.local-seo-page .local-hero .local-hero-content {
+  --shared-hero-left: max(20px, calc((100% - 900px) / 2));
+  width: min(1040px, calc(100% - var(--shared-hero-left) - 20px));
+  max-width: none;
+  margin-left: var(--shared-hero-left);
+  margin-right: 0;
+}
+
+main.local-seo-page .local-hero h1 {
+  max-width: 1040px;
+  font-size: 58px;
+  line-height: 1.08;
+}
+
+@media (max-width: 1024px) and (min-width: 681px) {
+  main.local-seo-page .local-hero h1 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 680px) {
+  main.local-seo-page .local-hero .local-hero-content {
+    width: min(calc(100% - 28px), 1180px);
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  main.local-seo-page .local-hero h1 {
+    font-size: 34px;
+  }
+}
