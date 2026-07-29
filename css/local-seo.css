@@ -29,6 +29,18 @@
   font-size: 14px;
 }
 
+.local-seo-page > .local-breadcrumbs {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
+}
+
 .local-seo-page .local-breadcrumbs ol {
   display: flex;
   flex-wrap: wrap;
