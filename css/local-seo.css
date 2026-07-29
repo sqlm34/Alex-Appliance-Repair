@@ -1421,6 +1421,15 @@ body header.header + main.unified-brands-page::before {
   font-size: 58px;
 }
 
+.unified-home-page .booking-service-note {
+  display: none !important;
+}
+
+.unified-home-page .local-actions a.local-button[href*="online-booking"],
+.unified-home-page .home-final-actions a.local-button[href*="online-booking"] {
+  margin-top: 0 !important;
+}
+
 .home-trust-strip {
   background: linear-gradient(110deg, var(--local-navy), var(--local-blue));
 }
