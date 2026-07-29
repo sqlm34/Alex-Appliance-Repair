@@ -1850,8 +1850,15 @@ body header.header + main.unified-brands-page::before {
   gap: 12px;
 }
 
+html.home-gallery-open,
 body.home-gallery-open {
   overflow: hidden;
+}
+
+body.home-gallery-open .es-portal-root,
+body.home-gallery-open .scroll-top-button {
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
 
 .home-gallery-modal {

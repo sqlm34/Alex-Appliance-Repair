@@ -84,6 +84,7 @@
     galleryTitle = card.dataset.title || 'Completed appliance repair';
     returnFocus = card;
     galleryModal.hidden = false;
+    document.documentElement.classList.add('home-gallery-open');
     document.body.classList.add('home-gallery-open');
     showGalleryImage(0);
 
@@ -95,6 +96,7 @@
 
   function closeGallery() {
     galleryModal.classList.remove('is-open');
+    document.documentElement.classList.remove('home-gallery-open');
     document.body.classList.remove('home-gallery-open');
 
     window.setTimeout(function () {
