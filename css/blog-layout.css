@@ -274,7 +274,7 @@
 }
 
 .alex-blog-local-head h2 {
-    color: #fff;
+    color: var(--color-4);
     font-size: 30px;
     line-height: 1.2;
     margin: 9px 0 12px;
@@ -553,10 +553,13 @@
 }
 
 .alex-blog-cta h3,
+.alex-article-cta h3 {
+    color: var(--color-4);
+}
+
 .alex-blog-cta p,
-.alex-article-cta h3,
 .alex-article-cta p {
-    color: var(--color-6);
+    color: #fff;
 }
 
 .alex-blog-cta p,
@@ -673,7 +676,7 @@
 .alex-article-body > h2 {
     background: var(--color-grd);
     border-radius: 8px;
-    color: #fff;
+    color: var(--color-4);
     font-size: 30px;
     line-height: 1.2;
     margin: 40px 0 18px;
@@ -841,7 +844,12 @@
 }
 
 .alex-article-body .alex-cta-block h2,
-.alex-article-body .alex-cta-block h3,
+.alex-article-body .alex-cta-block h3 {
+    color: var(--color-4) !important;
+    position: relative;
+    z-index: 1;
+}
+
 .alex-article-body .alex-cta-block p {
     color: #fff !important;
     position: relative;
@@ -885,7 +893,7 @@
 .alex-article-body .alex-faq-section > h2 {
     background: var(--color-grd);
     border-radius: 8px;
-    color: #fff;
+    color: var(--color-4);
     font-size: 28px;
     line-height: 1.2;
     margin: 0 0 16px;
@@ -1180,7 +1188,7 @@
 .alex-article-body .alex-related h3 {
     background: var(--color-grd);
     border-radius: 8px;
-    color: #fff;
+    color: var(--color-4);
     font-size: 28px;
     line-height: 1.2;
     margin: 0 0 16px;
@@ -1272,9 +1280,12 @@
 }
 
 .alex-article-body .cta-box h2,
-.alex-article-body .cta-box h3,
+.alex-article-body .cta-box h3 {
+    color: var(--color-4);
+}
+
 .alex-article-body .cta-box p {
-    color: var(--color-6);
+    color: #fff;
 }
 
 .alex-article-body .cta-box a:not(.button-v1),
