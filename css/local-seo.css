@@ -435,7 +435,7 @@
 }
 
 @media (max-width: 680px) {
-  .local-seo-page:not(.unified-home-page) .local-hero {
+  main.local-seo-page:not(.unified-home-page) > .local-hero.local-hero {
     padding-top: calc(var(--site-section-y) + 51px) !important;
   }
 
