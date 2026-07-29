@@ -90,8 +90,14 @@
   margin: 0 0 14px;
   color: var(--local-yellow);
   font-size: 15px;
-  font-weight: 800;
+  font-kerning: none;
+  font-feature-settings: "kern" 0;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.4;
   text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  word-spacing: 0.08em;
 }
 
 .local-seo-page .local-hero h1 {
