@@ -435,6 +435,10 @@
 }
 
 @media (max-width: 680px) {
+  .local-seo-page:not(.unified-home-page) .local-hero {
+    min-height: 611px;
+  }
+
   .local-seo-page .local-shell {
     width: min(100% - 28px, 1180px);
   }
