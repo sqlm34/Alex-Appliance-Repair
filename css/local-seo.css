@@ -2321,3 +2321,17 @@ main.local-seo-page .local-hero h1 {
     font-size: 34px;
   }
 }
+
+@media (max-width: 680px) {
+  main.local-seo-page .local-hero .local-hero-content {
+    padding-top: 195px;
+  }
+
+  main.local-seo-page .local-hero .local-eyebrow {
+    margin-bottom: 12px;
+    font-size: 11px;
+    line-height: 1.35;
+    letter-spacing: 0.06em;
+    word-spacing: 0.04em;
+  }
+}
