@@ -436,7 +436,7 @@
 
 @media (max-width: 680px) {
   .local-seo-page:not(.unified-home-page) .local-hero {
-    padding-top: 51px;
+    padding-top: calc(var(--site-section-y) + 51px) !important;
   }
 
   .local-seo-page .local-shell {
