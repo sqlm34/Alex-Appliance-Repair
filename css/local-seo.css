@@ -98,6 +98,17 @@
   color: #ffffff;
 }
 
+@media (min-width: 681px) {
+  main.local-seo-page:not(.unified-home-page) > .local-hero.local-hero {
+    min-height: 650px;
+  }
+
+  main.local-seo-page:not(.unified-home-page) > .local-hero .local-hero-content {
+    padding-top: 150px;
+    padding-bottom: 144px;
+  }
+}
+
 .local-seo-page .local-eyebrow {
   margin: 0 0 14px;
   color: var(--local-yellow);
@@ -164,18 +175,51 @@
   color: #11213a;
   font-weight: 800;
   text-decoration: none;
+  transition:
+    background-color 280ms ease 60ms,
+    border-color 280ms ease 60ms,
+    color 280ms ease 60ms,
+    box-shadow 280ms ease 60ms,
+    transform 280ms ease 60ms;
 }
 
 .local-seo-page .local-button:hover,
 .local-seo-page .local-button:focus-visible {
   border-color: #ffffff;
   background: #ffffff;
+  transform: translateY(-2px);
 }
 
 .local-seo-page .local-button--secondary {
   border-color: rgba(255, 255, 255, 0.78);
   background: rgba(9, 36, 75, 0.64);
   color: #ffffff;
+}
+
+.local-seo-page .local-button--secondary:hover,
+.local-seo-page .local-button--secondary:focus-visible {
+  color: var(--local-yellow);
+}
+
+body .button-v1,
+body .booking-button,
+body .mobile-button-wrap .button-v1 {
+  transition:
+    background-color 280ms ease 60ms,
+    border-color 280ms ease 60ms,
+    color 280ms ease 60ms,
+    box-shadow 280ms ease 60ms,
+    transform 280ms ease 60ms !important;
+}
+
+body .button-v1:hover,
+body .button-v1:focus-visible,
+body .booking-button:hover,
+body .booking-button:focus-visible,
+body .mobile-button-wrap .button-v1:hover,
+body .mobile-button-wrap .button-v1:focus-visible {
+  box-shadow: 0 10px 24px rgba(11, 36, 71, 0.16);
+  transform: translateY(-2px);
 }
 
 .local-seo-page .local-section {
@@ -1614,6 +1658,11 @@ body header.header + main.unified-brands-page::before {
   font-size: 30px;
   font-weight: 700;
   line-height: 1;
+  transition:
+    background-color 260ms ease 60ms,
+    border-color 260ms ease 60ms,
+    color 260ms ease 60ms,
+    transform 260ms ease 60ms;
 }
 
 .home-carousel-arrow:hover,
@@ -1708,6 +1757,16 @@ body header.header + main.unified-brands-page::before {
   padding-top: 16px;
   color: rgba(255, 255, 255, 0.76);
   font-size: 12px;
+}
+
+.home-repairs-section .home-repair-proof-note {
+  max-width: 900px;
+  margin: 34px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 .home-area-card-grid .local-service-card {
