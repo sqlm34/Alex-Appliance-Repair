@@ -7556,4 +7556,31 @@
       <image:title>Contact Alex Appliance Repair on WhatsApp</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://alex-repair.com/recent-work.html</loc>
+    <image:image>
+      <image:loc>https://alex-repair.com/images/carmel-dryer-gas-valve-coil-repair-open-dryer.webp</image:loc>
+      <image:title>Carmel dryer gas valve coil replacement and lint cleanup</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-27.webp</image:loc>
+      <image:title>Carmel freezer evaporator fan motor replacement</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-31.webp</image:loc>
+      <image:title>Carmel dishwasher fill funnel replacement</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://alex-repair.com/images/home-repairs/bosch-dishwasher-pump-01.webp</image:loc>
+      <image:title>Bosch dishwasher circulation pump replacement</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc>
+      <image:title>LG dryer belt tensioner and roller replacement</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://alex-repair.com/images/home-repairs/samsung-washer-valve-01.webp</image:loc>
+      <image:title>Samsung washer water valve replacement</image:title>
+    </image:image>
+  </url>
 </urlset>
