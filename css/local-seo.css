@@ -391,6 +391,93 @@ body .mobile-button-wrap .button-v1:focus-visible {
   padding-left: 20px;
 }
 
+.local-seo-page .local-repair-story {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.local-seo-page .local-repair-story-card {
+  padding: 30px;
+  border: 1px solid var(--local-line);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 16px 38px rgba(16, 33, 58, 0.08);
+}
+
+.local-seo-page .local-repair-story-card h2 {
+  margin: 0 0 14px;
+  color: var(--local-navy);
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.16;
+}
+
+.local-seo-page .local-repair-story-card p {
+  margin: 0 0 14px;
+  color: var(--local-muted);
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+.local-seo-page .local-repair-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.local-seo-page .local-repair-facts li {
+  padding: 14px 16px;
+  border-left: 4px solid var(--local-yellow);
+  border-radius: 8px;
+  background: #f7fbff;
+  color: var(--local-navy);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.local-seo-page .local-repair-facts span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--local-blue);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.local-seo-page .local-repair-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.local-seo-page .local-repair-gallery figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--local-line);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 14px 30px rgba(16, 33, 58, 0.08);
+}
+
+.local-seo-page .local-repair-gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: block;
+  object-fit: cover;
+}
+
+.local-seo-page .local-repair-gallery figcaption {
+  padding: 12px 14px 14px;
+  color: var(--local-muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
 .local-seo-page .local-faq-list {
   display: grid;
   gap: 12px;
@@ -1410,6 +1497,7 @@ body header.header + main.unified-brands-page::before {
 
 @media (max-width: 960px) {
   .local-seo-page .local-media-copy,
+  .local-seo-page .local-repair-story,
   .local-seo-page .local-contact-layout,
   .unified-article-page .alex-article-layout {
     grid-template-columns: 1fr;
@@ -1421,6 +1509,15 @@ body header.header + main.unified-brands-page::before {
 }
 
 @media (max-width: 680px) {
+  .local-seo-page .local-repair-facts,
+  .local-seo-page .local-repair-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .local-seo-page .local-repair-story-card {
+    padding: 24px;
+  }
+
   .local-seo-page .local-hero-content > .local-brand-logo {
     display: none;
   }
