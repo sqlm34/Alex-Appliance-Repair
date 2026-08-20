@@ -6,7 +6,7 @@
     name: form.querySelector('#service-name'),
     phone: form.querySelector('#service-phone'),
     email: form.querySelector('#service-email'),
-    city: form.querySelector('#service-city'),
+    address: form.querySelector('#service-address'),
     service: form.querySelector('#service-type'),
     message: form.querySelector('#service-message'),
     photo: form.querySelector('#model-photo')
@@ -52,8 +52,8 @@
     return value.replace(/[0-9]/g, '').replace(/[^A-Za-z\s'.-]/g, '');
   }
 
-  function cleanCity(value) {
-    return value.replace(/[0-9]/g, '').replace(/[^A-Za-z\s'.-]/g, '');
+  function cleanAddress(value) {
+    return value.replace(/[^A-Za-z0-9\s.,#'/-]/g, '');
   }
 
   function getLocalPhoneDigits(value) {
@@ -110,7 +110,7 @@
     Object.keys(fields).forEach((key) => setError(key, ''));
 
     fields.name.value = trimSpaces(cleanName(fields.name.value));
-    fields.city.value = trimSpaces(cleanCity(fields.city.value));
+    fields.address.value = trimSpaces(cleanAddress(fields.address.value));
     fields.phone.value = formatPhone(fields.phone.value);
 
     if (!/^[A-Za-z][A-Za-z\s'.-]{1,59}$/.test(fields.name.value)) {
@@ -129,8 +129,8 @@
       isValid = false;
     }
 
-    if (!/^[A-Za-z][A-Za-z\s'.-]{1,59}$/.test(fields.city.value)) {
-      setError('city', 'Please enter a city name using letters only.');
+    if (fields.address.value.length < 8 || fields.address.value.length > 160) {
+      setError('address', 'Please enter the service street address.');
       isValid = false;
     }
 
@@ -145,7 +145,10 @@
     }
 
     const file = fields.photo.files && fields.photo.files[0];
-    if (file) {
+    if (!file) {
+      setError('photo', 'Please attach a photo of the model number sticker.');
+      isValid = false;
+    } else {
       const normalizedType = file.type || '';
       const extension = file.name.split('.').pop().toLowerCase();
       const allowedExtension = ['jpg', 'jpeg', 'png', 'webp', 'heic', 'heif'].includes(extension);
@@ -165,7 +168,7 @@
     payload.set('Phone', normalizedPhone());
     payload.set('Email', fields.email.value.trim());
     payload.set('_replyto', fields.email.value.trim());
-    payload.set('City', fields.city.value);
+    payload.set('Address', fields.address.value);
     payload.set('Message', fields.message.value.trim());
     payload.delete('Model_Number_Photo');
     if (file) {
@@ -247,9 +250,9 @@
     if (fields.name.value !== cleaned) fields.name.value = cleaned;
   });
 
-  fields.city.addEventListener('input', () => {
-    const cleaned = cleanCity(fields.city.value);
-    if (fields.city.value !== cleaned) fields.city.value = cleaned;
+  fields.address.addEventListener('input', () => {
+    const cleaned = cleanAddress(fields.address.value);
+    if (fields.address.value !== cleaned) fields.address.value = cleaned;
   });
 
   fields.phone.addEventListener('input', () => {

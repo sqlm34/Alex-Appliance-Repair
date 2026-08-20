@@ -37,6 +37,11 @@ function is_letters_only(string $value): bool
     return (bool)preg_match("/^[A-Za-z][A-Za-z\s'.-]{1,59}$/", $value);
 }
 
+function is_valid_address(string $value): bool
+{
+    return (bool)preg_match("/^[A-Za-z0-9][A-Za-z0-9\s.,#'\/-]{7,159}$/", $value);
+}
+
 function safe_file_name(string $name): string
 {
     $name = preg_replace('/[^A-Za-z0-9._-]+/', '-', $name) ?? 'model-number-photo';
@@ -270,7 +275,7 @@ if (strlen($phone) === 10) {
 }
 $phoneDisplay = '+' . $phone;
 $email = filter_var(value('Email'), FILTER_SANITIZE_EMAIL);
-$city = clean_text(value('City'));
+$address = clean_text(value('Address'));
 $service = clean_text(value('Service'));
 $message = trim(clean_text(value('Message')));
 $sourcePage = clean_text(value('Source_Page')) ?: 'https://alex-repair.com/contacts.html';
@@ -285,8 +290,8 @@ if (!preg_match('/^1\d{10}$/', $phone)) {
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors['email'] = 'Please enter a valid email address.';
 }
-if (!is_letters_only($city)) {
-    $errors['city'] = 'Please enter a city name using letters only.';
+if (!is_valid_address($address)) {
+    $errors['address'] = 'Please enter the service street address.';
 }
 if ($service === '') {
     $errors['service'] = 'Please select a service.';
@@ -297,7 +302,9 @@ if (strlen($message) < 8) {
 
 $attachment = null;
 $uploadedFile = null;
-if (isset($_FILES['Model_Number_Photo']) && is_array($_FILES['Model_Number_Photo']) && $_FILES['Model_Number_Photo']['error'] !== UPLOAD_ERR_NO_FILE) {
+if (!isset($_FILES['Model_Number_Photo']) || !is_array($_FILES['Model_Number_Photo']) || $_FILES['Model_Number_Photo']['error'] === UPLOAD_ERR_NO_FILE) {
+    $errors['photo'] = 'Please attach a photo of the model number sticker.';
+} else {
     $uploadedFile = $_FILES['Model_Number_Photo'];
     if ($uploadedFile['error'] !== UPLOAD_ERR_OK || $uploadedFile['size'] > MAX_FILE_BYTES) {
         $errors['photo'] = 'Please attach an image up to 8 MB.';
@@ -355,7 +362,7 @@ $bodyLines = [
     'Name: ' . $name,
     'Phone: ' . $phoneDisplay,
     'Email: ' . $email,
-    'City: ' . $city,
+    'Address: ' . $address,
     'Service: ' . $service,
     'Source page: ' . $sourcePage,
     '',
@@ -396,7 +403,7 @@ $stored = write_json_file($submissionDir . '/request.json', [
     'name' => $name,
     'phone' => $phoneDisplay,
     'email' => $email,
-    'city' => $city,
+    'address' => $address,
     'service' => $service,
     'source_page' => $sourcePage,
     'message' => $message,

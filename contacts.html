@@ -453,18 +453,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								<small class="field-error" data-error-for="email"></small>
 							</div>
 							<div class="form-field">
-								<input id="service-city" type="text" name="City" placeholder="City" autocomplete="address-level2" maxlength="60" list="service-city-options" required>
-								<small class="field-error" data-error-for="city"></small>
+								<input id="service-address" type="text" name="Address" placeholder="Your Address" autocomplete="street-address" maxlength="160" required>
+								<small class="field-error" data-error-for="address"></small>
 							</div>
 						</div>
-						<datalist id="service-city-options">
-							<option value="Carmel">
-							<option value="Fishers">
-							<option value="Noblesville">
-							<option value="McCordsville">
-							<option value="Zionsville">
-							<option value="Westfield">
-						</datalist>
 						<div class="form-field">
 						<select id="service-type" name="Service" aria-label="Select appliance repair service" required>
 							<option value="">Select Service</option>
@@ -485,8 +477,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						</div>
 						<div class="form-field form-field-file">
 							<label for="model-photo">Photo of model number sticker</label>
-							<input id="model-photo" type="file" name="Model_Number_Photo" accept="image/jpeg,image/png,image/webp,image/heic,image/heif">
-							<span class="file-hint">Attach a clear photo if you have it. JPG, PNG, WEBP, HEIC up to 8 MB.</span>
+							<input id="model-photo" type="file" name="Model_Number_Photo" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" required>
+							<span class="file-hint">Required. Attach a clear photo of the model number sticker. JPG, PNG, WEBP, HEIC up to 8 MB.</span>
 							<span class="file-name" data-file-name>No file selected</span>
 							<small class="field-error" data-error-for="photo"></small>
 						</div>
@@ -610,7 +602,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="/js/google-reviews-config.js?v=2026?60523-google-reviews" defer></script>
 <script src="/js/google-reviews.js?v=2026?60523-google-reviews" defer></script>
 <script src="js/script.js?v=20260728-location-navigation"></script>
-<script src="js/contact-form.js?v=20260704-contact-smtp-storage" defer></script>
+<script src="js/contact-form.js?v=20260820-address-photo-required" defer></script>
 <script src="/js/gtm-monitoring.js?v=20260624-gtm-rebuild" defer></script>
 </body>
 
