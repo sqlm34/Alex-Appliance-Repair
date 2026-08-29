@@ -1,7 +1,14 @@
 RewriteEngine On
 
+# Send UTF-8 with text responses even when the host omits a charset.
+AddDefaultCharset UTF-8
+
 # Keep request backups and SMTP config private.
 RewriteRule ^private/ - [F,L]
+
+# The city slugs also exist as directories for service pages. Redirect bare
+# directory requests straight to the canonical city hubs before DirectorySlash.
+RewriteRule ^(carmel|fishers|westfield|noblesville|mccordsville|zionsville)/?$ https://alex-repair.com/$1.html [R=301,L,NE]
 
 # Canonical host: force every public request to https://alex-repair.com.
 RewriteCond %{HTTP_HOST} ^www\.alex-repair\.com$ [NC]

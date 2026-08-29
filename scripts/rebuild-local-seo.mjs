@@ -593,6 +593,74 @@ function relatedServiceLinks(citySlug, activeService) {
     .join("\n");
 }
 
+const fishersPreparation = {
+  dryer: {
+    title: "Details that improve a dryer diagnosis",
+    paragraphs: [
+      "Before booking, note whether the dryer is gas or electric and whether the problem is no heat, long drying time, unusual noise, overheating or failure to start. Also note whether the drum turns and whether the symptom changes during the cycle.",
+      "Long drying time can come from the appliance or the building vent. We evaluate the accessible dryer airflow path during diagnosis; full in-wall or roof vent cleaning may require a dedicated vent-cleaning provider."
+    ],
+    details: ["Gas or electric model", "Exact symptom and cycle timing", "Model number and error code", "Stacked, closet or tight installation"]
+  },
+  dishwasher: {
+    title: "Details that improve a dishwasher diagnosis",
+    paragraphs: [
+      "Note the cycle stage where the problem appears and whether water remains in the tub, leaks from the door or base, backs up near the sink, or leaves dishes dirty. An error code and a photo of the model label on the door edge are especially useful.",
+      "Do not run another cycle if water is actively leaking onto the floor or into cabinetry. Clear access under the sink when possible because the drain hose, shutoff and disposal connection can be part of the diagnosis."
+    ],
+    details: ["Cycle stage and error code", "Leak location or standing water", "Model number from the door edge", "Sink and cabinet access"]
+  },
+  washer: {
+    title: "Details that improve a washer diagnosis",
+    paragraphs: [
+      "Tell us whether the washer is top-load or front-load and whether it stops while filling, washing, draining or spinning. Note any error code, water left in the drum, vibration, burning odor or the exact point where a leak becomes visible.",
+      "For stacked or tightly installed machines, mention the installation during booking so access can be planned. If an active leak continues, stop the cycle and close the washer supply valves when it is safe to do so."
+    ],
+    details: ["Top-load or front-load design", "Cycle stage where operation stops", "Model number and error code", "Stacked or restricted access"]
+  },
+  cooktop: {
+    title: "Details that improve a cooktop diagnosis",
+    paragraphs: [
+      "Identify whether the cooktop is gas, electric or induction and which burner or cooking zone is affected. Note repeated clicking, weak or uneven heat, a dead element, an error code or controls that do not regulate temperature correctly.",
+      "Do not use a cracked glass surface or a unit with exposed wiring, uncontrolled flame or persistent gas odor. A photo of the model label and installation area helps confirm parts information without unnecessary disassembly."
+    ],
+    details: ["Gas, electric or induction", "Affected burner or cooking zone", "Model number and error code", "Countertop and cabinet access"]
+  }
+};
+
+function renderRelatedServiceSection(citySlug, serviceSlug) {
+  const city = cities[citySlug];
+  const preparation = citySlug === "fishers" ? fishersPreparation[serviceSlug] : null;
+  if (preparation) {
+    return `<section class="local-section local-section--soft">
+  <div class="local-shell local-coverage">
+    <div class="local-copy">
+      <p class="local-eyebrow">Prepare for diagnosis</p>
+      <h2>${escapeHtml(preparation.title)}</h2>
+      ${preparation.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n")}
+    </div>
+    <aside class="local-coverage-aside">
+      <h3>Details that help</h3>
+      <ul>${preparation.details.map((detail) => `<li>${escapeHtml(detail)}</li>`).join("\n")}</ul>
+      <p><a class="local-text-link" href="https://alex-repair.com/fishers.html">View all appliance repair in Fishers</a></p>
+    </aside>
+  </div>
+</section>`;
+  }
+  return `<section class="local-section local-section--soft">
+  <div class="local-shell">
+    <header class="local-section-header">
+      <p class="local-eyebrow">Related local services</p>
+      <h2>Other appliance repair in ${escapeHtml(city.name)}</h2>
+      <p>Use the dedicated page for the appliance that needs diagnosis. This keeps scheduling details and service information focused.</p>
+    </header>
+    <ul class="local-link-list">
+      ${relatedServiceLinks(citySlug, serviceSlug)}
+    </ul>
+  </div>
+</section>`;
+}
+
 function renderServiceSection(section, citySlug, serviceSlug, cityIndex) {
   const city = cities[citySlug];
   const service = services[serviceSlug];
@@ -718,18 +786,7 @@ function renderServiceMain(citySlug, serviceSlug) {
 
 ${sections}
 
-<section class="local-section local-section--soft">
-  <div class="local-shell">
-    <header class="local-section-header">
-      <p class="local-eyebrow">Related local services</p>
-      <h2>Other appliance repair in ${escapeHtml(city.name)}</h2>
-      <p>Use the dedicated page for the appliance that needs diagnosis. This keeps scheduling details and service information focused.</p>
-    </header>
-    <ul class="local-link-list">
-      ${relatedServiceLinks(citySlug, serviceSlug)}
-    </ul>
-  </div>
-</section>
+${renderRelatedServiceSection(citySlug, serviceSlug)}
 
 <section class="local-section">
   <div class="local-shell">
@@ -969,7 +1026,9 @@ function rebuildMainCityPages() {
     const city = cities[citySlug];
     const relativePath = `${citySlug}.html`;
     let html = read(relativePath);
-    const title = `Appliance Repair ${city.name} IN | Local Service`;
+    const title = citySlug === "fishers"
+      ? "Appliance Repair Fishers, IN | Alex Appliance Repair"
+      : `Appliance Repair ${city.name} IN | Local Service`;
     const description = `Local appliance repair in ${city.name}, IN for refrigerators, washers, dryers, dishwashers, ovens and more. $89 service call, waived with completed repair.`;
     html = updateHead(html, {
       title,
