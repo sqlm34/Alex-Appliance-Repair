@@ -8,6 +8,7 @@ RewriteRule ^private/ - [F,L]
 
 # The city slugs also exist as directories for service pages. Redirect bare
 # directory requests straight to the canonical city hubs before DirectorySlash.
+RedirectMatch 301 ^/(carmel|fishers|westfield|noblesville|mccordsville|zionsville)/?$ https://alex-repair.com/$1.html
 RewriteRule ^(carmel|fishers|westfield|noblesville|mccordsville|zionsville)/?$ https://alex-repair.com/$1.html [R=301,L,NE]
 
 # Canonical host: force every public request to https://alex-repair.com.
