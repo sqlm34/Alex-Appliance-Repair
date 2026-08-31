@@ -10197,3 +10197,25 @@ main .contact-actions .booking-service-note {
 		display: none !important;
 	}
 }
+
+/* Contact SMS verification: keep the six code cells in one horizontal row. */
+.contact-form .contact-otp-inputs {
+	align-items: center !important;
+	display: flex !important;
+	flex-direction: row !important;
+	flex-wrap: nowrap !important;
+	gap: clamp(6px, 2vw, 10px) !important;
+	justify-content: center !important;
+	width: 100% !important;
+}
+
+.contact-form .contact-otp-inputs input {
+	aspect-ratio: 1 / 1 !important;
+	box-sizing: border-box !important;
+	flex: 0 0 clamp(38px, 12vw, 52px) !important;
+	height: clamp(38px, 12vw, 52px) !important;
+	max-width: 52px !important;
+	min-width: 0 !important;
+	padding: 0 !important;
+	width: clamp(38px, 12vw, 52px) !important;
+}
