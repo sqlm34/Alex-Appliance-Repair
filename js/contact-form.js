@@ -18,6 +18,16 @@
   const modal = document.querySelector('#request-service-modal');
   const modalCloseButtons = modal ? modal.querySelectorAll('[data-modal-close]') : [];
   let previousScrollY = 0;
+  const apiBase = (form.dataset.verificationApi || 'https://alex-crm-api.alexeasyrepair.workers.dev').replace(/\/$/, '');
+  const verificationStartedAt = Date.now();
+  const verificationState = {
+    sessionId: '',
+    challengeId: '',
+    maskedPhone: '',
+    challengedPhone: '',
+    verifiedPhone: '',
+    smsAbortController: null
+  };
   const maxFileBytes = 8 * 1024 * 1024;
   const allowedImageTypes = new Set([
     'image/jpeg',
@@ -26,6 +36,27 @@
     'image/heic',
     'image/heif'
   ]);
+  const otpPanel = document.createElement('div');
+  otpPanel.className = 'contact-otp-panel';
+  otpPanel.hidden = true;
+  otpPanel.innerHTML = `
+    <div class="contact-otp-panel-head">
+      <strong>Verify phone number</strong>
+      <span data-contact-otp-copy>Enter the 6 digit code sent by SMS.</span>
+    </div>
+    <div class="contact-otp-inputs" aria-label="SMS verification code">
+      ${Array.from({ length: 6 }, (_, index) => `<input type="text" inputmode="numeric" autocomplete="${index === 0 ? 'one-time-code' : 'off'}" name="${index === 0 ? 'one-time-code' : `contact-code-${index + 1}`}" pattern="[0-9]*" maxlength="1" aria-label="SMS code digit ${index + 1}">`).join('')}
+    </div>
+    <div class="contact-otp-actions">
+      <button type="button" class="contact-otp-resend">Resend code</button>
+    </div>
+  `;
+  if (status && status.parentNode) {
+    status.parentNode.insertBefore(otpPanel, status);
+  }
+  const otpInputs = Array.from(otpPanel.querySelectorAll('.contact-otp-inputs input'));
+  const otpCopy = otpPanel.querySelector('[data-contact-otp-copy]');
+  const otpResendButton = otpPanel.querySelector('.contact-otp-resend');
 
   function getErrorNode(key) {
     return form.querySelector(`[data-error-for="${key}"]`);
@@ -42,6 +73,167 @@
     if (!status) return;
     status.textContent = message || '';
     status.classList.toggle('is-error', Boolean(isError));
+  }
+
+  function setSubmitText(text) {
+    if (submitButton) submitButton.textContent = text;
+  }
+
+  function currentOtpCode() {
+    return otpInputs.map((input) => input.value.replace(/\D/g, '')).join('').slice(0, 6);
+  }
+
+  function updateOtpCode(value, focusIndex) {
+    const digits = value.replace(/\D/g, '').slice(0, 6);
+    otpInputs.forEach((input, index) => {
+      input.value = digits[index] || '';
+    });
+    if (typeof focusIndex === 'number') {
+      window.requestAnimationFrame(() => {
+        const target = otpInputs[Math.max(0, Math.min(focusIndex, otpInputs.length - 1))];
+        if (target) target.focus();
+      });
+    }
+  }
+
+  function showOtpPanel(maskedPhone) {
+    otpPanel.hidden = false;
+    if (otpCopy) {
+      otpCopy.textContent = `Enter the 6 digit code sent to ${maskedPhone || 'your phone'}.`;
+    }
+    setSubmitText('Verify & Send Request');
+    updateOtpCode('', 0);
+  }
+
+  function resetVerification(clearCode) {
+    if (verificationState.smsAbortController) {
+      verificationState.smsAbortController.abort();
+    }
+    verificationState.sessionId = '';
+    verificationState.challengeId = '';
+    verificationState.maskedPhone = '';
+    verificationState.challengedPhone = '';
+    verificationState.verifiedPhone = '';
+    verificationState.smsAbortController = null;
+    otpPanel.hidden = true;
+    if (clearCode) updateOtpCode('');
+    setSubmitText('Send Request');
+  }
+
+  function getVerificationDeviceId() {
+    const key = 'alex-repair-contact-device';
+    let deviceId = localStorage.getItem(key);
+    if (!deviceId) {
+      deviceId = `contact-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 12)}`;
+      localStorage.setItem(key, deviceId);
+    }
+    return deviceId;
+  }
+
+  async function postVerificationJson(path, payload) {
+    const response = await fetch(`${apiBase}${path}`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+    let data = {};
+    try {
+      data = await response.json();
+    } catch (error) {
+      data = {};
+    }
+    if (!response.ok) {
+      throw new Error(data.error || data.message || 'SMS verification failed');
+    }
+    return data;
+  }
+
+  function listenForIncomingSmsCode() {
+    if (!('credentials' in navigator) || !window.isSecureContext) return;
+    if (verificationState.smsAbortController) verificationState.smsAbortController.abort();
+    const controller = new AbortController();
+    verificationState.smsAbortController = controller;
+    navigator.credentials.get({
+      otp: { transport: ['sms'] },
+      signal: controller.signal
+    }).then((credential) => {
+      const code = credential && credential.code ? String(credential.code) : '';
+      if (/^\d{6}$/.test(code)) updateOtpCode(code, 5);
+    }).catch(() => undefined);
+  }
+
+  async function beginPhoneVerification() {
+    const session = await postVerificationJson('/api/public/booking/start', {
+      device_id: getVerificationDeviceId(),
+      started_at: verificationStartedAt,
+      website: '',
+      referrer: document.referrer,
+      source: 'alex-repair-contact-form'
+    });
+    const challenge = await postVerificationJson('/api/public/booking/send-otp', {
+      sessionId: session.sessionId,
+      phone: normalizedPhone(),
+      sms_domain: 'alex-repair.com'
+    });
+    verificationState.sessionId = session.sessionId;
+    verificationState.challengeId = challenge.challengeId;
+    verificationState.maskedPhone = challenge.maskedPhone || '';
+    verificationState.challengedPhone = normalizedPhone();
+    showOtpPanel(verificationState.maskedPhone);
+    listenForIncomingSmsCode();
+    setStatus(`SMS code sent to ${verificationState.maskedPhone || 'your phone'}.`, false);
+  }
+
+  async function resendPhoneVerification() {
+    if (!verificationState.sessionId) {
+      await beginPhoneVerification();
+      return;
+    }
+    const challenge = await postVerificationJson('/api/public/booking/send-otp', {
+      sessionId: verificationState.sessionId,
+      phone: normalizedPhone(),
+      sms_domain: 'alex-repair.com'
+    });
+    verificationState.challengeId = challenge.challengeId;
+    verificationState.maskedPhone = challenge.maskedPhone || verificationState.maskedPhone;
+    verificationState.challengedPhone = normalizedPhone();
+    showOtpPanel(verificationState.maskedPhone);
+    listenForIncomingSmsCode();
+    setStatus(`New SMS code sent to ${verificationState.maskedPhone || 'your phone'}.`, false);
+  }
+
+  async function ensurePhoneVerified() {
+    const phone = normalizedPhone();
+    if (verificationState.verifiedPhone === phone) return true;
+    if (verificationState.challengeId && verificationState.challengedPhone !== phone) {
+      resetVerification(true);
+      await beginPhoneVerification();
+      return false;
+    }
+    if (!verificationState.challengeId) {
+      await beginPhoneVerification();
+      return false;
+    }
+
+    const code = currentOtpCode();
+    if (!/^\d{6}$/.test(code)) {
+      setStatus('Enter the 6 digit SMS code to send your request.', true);
+      otpInputs[0].focus();
+      return false;
+    }
+
+    await postVerificationJson('/api/public/booking/verify-otp', {
+      sessionId: verificationState.sessionId,
+      challengeId: verificationState.challengeId,
+      code
+    });
+    verificationState.verifiedPhone = phone;
+    if (verificationState.smsAbortController) verificationState.smsAbortController.abort();
+    setStatus('Phone verified. Sending your request...', false);
+    return true;
   }
 
   function trimSpaces(value) {
@@ -256,7 +448,9 @@
   });
 
   fields.phone.addEventListener('input', () => {
+    const before = verificationState.verifiedPhone || verificationState.challengedPhone || '';
     fields.phone.value = formatPhone(fields.phone.value);
+    if (before && before !== normalizedPhone()) resetVerification(true);
   });
 
   fields.phone.addEventListener('focus', () => {
@@ -273,6 +467,45 @@
     setError('photo', '');
   });
 
+  otpInputs.forEach((input, index) => {
+    input.addEventListener('input', () => {
+      const value = input.value.replace(/\D/g, '');
+      if (value.length > 1) {
+        updateOtpCode(value, value.length >= 6 ? 5 : value.length);
+        return;
+      }
+      input.value = value;
+      if (value && otpInputs[index + 1]) otpInputs[index + 1].focus();
+    });
+    input.addEventListener('paste', (event) => {
+      event.preventDefault();
+      const text = (event.clipboardData || window.clipboardData).getData('text');
+      updateOtpCode(text, 5);
+    });
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'Backspace' && !input.value && otpInputs[index - 1]) {
+        otpInputs[index - 1].focus();
+      }
+    });
+  });
+
+  if (otpResendButton) {
+    otpResendButton.addEventListener('click', async () => {
+      if (!validate()) return;
+      otpResendButton.disabled = true;
+      submitButton.disabled = true;
+      setStatus('Sending a new SMS code...', false);
+      try {
+        await resendPhoneVerification();
+      } catch (error) {
+        setStatus(error.message || 'Unable to send SMS code. Please call us at (463) 248-8429.', true);
+      } finally {
+        otpResendButton.disabled = false;
+        submitButton.disabled = false;
+      }
+    });
+  }
+
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (!validate()) {
@@ -280,27 +513,34 @@
       return;
     }
 
-    const originalText = submitButton.textContent;
     submitButton.disabled = true;
-    submitButton.textContent = 'Sending...';
-    setStatus('Sending your request...', false);
+    submitButton.textContent = verificationState.challengeId && verificationState.verifiedPhone !== normalizedPhone()
+      ? 'Verifying...'
+      : 'Sending...';
+    setStatus(verificationState.challengeId ? 'Checking SMS code...' : 'Sending SMS code...', false);
 
     try {
+      const verified = await ensurePhoneVerified();
+      if (!verified) return;
+
       await sendRequest();
 
       form.reset();
       if (fileName) fileName.textContent = 'No file selected';
+      resetVerification(true);
       setStatus('', false);
       showModal();
     } catch (error) {
       if (error.status === 422 && applyServerErrors(error.errors)) {
         setStatus('Please correct the highlighted fields and send again.', true);
       } else {
-        setStatus('We could not send the request automatically. Please call us at (463) 248-8429 or try again.', true);
+        setStatus(error.message || 'We could not send the request automatically. Please call us at (463) 248-8429 or try again.', true);
       }
     } finally {
       submitButton.disabled = false;
-      submitButton.textContent = originalText;
+      setSubmitText(verificationState.challengeId && verificationState.verifiedPhone !== normalizedPhone()
+        ? 'Verify & Send Request'
+        : 'Send Request');
     }
   });
 

@@ -3174,6 +3174,64 @@ overflow:hidden;}
 .form-submit-status.is-error{
 	color: #c73535;
 }
+.contact-otp-panel{
+	background: rgba(255, 255, 255, 0.92);
+	border: 1px solid rgba(17, 63, 103, 0.14);
+	border-radius: 14px;
+	display: grid;
+	gap: 14px;
+	padding: 18px;
+}
+.contact-otp-panel[hidden]{
+	display: none;
+}
+.contact-otp-panel-head{
+	display: grid;
+	gap: 4px;
+	text-align: center;
+}
+.contact-otp-panel-head strong{
+	color: var(--color-title);
+	font-size: 18px;
+	line-height: 1.25;
+}
+.contact-otp-panel-head span{
+	color: var(--color-text);
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.45;
+}
+.contact-otp-inputs{
+	display: grid;
+	gap: 8px;
+	grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.contact-form .contact-otp-inputs input{
+	border: 1px solid rgba(17, 63, 103, 0.18);
+	border-radius: 10px;
+	font-size: 22px;
+	font-weight: 900;
+	line-height: 1;
+	padding: 12px 6px;
+	text-align: center;
+}
+.contact-form .contact-otp-inputs input:focus{
+	border-color: var(--color-4);
+	box-shadow: 0 0 0 3px rgba(19, 175, 214, 0.14);
+}
+.contact-otp-actions{
+	display: flex;
+	justify-content: center;
+}
+.contact-form .contact-otp-resend{
+	background: transparent;
+	border: 0;
+	color: var(--color-4);
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 900;
+	padding: 0;
+}
 .contact-form button{
 	justify-self: center;
 	border: 0;
