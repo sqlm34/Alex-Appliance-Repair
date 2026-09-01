@@ -13,15 +13,15 @@
 	text-transform: uppercase;
 }
 
-a.button-v1[href*="online-booking"],
-a.booking-button[href*="online-booking"] {
+a.button-v1[href*="aleksappliancerepair.com/booking"],
+a.booking-button[href*="aleksappliancerepair.com/booking"] {
 	display: flex;
 	margin-left: auto;
 	margin-right: auto;
 	width: fit-content;
 }
 
-.header a.button-v1[href*="online-booking"] {
+.header a.button-v1[href*="aleksappliancerepair.com/booking"] {
 	margin-left: 0;
 	margin-right: 0;
 }
@@ -4451,15 +4451,15 @@ li {
 		text-transform: uppercase;
 	}
 
-	a.button-v1[href*="online-booking"],
-	a.booking-button[href*="online-booking"] {
+	a.button-v1[href*="aleksappliancerepair.com/booking"],
+	a.booking-button[href*="aleksappliancerepair.com/booking"] {
 		display: flex;
 		margin-left: auto;
 		margin-right: auto;
 		width: fit-content;
 	}
 
-	.header a.button-v1[href*="online-booking"] {
+	.header a.button-v1[href*="aleksappliancerepair.com/booking"] {
 		margin-left: 0;
 		margin-right: 0;
 	}

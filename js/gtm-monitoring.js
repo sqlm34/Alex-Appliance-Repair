@@ -123,7 +123,7 @@
     if (lowerHref.indexOf("mailto:") === 0) {
       return { event: "email_click", type: "email" };
     }
-    if (lowerHref.indexOf("online-booking.workiz.com") !== -1 || lowerText.indexOf("booking") !== -1 || lowerText.indexOf("book") !== -1) {
+    if (lowerHref.indexOf("aleksappliancerepair.com/booking") !== -1 || lowerText.indexOf("booking") !== -1 || lowerText.indexOf("book") !== -1) {
       return { event: "booking_click", type: "booking" };
     }
     if (lowerHref.indexOf("whatsapp") !== -1) {

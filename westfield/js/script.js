@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	ensureFloatingReviewsBadge();
 
 	const bookingNoticeText = '$89. Waived if repair is needed.';
-	const bookingLinks = document.querySelectorAll('a[href*="online-booking"]');
+	const bookingLinks = document.querySelectorAll('a[href*="aleksappliancerepair.com/booking"]');
 	bookingLinks.forEach((link) => {
 		if (link.closest('.header, .header-mobile-wrap, .mobile-menu-nav, .offer-wrap, .pricing-table, .local-seo-page')) {
 			return;
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				return;
 			}
 
-			const link = source.querySelector('a[href*="online-booking"]');
+			const link = source.querySelector('a[href*="aleksappliancerepair.com/booking"]');
 			const image = media.querySelector('img');
 			if (!link || !image || link.closest('.service-media-cta')) {
 				return;

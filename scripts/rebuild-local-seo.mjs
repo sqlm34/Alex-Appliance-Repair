@@ -7,7 +7,7 @@ const ROOT = path.resolve(SCRIPT_DIR, "..");
 const TODAY = "2026-07-28";
 const PHONE_DISPLAY = "(463) 248-8429";
 const PHONE_LINK = "+14632488429";
-const BOOKING_URL = "https://online-booking.workiz.com/?ac=15ab9daf88d12ad393d83f0f3c762b884cd0200e5775f1427d547de24cac55a4";
+const BOOKING_URL = "https://aleksappliancerepair.com/booking";
 const CITY_SLUGS = ["carmel", "fishers", "westfield", "noblesville", "mccordsville", "zionsville"];
 const SERVICE_SLUGS = ["refrigerator", "washer", "dryer", "dishwasher", "stove", "microwave", "cooktop", "freezer"];
 const BLOG_ARCHIVES = ["blog.html", ...Array.from({ length: 9 }, (_, index) => `blog-page-${index + 2}.html`)];

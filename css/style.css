@@ -386,15 +386,15 @@ select{
 	text-transform: uppercase;
 }
 
-a.button-v1[href*="online-booking"],
-a.booking-button[href*="online-booking"] {
+a.button-v1[href*="aleksappliancerepair.com/booking"],
+a.booking-button[href*="aleksappliancerepair.com/booking"] {
 	display: flex;
 	margin-left: auto;
 	margin-right: auto;
 	width: fit-content;
 }
 
-.header a.button-v1[href*="online-booking"] {
+.header a.button-v1[href*="aleksappliancerepair.com/booking"] {
 	margin-left: 0;
 	margin-right: 0;
 }
@@ -5412,15 +5412,15 @@ li {
 		text-transform: uppercase;
 	}
 
-	a.button-v1[href*="online-booking"],
-	a.booking-button[href*="online-booking"] {
+	a.button-v1[href*="aleksappliancerepair.com/booking"],
+	a.booking-button[href*="aleksappliancerepair.com/booking"] {
 		display: flex;
 		margin-left: auto;
 		margin-right: auto;
 		width: fit-content;
 	}
 
-	.header a.button-v1[href*="online-booking"] {
+	.header a.button-v1[href*="aleksappliancerepair.com/booking"] {
 		margin-left: 0;
 		margin-right: 0;
 	}
@@ -7149,8 +7149,8 @@ main:has(.location-page-content) .faq-wrap {
 }
 
 /* Booking service call notice and CTA spacing */
-main a.button-v1[href*="online-booking"],
-main a.booking-button[href*="online-booking"] {
+main a.button-v1[href*="aleksappliancerepair.com/booking"],
+main a.booking-button[href*="aleksappliancerepair.com/booking"] {
   margin-top: 22px !important;
 }
 
@@ -7691,7 +7691,7 @@ main > section:not(.banner-wrap):not(.breadcrumbs-wrap):not(.marquee-wrap) > .co
   margin: 0 !important;
 }
 
-main .offer-btn-button .button-v1[href*="online-booking"] {
+main .offer-btn-button .button-v1[href*="aleksappliancerepair.com/booking"] {
   margin: 0 !important;
 }
 
@@ -8379,8 +8379,8 @@ main .alex-cta-block .booking-service-note {
     width: calc(100% + 32px) !important;
   }
 
-  main a.button-v1[href*="online-booking"],
-  main a.booking-button[href*="online-booking"],
+  main a.button-v1[href*="aleksappliancerepair.com/booking"],
+  main a.booking-button[href*="aleksappliancerepair.com/booking"],
   main .contact-actions a,
   main .alex-cta-block a,
   main .alex-blog-cta a,
@@ -8393,7 +8393,7 @@ main .alex-cta-block .booking-service-note {
     width: 100% !important;
   }
 
-  main .offer-btn-button .button-v1[href*="online-booking"] {
+  main .offer-btn-button .button-v1[href*="aleksappliancerepair.com/booking"] {
     margin-left: 0 !important;
     margin-right: 0 !important;
     width: auto !important;
@@ -9088,7 +9088,7 @@ main:has(.location-page-content) .pricing-table + .why-wrap {
 	margin-top: 34px !important;
 }
 
-.appointment-wrap .appointment-right :is(.appointment-cta, .team-button, .button-container) > a[href*="online-booking"] {
+.appointment-wrap .appointment-right :is(.appointment-cta, .team-button, .button-container) > a[href*="aleksappliancerepair.com/booking"] {
 	align-self: center !important;
 	justify-content: center !important;
 	margin: 0 auto !important;
