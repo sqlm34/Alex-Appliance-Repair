@@ -1,3 +1,19 @@
+.recovery-job img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+.recovery-review-date {
+  margin-top: 28px;
+  font-size: 0.9rem;
+  color: #526174;
+}
+
 .local-seo-page {
   --local-navy: #0b2447;
   --local-blue: #075fbd;

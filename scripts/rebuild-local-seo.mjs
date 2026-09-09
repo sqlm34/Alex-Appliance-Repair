@@ -1,10 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { improvePage } from "./content-recovery.mjs";
+import { rebuildSitemaps } from "./rebuild-sitemaps.mjs";
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(SCRIPT_DIR, "..");
-const TODAY = "2026-07-28";
 const PHONE_DISPLAY = "(463) 248-8429";
 const PHONE_LINK = "+14632488429";
 const BOOKING_URL = "https://aleksappliancerepair.com/booking";
@@ -421,7 +422,7 @@ function write(relativePath, content) {
       /css\/style\.css\?v=[^"']+/g,
       "css/style.css?v=20260728-location-navigation"
     );
-  fs.writeFileSync(destination, normalized, "utf8");
+  fs.writeFileSync(destination, improvePage(relativePath, normalized), "utf8");
 }
 
 function escapeHtml(value) {
@@ -1700,48 +1701,6 @@ function replaceLegacyInternalLinks() {
   }
 }
 
-function rebuildSitemap(brands) {
-  let xml = read("sitemap.xml");
-  const blocks = [...xml.matchAll(/\s*<url>[\s\S]*?<\/url>/g)].map((match) => match[0]);
-  const kept = [];
-  const removedPattern = new RegExp(
-    `https://alex-repair\\.com/(?:${CITY_SLUGS.join("|")})/[a-z0-9-]+-appliance-repair\\.html|` +
-    `https://alex-repair\\.com/blog-(?:${CITY_SLUGS.join("|")})-(?:${SERVICE_SLUGS.join("|")})-repair\\.html|` +
-    "https://alex-repair\\.com/brands/[a-z0-9-]+-appliance-repair\\.html"
-  );
-  for (let block of blocks) {
-    const locationMatch = block.match(/<loc>([^<]+)<\/loc>/);
-    if (!locationMatch || removedPattern.test(locationMatch[1])) continue;
-    const location = locationMatch[1];
-    if (
-      CITY_SLUGS.some((citySlug) => location === `https://alex-repair.com/${citySlug}.html`) ||
-      CITY_SLUGS.some((citySlug) => SERVICE_SLUGS.some((serviceSlug) => location === `https://alex-repair.com/${citySlug}/${serviceSlug}-repair-services.html`)) ||
-      UNIFIED_PAGE_PATHS.has(location.replace("https://alex-repair.com/", "")) ||
-      location === "https://alex-repair.com/brands.html"
-    ) {
-      block = block.replace(/<lastmod>[^<]+<\/lastmod>/, `<lastmod>${TODAY}</lastmod>`);
-    }
-    kept.push(block.trim());
-  }
-  const brandBlocks = brands.map((brand) => `<url>
-    <loc>https://alex-repair.com/brands/${brand.slug}-appliance-repair.html</loc>
-    <lastmod>${TODAY}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>`);
-  if (!kept.some((block) => block.includes("<loc>https://alex-repair.com/locations.html</loc>"))) {
-    kept.push(`<url>
-    <loc>https://alex-repair.com/locations.html</loc>
-    <lastmod>${TODAY}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>`);
-  }
-  const opening = xml.slice(0, xml.indexOf("<url>")).trimEnd();
-  xml = `${opening}\n${kept.concat(brandBlocks).join("\n")}\n</urlset>\n`;
-  write("sitemap.xml", xml);
-}
-
 function main() {
   rebuildServicePages();
   rebuildMainCityPages();
@@ -1750,7 +1709,7 @@ function main() {
   rebuildUnifiedContentPages();
   syncCityScripts();
   replaceLegacyInternalLinks();
-  rebuildSitemap(brands);
+  rebuildSitemaps(brands.map((brand) => `brands/${brand.slug}-appliance-repair.html`));
   console.log(JSON.stringify({
     servicePages: Object.keys(cities).length * Object.keys(services).length,
     mainCityPages: CITY_SLUGS.length,
