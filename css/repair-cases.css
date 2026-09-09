@@ -1,0 +1,46 @@
+/* Repair stories use the site's existing navy/yellow palette and typography. */
+.case-grid,.recent-work-grid:has(.case-card){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.case-card{background:#fff;border:1px solid #dce4ee;border-radius:18px;overflow:hidden;min-width:0;box-shadow:0 8px 24px rgba(5,24,52,.06)}
+.case-card[hidden]{display:none!important}
+.case-card-image{display:block;background:#eef2f7}
+.case-card-image img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.case-card-copy{padding:24px}
+.case-card .local-eyebrow{color:#42566f;font-size:11px;line-height:1.6;margin:0 0 12px}
+.case-card h3{font-size:19px;line-height:1.45;margin:0 0 14px;color:#102c51}
+.case-card h3 a{color:inherit;text-decoration:none}
+.case-card p{font-size:14px;line-height:1.8;color:#4b5b70;margin:0 0 14px}
+.case-card .case-date{font-size:11px;color:#58687d}
+.case-read{color:#102c51;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.case-card a:focus-visible,.repair-case-page a:focus-visible{outline:3px solid #d19500;outline-offset:4px}
+.case-heading{background:#102f5b;color:#fff;padding:260px 0 56px}
+html body main.local-seo-page.repair-case-page > section.case-heading.case-heading{padding-top:270px!important;padding-bottom:56px!important}
+.repair-case-page .case-heading p{color:#fff}
+.repair-case-page .case-heading .local-eyebrow{color:var(--local-yellow)}
+.case-heading h1{color:#fff;font-size:44px;line-height:1.2;max-width:1050px;margin:16px 0 24px;overflow-wrap:anywhere}
+.case-heading .local-eyebrow{color:#ffd400}
+.case-breadcrumb{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px;font-size:13px}
+.case-breadcrumb a,.case-byline a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.case-lead{max-width:900px;line-height:1.8;font-size:18px}
+.case-byline{font-size:12px;line-height:1.8;margin:22px 0}
+.case-layout{display:grid;grid-template-columns:minmax(0,2.3fr) minmax(250px,1fr);gap:42px;align-items:start}
+.case-body{min-width:0}
+.case-body h2{font-size:26px;line-height:1.4;margin:36px 0 18px;color:#102f5b}
+.case-body p{font-size:16px;line-height:1.9;color:#43516a;margin:0 0 20px}
+.case-body a,.case-summary>a{color:#164a82;text-decoration:underline;text-underline-offset:3px}
+.case-body figure{margin:0}
+.case-body img{width:100%;height:auto;display:block;border-radius:14px;background:#edf1f5}
+.case-cover img{max-height:640px;object-fit:contain}
+.case-body figcaption{font-size:12px;line-height:1.7;color:#5c6b7f;margin:12px 0 20px}
+.case-photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.case-photo-grid img{aspect-ratio:3/4;object-fit:contain}
+.case-summary{border:1px solid #dce4ee;border-radius:18px;padding:26px;background:#f4f7fb}
+.case-summary h2{font-size:20px;line-height:1.5;color:#102f5b;margin:0 0 20px}
+.case-summary dt{font-size:12px;font-weight:700;color:#102f5b;margin:16px 0 6px}
+.case-summary dd{margin:0;font-size:14px;line-height:1.8;color:#43516a;text-transform:none}
+.case-summary p{font-size:14px;line-height:1.8}
+.case-summary hr{margin:28px 0;border:0;border-top:1px solid #dce4ee}
+.case-summary .local-button{color:#102f5b;text-decoration:none}
+.case-card:target{outline:3px solid #ffd400;scroll-margin-top:40px}
+@media(max-width:1024px){.case-grid,.recent-work-grid:has(.case-card){grid-template-columns:repeat(2,minmax(0,1fr))}.case-layout{grid-template-columns:minmax(0,1fr)}.case-heading h1{font-size:36px}}
+@media(max-width:680px){.case-grid,.recent-work-grid:has(.case-card){grid-template-columns:1fr}.case-heading{padding:200px 0 36px}.case-heading h1{font-size:30px}.case-lead{font-size:16px}.case-photo-grid{grid-template-columns:1fr}.case-card-copy{padding:22px}.case-body h2{font-size:23px}.case-layout{gap:28px}}
+@media(max-width:680px){html body main.local-seo-page.repair-case-page > section.case-heading.case-heading{padding-top:220px!important;padding-bottom:36px!important}}

@@ -1701,7 +1701,7 @@ function replaceLegacyInternalLinks() {
   }
 }
 
-function main() {
+async function main() {
   rebuildServicePages();
   rebuildMainCityPages();
   const brands = rebuildBrandPages();
@@ -1710,6 +1710,8 @@ function main() {
   syncCityScripts();
   replaceLegacyInternalLinks();
   rebuildSitemaps(brands.map((brand) => `brands/${brand.slug}-appliance-repair.html`));
+  const { buildRepairCases } = await import('./build-repair-cases.mjs');
+  buildRepairCases();
   console.log(JSON.stringify({
     servicePages: Object.keys(cities).length * Object.keys(services).length,
     mainCityPages: CITY_SLUGS.length,

@@ -1,0 +1,454 @@
+[
+  {
+    "slug": "carmel-dryer-gas-valve-coils",
+    "title": "Gas dryer valve coil replacement and lint cleanup",
+    "city": "carmel",
+    "appliance": "dryer",
+    "summary": "Weak heat, long dry time, burner-area diagnosis and internal airflow cleanup.",
+    "published": "2026-09-09",
+    "modified": "2026-09-09",
+    "photos": [
+      {
+        "src": "images/carmel-dryer-gas-valve-coil-repair-open-dryer.webp",
+        "width": 900,
+        "height": 1200,
+        "caption": "Open gas dryer cabinet during diagnosis"
+      },
+      {
+        "src": "images/carmel-dryer-lint-cleaning-airflow-path.webp",
+        "width": 900,
+        "height": 1200,
+        "caption": "Lint buildup found inside the airflow path"
+      },
+      {
+        "src": "images/carmel-dryer-gas-valve-coils-closeup.webp",
+        "width": 900,
+        "height": 1200,
+        "caption": "Gas valve and coil area inspected"
+      },
+      {
+        "src": "images/carmel-dryer-blower-housing-lint-cleanup.webp",
+        "width": 900,
+        "height": 1200,
+        "caption": "Blower housing lint cleanup before testing"
+      }
+    ]
+  },
+  {
+    "slug": "carmel-freezer-evaporator-fan",
+    "title": "Freezer evaporator fan motor replacement",
+    "city": "carmel",
+    "appliance": "freezer",
+    "summary": "Cooling-system access and component replacement documentation.",
+    "published": "2026-09-09",
+    "modified": "2026-09-09",
+    "photos": [
+      {
+        "src": "images/carmel-completed-repairs/carmel-completed-repair-27.webp",
+        "width": 640,
+        "height": 480,
+        "caption": "Freezer evaporator fan motor replacement"
+      }
+    ]
+  },
+  {
+    "slug": "carmel-dishwasher-fill-funnel",
+    "title": "Dishwasher fill funnel replacement for a water leak",
+    "city": "carmel",
+    "appliance": "dishwasher",
+    "summary": "Leak-focused dishwasher part replacement and test sequence.",
+    "published": "2026-09-09",
+    "modified": "2026-09-09",
+    "photos": [
+      {
+        "src": "images/carmel-completed-repairs/carmel-completed-repair-31.webp",
+        "width": 640,
+        "height": 480,
+        "caption": "Dishwasher fill funnel replacement for a water leak"
+      }
+    ]
+  },
+  {
+    "slug": "carmel-kitchenaid-door-switch",
+    "title": "KitchenAid refrigerator door switch replacement",
+    "city": "carmel",
+    "appliance": "refrigerator",
+    "summary": "Door-switch service for refrigerator control and lighting behavior.",
+    "published": "2026-09-09",
+    "modified": "2026-09-09",
+    "photos": [
+      {
+        "src": "images/carmel-completed-repairs/carmel-completed-repair-32.webp",
+        "width": 640,
+        "height": 480,
+        "caption": "KitchenAid refrigerator door switch replacement"
+      }
+    ]
+  },
+  {
+    "slug": "carmel-wiring-harness-inspection",
+    "title": "Appliance wiring harness and connector inspection",
+    "city": "carmel",
+    "appliance": "diagnosis",
+    "summary": "Electrical connector checks before recommending the next repair step.",
+    "published": "2026-09-09",
+    "modified": "2026-09-09",
+    "photos": [
+      {
+        "src": "images/carmel-completed-repairs/carmel-completed-repair-36.webp",
+        "width": 640,
+        "height": 480,
+        "caption": "Appliance wiring harness and connector inspection"
+      }
+    ]
+  },
+  {
+    "slug": "carmel-range-control-wiring",
+    "title": "Range control panel wiring diagnosis",
+    "city": "carmel",
+    "appliance": "range",
+    "summary": "Range control access and wiring inspection during diagnosis.",
+    "published": "2026-09-09",
+    "modified": "2026-09-09",
+    "photos": [
+      {
+        "src": "images/carmel-completed-repairs/carmel-completed-repair-38.webp",
+        "width": 640,
+        "height": 480,
+        "caption": "Range control panel wiring diagnosis"
+      }
+    ]
+  },
+  {
+    "slug": "carmel-refrigerator-temperature-check",
+    "title": "Refrigerator temperature verification after service",
+    "city": "carmel",
+    "appliance": "refrigerator",
+    "summary": "Final temperature check after refrigerator service.",
+    "published": "2026-09-09",
+    "modified": "2026-09-09",
+    "photos": [
+      {
+        "src": "images/carmel-completed-repairs/carmel-completed-repair-41.webp",
+        "width": 640,
+        "height": 480,
+        "caption": "Refrigerator temperature verification after service"
+      }
+    ]
+  },
+  {
+    "slug": "carmel-ice-compartment-service",
+    "title": "Refrigerator ice compartment service and inspection",
+    "city": "carmel",
+    "appliance": "refrigerator",
+    "summary": "Ice compartment access and inspection during refrigerator service.",
+    "published": "2026-09-09",
+    "modified": "2026-09-09",
+    "photos": [
+      {
+        "src": "images/carmel-completed-repairs/carmel-completed-repair-42.webp",
+        "width": 640,
+        "height": 480,
+        "caption": "Refrigerator ice compartment service and inspection"
+      }
+    ]
+  },
+  {
+    "slug": "carmel-refrigerator-drain-cleaning",
+    "title": "Refrigerator drain line cleaning for a water leak",
+    "city": "carmel",
+    "appliance": "refrigerator",
+    "summary": "Drain restriction service for water-leak symptoms.",
+    "published": "2026-09-09",
+    "modified": "2026-09-09",
+    "photos": [
+      {
+        "src": "images/carmel-completed-repairs/carmel-completed-repair-48.webp",
+        "width": 640,
+        "height": 480,
+        "caption": "Refrigerator drain line cleaning for a water leak"
+      }
+    ]
+  },
+  {
+    "slug": "carmel-frozen-evaporator-defrost",
+    "title": "Frozen refrigerator evaporator coil defrost service",
+    "city": "carmel",
+    "appliance": "refrigerator",
+    "summary": "Evaporator frost condition documented during refrigerator service.",
+    "published": "2026-09-09",
+    "modified": "2026-09-09",
+    "photos": [
+      {
+        "src": "images/carmel-completed-repairs/carmel-completed-repair-50.webp",
+        "width": 640,
+        "height": 480,
+        "caption": "Frozen refrigerator evaporator coil defrost service"
+      }
+    ]
+  },
+  {
+    "slug": "service-area-bosch-dishwasher-pump",
+    "title": "Bosch dishwasher circulation pump replacement",
+    "city": "service-area",
+    "appliance": "dishwasher",
+    "summary": "Dishwasher access, pump replacement and reassembly documentation.",
+    "published": "2026-09-09",
+    "modified": "2026-09-09",
+    "photos": [
+      {
+        "src": "images/home-repairs/bosch-dishwasher-pump-01.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Bosch dishwasher circulation pump replacement — photo 1"
+      },
+      {
+        "src": "images/home-repairs/bosch-dishwasher-pump-02.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Bosch dishwasher circulation pump replacement — photo 2"
+      },
+      {
+        "src": "images/home-repairs/bosch-dishwasher-pump-03.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Bosch dishwasher circulation pump replacement — photo 3"
+      },
+      {
+        "src": "images/home-repairs/bosch-dishwasher-pump-04.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Bosch dishwasher circulation pump replacement — photo 4"
+      },
+      {
+        "src": "images/home-repairs/bosch-dishwasher-pump-05.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Bosch dishwasher circulation pump replacement — photo 5"
+      },
+      {
+        "src": "images/home-repairs/bosch-dishwasher-pump-06.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Bosch dishwasher circulation pump replacement — photo 6"
+      },
+      {
+        "src": "images/home-repairs/bosch-dishwasher-pump-07.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Bosch dishwasher circulation pump replacement — photo 7"
+      }
+    ]
+  },
+  {
+    "slug": "service-area-lg-dryer-rollers",
+    "title": "LG dryer belt tensioner and roller replacement",
+    "city": "service-area",
+    "appliance": "dryer",
+    "summary": "Dryer cabinet access for belt, tensioner and roller service.",
+    "published": "2026-09-09",
+    "modified": "2026-09-09",
+    "photos": [
+      {
+        "src": "images/home-repairs/lg-dryer-rollers-01.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "LG dryer belt tensioner and roller replacement — photo 1"
+      },
+      {
+        "src": "images/home-repairs/lg-dryer-rollers-02.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "LG dryer belt tensioner and roller replacement — photo 2"
+      },
+      {
+        "src": "images/home-repairs/lg-dryer-rollers-03.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "LG dryer belt tensioner and roller replacement — photo 3"
+      },
+      {
+        "src": "images/home-repairs/lg-dryer-rollers-04.webp",
+        "width": 1600,
+        "height": 1200,
+        "caption": "LG dryer belt tensioner and roller replacement — photo 4"
+      },
+      {
+        "src": "images/home-repairs/lg-dryer-rollers-05.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "LG dryer belt tensioner and roller replacement — photo 5"
+      },
+      {
+        "src": "images/home-repairs/lg-dryer-rollers-06.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "LG dryer belt tensioner and roller replacement — photo 6"
+      },
+      {
+        "src": "images/home-repairs/lg-dryer-rollers-07.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "LG dryer belt tensioner and roller replacement — photo 7"
+      }
+    ]
+  },
+  {
+    "slug": "service-area-frigidaire-freezer-fan",
+    "title": "Frigidaire Gallery refrigerator freezer fan replacement",
+    "city": "service-area",
+    "appliance": "refrigerator",
+    "summary": "Freezer compartment fan access and component replacement.",
+    "published": "2026-09-09",
+    "modified": "2026-09-09",
+    "photos": [
+      {
+        "src": "images/home-repairs/frigidaire-freezer-fan-01.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Frigidaire Gallery refrigerator freezer fan replacement — photo 1"
+      },
+      {
+        "src": "images/home-repairs/frigidaire-freezer-fan-02.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Frigidaire Gallery refrigerator freezer fan replacement — photo 2"
+      },
+      {
+        "src": "images/home-repairs/frigidaire-freezer-fan-03.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Frigidaire Gallery refrigerator freezer fan replacement — photo 3"
+      },
+      {
+        "src": "images/home-repairs/frigidaire-freezer-fan-04.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Frigidaire Gallery refrigerator freezer fan replacement — photo 4"
+      },
+      {
+        "src": "images/home-repairs/frigidaire-freezer-fan-05.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Frigidaire Gallery refrigerator freezer fan replacement — photo 5"
+      }
+    ]
+  },
+  {
+    "slug": "service-area-samsung-washer-valve",
+    "title": "Samsung washing machine water valve replacement",
+    "city": "service-area",
+    "appliance": "washer",
+    "summary": "Washer water-inlet diagnosis, valve access and replacement work.",
+    "published": "2026-09-09",
+    "modified": "2026-09-09",
+    "photos": [
+      {
+        "src": "images/home-repairs/samsung-washer-valve-01.webp",
+        "width": 1600,
+        "height": 1200,
+        "caption": "Samsung washing machine water valve replacement — photo 1"
+      },
+      {
+        "src": "images/home-repairs/samsung-washer-valve-02.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Samsung washing machine water valve replacement — photo 2"
+      },
+      {
+        "src": "images/home-repairs/samsung-washer-valve-03.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Samsung washing machine water valve replacement — photo 3"
+      },
+      {
+        "src": "images/home-repairs/samsung-washer-valve-04.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Samsung washing machine water valve replacement — photo 4"
+      },
+      {
+        "src": "images/home-repairs/samsung-washer-valve-05.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Samsung washing machine water valve replacement — photo 5"
+      }
+    ]
+  },
+  {
+    "slug": "service-area-lg-washer-suspension",
+    "title": "LG washing machine suspension rod replacement",
+    "city": "service-area",
+    "appliance": "washer",
+    "summary": "Washer vibration and balance-related suspension work.",
+    "published": "2026-09-09",
+    "modified": "2026-09-09",
+    "photos": [
+      {
+        "src": "images/home-repairs/lg-washer-suspension-01.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "LG washing machine suspension rod replacement — photo 1"
+      },
+      {
+        "src": "images/home-repairs/lg-washer-suspension-02.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "LG washing machine suspension rod replacement — photo 2"
+      },
+      {
+        "src": "images/home-repairs/lg-washer-suspension-03.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "LG washing machine suspension rod replacement — photo 3"
+      },
+      {
+        "src": "images/home-repairs/lg-washer-suspension-04.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "LG washing machine suspension rod replacement — photo 4"
+      }
+    ]
+  },
+  {
+    "slug": "service-area-refrigerator-ice-maker",
+    "title": "Refrigerator ice maker and water valve replacement",
+    "city": "service-area",
+    "appliance": "refrigerator",
+    "summary": "Ice maker and water valve service with component access photos.",
+    "published": "2026-09-09",
+    "modified": "2026-09-09",
+    "photos": [
+      {
+        "src": "images/home-repairs/refrigerator-ice-maker-01.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Refrigerator ice maker and water valve replacement — photo 1"
+      },
+      {
+        "src": "images/home-repairs/refrigerator-ice-maker-02.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Refrigerator ice maker and water valve replacement — photo 2"
+      },
+      {
+        "src": "images/home-repairs/refrigerator-ice-maker-03.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Refrigerator ice maker and water valve replacement — photo 3"
+      },
+      {
+        "src": "images/home-repairs/refrigerator-ice-maker-04.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Refrigerator ice maker and water valve replacement — photo 4"
+      },
+      {
+        "src": "images/home-repairs/refrigerator-ice-maker-05.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Refrigerator ice maker and water valve replacement — photo 5"
+      }
+    ]
+  }
+]
