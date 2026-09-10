@@ -54,7 +54,7 @@ export function buildRepairCases(){
   if(c.causeExplanation) content=content.replace('<h2>Work documented</h2>',`<h2>What caused the connection to burn?</h2><p>${esc(c.causeExplanation)}</p><h2>Work documented</h2>`);
   if(c.model) content=content.replace('<dt>Work</dt>',`<dt>Model</dt><dd>${esc(c.model)}</dd><dt>Problem</dt><dd>${esc(c.problem)}</dd><dt>Cause</dt><dd>${esc(c.cause)}</dd><dt>Work</dt>`);
   if(c.brandPath) content=content.replace('<h2>Photos from this repair</h2>',`<p>Explore our <a href="/${esc(c.brandPath)}">LG appliance repair services</a> and <a href="/carmel.html">Carmel service coverage</a>. Alex Appliance Repair is an independent appliance repair provider operated by Aksenov LLC.</p><h2>Photos from this repair</h2>`);
-  let page=shell.replace(/<main\b[\s\S]*?<\/main>/,content);
+  let page=shell.replace(/<main\b[\s\S]*?<\/main>/,content).replace(/\/js\/script\.js\?v=[^"']+/g,'/js/script.js?v=20260909-repair-story-lightbox');
   page=metadata(styleLink(page),{name:c.seoTitle||title(c)+' | Alex Appliance Repair',description:c.description||c.summary,page:url(c),imageUrl:BASE+c.photos[0].src,type:'article',schema});
   fs.writeFileSync(path.join(ROOT,'repair-cases',c.slug+'.html'),page.replace(/[\t ]+$/gm,''));
  }
