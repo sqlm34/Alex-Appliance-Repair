@@ -12,6 +12,8 @@ The existing blog (`blog.html`) features repair stories; `recent-work.html` is t
 
 The main legacy SEO generator invokes the story builder after its own changes. The builder also works independently and is repeatable. It preserves the site's current header/footer instead of introducing a second design system.
 
-The archive retains client-side city/appliance filters. All stories remain in its initial HTML. Filters do not generate extra search URLs. Six cards are featured: the Carmel gas-dryer case and five service-area entries; all 16 stories are available from the archive.
+The archive retains client-side city/appliance filters. All stories remain in its initial HTML. Filters do not generate extra search URLs. Six cards are featured: two Carmel cases and four service-area entries. All 17 stories are available from the archive.
+
+The documented LG range case lives in `lg-range-story.mjs`, including its extra diagnostic context and model details. Its six original WebP photographs exclude the appliance serial number. The builder also adds its link through the existing homepage and Carmel carousel card markup. Story photos use the existing native lightbox, without gallery styling classes that crop technical photographs.
 
 The initial 16 stories use the existing gallery descriptions. Nine Carmel entries were individual photographs within one mixed gallery; only the relevant photograph is carried into each story. Limited records are kept concise instead of inventing customer complaints or successful outcomes. Enrich them with actual technician notes when available.
