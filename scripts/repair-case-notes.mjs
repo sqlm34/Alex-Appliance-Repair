@@ -1,6 +1,11 @@
 // Editorial context supplements the existing published job descriptions.
 // Do not turn general explanations into undocumented findings or outcomes.
 export const notes = {
+ 'carmel-kitchenaid-ksdg950ess1-bake-element': [
+  'This Carmel service visit involved a KitchenAid KSDG950ESS1 30-inch dual-fuel downdraft range with an oven that would not heat in Bake mode. Diagnosis identified a damaged bake heating element. The bake element was replaced, the range was reassembled, and the oven was checked in preheat and with a thermometer after the repair.',
+  'The photo sequence documents the installed KitchenAid range, visible damage on the old bake element, the removed element, access inside the oven cavity, the preheating display, and a cropped model label confirming KSDG950ESS1. The selected photographs do not claim a control board, sensor, igniter, surface burner or wiring replacement.',
+  'On a dual-fuel range, gas surface burners and the electric oven heating system are separate service areas. When Bake does not heat, useful details include the selected oven mode, whether Broil or Convection behaves differently, whether the display shows an error, and whether the oven starts preheating. A model-specific diagnosis should come before parts are selected because heating-element symptoms can overlap with control, sensor or connection issues.'
+ ],
  'carmel-dryer-gas-valve-coils': [
   'This Carmel gas-dryer visit addressed weak heat and long drying time. The work documented in the photographs includes gas valve coil replacement and lint cleanup inside the dryer.',
   'The photo sequence follows access to the open cabinet, lint in the airflow path, the gas valve and coil area, and cleanup around the blower housing. Both the burner area and internal airflow were part of the service focus.',

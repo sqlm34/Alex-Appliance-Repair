@@ -1,5 +1,67 @@
 [
   {
+    "slug": "carmel-kitchenaid-ksdg950ess1-bake-element",
+    "title": "KitchenAid KSDG950ESS1 bake heating element replacement",
+    "seoTitle": "KitchenAid KSDG950ESS1 Bake Element Repair in Carmel, IN | Alex Appliance Repair",
+    "description": "KitchenAid KSDG950ESS1 30-inch dual-fuel range repair in Carmel, IN. Bake mode did not heat, damaged bake element replaced, and temperature checked.",
+    "city": "carmel",
+    "appliance": "range",
+    "summary": "Bake mode no-heat diagnosis, damaged bake heating element replacement and post-repair temperature check.",
+    "published": "2026-09-10",
+    "modified": "2026-09-10",
+    "model": "KitchenAid KSDG950ESS1",
+    "problem": "Oven would not heat in Bake mode",
+    "cause": "Damaged bake heating element",
+    "causeHeading": "Why the Bake mode stopped heating",
+    "causeExplanation": "The service record identifies visible damage on the bake heating element. On this dual-fuel range, the surface burners and electric oven heating system are separate. A damaged bake element can keep the oven from heating properly in Bake mode, but controls, sensors and wiring should still be evaluated before parts are approved. This repair story documents the damaged element and replacement work without adding unrecorded resistance readings or temperature values.",
+    "brandName": "KitchenAid",
+    "brandPath": "brands/kitchenaid-appliance-repair.html",
+    "photos": [
+      {
+        "src": "images/repair-cases/kitchenaid-ksdg950ess1-bake-element-carmel/kitchenaid-ksdg950ess1-dual-fuel-range-carmel.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "KitchenAid KSDG950ESS1 dual-fuel range serviced in Carmel, Indiana"
+      },
+      {
+        "src": "images/repair-cases/kitchenaid-ksdg950ess1-bake-element-carmel/burned-kitchenaid-bake-element-closeup.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Burned section of the KitchenAid bake heating element before replacement"
+      },
+      {
+        "src": "images/repair-cases/kitchenaid-ksdg950ess1-bake-element-carmel/damaged-bake-heating-element-detail.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Close view of damage along the old bake heating element"
+      },
+      {
+        "src": "images/repair-cases/kitchenaid-ksdg950ess1-bake-element-carmel/removed-kitchenaid-bake-element-on-box.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Removed KitchenAid bake element after oven disassembly"
+      },
+      {
+        "src": "images/repair-cases/kitchenaid-ksdg950ess1-bake-element-carmel/kitchenaid-oven-bake-element-access.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "KitchenAid oven cavity opened for bake element access"
+      },
+      {
+        "src": "images/repair-cases/kitchenaid-ksdg950ess1-bake-element-carmel/kitchenaid-range-preheating-test-display.webp",
+        "width": 1600,
+        "height": 1200,
+        "caption": "KitchenAid range display during post-repair preheat check"
+      },
+      {
+        "src": "images/repair-cases/kitchenaid-ksdg950ess1-bake-element-carmel/kitchenaid-ksdg950ess1-model-label-cropped.webp",
+        "width": 650,
+        "height": 420,
+        "caption": "KitchenAid KSDG950ESS1 model label cropped to exclude serial details"
+      }
+    ]
+  },
+  {
     "slug": "carmel-dryer-gas-valve-coils",
     "title": "Gas dryer valve coil replacement and lint cleanup",
     "city": "carmel",
