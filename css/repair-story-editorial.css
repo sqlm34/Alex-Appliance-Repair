@@ -1,6 +1,6 @@
 /* Loaded only by the Fishers repair story; shared site typography and shell stay intact. */
 .case-layout:has(.editorial-story){display:block}
-.editorial-story{max-width:960px;margin-inline:auto}
+.editorial-story{width:100%;max-width:none;margin-inline:auto}
 .editorial-story .repair-story-section{display:flow-root;margin:0 0 48px}
 .editorial-story .repair-story-section h2{margin:0 0 24px;display:flow-root}
 .editorial-story .repair-story-section p{margin:0 0 28px}
