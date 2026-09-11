@@ -2,9 +2,9 @@
 .case-layout:has(.editorial-story){display:block}
 .editorial-story{max-width:960px;margin-inline:auto}
 .editorial-story .repair-story-section{display:flow-root;margin:0 0 30px}
-.editorial-story .repair-story-section h2{margin-top:10px}
-.editorial-story figure.article-image-left{float:left;width:40%;margin:4px 30px 16px 0}
-.editorial-story figure.article-image-right{float:right;width:40%;margin:4px 0 16px 30px}
+.editorial-story .repair-story-section h2{margin-top:0;display:flow-root}
+.editorial-story figure.article-image-left{float:left;width:40%;margin:0 30px 16px 0}
+.editorial-story figure.article-image-right{float:right;width:40%;margin:0 0 16px 30px}
 .editorial-story figure.article-image-full{clear:both;width:100%;margin:12px 0 38px}
 .editorial-story img{height:auto;max-width:100%}
 .editorial-story figcaption{margin-bottom:0}

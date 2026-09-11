@@ -64,7 +64,7 @@ export function buildRepairCases(){
   let page=shell.replace(/<main\b[\s\S]*?<\/main>/,content).replace(/\/js\/script\.js\?v=[^"']+/g,'/js/script.js?v=20260909-repair-story-lightbox');
   page=metadata(styleLink(page),{name:c.seoTitle||title(c)+' | Alex Appliance Repair',description:c.description||c.summary,page:url(c),imageUrl:BASE+c.photos[0].src,type:'article',schema});
   if(c.slug===fishersSlug) {
-   page=page.replace('</head>','<link rel="stylesheet" href="/css/repair-story-editorial.css?v=20260911">\n</head>');
+   page=page.replace('</head>','<link rel="stylesheet" href="/css/repair-story-editorial.css?v=20260911-heading-align">\n</head>');
    // Keep this standalone HTML preview usable from disk as well as from the site root.
    page=page.replace(/\b(href|src)="\/(?!\/)([^"]*)"/g,(_,attr,value)=>`${attr}="../${value||'index.html'}"`);
   }
