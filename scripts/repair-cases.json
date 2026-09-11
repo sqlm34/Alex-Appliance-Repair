@@ -53,7 +53,10 @@
         "height": 1200,
         "caption": "New circulation pump seal installed on the GE dishwasher"
       }
-    ]
+    ],
+    "model": "GE GDT645SYN8FS",
+    "problem": "Water leaking underneath the dishwasher",
+    "cause": "Worn or damaged circulation pump seal"
   },
   {
     "slug": "carmel-kitchenaid-ksdg950ess1-bake-element",

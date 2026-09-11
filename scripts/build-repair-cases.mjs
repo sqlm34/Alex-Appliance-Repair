@@ -54,17 +54,22 @@ export function buildRepairCases(){
 <section class="local-section"><div class="local-shell case-layout"><article class="case-body"><figure class="case-cover"><a href="/${c.photos[0].src}">${image(c.photos[0],false)}</a><figcaption>${esc(c.photos[0].caption)}</figcaption></figure><h2>Service focus</h2><p>${esc(caseNotes[0])}</p><h2>Work documented</h2><p>${esc(caseNotes[1])}</p><h2>Understanding this repair</h2><p>${esc(caseNotes[2])}</p><p>For a similar concern, see our <a href="/${servicePath}">${esc(service==='diagnosis'?'appliance diagnosis and repair':service+' repair service')}</a>. Each appliance is evaluated before parts or repair work are recommended.</p>${c.photos.length>1?`<h2>Photos from this repair</h2><div class="case-photo-grid">${c.photos.slice(1).map(p=>`<figure><a href="/${p.src}">${image(p)}</a><figcaption>${esc(p.caption)}</figcaption></figure>`).join('')}</div>`:''}</article><aside class="case-summary"><h2>Visit overview</h2><dl><dt>Location</dt><dd>${esc(city(c))}</dd><dt>Appliance</dt><dd>${esc(c.appliance==='range'?'Range / oven':c.appliance)}</dd><dt>Work</dt><dd>${esc(c.title)}</dd><dt>Photographs</dt><dd>${c.photos.length}</dd></dl><a href="/${c.city==='carmel'?'carmel.html':'locations.html'}">View service coverage</a><hr><h2>Discuss your appliance</h2><p>Share the model, symptoms and installation details when booking.</p><a class="local-button" href="tel:+14632488429">Call our team</a></aside></div></section>
 <section class="local-section local-section--soft"><div class="local-shell"><header class="local-section-header"><h2>More repair stories</h2><a href="/recent-work.html">View all repair stories</a></header><div class="case-grid">${related.map(c=>card(c)).join('')}</div></div></section>${cta}</main>`;
   let content=main;
-  if(c.slug===fishersSlug) content=content.replace(/<article class="case-body">[\s\S]*?<\/aside>/,fishersArticle(c,image,esc));
+  if(c.slug===fishersSlug) content=content.replace(/<article class="case-body">[\s\S]*?<\/article>/,fishersArticle(c,image,esc));
   if(c.causeExplanation) content=content.replace('<h2>Work documented</h2>',`<h2>${esc(c.causeHeading||'What caused the connection to burn?')}</h2><p>${esc(c.causeExplanation)}</p><h2>Work documented</h2>`);
   if(c.model) content=content.replace('<dt>Work</dt>',`<dt>Model</dt><dd>${esc(c.model)}</dd><dt>Problem</dt><dd>${esc(c.problem)}</dd><dt>Cause</dt><dd>${esc(c.cause)}</dd><dt>Work</dt>`);
   if(c.brandPath) {
    const brandName=c.brandName||'LG';
    content=content.replace('<h2>Photos from this repair</h2>',`<p>Explore our <a href="/${esc(c.brandPath)}">${esc(brandName)} appliance repair services</a> and <a href="/carmel.html">Carmel service coverage</a>. Alex Appliance Repair is an independent appliance repair provider operated by Aksenov LLC.</p><h2>Photos from this repair</h2>`);
   }
+  if(c.slug===fishersSlug) {
+   content=content.replace('<dt>Photographs</dt>', '<dt>Repair time</dt><dd>Approximately 30 minutes for the repair itself</dd><dt>Result</dt><dd>No leaks found during post-repair checks of filling, circulation, washing and draining</dd><dt>Photographs</dt>');
+   content=content.replace('<a href="/locations.html">View service coverage</a>', '<a href="/fishers.html">View Fishers service coverage</a>');
+   content=content.replace(/(<article class="case-body editorial-story">[\s\S]*?<\/article>)(<aside class="case-summary">[\s\S]*?<\/aside>)/, '$2$1');
+  }
   let page=shell.replace(/<main\b[\s\S]*?<\/main>/,content).replace(/\/js\/script\.js\?v=[^"']+/g,'/js/script.js?v=20260909-repair-story-lightbox');
   page=metadata(styleLink(page),{name:c.seoTitle||title(c)+' | Alex Appliance Repair',description:c.description||c.summary,page:url(c),imageUrl:BASE+c.photos[0].src,type:'article',schema});
   if(c.slug===fishersSlug) {
-   page=page.replace('</head>','<link rel="stylesheet" href="/css/repair-story-editorial.css?v=20260911-full-width">\n</head>');
+   page=page.replace('</head>','<link rel="stylesheet" href="/css/repair-story-editorial.css?v=20260911-visit-overview">\n</head>');
    // Keep this standalone HTML preview usable from disk as well as from the site root.
    page=page.replace(/\b(href|src)="\/(?!\/)([^"]*)"/g,(_,attr,value)=>`${attr}="../${value||'index.html'}"`);
   }

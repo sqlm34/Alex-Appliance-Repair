@@ -18,3 +18,9 @@
  .editorial-story .repair-story-section p:last-child{margin-bottom:0}
  .editorial-story figure.article-image-full{margin:0 0 36px}
 }
+
+/* Overview spans the article container without narrowing the editorial text. */
+.case-layout:has(.editorial-story) > .case-summary{margin-bottom:40px}
+.case-layout:has(.editorial-story) > .case-summary dl{display:grid;grid-template-columns:180px minmax(0,1fr);gap:12px 24px;margin:0 0 24px}
+.case-layout:has(.editorial-story) > .case-summary dt,.case-layout:has(.editorial-story) > .case-summary dd{margin:0}
+@media(max-width:600px){.case-layout:has(.editorial-story) > .case-summary dl{grid-template-columns:1fr;gap:6px}.case-layout:has(.editorial-story) > .case-summary dd{margin-bottom:12px}}
