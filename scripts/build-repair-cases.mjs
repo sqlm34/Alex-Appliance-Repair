@@ -34,7 +34,7 @@ export function buildRepairCases(){
   if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(c.slug)||seen.has(c.slug))throw Error('Invalid/duplicate case slug');seen.add(c.slug);
   if((!notes[c.slug]&&c.slug!==fishersSlug)||!c.photos.length)throw Error('Missing editorial content: '+c.slug);
   for(const d of [c.published,c.modified])if(!/^\d{4}-\d{2}-\d{2}$/.test(d))throw Error('Invalid date');
-  for(const p of c.photos)if(!p.src.startsWith('images/')||p.src.includes('..')||!fs.existsSync(path.join(ROOT,p.src)))throw Error('Missing or unsafe photo');
+  for(const p of [...c.photos,...(c.overviewImage?[c.overviewImage]:[])])if(!p.src.startsWith('images/')||p.src.includes('..')||!fs.existsSync(path.join(ROOT,p.src)))throw Error('Missing or unsafe photo');
  }
  let archive=fs.readFileSync(path.join(ROOT,'recent-work.html'),'utf8');
  // Capture the site's actual shared shell, never a replacement design.
@@ -46,7 +46,7 @@ export function buildRepairCases(){
   const servicePath=service==='diagnosis'?'services.html':c.city==='service-area'?`${service}-repair.html`:`${c.city}/${service}-repair-services.html`;
   const related=(c.slug===fishersSlug?cases:[lgRangeStory,...JSON.parse(fs.readFileSync(path.join(ROOT,'scripts/repair-cases.json'),'utf8')).filter(x=>x.slug!==fishersSlug)]).filter(x=>x.slug!==c.slug).sort((a,b)=>(b.appliance===c.appliance)-(a.appliance===c.appliance)).slice(0,3);
   const schema={'@context':'https://schema.org','@graph':[
-   {'@type':'BlogPosting','@id':url(c)+'#article',url:url(c),mainEntityOfPage:url(c),headline:title(c),description:c.summary,image:c.photos.map(p=>BASE+p.src),datePublished:c.published,dateModified:c.modified,author:{'@type':'Organization',name:'Alex Appliance Repair',url:BASE+'about.html'},publisher:{'@type':'Organization',name:'Alex Appliance Repair',url:BASE},inLanguage:'en-US'},
+   {'@type':'BlogPosting','@id':url(c)+'#article',url:url(c),mainEntityOfPage:url(c),headline:title(c),description:c.summary,image:[...c.photos,...(c.overviewImage?[c.overviewImage]:[])].map(p=>BASE+p.src),datePublished:c.published,dateModified:c.modified,author:{'@type':'Organization',name:'Alex Appliance Repair',url:BASE+'about.html'},publisher:{'@type':'Organization',name:'Alex Appliance Repair',url:BASE},inLanguage:'en-US'},
    {'@type':'BreadcrumbList',itemListElement:[{name:'Home',item:BASE},{name:'Repair stories',item:BASE+'recent-work.html'},{name:title(c),item:url(c)}].map((x,i)=>({'@type':'ListItem',position:i+1,...x}))}
   ]};
   const main=`<main class="local-seo-page repair-case-page">
@@ -64,12 +64,14 @@ export function buildRepairCases(){
   if(c.slug===fishersSlug) {
    content=content.replace('<dt>Photographs</dt>', '<dt>Repair time</dt><dd>Approximately 30 minutes for the repair itself</dd><dt>Result</dt><dd>No leaks found during post-repair checks of filling, circulation, washing and draining</dd><dt>Photographs</dt>');
    content=content.replace('<a href="/locations.html">View service coverage</a>', '<a href="/fishers.html">View Fishers service coverage</a>');
+   if(c.overviewImage) content=content.replace('<aside class="case-summary">','<aside class="case-summary case-summary--with-image"><div class="case-summary-copy">').replace('</aside>',`</div><figure class="case-summary-visual">${image(c.overviewImage)}</figure></aside>`);
    content=content.replace(/(<article class="case-body editorial-story">[\s\S]*?<\/article>)(<aside class="case-summary">[\s\S]*?<\/aside>)/, '$2$1');
+   content=content.replace(/(<article class="case-body editorial-story">[\s\S]*?<\/article>)(<aside class="case-summary case-summary--with-image">[\s\S]*?<\/aside>)/, '$2$1');
   }
   let page=shell.replace(/<main\b[\s\S]*?<\/main>/,content).replace(/\/js\/script\.js\?v=[^"']+/g,'/js/script.js?v=20260909-repair-story-lightbox');
   page=metadata(styleLink(page),{name:c.seoTitle||title(c)+' | Alex Appliance Repair',description:c.description||c.summary,page:url(c),imageUrl:BASE+c.photos[0].src,type:'article',schema});
   if(c.slug===fishersSlug) {
-   page=page.replace('</head>','<link rel="stylesheet" href="/css/repair-story-editorial.css?v=20260911-visit-overview">\n</head>');
+   page=page.replace('</head>','<link rel="stylesheet" href="/css/repair-story-editorial.css?v=20260911-overview-diagram">\n</head>');
    // Keep this standalone HTML preview usable from disk as well as from the site root.
    page=page.replace(/\b(href|src)="\/(?!\/)([^"]*)"/g,(_,attr,value)=>`${attr}="../${value||'index.html'}"`);
   }

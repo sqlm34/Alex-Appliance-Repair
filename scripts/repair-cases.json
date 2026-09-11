@@ -56,7 +56,13 @@
     ],
     "model": "GE GDT645SYN8FS",
     "problem": "Water leaking underneath the dishwasher",
-    "cause": "Worn or damaged circulation pump seal"
+    "cause": "Worn or damaged circulation pump seal",
+    "overviewImage": {
+      "src": "images/repair-cases/ge-dishwasher-leak-fishers/ge-gdt645syn8fs-pump-parts-diagram.webp",
+      "width": 1200,
+      "height": 1553,
+      "caption": "GE GDT645SYN8FS dishwasher pump and sump parts diagram"
+    }
   },
   {
     "slug": "carmel-kitchenaid-ksdg950ess1-bake-element",
