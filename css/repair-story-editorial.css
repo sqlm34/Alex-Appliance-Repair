@@ -1,8 +1,10 @@
 /* Loaded only by the Fishers repair story; shared site typography and shell stay intact. */
 .case-layout:has(.editorial-story){display:block}
 .editorial-story{max-width:960px;margin-inline:auto}
-.editorial-story .repair-story-section{display:flow-root;margin:0 0 30px}
-.editorial-story .repair-story-section h2{margin-top:0;display:flow-root}
+.editorial-story .repair-story-section{display:flow-root;margin:0 0 48px}
+.editorial-story .repair-story-section h2{margin:0 0 24px;display:flow-root}
+.editorial-story .repair-story-section p{margin:0 0 28px}
+.editorial-story .repair-story-section p:last-child{margin-bottom:0}
 .editorial-story figure.article-image-left{float:left;width:40%;margin:0 30px 16px 0}
 .editorial-story figure.article-image-right{float:right;width:40%;margin:0 0 16px 30px}
 .editorial-story figure.article-image-full{clear:both;width:100%;margin:12px 0 38px}
@@ -11,6 +13,8 @@
 .editorial-story .local-button{color:var(--local-navy,#102f5b);text-decoration:none}
 @media(max-width:768px){
  .editorial-story figure.article-image-left,.editorial-story figure.article-image-right{float:none;width:100%;margin:0 0 22px}
- .editorial-story .repair-story-section{margin-bottom:26px}
- .editorial-story figure.article-image-full{margin:0 0 30px}
+ .editorial-story .repair-story-section{margin-bottom:36px}
+ .editorial-story .repair-story-section p{margin-bottom:24px}
+ .editorial-story .repair-story-section p:last-child{margin-bottom:0}
+ .editorial-story figure.article-image-full{margin:0 0 36px}
 }
