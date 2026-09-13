@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { notes } from './repair-case-notes.mjs';
 import { fishersSlug, fishersArticle } from './fishers-ge-story.mjs';
+import { lgDryerSlug, lgDryerArticle } from './lg-dryer-story.mjs';
 import { story as lgRangeStory, paragraphs as lgRangeParagraphs } from './lg-range-story.mjs';
 import { rebuildSitemaps } from './rebuild-sitemaps.mjs';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -12,9 +13,10 @@ const url=c=>BASE+'repair-cases/'+c.slug+'.html';
 const cityName=c=>c.city==='mccordsville'?'McCordsville':c.city.charAt(0).toUpperCase()+c.city.slice(1);
 const city=c=>c.city==='service-area'?'Central Indiana service area':cityName(c)+', Indiana';
 const title=c=>c.headline||c.title+(c.city==='service-area'?'':' in '+cityName(c));
+const cardTitle=c=>c.cardTitle||title(c);
 const image=(p,lazy=true)=>`<img src="/${esc(p.src)}" width="${p.width}" height="${p.height}" alt="${esc(p.caption)}" ${lazy?'loading="lazy"':'fetchpriority="high"'} decoding="async">`;
 const date=s=>new Date(s+'T12:00:00Z').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'UTC'});
-function card(c,anchor=false){return `<article ${anchor?`id="${c.slug}" data-work-card data-city="${c.city}" data-appliance="${c.appliance}"`:''} class="case-card"><a class="case-card-image" href="${url(c)}">${image(c.photos[0])}</a><div class="case-card-copy"><p class="local-eyebrow">${esc(city(c))} · ${esc(c.appliance)}</p><h3><a href="${url(c)}">${esc(title(c))}</a></h3><p>${esc(c.summary)}</p><p class="case-date">Published <time datetime="${c.published}">${date(c.published)}</time></p><a class="case-read" href="${url(c)}">Read repair story <span aria-hidden="true">→</span></a></div></article>`;}
+function card(c,anchor=false){return `<article ${anchor?`id="${c.slug}" data-work-card data-city="${c.city}" data-appliance="${c.appliance}"`:''} class="case-card"><a class="case-card-image" href="${url(c)}">${image(c.photos[0])}</a><div class="case-card-copy"><p class="local-eyebrow">${esc(city(c))} · ${esc(c.appliance)}</p><h3><a href="${url(c)}">${esc(cardTitle(c))}</a></h3><p>${esc(c.summary)}</p><p class="case-date">Published <time datetime="${c.published}">${date(c.published)}</time></p><a class="case-read" href="${url(c)}">Read repair story <span aria-hidden="true">→</span></a></div></article>`;}
 function styleLink(html){if(!html.includes('/css/repair-cases.css'))html=html.replace('</head>','<link rel="stylesheet" href="/css/repair-cases.css?v=20260909-cases">\n</head>');return html;}
 function metadata(html,{name,description,page,imageUrl,type='website',schema}){
  html=html.replace(/\s*<script\b[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>\s*/gi,'\n');
@@ -26,13 +28,15 @@ function metadata(html,{name,description,page,imageUrl,type='website',schema}){
 function rootAssets(html){return html.replace(/\b(href|src)="([^"#]+)"/g,(all,attr,value)=>/^(?:[a-z]+:|\/)/i.test(value)?all:`${attr}="/${value.replace(/^(?:\.\.\/)+/,'')}"`);}
 const cta='<section class="local-cta"><div class="local-shell"><h2>Need help with your appliance?</h2><p>Tell us the appliance, symptom and service address. We explain the diagnosis and estimate before approved repair work.</p><div class="local-actions"><a class="local-button" href="https://aleksappliancerepair.com/booking">Book service online</a><a class="local-button local-button--secondary" href="tel:+14632488429">Call (463) 248-8429</a></div></div></section>';
 export function buildRepairCases(){
- const cases=[lgRangeStory,...JSON.parse(fs.readFileSync(path.join(ROOT,'scripts/repair-cases.json'),'utf8'))];
+ const storedCases=JSON.parse(fs.readFileSync(path.join(ROOT,'scripts/repair-cases.json'),'utf8'));
+ const cases=[lgRangeStory,...storedCases];
  cases.sort((a,b)=>b.published.localeCompare(a.published));
+ const editorialStories=new Map([[fishersSlug,fishersArticle],[lgDryerSlug,lgDryerArticle]]);
  notes[lgRangeStory.slug]=lgRangeParagraphs;
  const seen=new Set();
  for(const c of cases){
   if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(c.slug)||seen.has(c.slug))throw Error('Invalid/duplicate case slug');seen.add(c.slug);
-  if((!notes[c.slug]&&c.slug!==fishersSlug)||!c.photos.length)throw Error('Missing editorial content: '+c.slug);
+  if((!notes[c.slug]&&!editorialStories.has(c.slug))||!c.photos.length)throw Error('Missing editorial content: '+c.slug);
   for(const d of [c.published,c.modified])if(!/^\d{4}-\d{2}-\d{2}$/.test(d))throw Error('Invalid date');
   for(const p of [...c.photos,...(c.overviewImage?[c.overviewImage]:[])])if(!p.src.startsWith('images/')||p.src.includes('..')||!fs.existsSync(path.join(ROOT,p.src)))throw Error('Missing or unsafe photo');
  }
@@ -44,7 +48,8 @@ export function buildRepairCases(){
   const caseNotes=notes[c.slug]||[];
   const service=c.appliance==='range'?'stove':c.appliance;
   const servicePath=service==='diagnosis'?'services.html':c.city==='service-area'?`${service}-repair.html`:`${c.city}/${service}-repair-services.html`;
-  const related=(c.slug===fishersSlug?cases:[lgRangeStory,...JSON.parse(fs.readFileSync(path.join(ROOT,'scripts/repair-cases.json'),'utf8')).filter(x=>x.slug!==fishersSlug)]).filter(x=>x.slug!==c.slug).sort((a,b)=>(b.appliance===c.appliance)-(a.appliance===c.appliance)).slice(0,3);
+  const relatedPool=c.slug===lgDryerSlug?cases:c.slug===fishersSlug?cases.filter(x=>x.slug!==lgDryerSlug):[lgRangeStory,...storedCases.filter(x=>x.slug!==fishersSlug&&x.slug!==lgDryerSlug)];
+  const related=relatedPool.filter(x=>x.slug!==c.slug).sort((a,b)=>(b.appliance===c.appliance)-(a.appliance===c.appliance)).slice(0,3);
   const schema={'@context':'https://schema.org','@graph':[
    {'@type':'BlogPosting','@id':url(c)+'#article',url:url(c),mainEntityOfPage:url(c),headline:title(c),description:c.summary,image:[...c.photos,...(c.overviewImage?[c.overviewImage]:[])].map(p=>BASE+p.src),datePublished:c.published,dateModified:c.modified,author:{'@type':'Organization',name:'Alex Appliance Repair',url:BASE+'about.html'},publisher:{'@type':'Organization',name:'Alex Appliance Repair',url:BASE},inLanguage:'en-US'},
    {'@type':'BreadcrumbList',itemListElement:[{name:'Home',item:BASE},{name:'Repair stories',item:BASE+'recent-work.html'},{name:title(c),item:url(c)}].map((x,i)=>({'@type':'ListItem',position:i+1,...x}))}
@@ -54,7 +59,7 @@ export function buildRepairCases(){
 <section class="local-section"><div class="local-shell case-layout"><article class="case-body"><figure class="case-cover"><a href="/${c.photos[0].src}">${image(c.photos[0],false)}</a><figcaption>${esc(c.photos[0].caption)}</figcaption></figure><h2>Service focus</h2><p>${esc(caseNotes[0])}</p><h2>Work documented</h2><p>${esc(caseNotes[1])}</p><h2>Understanding this repair</h2><p>${esc(caseNotes[2])}</p><p>For a similar concern, see our <a href="/${servicePath}">${esc(service==='diagnosis'?'appliance diagnosis and repair':service+' repair service')}</a>. Each appliance is evaluated before parts or repair work are recommended.</p>${c.photos.length>1?`<h2>Photos from this repair</h2><div class="case-photo-grid">${c.photos.slice(1).map(p=>`<figure><a href="/${p.src}">${image(p)}</a><figcaption>${esc(p.caption)}</figcaption></figure>`).join('')}</div>`:''}</article><aside class="case-summary"><h2>Visit overview</h2><dl><dt>Location</dt><dd>${esc(city(c))}</dd><dt>Appliance</dt><dd>${esc(c.appliance==='range'?'Range / oven':c.appliance)}</dd><dt>Work</dt><dd>${esc(c.title)}</dd><dt>Photographs</dt><dd>${c.photos.length}</dd></dl><a href="/${c.city==='carmel'?'carmel.html':'locations.html'}">View service coverage</a><hr><h2>Discuss your appliance</h2><p>Share the model, symptoms and installation details when booking.</p><a class="local-button" href="tel:+14632488429">Call our team</a></aside></div></section>
 <section class="local-section local-section--soft"><div class="local-shell"><header class="local-section-header"><h2>More repair stories</h2><a href="/recent-work.html">View all repair stories</a></header><div class="case-grid">${related.map(c=>card(c)).join('')}</div></div></section>${cta}</main>`;
   let content=main;
-  if(c.slug===fishersSlug) content=content.replace(/<article class="case-body">[\s\S]*?<\/article>/,fishersArticle(c,image,esc));
+  if(editorialStories.has(c.slug)) content=content.replace(/<article class="case-body">[\s\S]*?<\/article>/,editorialStories.get(c.slug)(c,image,esc));
   if(c.causeExplanation) content=content.replace('<h2>Work documented</h2>',`<h2>${esc(c.causeHeading||'What caused the connection to burn?')}</h2><p>${esc(c.causeExplanation)}</p><h2>Work documented</h2>`);
   if(c.model) content=content.replace('<dt>Work</dt>',`<dt>Model</dt><dd>${esc(c.model)}</dd><dt>Problem</dt><dd>${esc(c.problem)}</dd><dt>Cause</dt><dd>${esc(c.cause)}</dd><dt>Work</dt>`);
   if(c.brandPath) {
@@ -63,6 +68,11 @@ export function buildRepairCases(){
   }
   if(c.slug===fishersSlug) {
    content=content.replace('<dt>Photographs</dt>', '<dt>Repair time</dt><dd>Approximately 30 minutes for the repair itself</dd><dt>Result</dt><dd>No leaks found during post-repair checks of filling, circulation, washing and draining</dd><dt>Photographs</dt>');
+  }
+  if(c.overviewEntries) {
+   content=content.replace(/<dl>[\s\S]*?<\/dl>/,`<dl>${c.overviewEntries.map(item=>`<dt>${esc(item.label)}</dt><dd>${esc(item.value)}</dd>`).join('')}</dl>`);
+  }
+  if(editorialStories.has(c.slug)) {
    content=content.replace('<a href="/locations.html">View service coverage</a>', '<a href="/fishers.html">View Fishers service coverage</a>');
    if(c.overviewImage) content=content.replace('<aside class="case-summary">','<aside class="case-summary case-summary--with-image"><div class="case-summary-copy">').replace('</aside>',`</div><figure class="case-summary-visual">${image(c.overviewImage)}</figure></aside>`);
    content=content.replace(/(<article class="case-body editorial-story">[\s\S]*?<\/article>)(<aside class="case-summary">[\s\S]*?<\/aside>)/, '$2$1');
@@ -70,8 +80,9 @@ export function buildRepairCases(){
   }
   let page=shell.replace(/<main\b[\s\S]*?<\/main>/,content).replace(/\/js\/script\.js\?v=[^"']+/g,'/js/script.js?v=20260909-repair-story-lightbox');
   page=metadata(styleLink(page),{name:c.seoTitle||title(c)+' | Alex Appliance Repair',description:c.description||c.summary,page:url(c),imageUrl:BASE+c.photos[0].src,type:'article',schema});
-  if(c.slug===fishersSlug) {
-   page=page.replace('</head>','<link rel="stylesheet" href="/css/repair-story-editorial.css?v=20260911-highlighted-seal">\n</head>');
+  if(editorialStories.has(c.slug)) {
+   const editorialStyleVersion=c.slug===fishersSlug?'20260911-highlighted-seal':'20260913-lg-dryer';
+   page=page.replace('</head>',`<link rel="stylesheet" href="/css/repair-story-editorial.css?v=${editorialStyleVersion}">\n</head>`);
    // Keep this standalone HTML preview usable from disk as well as from the site root.
    page=page.replace(/\b(href|src)="\/(?!\/)([^"]*)"/g,(_,attr,value)=>`${attr}="../${value||'index.html'}"`);
   }
@@ -92,7 +103,7 @@ export function buildRepairCases(){
  archive=metadata(styleLink(archive),{name:'Recent Appliance Repair Work | Alex Appliance Repair',description:'Read real appliance repair stories with service details and original photos from Alex Appliance Repair in Carmel and Central Indiana.',page:BASE+'recent-work.html',imageUrl:BASE+cases[0].photos[0].src,schema:{'@context':'https://schema.org','@type':'CollectionPage',url:BASE+'recent-work.html',name:'Recent Appliance Repair Work',mainEntity:{'@type':'ItemList',itemListElement:cases.map((c,i)=>({'@type':'ListItem',position:i+1,url:url(c),name:title(c)}))}}});
  fs.writeFileSync(path.join(ROOT,'recent-work.html'),archive.replace(/[\t ]+$/gm,''));
  let blog=fs.readFileSync(path.join(ROOT,'blog.html'),'utf8');
- const featured=[cases.find(c=>c.slug===fishersSlug),...cases.filter(c=>c.city==='carmel').slice(0,2),...cases.filter(c=>c.city==='service-area').slice(0,3)].filter(Boolean);
+ const featured=cases.slice(0,6);
  const block=`<!-- repair-stories:start --><section class="local-section local-section--soft" id="repair-stories"><div class="local-shell"><header class="local-section-header"><p class="local-eyebrow">From our service visits</p><h2>Real appliance repair stories</h2><p>Explore the work, photographs and service details behind these repairs.</p><a class="local-button" href="/recent-work.html">View all repair stories</a></header><div class="case-grid">${featured.map(c=>card(c)).join('')}</div></div></section><!-- repair-stories:end -->`;
  if(blog.includes('<!-- repair-stories:start -->'))blog=blog.replace(/<!-- repair-stories:start -->[\s\S]*?<!-- repair-stories:end -->/,block);
  else blog=blog.replace(/(<section class="local-hero[\s\S]*?<\/section>)/,'$1\n'+block);
@@ -110,7 +121,7 @@ export function buildRepairCases(){
   fs.writeFileSync(path.join(ROOT,filename),html);
  }
  const datesPath=path.join(ROOT,'scripts/content-dates.json');const dates=JSON.parse(fs.readFileSync(datesPath,'utf8'));
- dates['blog.html']='2026-09-11';dates['recent-work.html']='2026-09-11';for(const c of cases)dates['repair-cases/'+c.slug+'.html']=c.modified;
+ dates['blog.html']=cases[0].modified;dates['recent-work.html']=cases[0].modified;for(const c of cases)dates['repair-cases/'+c.slug+'.html']=c.modified;
  fs.writeFileSync(datesPath,JSON.stringify(dates,null,2)+'\n');
  return rebuildSitemaps(cases.map(c=>'repair-cases/'+c.slug+'.html'));
 }

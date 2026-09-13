@@ -1,4 +1,4 @@
-/* Loaded only by the Fishers repair story; shared site typography and shell stay intact. */
+/* Editorial repair stories keep the shared site typography and shell intact. */
 .case-layout:has(.editorial-story){display:block}
 .editorial-story{width:100%;max-width:none;margin-inline:auto}
 .editorial-story .repair-story-section{display:flow-root;margin:0 0 48px}
@@ -11,12 +11,14 @@
 .editorial-story img{height:auto;max-width:100%}
 .editorial-story figcaption{margin-bottom:0}
 .editorial-story .local-button{color:var(--local-navy,#102f5b);text-decoration:none}
+.editorial-story .airflow-callout{padding:30px;border-left:5px solid var(--local-blue,#2176ae);border-radius:14px;background:#f3f7fb}
 @media(max-width:768px){
  .editorial-story figure.article-image-left,.editorial-story figure.article-image-right{float:none;width:100%;margin:0 0 22px}
  .editorial-story .repair-story-section{margin-bottom:36px}
  .editorial-story .repair-story-section p{margin-bottom:24px}
  .editorial-story .repair-story-section p:last-child{margin-bottom:0}
  .editorial-story figure.article-image-full{margin:0 0 36px}
+ .editorial-story .airflow-callout{padding:22px;border-left-width:4px}
 }
 
 /* Overview spans the article container without narrowing the editorial text. */

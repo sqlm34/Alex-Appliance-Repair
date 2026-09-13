@@ -1,5 +1,131 @@
 [
   {
+    "slug": "lg-dle3400w-dryer-thermostat-vent-repair-fishers-indiana",
+    "title": "LG DLE3400W dryer blower thermostat and vent repair",
+    "headline": "LG DLE3400W Dryer Overheating in Fishers, Indiana – Blower Thermostat and Vent Repair",
+    "cardTitle": "LG DLE3400W Dryer Overheating and Blower Thermostat Repair in Fishers",
+    "seoTitle": "LG DLE3400W Dryer Repair in Fishers, IN | Alex Appliance Repair",
+    "description": "LG DLE3400W dryer repair in Fishers, Indiana. We replaced a failed blower thermostat, cleaned the dryer and corrected a crushed exhaust duct restricting airflow.",
+    "city": "fishers",
+    "appliance": "dryer",
+    "summary": "A failed blower thermostat and crushed exhaust duct caused an LG DLE3400W dryer airflow and overheating problem. We replaced the thermostat, cleaned the dryer and corrected the vent connection.",
+    "published": "2026-09-13",
+    "modified": "2026-09-13",
+    "photos": [
+      {
+        "src": "images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dle3400w-stacked-after-repair.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "LG DLE3400W dryer returned to its stacked position after repair in Fishers"
+      },
+      {
+        "src": "images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dle3400w-model-label.webp",
+        "width": 1095,
+        "height": 570,
+        "caption": "Cropped model label identifying the dryer as LG DLE3400W"
+      },
+      {
+        "src": "images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dryer-removed-for-service.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "LG dryer removed from the stacked installation for cabinet access"
+      },
+      {
+        "src": "images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dryer-open-cabinet-before-cleaning.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Open LG dryer cabinet showing the blower, heater and internal airflow path"
+      },
+      {
+        "src": "images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lint-restricted-dryer-exhaust-opening.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Lint accumulation at the dryer exhaust opening before cleaning"
+      },
+      {
+        "src": "images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dryer-blower-housing-access.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Blower housing area exposed during LG dryer diagnosis"
+      },
+      {
+        "src": "images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-6931el3002m-blower-thermostat.webp",
+        "width": 1200,
+        "height": 1200,
+        "caption": "LG 6931EL3002M blower thermostat used for the DLE3400W repair"
+      },
+      {
+        "src": "images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/cleaned-lg-dryer-blower-inlet.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "LG dryer blower inlet after lint and debris were removed"
+      },
+      {
+        "src": "images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dryer-drum-and-cabinet-cleaning.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Dryer drum removed while the cabinet and airflow path were cleaned"
+      },
+      {
+        "src": "images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/crushed-dryer-exhaust-duct.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "Crushed transition duct restricting airflow behind the stacked dryer"
+      },
+      {
+        "src": "images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/dryer-exhaust-duct-secured-with-clamp.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "New metal dryer exhaust duct secured to the dryer with a worm-drive clamp"
+      },
+      {
+        "src": "images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dryer-reassembled-internal-components.webp",
+        "width": 1200,
+        "height": 1600,
+        "caption": "LG dryer internal components reassembled after cleaning and thermostat replacement"
+      }
+    ],
+    "model": "LG DLE3400W",
+    "problem": "Dryer overheating and restricted exhaust airflow",
+    "cause": "Failed blower thermostat and crushed exhaust transition duct",
+    "overviewEntries": [
+      {
+        "label": "Appliance",
+        "value": "LG electric dryer"
+      },
+      {
+        "label": "Model",
+        "value": "DLE3400W"
+      },
+      {
+        "label": "Location",
+        "value": "Fishers, Indiana"
+      },
+      {
+        "label": "Problem",
+        "value": "Dryer overheating and restricted airflow"
+      },
+      {
+        "label": "Diagnosis",
+        "value": "Failed blower thermostat and crushed exhaust duct"
+      },
+      {
+        "label": "Repair",
+        "value": "LG 6931EL3002M thermostat replacement, internal cleaning and exhaust duct correction"
+      },
+      {
+        "label": "Result",
+        "value": "Normal heating and exhaust airflow restored"
+      }
+    ],
+    "overviewImage": {
+      "src": "images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dle3400w-k560-thermostat-diagram.webp",
+      "width": 1200,
+      "height": 1339,
+      "caption": "LG DLE3400W parts diagram highlighting the K560 blower thermostat"
+    }
+  },
+  {
     "slug": "ge-dishwasher-leak-repair-fishers-indiana",
     "title": "GE dishwasher circulation pump seal repair",
     "headline": "GE Dishwasher Leaking in Fishers, Indiana – Circulation Pump Seal Repair",
