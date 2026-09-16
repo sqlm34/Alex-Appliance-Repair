@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { notes } from './repair-case-notes.mjs';
 import { fishersSlug, fishersArticle } from './fishers-ge-story.mjs';
 import { lgDryerSlug, lgDryerArticle } from './lg-dryer-story.mjs';
-import { story as lgRangeStory, paragraphs as lgRangeParagraphs } from './lg-range-story.mjs';
+import { story as lgRangeStory, paragraphs as lgRangeParagraphs, lgRangeArticle } from './lg-range-story.mjs';
 import { rebuildSitemaps } from './rebuild-sitemaps.mjs';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const BASE='https://alex-repair.com/';
@@ -31,7 +31,7 @@ export function buildRepairCases(){
  const storedCases=JSON.parse(fs.readFileSync(path.join(ROOT,'scripts/repair-cases.json'),'utf8'));
  const cases=[lgRangeStory,...storedCases];
  cases.sort((a,b)=>b.published.localeCompare(a.published));
- const editorialStories=new Map([[fishersSlug,fishersArticle],[lgDryerSlug,lgDryerArticle]]);
+ const editorialStories=new Map([[fishersSlug,fishersArticle],[lgDryerSlug,lgDryerArticle],[lgRangeStory.slug,lgRangeArticle]]);
  notes[lgRangeStory.slug]=lgRangeParagraphs;
  const seen=new Set();
  for(const c of cases){
@@ -84,7 +84,7 @@ export function buildRepairCases(){
    const editorialStyleVersion=c.slug===fishersSlug?'20260911-highlighted-seal':'20260913-lg-dryer';
    page=page.replace('</head>',`<link rel="stylesheet" href="/css/repair-story-editorial.css?v=${editorialStyleVersion}">\n</head>`);
    // Keep this standalone HTML preview usable from disk as well as from the site root.
-   page=page.replace(/\b(href|src)="\/(?!\/)([^"]*)"/g,(_,attr,value)=>`${attr}="../${value||'index.html'}"`);
+   if(c.slug!==lgRangeStory.slug) page=page.replace(/\b(href|src)="\/(?!\/)([^"]*)"/g,(_,attr,value)=>`${attr}="../${value||'index.html'}"`);
   }
   fs.writeFileSync(path.join(ROOT,'repair-cases',c.slug+'.html'),page.replace(/[\t ]+$/gm,''));
  }
