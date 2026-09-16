@@ -9,6 +9,7 @@
 .editorial-story figure.article-image-right{float:right;width:40%;margin:0 0 16px 30px}
 .editorial-story figure.article-image-full{clear:both;width:100%;margin:12px 0 38px}
 .editorial-story img{height:auto;max-width:100%}
+.editorial-story .cafe-story-photo img{width:auto;max-height:520px;margin-inline:auto}
 .editorial-story figcaption{margin-bottom:0}
 .editorial-story .local-button{color:var(--local-navy,#102f5b);text-decoration:none}
 .editorial-story .airflow-callout{padding:30px;border-left:5px solid var(--local-blue,#2176ae);border-radius:14px;background:#f3f7fb}

@@ -1,5 +1,36 @@
 [
   {
+    "slug": "carmel-cafe-cve28dp2njs1-freezer-drain",
+    "title": "Café refrigerator freezer drain repair",
+    "headline": "Café Refrigerator Ice Buildup and Water Leak Repair in Carmel, Indiana",
+    "cardTitle": "Café Refrigerator Ice Buildup and Water Leak in Carmel",
+    "seoTitle": "Café Refrigerator Leaking Water in Carmel, IN | Freezer Drain Repair",
+    "description": "Café CVE28DP2NJS1 in Carmel had freezer ice buildup and water leaking onto the floor. We removed insulation foam blocking the drain and restored water flow.",
+    "city": "carmel",
+    "appliance": "refrigerator",
+    "summary": "A freezer ice sheet and water on the kitchen floor led to a restricted defrost drain. Insulation foam was removed from the drain passage on this Café refrigerator.",
+    "published": "2026-09-16",
+    "modified": "2026-09-16",
+    "overviewEntries": [
+      {"label": "Location", "value": "Carmel, Indiana"},
+      {"label": "Appliance", "value": "Café French-door refrigerator"},
+      {"label": "Model", "value": "CVE28DP2NJS1"},
+      {"label": "Problem", "value": "Ice on the freezer floor and water leaking onto the kitchen floor"},
+      {"label": "Diagnosis", "value": "Defrost drain restricted by insulation foam"},
+      {"label": "Work", "value": "Defrosting, obstruction removal, drain clearing and reassembly"},
+      {"label": "Final check", "value": "Water flow through the drain verified"}
+    ],
+    "photos": [
+      {"src": "images/repair-cases/cafe-freezer-drain-carmel/cafe-cve28dp2njs1-freezer-ice-before.webp", "width": 720, "height": 1220, "caption": "Café CVE28DP2NJS1 in Carmel with the freezer drawer removed and ice visible below"},
+      {"src": "images/repair-cases/cafe-freezer-drain-carmel/cafe-cve28dp2njs1-model.webp", "width": 300, "height": 46, "caption": "Model identification: Café CVE28DP2NJS1"},
+      {"src": "images/repair-cases/cafe-freezer-drain-carmel/ice-sheet-on-freezer-floor.webp", "width": 1400, "height": 1050, "caption": "A thick sheet of ice covered the bottom of the freezer compartment"},
+      {"src": "images/repair-cases/cafe-freezer-drain-carmel/frost-on-freezer-rear-cover.webp", "width": 1400, "height": 1050, "caption": "Frost and ice around the rear freezer cover before thawing and drain inspection"},
+      {"src": "images/repair-cases/cafe-freezer-drain-carmel/removed-freezer-panel-and-ice.webp", "width": 1020, "height": 1010, "caption": "Removed freezer panel and a large ice sheet during the defrosting process"},
+      {"src": "images/repair-cases/cafe-freezer-drain-carmel/rear-refrigerator-service-access.webp", "width": 1050, "height": 1400, "caption": "Rear service area opened during the refrigerator drain repair"},
+      {"src": "images/repair-cases/cafe-freezer-drain-carmel/cafe-freezer-during-defrost-service.webp", "width": 720, "height": 1400, "caption": "Café refrigerator during defrost service, with the drawer removed and thawing equipment nearby"}
+    ]
+  },
+  {
     "slug": "lg-dle3400w-dryer-thermostat-vent-repair-fishers-indiana",
     "title": "LG DLE3400W dryer blower thermostat and vent repair",
     "headline": "LG DLE3400W Dryer Overheating in Fishers, Indiana – Blower Thermostat and Vent Repair",
