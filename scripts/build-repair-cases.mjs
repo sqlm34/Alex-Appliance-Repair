@@ -82,7 +82,7 @@ export function buildRepairCases(){
   let page=shell.replace(/<main\b[\s\S]*?<\/main>/,content).replace(/\/js\/script\.js\?v=[^"']+/g,'/js/script.js?v=20260909-repair-story-lightbox');
   page=metadata(styleLink(page),{name:c.seoTitle||title(c)+' | Alex Appliance Repair',description:c.description||c.summary,page:url(c),imageUrl:BASE+c.photos[0].src,type:'article',schema});
   if(editorialStories.has(c.slug)) {
-   const editorialStyleVersion=c.slug===cafeSlug?'20260916-cafe-drain':c.slug===fishersSlug?'20260911-highlighted-seal':'20260913-lg-dryer';
+   const editorialStyleVersion=c.slug===cafeSlug?'20260916-cafe-aligned':c.slug===fishersSlug?'20260911-highlighted-seal':'20260913-lg-dryer';
    page=page.replace('</head>',`<link rel="stylesheet" href="/css/repair-story-editorial.css?v=${editorialStyleVersion}">\n</head>`);
    // Keep this standalone HTML preview usable from disk as well as from the site root.
    if(c.slug!==lgRangeStory.slug&&c.slug!==cafeSlug) page=page.replace(/\b(href|src)="\/(?!\/)([^"]*)"/g,(_,attr,value)=>`${attr}="../${value||'index.html'}"`);
