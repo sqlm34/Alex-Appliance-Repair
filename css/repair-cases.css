@@ -1,10 +1,11 @@
 /* Repair stories use the site's existing navy/yellow palette and typography. */
 .case-grid,.recent-work-grid:has(.case-card){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.case-card{background:#fff;border:1px solid #dce4ee;border-radius:18px;overflow:hidden;min-width:0;box-shadow:0 8px 24px rgba(5,24,52,.06)}
+.case-card{display:flex;flex-direction:column;background:#fff;border:1px solid #dce4ee;border-radius:18px;overflow:hidden;min-width:0;box-shadow:0 8px 24px rgba(5,24,52,.06)}
 .case-card[hidden]{display:none!important}
 .case-card-image{display:block;background:#eef2f7}
 .case-card-image img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
-.case-card-copy{padding:24px}
+.case-card-copy{display:flex;flex-direction:column;flex:1;padding:24px}
+.case-card-copy>.case-read{margin-top:auto;align-self:flex-start}
 .case-card .local-eyebrow{color:#42566f;font-size:11px;line-height:1.6;margin:0 0 12px}
 .case-card h3{font-size:19px;line-height:1.45;margin:0 0 14px;color:#102c51}
 .case-card h3 a{color:inherit;text-decoration:none}
