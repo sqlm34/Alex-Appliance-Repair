@@ -19,6 +19,10 @@ RewriteCond %{HTTP_HOST} ^alex-repair\.com$ [NC]
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://alex-repair.com%{REQUEST_URI} [R=301,L,NE]
 
+# Keep this previously cached legacy URL on a single redirect hop. The
+# explicit rule also forces Hostinger CDN to refresh its older 301 response.
+RewriteRule ^zionsville/whirlpool-appliance-repair\.html$ https://alex-repair.com/brands.html [R=301,L,NE]
+
 # SEO recovery: retire brand pages that do not have documented repair work.
 # City-brand variants go directly to the brand directory to avoid redirect chains.
 RedirectMatch 301 ^/brands/(amana|bertazzoni|dacor|electrolux|fisher-paykel|gaggenau|haier|hisense|jenn-air|kenmore|liebherr|maytag|midea|miele|sharp|smeg|speed-queen|sub-zero|thermador|viking|whirlpool|wolf)-appliance-repair\.html$ https://alex-repair.com/brands.html
