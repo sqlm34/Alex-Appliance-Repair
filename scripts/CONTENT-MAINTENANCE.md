@@ -41,4 +41,10 @@ The builder uses the canonical page list in sitemap.xml and optional new paths. 
 4. Check articles, brand pages and new repair cards on desktop and a narrow viewport.
 5. After publishing, compare live files with the release and record the release date before evaluating Search Console changes.
 
+After the host finishes deploying, verify all sitemap pages and the complete redirect map against production:
+
+```sh
+node scripts/audit-production-seo.mjs
+```
+
 Measure US search clicks/impressions and fixed commercial queries over complete comparable periods, separately from booking clicks and completed leads. A booking click is not a completed repair request. Do not publish new conversion claims without checking the booking system's actual completion event.
