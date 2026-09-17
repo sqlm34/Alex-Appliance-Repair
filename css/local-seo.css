@@ -173,6 +173,12 @@ html body main.local-seo-page > section.local-hero.local-hero {
   font-weight: 700;
 }
 
+.local-seo-page .local-hero .local-proof-list--vertical {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
 .local-seo-page .local-proof-list li::before {
   margin-right: 8px;
   color: var(--local-yellow);
