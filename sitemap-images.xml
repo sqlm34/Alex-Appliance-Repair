@@ -137,12 +137,9 @@
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-50.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://alex-repair.com/carmel/cooktop-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/cooktop-repair.webp</image:loc></image:image>
-  </url>
-  <url>
     <loc>https://alex-repair.com/carmel/dishwasher-repair-services.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/dishwasher-repair.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-dishwasher-fill-funnel.jpeg</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/carmel/dryer-repair-services.html</loc>
@@ -155,18 +152,20 @@
   <url>
     <loc>https://alex-repair.com/carmel/freezer-repair-services.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/freezer-repair.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/carmel/microwave-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/microwave-repair.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-27.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/carmel/refrigerator-repair-services.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/refrigerator-repair.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/cafe-freezer-drain-carmel/cafe-cve28dp2njs1-freezer-ice-before.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-32.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-48.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/carmel/stove-repair-services.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/stove-repair.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-ksdg950ess1-bake-element-carmel/kitchenaid-ksdg950ess1-dual-fuel-range-carmel.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-38.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/carmel/washer-repair-services.html</loc>
@@ -202,9 +201,8 @@
   <url>
     <loc>https://alex-repair.com/fishers.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/fishers.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/home-repairs/samsung-washer-valve-01.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/home-repairs/bosch-dishwasher-pump-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dishwasher-leak-fishers/ge-dishwasher-underneath-repair.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dle3400w-stacked-after-repair.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/fishers/cooktop-repair-services.html</loc>
@@ -213,19 +211,16 @@
   <url>
     <loc>https://alex-repair.com/fishers/dishwasher-repair-services.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/dishwasher-repair.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dishwasher-leak-fishers/ge-dishwasher-underneath-repair.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/fishers/dryer-repair-services.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dle3400w-stacked-after-repair.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/fishers/freezer-repair-services.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/freezer-repair.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/fishers/microwave-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/microwave-repair.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/fishers/refrigerator-repair-services.html</loc>
@@ -268,24 +263,8 @@
     <image:image><image:loc>https://alex-repair.com/images/mccordsville.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://alex-repair.com/mccordsville/cooktop-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/cooktop-repair.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/mccordsville/dishwasher-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/dishwasher-repair.webp</image:loc></image:image>
-  </url>
-  <url>
     <loc>https://alex-repair.com/mccordsville/dryer-repair-services.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/mccordsville/freezer-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/freezer-repair.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/mccordsville/microwave-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/microwave-repair.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/mccordsville/refrigerator-repair-services.html</loc>
@@ -398,10 +377,6 @@
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/samsung-washer-valve-01.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://alex-repair.com/westfield/cooktop-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/cooktop-repair.webp</image:loc></image:image>
-  </url>
-  <url>
     <loc>https://alex-repair.com/westfield/dishwasher-repair-services.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/dishwasher-repair.webp</image:loc></image:image>
   </url>
@@ -410,56 +385,16 @@
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://alex-repair.com/westfield/freezer-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/freezer-repair.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/westfield/microwave-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/microwave-repair.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/westfield/refrigerator-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/refrigerator-repair.webp</image:loc></image:image>
-  </url>
-  <url>
     <loc>https://alex-repair.com/westfield/stove-repair-services.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/stove-repair.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/westfield/washer-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/zionsville.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/zionsville-image.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://alex-repair.com/zionsville/cooktop-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/cooktop-repair.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/zionsville/dishwasher-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/dishwasher-repair.webp</image:loc></image:image>
-  </url>
-  <url>
     <loc>https://alex-repair.com/zionsville/dryer-repair-services.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/zionsville/freezer-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/freezer-repair.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/zionsville/microwave-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/microwave-repair.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/zionsville/refrigerator-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/refrigerator-repair.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/zionsville/stove-repair-services.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/stove-repair.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/zionsville/washer-repair-services.html</loc>
@@ -610,109 +545,43 @@
     <image:image><image:loc>https://alex-repair.com/images/zionsville-image.webp</image:loc></image:image>
   </url>
   <url>
-    <loc>https://alex-repair.com/brands/amana-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/amana.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/bertazzoni-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/bertazzoni.webp</image:loc></image:image>
-  </url>
-  <url>
     <loc>https://alex-repair.com/brands/bosch-appliance-repair.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/brands/bosch.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/dacor-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/dacor.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/electrolux-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/electrolux.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/fisher-paykel-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/fisher-paykel.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/bosch-dishwasher-pump-01.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/brands/frigidaire-appliance-repair.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/brands/frigidaire.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/gaggenau-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/gaggenau.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/frigidaire-freezer-fan-01.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/brands/ge-appliance-repair.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/brands/ge.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/haier-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/haier.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/hisense-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/hisense.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/jenn-air-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/jenn-air.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/kenmore-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/kenmore.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dishwasher-leak-fishers/ge-dishwasher-underneath-repair.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/brands/kitchenaid-appliance-repair.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/brands/kitchenaid.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-ksdg950ess1-bake-element-carmel/kitchenaid-ksdg950ess1-dual-fuel-range-carmel.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-32.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/brands/lg-appliance-repair.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/brands/lg.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/liebherr-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/liebherr.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/maytag-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/maytag.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/midea-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/midea.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/miele-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/miele.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dle3400w-stacked-after-repair.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-washer-suspension-01.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/brands/samsung-appliance-repair.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/brands/samsung.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/sharp-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/sharp.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/samsung-washer-valve-01.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
@@ -738,41 +607,6 @@
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/samsung-washer-valve-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-washer-suspension-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/refrigerator-ice-maker-01.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/smeg-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/smeg.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/speed-queen-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/speed-queen.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/sub-zero-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/sub-zero.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/thermador-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/thermador.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/viking-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/viking.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/whirlpool-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/whirlpool.webp</image:loc></image:image>
-  </url>
-  <url>
-    <loc>https://alex-repair.com/brands/wolf-appliance-repair.html</loc>
-    <image:image><image:loc>https://alex-repair.com/images/service-maintenance-worker-repairing.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/brands/wolf.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/repair-cases/carmel-dryer-gas-valve-coils.html</loc>

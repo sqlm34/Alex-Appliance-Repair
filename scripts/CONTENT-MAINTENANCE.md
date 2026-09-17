@@ -1,6 +1,6 @@
 # Maintaining the September content improvements
 
-The public URL structure and redirect rules are unchanged. Do not delete a brand page that receives legacy city-brand redirects without reviewing its traffic, links and replacement destination.
+The September 17 SEO recovery consolidates 22 thin brand pages and 18 low-demand city-service pages. Their files remain in the repository, but `.htaccess` sends those public URLs directly to the selected replacement page and the XML sitemaps omit them. Keep the redirect map in `private/seo-redirect-map-2026-09-17.csv` aligned with any future URL change.
 
 ## Editorial source
 
@@ -14,7 +14,14 @@ From the repository root, apply only these editorial improvements:
 node --input-type=module -e "import {applyRecovery} from './scripts/content-recovery.mjs'; console.log(applyRecovery())"
 ```
 
-The legacy `rebuild-local-seo.mjs` regenerates much more of the site. Review its complete diff before publishing; it should not be used merely to update a date or a single article.
+Apply the reviewed SEO recovery and rebuild the filtered sitemaps with:
+
+```sh
+node scripts/rebuild-local-seo.mjs
+node scripts/audit-seo-recovery.mjs
+```
+
+The default command is idempotent and preserves the current hand-reviewed city-page design. The older whole-site generator is available only through `node scripts/rebuild-local-seo.mjs --full-rebuild`; review its complete diff before publishing because it replaces major page sections.
 
 ## Sitemaps
 

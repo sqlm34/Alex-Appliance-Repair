@@ -792,13 +792,15 @@ body .mobile-button-wrap .button-v1:focus-visible {
   padding: 26px;
 }
 
-.local-seo-page .local-service-card h2 {
+.local-seo-page .local-service-card h2,
+.local-seo-page .local-service-card h3 {
   margin: 0 0 10px;
   font-size: 24px;
   line-height: 1.24;
 }
 
-.local-seo-page .local-service-card h2 a {
+.local-seo-page .local-service-card h2 a,
+.local-seo-page .local-service-card h3 a {
   color: var(--local-navy);
   text-decoration: none;
 }
@@ -1024,6 +1026,16 @@ body header.header + main.unified-brands-page::before {
   border-radius: 6px;
   background: var(--local-navy);
   color: #ffffff;
+}
+
+.unified-brands-page .brand-city-links span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  color: var(--local-muted);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 /* Blog archive and article content retain their SEO text and structure inside the unified shell. */

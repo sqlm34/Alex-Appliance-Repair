@@ -37,6 +37,60 @@ const ARTICLE_HERO_OVERRIDES = {
 const INFORMATION_PAGES = ["about.html", "services.html", "locations.html", "contacts.html", "brands.html"];
 const CORE_SERVICE_PAGES = SERVICE_SLUGS.map((serviceSlug) => `${serviceSlug}-repair.html`);
 const UNIFIED_PAGE_PATHS = new Set([...CORE_SERVICE_PAGES, ...INFORMATION_PAGES, ...BLOG_ARCHIVES, ...BLOG_ARTICLES]);
+const INDEXED_BRAND_SLUGS = new Set(["bosch", "frigidaire", "ge", "kitchenaid", "lg", "samsung"]);
+const EXCLUDED_SERVICE_PAGES = new Set([
+  "carmel/cooktop",
+  "carmel/microwave",
+  "fishers/microwave",
+  "mccordsville/cooktop",
+  "mccordsville/dishwasher",
+  "mccordsville/freezer",
+  "mccordsville/microwave",
+  "westfield/cooktop",
+  "westfield/freezer",
+  "westfield/microwave",
+  "westfield/refrigerator",
+  "westfield/washer",
+  "zionsville/cooktop",
+  "zionsville/dishwasher",
+  "zionsville/freezer",
+  "zionsville/microwave",
+  "zionsville/refrigerator",
+  "zionsville/stove"
+]);
+const REPAIR_CASES = JSON.parse(fs.readFileSync(path.join(SCRIPT_DIR, "repair-cases.json"), "utf8"));
+
+function hasIndexedServicePage(citySlug, serviceSlug) {
+  return !EXCLUDED_SERVICE_PAGES.has(`${citySlug}/${serviceSlug}`);
+}
+
+function servicePageUrl(citySlug, serviceSlug) {
+  return hasIndexedServicePage(citySlug, serviceSlug)
+    ? `https://alex-repair.com/${citySlug}/${serviceSlug}-repair-services.html`
+    : `https://alex-repair.com/${serviceSlug}-repair.html`;
+}
+
+function normalizedCaseService(appliance) {
+  if (appliance === "range") return "stove";
+  return appliance;
+}
+
+function casesForService(citySlug, serviceSlug) {
+  return REPAIR_CASES.filter((item) => item.city === citySlug && normalizedCaseService(item.appliance) === serviceSlug);
+}
+
+function casesForBrand(brandSlug) {
+  const patterns = {
+    bosch: /\bbosch\b/i,
+    frigidaire: /\bfrigidaire\b/i,
+    ge: /\bge\b|café/i,
+    kitchenaid: /\bkitchenaid\b/i,
+    lg: /\blg\b/i,
+    samsung: /\bsamsung\b/i
+  };
+  const pattern = patterns[brandSlug];
+  return pattern ? REPAIR_CASES.filter((item) => pattern.test(`${item.slug} ${item.title} ${item.headline || ""}`)) : [];
+}
 
 const carmelCompletedRepairs = [
   {
@@ -567,15 +621,6 @@ function serviceSchema(citySlug, serviceSlug, faqs) {
           { "@type": "ListItem", position: 2, name: `Appliance Repair in ${city.name}, IN`, item: `https://alex-repair.com/${citySlug}.html` },
           { "@type": "ListItem", position: 3, name: `${service.label} in ${city.name}, IN`, item: url }
         ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${url}#faq`,
-        mainEntity: faqs.map(([question, answer]) => ({
-          "@type": "Question",
-          name: question,
-          acceptedAnswer: { "@type": "Answer", text: answer }
-        }))
       }
     ]
   };
@@ -590,8 +635,44 @@ function issueFeatures(service, cityIndex) {
 function relatedServiceLinks(citySlug, activeService) {
   return SERVICE_SLUGS
     .filter((slug) => slug !== activeService)
-    .map((slug) => `<li><a href="https://alex-repair.com/${citySlug}/${slug}-repair-services.html">${escapeHtml(services[slug].label)}</a></li>`)
+    .map((slug) => `<li><a href="${servicePageUrl(citySlug, slug)}">${escapeHtml(services[slug].label)}</a></li>`)
     .join("\n");
+}
+
+function renderRepairCaseCards(cases) {
+  return cases.map((item) => {
+    const photo = item.photos?.[0];
+    if (!photo) return "";
+    const url = `https://alex-repair.com/repair-cases/${item.slug}.html`;
+    const location = item.city === "service-area" ? "Documented service call" : `${cities[item.city]?.name || item.city}, Indiana`;
+    return `<article class="local-service-card">
+      <a class="local-service-card-media" href="${url}"><img src="https://alex-repair.com/${photo.src}" alt="${escapeHtml(photo.caption || item.title)}" width="${photo.width}" height="${photo.height}" loading="lazy"></a>
+      <div class="local-service-card-copy"><p class="local-eyebrow">${escapeHtml(location)}</p><h3><a href="${url}">${escapeHtml(item.cardTitle || item.title)}</a></h3><p>${escapeHtml(item.summary)}</p><a class="local-text-link" href="${url}">View the documented repair</a></div>
+    </article>`;
+  }).join("\n");
+}
+
+function renderServiceRepairProof(citySlug, serviceSlug) {
+  const cases = casesForService(citySlug, serviceSlug);
+  if (!cases.length) return "";
+  return `<section class="local-section local-section--soft">
+  <div class="local-shell">
+    <header class="local-section-header"><p class="local-eyebrow">Original job photos</p><h2>Documented ${escapeHtml(services[serviceSlug].singular)} repairs from ${escapeHtml(cities[citySlug].name)}</h2><p>These repair stories show the model, condition found, diagnostic work and completed service from actual customer visits.</p></header>
+    <div class="local-service-card-grid local-repair-proof-grid">${renderRepairCaseCards(cases)}</div>
+  </div>
+</section>`;
+}
+
+function renderBrandRepairProof(brand) {
+  const cases = casesForBrand(brand.slug);
+  if (!cases.length) return "";
+  const shortName = brand.name.replace(/ Appliance Repair$/i, "");
+  return `<section class="local-section local-section--soft">
+  <div class="local-shell">
+    <header class="local-section-header"><p class="local-eyebrow">Documented experience</p><h2>Real ${escapeHtml(shortName)} repair work</h2><p>Original job photographs and model-specific repair notes from completed service calls.</p></header>
+    <div class="local-service-card-grid local-repair-proof-grid">${renderRepairCaseCards(cases)}</div>
+  </div>
+</section>`;
 }
 
 const fishersPreparation = {
@@ -787,6 +868,8 @@ function renderServiceMain(citySlug, serviceSlug) {
 
 ${sections}
 
+${renderServiceRepairProof(citySlug, serviceSlug)}
+
 ${renderRelatedServiceSection(citySlug, serviceSlug)}
 
 <section class="local-section">
@@ -816,6 +899,7 @@ ${renderRelatedServiceSection(citySlug, serviceSlug)}
 function rebuildServicePages() {
   for (const [citySlug, city] of Object.entries(cities)) {
     for (const [serviceSlug, service] of Object.entries(services)) {
+      if (!hasIndexedServicePage(citySlug, serviceSlug)) continue;
       const relativePath = `${citySlug}/${serviceSlug}-repair-services.html`;
       let html = read(relativePath);
       const title = `${service.label} ${city.name} IN | ${service.titleSuffix}`;
@@ -855,9 +939,9 @@ function cityMainSchema(citySlug) {
           itemListElement: SERVICE_SLUGS.map((serviceSlug) => ({
             "@type": "Offer",
             itemOffered: {
-              "@type": "Service",
-              name: `${services[serviceSlug].label} in ${city.name}, IN`,
-              url: `https://alex-repair.com/${citySlug}/${serviceSlug}-repair-services.html`
+               "@type": "Service",
+               name: `${services[serviceSlug].label} in ${city.name}, IN`,
+               url: servicePageUrl(citySlug, serviceSlug)
             }
           }))
         }
@@ -869,15 +953,6 @@ function cityMainSchema(citySlug) {
           { "@type": "ListItem", position: 1, name: "Home", item: "https://alex-repair.com/" },
           { "@type": "ListItem", position: 2, name: `Appliance Repair in ${city.name}, IN`, item: url }
         ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${url}#faq`,
-        mainEntity: faqs.map(([question, answer]) => ({
-          "@type": "Question",
-          name: question,
-          acceptedAnswer: { "@type": "Answer", text: answer }
-        }))
       }
     ]
   };
@@ -934,7 +1009,7 @@ function renderCityMain(citySlug) {
     .map((serviceSlug) => {
       const service = services[serviceSlug];
       const issue = service.issues[cityIndex % service.issues.length];
-      return `<div class="local-feature"><h3><a href="https://alex-repair.com/${citySlug}/${serviceSlug}-repair-services.html">${escapeHtml(service.label)}</a></h3><p>${escapeHtml(issue[0])}, ${escapeHtml(issue[1].charAt(0).toLowerCase() + issue[1].slice(1))}</p></div>`;
+      return `<div class="local-feature"><h3><a href="${servicePageUrl(citySlug, serviceSlug)}">${escapeHtml(service.label)}</a></h3><p>${escapeHtml(issue[0])}, ${escapeHtml(issue[1].charAt(0).toLowerCase() + issue[1].slice(1))}</p></div>`;
     })
     .join("\n");
   const faq = cityMainFaq(citySlug);
@@ -1168,12 +1243,14 @@ function renderBrandMain(brand, brandServices) {
   </div>
 </section>
 
+${renderBrandRepairProof(brand)}
+
 <section class="local-section local-section--soft">
   <div class="local-shell local-coverage">
     <div class="local-copy">
-      <p class="local-eyebrow">One brand page, six local routes</p>
-      <h2>Service without duplicate city-brand pages</h2>
-      <p>This consolidated ${escapeHtml(shortName)} page replaces substantially similar city-specific brand pages. It keeps brand information in one useful location while the city pages describe local scheduling and coverage.</p>
+      <p class="local-eyebrow">Model support and estimates</p>
+      <h2>Before approving a ${escapeHtml(shortName)} repair</h2>
+      <p>Share the appliance type, model number and installation details so we can confirm support for the equipment. Parts availability and access can affect the repair options. If manufacturer warranty coverage may apply, check its service requirements before authorizing independent work.</p>
       <p>For ${escapeHtml(shortName)}, the model and serial number identify the correct service documentation and part family. Diagnosis may include error-code review, operating checks, electrical measurements and inspection of the utility connections that apply to the appliance.</p>
       <p>The service call is $89 and is waived when the quoted repair is completed. Completed repairs include a 12-month parts and labor warranty under the applicable service terms.</p>
     </div>
@@ -1211,7 +1288,8 @@ function renderBrandMain(brand, brandServices) {
 }
 
 function rebuildBrandPages() {
-  const brands = parseBrandCards();
+  const allBrands = parseBrandCards();
+  const brands = allBrands.filter((brand) => INDEXED_BRAND_SLUGS.has(brand.slug));
   const template = read("fishers/dryer-repair-services.html");
   for (const brand of brands) {
     const brandServices = inferBrandServices(brand);
@@ -1230,18 +1308,24 @@ function rebuildBrandPages() {
     html = html.replace(/<main[\s\S]*?<\/main>/i, renderBrandMain(brand, brandServices));
     write(`brands/${brand.slug}-appliance-repair.html`, html);
   }
-  return brands;
+  return { allBrands, brands };
 }
 
 function updateBrandsDirectory(brands) {
   let html = read("brands.html");
+  html = html.replace(
+    /<h2 id="brand-grid-title">[\s\S]*?<\/h2>\s*<p>[\s\S]*?<\/p>/i,
+    '<h2 id="brand-grid-title">Brands and documented repair experience</h2>\n        <p>Brands with original repair stories link to detailed pages. For other brands, share the model number during booking so equipment and parts support can be confirmed before the visit.</p>'
+  );
   html = html.replace(
     "Select a brand, then choose your city to open the most relevant local repair page.",
     "Select a brand to view one consolidated repair page with supported appliance categories and links to every local service route."
   );
   for (const brand of brands) {
     const cardRegex = new RegExp(`(<article class="brand-directory-card" id="${brand.slug}">[\\s\\S]*?<p>[\\s\\S]*?<\\/p>)\\s*<div class="brand-city-links">[\\s\\S]*?<\\/div>`, "i");
-    const link = `<div class="brand-city-links"><a href="https://alex-repair.com/brands/${brand.slug}-appliance-repair.html">View ${escapeHtml(brand.name)}</a></div>`;
+    const link = INDEXED_BRAND_SLUGS.has(brand.slug)
+      ? `<div class="brand-city-links"><a href="https://alex-repair.com/brands/${brand.slug}-appliance-repair.html">View documented ${escapeHtml(brand.name)}</a></div>`
+      : `<div class="brand-city-links"><span>Model support confirmed during booking</span></div>`;
     html = html.replace(cardRegex, `$1\n          ${link}`);
   }
   write("brands.html", html);
@@ -1290,15 +1374,6 @@ function coreServiceSchema(serviceSlug) {
           { "@type": "ListItem", position: 2, name: "Services", item: "https://alex-repair.com/services.html" },
           { "@type": "ListItem", position: 3, name: service.label, item: url }
         ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": `${url}#faq`,
-        mainEntity: service.faq.map(([question, answer]) => ({
-          "@type": "Question",
-          name: question,
-          acceptedAnswer: { "@type": "Answer", text: answer }
-        }))
       }
     ]
   };
@@ -1702,14 +1777,22 @@ function replaceLegacyInternalLinks() {
 }
 
 async function main() {
+  if (!process.argv.includes("--full-rebuild")) {
+    await import("./apply-seo-recovery.mjs");
+    return;
+  }
   rebuildServicePages();
   rebuildMainCityPages();
-  const brands = rebuildBrandPages();
-  updateBrandsDirectory(brands);
+  const { allBrands, brands } = rebuildBrandPages();
+  updateBrandsDirectory(allBrands);
   rebuildUnifiedContentPages();
   syncCityScripts();
   replaceLegacyInternalLinks();
-  rebuildSitemaps(brands.map((brand) => `brands/${brand.slug}-appliance-repair.html`));
+  const excludedPaths = [
+    ...allBrands.filter((brand) => !INDEXED_BRAND_SLUGS.has(brand.slug)).map((brand) => `brands/${brand.slug}-appliance-repair.html`),
+    ...[...EXCLUDED_SERVICE_PAGES].map((entry) => `${entry}-repair-services.html`)
+  ];
+  rebuildSitemaps(brands.map((brand) => `brands/${brand.slug}-appliance-repair.html`), excludedPaths);
   const { buildRepairCases } = await import('./build-repair-cases.mjs');
   buildRepairCases();
   console.log(JSON.stringify({

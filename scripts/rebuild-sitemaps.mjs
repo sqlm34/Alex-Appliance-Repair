@@ -4,9 +4,10 @@ import { fileURLToPath } from 'node:url';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const BASE='https://alex-repair.com/';
 const escapeXml=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-export function rebuildSitemaps(additionalPaths=[]) {
+export function rebuildSitemaps(additionalPaths=[], excludedPaths=[]) {
   const source=fs.readFileSync(path.join(ROOT,'sitemap.xml'),'utf8');
   const entries=new Map([...source.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(m=>[m[1].match(/<loc>([^<]+)<\/loc>/)[1],m[1].match(/<lastmod>([^<]+)<\/lastmod>/)?.[1]]));
+  for(const p of excludedPaths) entries.delete(BASE+p);
   for(const p of additionalPaths) if(!entries.has(BASE+p)) entries.set(BASE+p,undefined);
   const datesFile=path.join(ROOT,'scripts/content-dates.json');
   const dates=fs.existsSync(datesFile)?JSON.parse(fs.readFileSync(datesFile,'utf8')):{};

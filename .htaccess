@@ -19,6 +19,34 @@ RewriteCond %{HTTP_HOST} ^alex-repair\.com$ [NC]
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://alex-repair.com%{REQUEST_URI} [R=301,L,NE]
 
+# SEO recovery: retire brand pages that do not have documented repair work.
+# City-brand variants go directly to the brand directory to avoid redirect chains.
+RedirectMatch 301 ^/brands/(amana|bertazzoni|dacor|electrolux|fisher-paykel|gaggenau|haier|hisense|jenn-air|kenmore|liebherr|maytag|midea|miele|sharp|smeg|speed-queen|sub-zero|thermador|viking|whirlpool|wolf)-appliance-repair\.html$ https://alex-repair.com/brands.html
+RedirectMatch 301 ^/(carmel|fishers|westfield|noblesville|mccordsville|zionsville)/(amana|bertazzoni|dacor|electrolux|fisher-paykel|gaggenau|haier|hisense|jenn-air|kenmore|liebherr|maytag|midea|miele|sharp|smeg|speed-queen|sub-zero|thermador|viking|whirlpool|wolf)-appliance-repair\.html$ https://alex-repair.com/brands.html
+
+# SEO recovery: consolidate city-service pages with no clicks and negligible
+# search demand into their city hubs. Rules for historical aliases are kept
+# above the older redirects so every retired URL reaches its final page once.
+RedirectMatch 301 ^/carmel/(cooktop|microwave)-repair-services\.html$ https://alex-repair.com/carmel.html
+RedirectMatch 301 ^/fishers/microwave-repair-services\.html$ https://alex-repair.com/fishers.html
+RedirectMatch 301 ^/mccordsville/(cooktop|dishwasher|freezer|microwave)-repair-services\.html$ https://alex-repair.com/mccordsville.html
+RedirectMatch 301 ^/westfield/(cooktop|freezer|microwave|refrigerator|washer)-repair-services\.html$ https://alex-repair.com/westfield.html
+RedirectMatch 301 ^/zionsville/(cooktop|dishwasher|freezer|microwave|refrigerator|stove)-repair-services\.html$ https://alex-repair.com/zionsville.html
+
+RedirectMatch 301 ^/blog-carmel-(cooktop|microwave)-repair\.html$ https://alex-repair.com/carmel.html
+RedirectMatch 301 ^/blog-fishers-microwave-repair\.html$ https://alex-repair.com/fishers.html
+RedirectMatch 301 ^/blog-mccordsville-(cooktop|dishwasher|freezer|microwave)-repair\.html$ https://alex-repair.com/mccordsville.html
+RedirectMatch 301 ^/blog-westfield-(cooktop|freezer|microwave|refrigerator|washer)-repair\.html$ https://alex-repair.com/westfield.html
+RedirectMatch 301 ^/blog-zionsville-(cooktop|dishwasher|freezer|microwave|refrigerator|stove)-repair\.html$ https://alex-repair.com/zionsville.html
+
+RedirectMatch 301 ^/fishers-microwave-repair\.html$ https://alex-repair.com/fishers.html
+RedirectMatch 301 ^/mccordsville-(cooktop|dishwasher|freezer|microwave)-repair\.html$ https://alex-repair.com/mccordsville.html
+RedirectMatch 301 ^/westfield-(cooktop|freezer|microwave|refrigerator|washer)-repair\.html$ https://alex-repair.com/westfield.html
+RedirectMatch 301 ^/zionsville-(cooktop|dishwasher|freezer|microwave|refrigerator|stove)-repair\.html$ https://alex-repair.com/zionsville.html
+
+RedirectMatch 301 ^/(cooktop|microwave)-repair-carmel-indiana\.html$ https://alex-repair.com/carmel.html
+RedirectMatch 301 ^/microwave-repair-fishers-indiana\.html$ https://alex-repair.com/fishers.html
+
 <IfModule mod_expires.c>
 ExpiresActive On
 ExpiresByType text/css "access plus 1 year"
@@ -54,15 +82,15 @@ Redirect 301 /fishers-cooktop-repair.html https://alex-repair.com/fishers/cookto
 Redirect 301 /fishers-dishwasher-repair.html https://alex-repair.com/fishers/dishwasher-repair-services.html
 Redirect 301 /fishers-dryer-repair.html https://alex-repair.com/fishers/dryer-repair-services.html
 Redirect 301 /fishers-freezer-repair.html https://alex-repair.com/fishers/freezer-repair-services.html
-Redirect 301 /fishers-microwave-repair.html https://alex-repair.com/fishers/microwave-repair-services.html
+Redirect 301 /fishers-microwave-repair.html https://alex-repair.com/fishers.html
 Redirect 301 /fishers-refrigerator-repair.html https://alex-repair.com/fishers/refrigerator-repair-services.html
 Redirect 301 /fishers-stove-repair.html https://alex-repair.com/fishers/stove-repair-services.html
 Redirect 301 /fishers-washer-repair.html https://alex-repair.com/fishers/washer-repair-services.html
-Redirect 301 /mccordsville-cooktop-repair.html https://alex-repair.com/mccordsville/cooktop-repair-services.html
-Redirect 301 /mccordsville-dishwasher-repair.html https://alex-repair.com/mccordsville/dishwasher-repair-services.html
+Redirect 301 /mccordsville-cooktop-repair.html https://alex-repair.com/mccordsville.html
+Redirect 301 /mccordsville-dishwasher-repair.html https://alex-repair.com/mccordsville.html
 Redirect 301 /mccordsville-dryer-repair.html https://alex-repair.com/mccordsville/dryer-repair-services.html
-Redirect 301 /mccordsville-freezer-repair.html https://alex-repair.com/mccordsville/freezer-repair-services.html
-Redirect 301 /mccordsville-microwave-repair.html https://alex-repair.com/mccordsville/microwave-repair-services.html
+Redirect 301 /mccordsville-freezer-repair.html https://alex-repair.com/mccordsville.html
+Redirect 301 /mccordsville-microwave-repair.html https://alex-repair.com/mccordsville.html
 Redirect 301 /mccordsville-refrigerator-repair.html https://alex-repair.com/mccordsville/refrigerator-repair-services.html
 Redirect 301 /mccordsville-stove-repair.html https://alex-repair.com/mccordsville/stove-repair-services.html
 Redirect 301 /mccordsville-washer-repair.html https://alex-repair.com/mccordsville/washer-repair-services.html
@@ -74,21 +102,21 @@ Redirect 301 /noblesville-microwave-repair.html https://alex-repair.com/noblesvi
 Redirect 301 /noblesville-refrigerator-repair.html https://alex-repair.com/noblesville/refrigerator-repair-services.html
 Redirect 301 /noblesville-stove-repair.html https://alex-repair.com/noblesville/stove-repair-services.html
 Redirect 301 /noblesville-washer-repair.html https://alex-repair.com/noblesville/washer-repair-services.html
-Redirect 301 /westfield-cooktop-repair.html https://alex-repair.com/westfield/cooktop-repair-services.html
+Redirect 301 /westfield-cooktop-repair.html https://alex-repair.com/westfield.html
 Redirect 301 /westfield-dishwasher-repair.html https://alex-repair.com/westfield/dishwasher-repair-services.html
 Redirect 301 /westfield-dryer-repair.html https://alex-repair.com/westfield/dryer-repair-services.html
-Redirect 301 /westfield-freezer-repair.html https://alex-repair.com/westfield/freezer-repair-services.html
-Redirect 301 /westfield-microwave-repair.html https://alex-repair.com/westfield/microwave-repair-services.html
-Redirect 301 /westfield-refrigerator-repair.html https://alex-repair.com/westfield/refrigerator-repair-services.html
+Redirect 301 /westfield-freezer-repair.html https://alex-repair.com/westfield.html
+Redirect 301 /westfield-microwave-repair.html https://alex-repair.com/westfield.html
+Redirect 301 /westfield-refrigerator-repair.html https://alex-repair.com/westfield.html
 Redirect 301 /westfield-stove-repair.html https://alex-repair.com/westfield/stove-repair-services.html
-Redirect 301 /westfield-washer-repair.html https://alex-repair.com/westfield/washer-repair-services.html
-Redirect 301 /zionsville-cooktop-repair.html https://alex-repair.com/zionsville/cooktop-repair-services.html
-Redirect 301 /zionsville-dishwasher-repair.html https://alex-repair.com/zionsville/dishwasher-repair-services.html
+Redirect 301 /westfield-washer-repair.html https://alex-repair.com/westfield.html
+Redirect 301 /zionsville-cooktop-repair.html https://alex-repair.com/zionsville.html
+Redirect 301 /zionsville-dishwasher-repair.html https://alex-repair.com/zionsville.html
 Redirect 301 /zionsville-dryer-repair.html https://alex-repair.com/zionsville/dryer-repair-services.html
-Redirect 301 /zionsville-freezer-repair.html https://alex-repair.com/zionsville/freezer-repair-services.html
-Redirect 301 /zionsville-microwave-repair.html https://alex-repair.com/zionsville/microwave-repair-services.html
-Redirect 301 /zionsville-refrigerator-repair.html https://alex-repair.com/zionsville/refrigerator-repair-services.html
-Redirect 301 /zionsville-stove-repair.html https://alex-repair.com/zionsville/stove-repair-services.html
+Redirect 301 /zionsville-freezer-repair.html https://alex-repair.com/zionsville.html
+Redirect 301 /zionsville-microwave-repair.html https://alex-repair.com/zionsville.html
+Redirect 301 /zionsville-refrigerator-repair.html https://alex-repair.com/zionsville.html
+Redirect 301 /zionsville-stove-repair.html https://alex-repair.com/zionsville.html
 Redirect 301 /zionsville-washer-repair.html https://alex-repair.com/zionsville/washer-repair-services.html
 
 Redirect 301 /refrigirator-repair.html https://alex-repair.com/refrigerator-repair.html
@@ -96,11 +124,11 @@ Redirect 301 /carmel/refrigirator-repair-services.html https://alex-repair.com/c
 Redirect 301 /fishers/refrigirator-repair-services.html https://alex-repair.com/fishers/refrigerator-repair-services.html
 Redirect 301 /noblesville/refrigirator-repair-services.html https://alex-repair.com/noblesville/refrigerator-repair-services.html
 Redirect 301 /mccordsville/refrigirator-repair-services.html https://alex-repair.com/mccordsville/refrigerator-repair-services.html
-Redirect 301 /westfield/refrigirator-repair-services.html https://alex-repair.com/westfield/refrigerator-repair-services.html
-Redirect 301 /zionsville/refrigirator-repair-services.html https://alex-repair.com/zionsville/refrigerator-repair-services.html
+Redirect 301 /westfield/refrigirator-repair-services.html https://alex-repair.com/westfield.html
+Redirect 301 /zionsville/refrigirator-repair-services.html https://alex-repair.com/zionsville.html
 
 # Consolidate legacy Carmel service URLs into the canonical service pages.
-Redirect 301 /cooktop-repair-carmel-indiana.html https://alex-repair.com/carmel/cooktop-repair-services.html
+Redirect 301 /cooktop-repair-carmel-indiana.html https://alex-repair.com/carmel.html
 Redirect 301 /dishwasher-repair-carmel-indiana.html https://alex-repair.com/carmel/dishwasher-repair-services.html
 Redirect 301 /dryer-repair-carmel-indiana.html https://alex-repair.com/carmel/dryer-repair-services.html
 Redirect 301 /freezer-repair-carmel-indiana.html https://alex-repair.com/carmel/freezer-repair-services.html
@@ -112,7 +140,7 @@ Redirect 301 /cooktop-repair-fishers-indiana.html https://alex-repair.com/fisher
 Redirect 301 /dishwasher-repair-fishers-indiana.html https://alex-repair.com/fishers/dishwasher-repair-services.html
 Redirect 301 /dryer-repair-fishers-indiana.html https://alex-repair.com/fishers/dryer-repair-services.html
 Redirect 301 /freezer-repair-fishers-indiana.html https://alex-repair.com/fishers/freezer-repair-services.html
-Redirect 301 /microwave-repair-fishers-indiana.html https://alex-repair.com/fishers/microwave-repair-services.html
+Redirect 301 /microwave-repair-fishers-indiana.html https://alex-repair.com/fishers.html
 Redirect 301 /refrigerator-repair-fishers-indiana.html https://alex-repair.com/fishers/refrigerator-repair-services.html
 Redirect 301 /stove-repair-fishers-indiana.html https://alex-repair.com/fishers/stove-repair-services.html
 Redirect 301 /washer-repair-fishers-indiana.html https://alex-repair.com/fishers/washer-repair-services.html

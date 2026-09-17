@@ -117,7 +117,7 @@ export function buildRepairCases(){
   const c=lgRangeStory;
   const preview=`${marker}<a class="home-repair-card" href="${url(c)}">${image(c.photos[0])}<span class="home-repair-card-copy"><small>Stove &amp; Oven Repair</small><strong>${esc(title(c))}</strong><span>Read repair story</span></span></a><!-- lg-range-story:end -->`;
   if(html.includes(marker)) html=html.replace(/<!-- lg-range-story:start -->[\s\S]*?<!-- lg-range-story:end -->/,preview);
-  else html=html.replace(/(<div\b[^>]*class="home-repairs-track"[^>]*>)/,'$1'+preview);
+   else html=html.replace(/(<div\b[^>]*class="[^"]*(?:home-repairs-track|carmel-repairs-track)[^"]*"[^>]*>)/,'$1'+preview);
   if(!html.includes(marker)) throw Error('Missing repair carousel: '+filename);
   fs.writeFileSync(path.join(ROOT,filename),html);
  }
