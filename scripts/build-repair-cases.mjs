@@ -18,7 +18,7 @@ const cardTitle=c=>c.cardTitle||title(c);
 const image=(p,lazy=true)=>`<img src="/${esc(p.src)}" width="${p.width}" height="${p.height}" alt="${esc(p.caption)}" ${lazy?'loading="lazy"':'fetchpriority="high"'} decoding="async">`;
 const date=s=>new Date(s+'T12:00:00Z').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'UTC'});
 function card(c,anchor=false){return `<article ${anchor?`id="${c.slug}" data-work-card data-city="${c.city}" data-appliance="${c.appliance}"`:''} class="case-card"><a class="case-card-image" href="${url(c)}">${image(c.photos[0])}</a><div class="case-card-copy"><p class="local-eyebrow">${esc(city(c))} · ${esc(c.appliance)}</p><h3><a href="${url(c)}">${esc(cardTitle(c))}</a></h3><p>${esc(c.summary)}</p><p class="case-date">Published <time datetime="${c.published}">${date(c.published)}</time></p><a class="case-read" href="${url(c)}">Read repair story <span aria-hidden="true">→</span></a></div></article>`;}
-function styleLink(html){if(!html.includes('/css/repair-cases.css'))html=html.replace('</head>','<link rel="stylesheet" href="/css/repair-cases.css?v=20260917-card-links">\n</head>');return html;}
+function styleLink(html){if(!html.includes('/css/repair-cases.css'))html=html.replace('</head>','<link rel="stylesheet" href="/css/repair-cases.css?v=20260917-card-dates">\n</head>');return html;}
 function metadata(html,{name,description,page,imageUrl,type='website',schema}){
  html=html.replace(/\s*<script\b[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>\s*/gi,'\n');
  html=html.replace(/<title>[\s\S]*?<\/title>/,`<title>${esc(name)}</title>`).replace(/(<link\b[^>]*rel="canonical"[^>]*href=")[^"]+/,`$1${page}`);

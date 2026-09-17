@@ -5,12 +5,12 @@
 .case-card-image{display:block;background:#eef2f7}
 .case-card-image img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
 .case-card-copy{display:flex;flex-direction:column;flex:1;padding:24px}
-.case-card-copy>.case-read{margin-top:auto;align-self:flex-start}
+.case-card-copy>.case-read{align-self:flex-start}
 .case-card .local-eyebrow{color:#42566f;font-size:11px;line-height:1.6;margin:0 0 12px}
 .case-card h3{font-size:19px;line-height:1.45;margin:0 0 14px;color:#102c51}
 .case-card h3 a{color:inherit;text-decoration:none}
 .case-card p{font-size:14px;line-height:1.8;color:#4b5b70;margin:0 0 14px}
-.case-card .case-date{font-size:11px;color:#58687d}
+.case-card .case-date{font-size:11px;color:#58687d;margin-top:auto}
 .case-read{color:#102c51;font-weight:700;text-decoration:underline;text-underline-offset:4px}
 .case-card a:focus-visible,.repair-case-page a:focus-visible{outline:3px solid #d19500;outline-offset:4px}
 .case-heading{background:#102f5b;color:#fff;padding:260px 0 56px}
