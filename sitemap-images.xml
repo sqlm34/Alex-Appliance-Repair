@@ -41,12 +41,12 @@
   <url>
     <loc>https://alex-repair.com/blog.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/repair-room.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm3997hwa-drain-pump-carmel/lg-wm3997hwa-washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/cafe-freezer-drain-carmel/cafe-cve28dp2njs1-freezer-ice-before.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dle3400w-stacked-after-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dishwasher-leak-fishers/ge-dishwasher-underneath-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-ksdg950ess1-bake-element-carmel/kitchenaid-ksdg950ess1-dual-fuel-range-carmel.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/carmel-dryer-gas-valve-coil-repair-open-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/overworking-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair-carmel.webp</image:loc></image:image>
@@ -586,6 +586,7 @@
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm3997hwa-drain-pump-carmel/lg-wm3997hwa-washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/cafe-freezer-drain-carmel/cafe-cve28dp2njs1-freezer-ice-before.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dle3400w-stacked-after-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dishwasher-leak-fishers/ge-dishwasher-underneath-repair.webp</image:loc></image:image>
@@ -820,5 +821,18 @@
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-32.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-41.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-42.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-repair.com/repair-cases/carmel-lg-wm3997hwa-drain-pump.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm3997hwa-drain-pump-carmel/lg-wm3997hwa-pump-location-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm3997hwa-drain-pump-carmel/lg-wm3997hwa-washer.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm3997hwa-drain-pump-carmel/lg-wm3997hwa-model-label.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm3997hwa-drain-pump-carmel/removing-water-with-wet-vacuum.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm3997hwa-drain-pump-carmel/washer-front-panel-removed.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm3997hwa-drain-pump-carmel/old-and-new-lg-drain-pumps.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm3997hwa-drain-pump-carmel/lg-washer-pump-housing-access.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/samsung-washer-valve-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-washer-suspension-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
   </url>
 </urlset>
