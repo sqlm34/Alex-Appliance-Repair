@@ -6,6 +6,7 @@ import { fishersSlug, fishersArticle } from './fishers-ge-story.mjs';
 import { lgDryerSlug, lgDryerArticle } from './lg-dryer-story.mjs';
 import { cafeSlug, cafeArticle } from './cafe-drain-story.mjs';
 import { washerStory, washerArticle } from './lg-washer-pump-story.mjs';
+import { samsungStory, samsungArticle } from './samsung-dryer-story.mjs';
 import { story as lgRangeStory, paragraphs as lgRangeParagraphs, lgRangeArticle } from './lg-range-story.mjs';
 import { rebuildSitemaps } from './rebuild-sitemaps.mjs';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -31,10 +32,11 @@ function rootAssets(html){return html.replace(/\b(href|src)="([^"#]+)"/g,(all,at
 const cta='<section class="local-cta"><div class="local-shell"><h2>Need help with your appliance?</h2><p>Tell us the appliance, symptom and service address. We explain the diagnosis and estimate before approved repair work.</p><div class="local-actions"><a class="local-button" href="https://aleksappliancerepair.com/booking">Book service online</a><a class="local-button local-button--secondary" href="tel:+14632488429">Call (463) 248-8429</a></div></div></section>';
 export function buildRepairCases(){
  const storedCases=JSON.parse(fs.readFileSync(path.join(ROOT,'scripts/repair-cases.json'),'utf8'));
- const cases=[washerStory,lgRangeStory,...storedCases];
+ const cases=[samsungStory,washerStory,lgRangeStory,...storedCases];
  cases.sort((a,b)=>b.published.localeCompare(a.published));
  const editorialStories=new Map([[washerStory.slug,washerArticle],[fishersSlug,fishersArticle],[lgDryerSlug,lgDryerArticle],[lgRangeStory.slug,lgRangeArticle],[cafeSlug,cafeArticle]]);
  notes[lgRangeStory.slug]=lgRangeParagraphs;
+ editorialStories.set(samsungStory.slug,samsungArticle);
  const seen=new Set();
  for(const c of cases){
   if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(c.slug)||seen.has(c.slug))throw Error('Invalid/duplicate case slug');seen.add(c.slug);
@@ -51,7 +53,7 @@ export function buildRepairCases(){
   const service=c.appliance==='range'?'stove':c.appliance;
   const servicePath=service==='diagnosis'?'services.html':c.city==='service-area'?`${service}-repair.html`:`${c.city}/${service}-repair-services.html`;
   const relatedPool=c.slug===lgDryerSlug?cases:c.slug===fishersSlug?cases.filter(x=>x.slug!==lgDryerSlug):[lgRangeStory,...storedCases.filter(x=>x.slug!==fishersSlug&&x.slug!==lgDryerSlug)];
-  const related=relatedPool.filter(x=>x.slug!==c.slug&&x.slug!==washerStory.slug&&(c.slug===cafeSlug||x.slug!==cafeSlug)).sort((a,b)=>(b.appliance===c.appliance)-(a.appliance===c.appliance)).slice(0,3);
+  const related=relatedPool.filter(x=>x.slug!==samsungStory.slug&&x.slug!==c.slug&&x.slug!==washerStory.slug&&(c.slug===cafeSlug||x.slug!==cafeSlug)).sort((a,b)=>(b.appliance===c.appliance)-(a.appliance===c.appliance)).slice(0,3);
   const schema={'@context':'https://schema.org','@graph':[
    {'@type':'BlogPosting','@id':url(c)+'#article',url:url(c),mainEntityOfPage:url(c),headline:title(c),description:c.summary,image:[...c.photos,...(c.overviewImage?[c.overviewImage]:[])].map(p=>BASE+p.src),datePublished:c.published,dateModified:c.modified,author:{'@type':'Organization',name:'Alex Appliance Repair',url:BASE+'about.html'},publisher:{'@type':'Organization',name:'Alex Appliance Repair',url:BASE},inLanguage:'en-US'},
    {'@type':'BreadcrumbList',itemListElement:[{name:'Home',item:BASE},{name:'Repair stories',item:BASE+'recent-work.html'},{name:title(c),item:url(c)}].map((x,i)=>({'@type':'ListItem',position:i+1,...x}))}
@@ -75,6 +77,7 @@ export function buildRepairCases(){
    content=content.replace(/<dl>[\s\S]*?<\/dl>/,`<dl>${c.overviewEntries.map(item=>`<dt>${esc(item.label)}</dt><dd>${esc(item.value)}</dd>`).join('')}</dl>`);
   }
   if(editorialStories.has(c.slug)) {
+   if(c.slug===samsungStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/mccordsville.html">View McCordsville service coverage</a>');
    content=content.replace('<a href="/locations.html">View service coverage</a>', '<a href="/fishers.html">View Fishers service coverage</a>');
    if(c.overviewImage) content=content.replace('<aside class="case-summary">','<aside class="case-summary case-summary--with-image"><div class="case-summary-copy">').replace('</aside>',`</div><figure class="case-summary-visual">${image(c.overviewImage)}</figure></aside>`);
    content=content.replace(/(<article class="case-body editorial-story">[\s\S]*?<\/article>)(<aside class="case-summary">[\s\S]*?<\/aside>)/, '$2$1');
@@ -83,10 +86,10 @@ export function buildRepairCases(){
   let page=shell.replace(/<main\b[\s\S]*?<\/main>/,content).replace(/\/js\/script\.js\?v=[^"']+/g,'/js/script.js?v=20260909-repair-story-lightbox');
   page=metadata(styleLink(page),{name:c.seoTitle||title(c)+' | Alex Appliance Repair',description:c.description||c.summary,page:url(c),imageUrl:BASE+c.photos[0].src,type:'article',schema});
   if(editorialStories.has(c.slug)) {
-   const editorialStyleVersion=c.slug===cafeSlug||c.slug===washerStory.slug?'20260916-cafe-aligned':c.slug===fishersSlug?'20260911-highlighted-seal':'20260913-lg-dryer';
+   const editorialStyleVersion=c.slug===samsungStory.slug||c.slug===cafeSlug||c.slug===washerStory.slug?'20260916-cafe-aligned':c.slug===fishersSlug?'20260911-highlighted-seal':'20260913-lg-dryer';
    page=page.replace('</head>',`<link rel="stylesheet" href="/css/repair-story-editorial.css?v=${editorialStyleVersion}">\n</head>`);
    // Keep this standalone HTML preview usable from disk as well as from the site root.
-   if(c.slug!==lgRangeStory.slug&&c.slug!==cafeSlug&&c.slug!==washerStory.slug) page=page.replace(/\b(href|src)="\/(?!\/)([^"]*)"/g,(_,attr,value)=>`${attr}="../${value||'index.html'}"`);
+   if(c.slug!==samsungStory.slug&&c.slug!==lgRangeStory.slug&&c.slug!==cafeSlug&&c.slug!==washerStory.slug) page=page.replace(/\b(href|src)="\/(?!\/)([^"]*)"/g,(_,attr,value)=>`${attr}="../${value||'index.html'}"`);
   }
   fs.writeFileSync(path.join(ROOT,'repair-cases',c.slug+'.html'),page.replace(/[\t ]+$/gm,''));
  }
@@ -103,6 +106,7 @@ export function buildRepairCases(){
  archive=archive.replace(/<button[^>]*data-filter-group="city"[^>]*>[\s\S]*?<\/button>/g,tag=>['all',...new Set(cases.map(c=>c.city))].includes(tag.match(/data-filter-value="([^"]+)"/)?.[1])?tag:'');
  if(!archive.includes('data-filter-value="fishers"')) archive=archive.replace(/(<button[^>]*data-filter-group="city"[^>]*data-filter-value="carmel"[^>]*>[\s\S]*?<\/button>)/,'$1\n<button class="recent-work-filter" type="button" data-filter-group="city" data-filter-value="fishers" aria-pressed="false">Fishers</button>');
  archive=metadata(styleLink(archive),{name:'Recent Appliance Repair Work | Alex Appliance Repair',description:'Read real appliance repair stories with service details and original photos from Alex Appliance Repair in Carmel and Central Indiana.',page:BASE+'recent-work.html',imageUrl:BASE+cases[0].photos[0].src,schema:{'@context':'https://schema.org','@type':'CollectionPage',url:BASE+'recent-work.html',name:'Recent Appliance Repair Work',mainEntity:{'@type':'ItemList',itemListElement:cases.map((c,i)=>({'@type':'ListItem',position:i+1,url:url(c),name:title(c)}))}}});
+ if(!archive.includes('data-filter-value="mccordsville"')) archive=archive.replace(/(<button[^>]*data-filter-group="city"[^>]*data-filter-value="fishers"[^>]*>[\s\S]*?<\/button>)/,'$1\n<button class="recent-work-filter" type="button" data-filter-group="city" data-filter-value="mccordsville" aria-pressed="false">McCordsville</button>');
  fs.writeFileSync(path.join(ROOT,'recent-work.html'),archive.replace(/[\t ]+$/gm,''));
  let blog=fs.readFileSync(path.join(ROOT,'blog.html'),'utf8');
  const featured=cases.slice(0,6);
