@@ -41,12 +41,12 @@
   <url>
     <loc>https://alex-repair.com/blog.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/repair-room.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/ge-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/kenmore-drawer-fishers/kenmore-washer-open.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-rfg237aawp-fishers/samsung-rfg237aawp-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dv330aew-mccordsville/samsung-dv330aew-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm3997hwa-drain-pump-carmel/lg-wm3997hwa-washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/cafe-freezer-drain-carmel/cafe-cve28dp2njs1-freezer-ice-before.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dle3400w-stacked-after-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/overworking-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair-carmel.webp</image:loc></image:image>
@@ -586,6 +586,7 @@
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/ge-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/kenmore-drawer-fishers/kenmore-washer-open.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-rfg237aawp-fishers/samsung-rfg237aawp-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dv330aew-mccordsville/samsung-dv330aew-dryer.webp</image:loc></image:image>
@@ -882,6 +883,29 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/kenmore-drawer-fishers/assembly-and-hose-routing.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/samsung-washer-valve-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-washer-suspension-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-repair.com/repair-cases/north-indianapolis-ge-gfdn110el0ww-dryer-belt-thermostat.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/gfdn110el0ww-model-label.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/ge-dryer.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/cabinet-before-cleaning.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/cabinet-after-cleaning.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/front-panel-before-cleaning.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/front-panel-after-cleaning.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/blower-before-cleaning.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/blower-after-cleaning.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/heater-area-before-cleaning.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/heater-area-after-cleaning.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/thermostat-replacement.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/front-drum-slides.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/new-belt-on-drum.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/installed-belt-routing.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/belt-reference-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/slide-bearing-reference-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/thermostat-reference-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-dryer-gas-valve-coil-repair-open-dryer.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
   </url>
 </urlset>
