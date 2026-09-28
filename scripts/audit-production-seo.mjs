@@ -23,7 +23,10 @@ const sitemapResponse = await fetch(`${BASE}sitemap.xml`, { headers, cache: "no-
 if (sitemapResponse.status !== 200) errors.push(`Live sitemap status: ${sitemapResponse.status}`);
 const sitemap = await sitemapResponse.text();
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-if (urls.length !== 104) errors.push(`Live sitemap URL count: ${urls.length}; expected 104`);
+const expectedUrls = [...fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8").matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+if (urls.length !== expectedUrls.length) errors.push(`Live sitemap URL count: ${urls.length}; expected ${expectedUrls.length}`);
+for (const url of expectedUrls) if (!urls.includes(url)) errors.push(`Missing live sitemap URL: ${url}`);
+for (const url of urls) if (!expectedUrls.includes(url)) errors.push(`Unexpected live sitemap URL: ${url}`);
 
 await pooled(urls, 10, async (url) => {
   const response = await fetch(url, { headers, redirect: "manual", cache: "no-store" });
