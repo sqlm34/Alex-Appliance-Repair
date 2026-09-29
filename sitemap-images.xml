@@ -41,12 +41,12 @@
   <url>
     <loc>https://alex-repair.com/blog.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/repair-room.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/samsung-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/ge-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/kenmore-drawer-fishers/kenmore-washer-open.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-rfg237aawp-fishers/samsung-rfg237aawp-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dv330aew-mccordsville/samsung-dv330aew-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm3997hwa-drain-pump-carmel/lg-wm3997hwa-washer.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/cafe-freezer-drain-carmel/cafe-cve28dp2njs1-freezer-ice-before.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/overworking-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair-carmel.webp</image:loc></image:image>
@@ -586,6 +586,7 @@
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/samsung-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/ge-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/kenmore-drawer-fishers/kenmore-washer-open.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-rfg237aawp-fishers/samsung-rfg237aawp-refrigerator.webp</image:loc></image:image>
@@ -907,5 +908,25 @@
     <image:image><image:loc>https://alex-repair.com/images/carmel-dryer-gas-valve-coil-repair-open-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-repair.com/repair-cases/carmel-samsung-rf260beaesr-fan-noise-defrost-drain.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/fan-sensor-reference.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/samsung-refrigerator.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/rf260beaesr-model-label.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/fresh-food-cover.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/evaporator-ice-buildup.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/ice-around-upper-tubing.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/rear-service-access.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/rear-drain-tubes.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/additional-flexible-heater.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/existing-defrost-heater.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/temperature-sensors.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/original-and-replacement-fans.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/replacement-fan-mounted.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/fresh-food-service.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-32.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-41.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-42.webp</image:loc></image:image>
   </url>
 </urlset>
