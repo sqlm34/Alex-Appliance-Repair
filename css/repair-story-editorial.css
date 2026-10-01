@@ -28,6 +28,9 @@
  .lg-switch-row.cafe-story-row--right .cafe-story-copy{grid-column:1}
 }
 .editorial-story figcaption{margin-bottom:0}
+.editorial-story:has(.lg-switch-row) figcaption{width:calc(100% - 16px);margin-inline:auto;justify-self:center}
+/* Portrait images are capped at 520px tall (390px wide); inset their captions. */
+.editorial-story .lg-switch-row figcaption{max-width:374px}
 .editorial-story .local-button{color:var(--local-navy,#102f5b);text-decoration:none}
 .editorial-story .airflow-callout{padding:30px;border-left:5px solid var(--local-blue,#2176ae);border-radius:14px;background:#f3f7fb}
 @media(max-width:768px){

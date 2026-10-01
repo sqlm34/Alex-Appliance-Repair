@@ -97,7 +97,7 @@ export function buildRepairCases(){
   page=metadata(styleLink(page),{name:c.seoTitle||title(c)+' | Alex Appliance Repair',description:c.description||c.summary,page:url(c),imageUrl:BASE+c.photos[0].src,type:'article',schema});
   if(editorialStories.has(c.slug)) {
    const editorialStyleVersion=c.slug===lgSwitchStory.slug||c.slug===carmelFridgeStory.slug||c.slug===geDryerStory.slug||c.slug===drawerStory.slug||c.slug===fridgeStory.slug||c.slug===samsungStory.slug||c.slug===cafeSlug||c.slug===washerStory.slug?'20260916-cafe-aligned':c.slug===fishersSlug?'20260911-highlighted-seal':'20260913-lg-dryer';
-   page=page.replace('</head>',`<link rel="stylesheet" href="/css/repair-story-editorial.css?v=${c.slug===lgSwitchStory.slug?'20261001-lg-centered':editorialStyleVersion}">\n</head>`);
+   page=page.replace('</head>',`<link rel="stylesheet" href="/css/repair-story-editorial.css?v=${c.slug===lgSwitchStory.slug?'20261001-lg-captions':editorialStyleVersion}">\n</head>`);
    // Keep this standalone HTML preview usable from disk as well as from the site root.
    if(c.slug!==lgSwitchStory.slug&&c.slug!==carmelFridgeStory.slug&&c.slug!==geDryerStory.slug&&c.slug!==drawerStory.slug&&c.slug!==fridgeStory.slug&&c.slug!==samsungStory.slug&&c.slug!==lgRangeStory.slug&&c.slug!==cafeSlug&&c.slug!==washerStory.slug) page=page.replace(/\b(href|src)="\/(?!\/)([^"]*)"/g,(_,attr,value)=>`${attr}="../${value||'index.html'}"`);
   }
