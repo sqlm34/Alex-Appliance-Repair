@@ -36,7 +36,7 @@
   "noblesville/dryer-repair-services.html": "2026-09-09",
   "noblesville/freezer-repair-services.html": "2026-09-09",
   "noblesville/microwave-repair-services.html": "2026-09-09",
-  "noblesville/refrigerator-repair-services.html": "2026-09-09",
+  "noblesville/refrigerator-repair-services.html": "2026-10-02",
   "noblesville/stove-repair-services.html": "2026-09-09",
   "noblesville/washer-repair-services.html": "2026-09-09",
   "signs-your-dryer-needs-repairs-before-it-breaks-down.html": "2026-09-09",
@@ -81,7 +81,7 @@
   "brands/miele-appliance-repair.html": "2026-09-09",
   "brands/samsung-appliance-repair.html": "2026-09-17",
   "brands/sharp-appliance-repair.html": "2026-09-09",
-  "recent-work.html": "2026-10-01",
+  "recent-work.html": "2026-10-02",
   "brands/smeg-appliance-repair.html": "2026-09-09",
   "brands/speed-queen-appliance-repair.html": "2026-09-09",
   "brands/sub-zero-appliance-repair.html": "2026-09-09",
@@ -89,7 +89,7 @@
   "brands/viking-appliance-repair.html": "2026-09-09",
   "brands/whirlpool-appliance-repair.html": "2026-09-09",
   "brands/wolf-appliance-repair.html": "2026-09-09",
-  "blog.html": "2026-10-01",
+  "blog.html": "2026-10-02",
   "repair-cases/carmel-dryer-gas-valve-coils.html": "2026-09-09",
   "repair-cases/carmel-freezer-evaporator-fan.html": "2026-09-09",
   "repair-cases/carmel-dishwasher-fill-funnel.html": "2026-09-09",
@@ -117,5 +117,6 @@
   "repair-cases/fishers-kenmore-washer-softener-drawer-dc97-07125z.html": "2026-09-27",
   "repair-cases/north-indianapolis-ge-gfdn110el0ww-dryer-belt-thermostat.html": "2026-09-28",
   "repair-cases/carmel-samsung-rf260beaesr-fan-noise-defrost-drain.html": "2026-09-29",
-  "repair-cases/mccordsville-lg-lde4413st-burner-stays-on-high.html": "2026-10-01"
+  "repair-cases/mccordsville-lg-lde4413st-burner-stays-on-high.html": "2026-10-01",
+  "repair-cases/noblesville-lg-gr-l228nksm-freezer-fan-error.html": "2026-10-02"
 }

@@ -41,12 +41,12 @@
   <url>
     <loc>https://alex-repair.com/blog.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/repair-room.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/lg-refrigerator-noise.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-switch-mccordsville/lg-lde4413st-range.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/samsung-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/ge-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/kenmore-drawer-fishers/kenmore-washer-open.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-rfg237aawp-fishers/samsung-rfg237aawp-refrigerator.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dv330aew-mccordsville/samsung-dv330aew-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/overworking-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair-carmel.webp</image:loc></image:image>
@@ -586,6 +586,7 @@
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/lg-refrigerator-noise.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-switch-mccordsville/lg-lde4413st-range.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/samsung-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/ge-dryer.webp</image:loc></image:image>
@@ -942,5 +943,20 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-ksdg950ess1-bake-element-carmel/kitchenaid-ksdg950ess1-dual-fuel-range-carmel.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-38.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-repair.com/repair-cases/noblesville-lg-gr-l228nksm-freezer-fan-error.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/freezer-fan-reference-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/lg-refrigerator-noise.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/ff-e-error-display.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/fan-motor-diagnostic-tester.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/freezer-evaporator-access.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/eau65058511-motor-label.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/fan-motor-replacement.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/freezer-panel-reinstalled.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/refrigerator-display-check.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-32.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-41.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-42.webp</image:loc></image:image>
   </url>
 </urlset>
