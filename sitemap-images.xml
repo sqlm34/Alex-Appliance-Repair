@@ -12,6 +12,10 @@
     <image:image><image:loc>https://alex-repair.com/images/microwave-icon.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/freezer-icon.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kenmore-drawer-fishers/kenmore-washer-open.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-rfg237aawp-fishers/samsung-rfg237aawp-refrigerator.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/cafe-freezer-drain-carmel/cafe-cve28dp2njs1-freezer-ice-before.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm3997hwa-drain-pump-carmel/lg-wm3997hwa-washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/bosch-dishwasher-pump-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/frigidaire-freezer-fan-01.webp</image:loc></image:image>
@@ -41,12 +45,12 @@
   <url>
     <loc>https://alex-repair.com/blog.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/repair-room.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/whirlpool-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/lg-refrigerator-noise.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-switch-mccordsville/lg-lde4413st-range.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/samsung-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/ge-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/kenmore-drawer-fishers/kenmore-washer-open.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-rfg237aawp-fishers/samsung-rfg237aawp-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/overworking-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair-carmel.webp</image:loc></image:image>
@@ -126,6 +130,10 @@
     <loc>https://alex-repair.com/carmel.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/carmel-service.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/cafe-freezer-drain-carmel/cafe-cve28dp2njs1-freezer-ice-before.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm3997hwa-drain-pump-carmel/lg-wm3997hwa-washer.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-ksdg950ess1-bake-element-carmel/kitchenaid-ksdg950ess1-dual-fuel-range-carmel.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/samsung-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-27.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-dishwasher-fill-funnel.jpeg</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-32.webp</image:loc></image:image>
@@ -203,6 +211,8 @@
     <image:image><image:loc>https://alex-repair.com/images/fishers.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dishwasher-leak-fishers/ge-dishwasher-underneath-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dle3400w-stacked-after-repair.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-rfg237aawp-fishers/samsung-rfg237aawp-refrigerator.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kenmore-drawer-fishers/kenmore-washer-open.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/fishers/cooktop-repair-services.html</loc>
@@ -586,6 +596,7 @@
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/whirlpool-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/lg-refrigerator-noise.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-switch-mccordsville/lg-lde4413st-range.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/samsung-refrigerator.webp</image:loc></image:image>
@@ -955,6 +966,25 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/fan-motor-replacement.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/freezer-panel-reinstalled.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/refrigerator-display-check.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-32.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-41.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-42.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-repair.com/repair-cases/westfield-whirlpool-wrs588fihz00-water-leak-frozen-fill-tube.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/water-valves-reference-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/whirlpool-refrigerator.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/wrs588fihz00-model-label.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/ice-maker-removed.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/frozen-ice-maker-fill-tube.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/door-water-line-connections.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/rear-water-lines.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/two-water-valves-replacement.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/wpw10238100-valve-reference.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/wpw10341320-valve-reference.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/water-valve-connections.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/ice-maker-and-bin-cleaning.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/refrigerator-reassembled.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-32.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-41.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-42.webp</image:loc></image:image>
