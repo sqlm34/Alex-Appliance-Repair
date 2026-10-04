@@ -45,12 +45,12 @@
   <url>
     <loc>https://alex-repair.com/blog.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/repair-room.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dryer-noblesville/lg-dryer-service-visit.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/whirlpool-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/lg-refrigerator-noise.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-switch-mccordsville/lg-lde4413st-range.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/samsung-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dryer-indianapolis/ge-dryer.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kenmore-drawer-fishers/kenmore-washer-open.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/overworking-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair-carmel.webp</image:loc></image:image>
@@ -596,6 +596,7 @@
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dryer-noblesville/lg-dryer-service-visit.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/whirlpool-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/lg-refrigerator-noise.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-switch-mccordsville/lg-lde4413st-range.webp</image:loc></image:image>
@@ -988,5 +989,22 @@
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-32.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-41.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-42.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-repair.com/repair-cases/noblesville-lg-dlex4200b-dryer-squeaking-rollers-idler-pulley.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dryer-noblesville/drum-support-parts-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dryer-noblesville/lg-dryer-service-visit.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dryer-noblesville/dlex4200b-model-label.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dryer-noblesville/drum-removed.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dryer-noblesville/rear-rollers-and-cabinet.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dryer-noblesville/rear-support-roller-one.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dryer-noblesville/rear-support-roller-two.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dryer-noblesville/idler-pulley-and-motor.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dryer-noblesville/idler-pulley-reference.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dryer-noblesville/roller-parts-reference.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dryer-noblesville/dryer-reassembled-test.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-dryer-gas-valve-coil-repair-open-dryer.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
   </url>
 </urlset>
