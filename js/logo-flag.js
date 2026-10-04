@@ -2,19 +2,24 @@
   'use strict';
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const connection = navigator.connection;
-  if (connection && connection.saveData) return;
+  function fallback() { document.documentElement.classList.remove('logo-pending'); }
+  if (connection && connection.saveData) { fallback(); return; }
 
   function init() {
     const images = document.querySelectorAll('.header-logo img, .header-mobile-logo img');
-    if (!images.length || !window.IntersectionObserver) return;
+    if (!images.length || !window.IntersectionObserver) { fallback(); return; }
     const style = document.createElement('style');
     style.textContent = '.flag-logo-wrap{position:relative;display:inline-block;line-height:0;flex:none}.flag-logo-wrap canvas{position:absolute;left:-8%;top:0;width:116%;height:100%;pointer-events:none;max-width:none}.flag-logo-wrap.is-waving>img{opacity:0}';
     document.head.append(style);
-    images.forEach(mount);
+    images.forEach(img => {
+      try { mount(img); } catch (error) { fallback(); }
+    });
   }
 
   function mount(img) {
     if (img.closest('.flag-logo-wrap')) return;
+    const link = img.closest('.header-logo, .header-mobile-logo');
+    function reveal() { if (link) link.classList.add('flag-ready'); }
     const wrap = document.createElement('span');
     wrap.className = 'flag-logo-wrap';
     img.before(wrap);
@@ -27,7 +32,7 @@
     const fabric = document.createElement('canvas');
     fabric.width = 240; fabric.height = 450;
     const fc = fabric.getContext('2d');
-    if (!ctx || !fc) { wrap.replaceWith(img); return; }
+    if (!ctx || !fc) { wrap.replaceWith(img); reveal(); return; }
     let visible = false, frame = 0, last = 0, time = 0;
     function stop() { cancelAnimationFrame(frame); last = 0; }
     function draw(now) {
@@ -59,14 +64,16 @@
         ctx.drawImage(fabric, 0, row, w, 2, 19 + offset + (w - width) / 2, row, width, 2.2);
       }
       wrap.classList.add('is-waving');
+      reveal();
     }
     function sync() {
       stop();
       const ready = img.complete && img.naturalWidth > 0;
-      if (motion.matches) { wrap.classList.remove('is-waving'); ctx.clearRect(0, 0, 278, 450); }
+      if (motion.matches) { wrap.classList.remove('is-waving'); ctx.clearRect(0, 0, 278, 450); if (ready) reveal(); }
       if (ready && visible && !motion.matches && !document.hidden) frame = requestAnimationFrame(draw);
     }
     img.addEventListener('load', sync);
+    img.addEventListener('error', reveal);
     motion.addEventListener('change', sync);
     document.addEventListener('visibilitychange', sync);
     window.addEventListener('pagehide', stop);
