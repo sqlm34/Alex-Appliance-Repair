@@ -40,7 +40,13 @@ export const whirlpoolDryerStory={
 };
 
 export function whirlpoolDryerArticle(c,image,esc){
- const figure=(i,uniform=false)=>`<figure class="lg-fan-photo" style="--photo-max:${uniform?450:Math.min(c.photos[i].width,520*c.photos[i].width/c.photos[i].height)}px"><a class="gallery-item" ${uniform?'style="aspect-ratio:1;display:grid;place-items:center" ':''}href="/${c.photos[i].src}">${image(c.photos[i],i!==0).replace('<img ',`<img style="${uniform?'width:100%;height:100%;object-fit:contain;min-height:0;aspect-ratio:1':`aspect-ratio:${c.photos[i].width}/${c.photos[i].height}`}" `)}</a><figcaption>${esc(c.photos[i].caption)}</figcaption></figure>`;
+ const figure=(i,uniform=false)=>{
+  const max=uniform==='duct'?520:uniform?450:Math.min(c.photos[i].width,520*c.photos[i].width/c.photos[i].height);
+  const inset=uniform==='duct'?0:20;
+  const frame=uniform?`style="aspect-ratio:${uniform==='duct'?'4/3':'1'};position:relative" `:'';
+  const sizing=uniform?`position:absolute;top:${inset}px;left:${inset}px;width:calc(100% - ${inset*2}px);height:calc(100% - ${inset*2}px);object-fit:contain!important;aspect-ratio:auto`:`aspect-ratio:${c.photos[i].width}/${c.photos[i].height}`;
+  return `<figure class="lg-fan-photo" style="--photo-max:${max}px"><a class="gallery-item" ${frame}href="/${c.photos[i].src}">${image(c.photos[i],i!==0).replace('<img ',`<img style="${sizing}" `)}</a><figcaption>${esc(c.photos[i].caption)}</figcaption></figure>`;
+ };
  const row=(i,heading,paragraphs)=>`<section class="repair-story-section lg-fan-row${i%2?' lg-fan-row--right':''}">${figure(i)}<div class="lg-fan-copy"><h2>${heading}</h2>${paragraphs.map(p=>`<p>${p}</p>`).join('')}</div></section>`;
  const pair=(a,b,uniform=false)=>`<div class="case-photo-grid lg-fan-pair">${figure(a,uniform)}${figure(b,uniform)}</div>`;
  return `<article class="case-body editorial-story">
@@ -75,7 +81,7 @@ export function whirlpoolDryerArticle(c,image,esc){
  ])}
  <section class="repair-story-section"><h2>Idler Pulley and Drum Roller References</h2><p>The supplied parts images identify the idler pulley assembly as <strong>W10837240</strong> and the drum support roller as <strong>WPW10314173</strong>. These are identification references accompanying the diagrams; the installed components are documented in the service photographs above. Match replacement parts to the full appliance identification before ordering.</p>${pair(14,15,true)}</section>
  <section class="repair-story-section"><h2>Blower Wheel Before and After Cleaning</h2><p>The blower wheel had thick lint deposits on its blades and around its housing. We cleaned the existing wheel and housing rather than replacing the blower. The paired photographs show the heavy buildup before cleaning and the same assembly afterward.</p><p>Some light residue remains visible in the after photograph. The documented work was removal of the accumulated lint, not restoration of every surface to a new appearance.</p>${pair(3,4)}</section>
- <section class="repair-story-section"><h2>Clearing Lint From the Internal Duct</h2><p>The removed front duct also contained a substantial accumulation of lint. We cleaned this internal passage while the dryer was apart. These are components inside the appliance; this visit does not document cleaning the entire household exhaust duct.</p>${pair(9,10)}</section>
+ <section class="repair-story-section"><h2>Clearing Lint From the Internal Duct</h2><p>The removed front duct also contained a substantial accumulation of lint. We cleaned this internal passage while the dryer was apart. These are components inside the appliance; this visit does not document cleaning the entire household exhaust duct.</p>${pair(9,10,'duct')}</section>
  ${row(11,'Interior Cleaning, Reassembly and Testing',[
  'We vacuumed and cleaned the cabinet interior, including the accessible areas around the drive and air-handling components. This photograph shows the cleaned cabinet and installed replacement parts before the drum went back in.',
  'After the roller and idler pulley replacement and cleaning were complete, we reassembled and tested the dryer. The photograph records the pre-reassembly stage, not the final operating test.'
