@@ -45,12 +45,12 @@
   <url>
     <loc>https://alex-repair.com/blog.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/repair-room.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/maytag-tested.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/whirlpool-cabrio-service-visit.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dryer-noblesville/lg-dryer-service-visit.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/whirlpool-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-fan-noblesville/lg-refrigerator-noise.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-switch-mccordsville/lg-lde4413st-range.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-fan-carmel/samsung-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/overworking-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair-carmel.webp</image:loc></image:image>
@@ -596,6 +596,7 @@
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/maytag-tested.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/whirlpool-cabrio-service-visit.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dryer-noblesville/lg-dryer-service-visit.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-water-westfield/whirlpool-refrigerator.webp</image:loc></image:image>
@@ -808,7 +809,7 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dishwasher-leak-fishers/installed-circulation-pump-seal.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-dishwasher-fill-funnel.jpeg</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/bosch-dishwasher-pump-01.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/whirlpool-cabrio-service-visit.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/maytag-tested.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/repair-cases/lg-dle3400w-dryer-thermostat-vent-repair-fishers-indiana.html</loc>
@@ -825,9 +826,9 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/crushed-dryer-exhaust-duct.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/dryer-exhaust-duct-secured-with-clamp.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dryer-reassembled-internal-components.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/maytag-tested.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/whirlpool-cabrio-service-visit.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-dryer-gas-valve-coil-repair-open-dryer.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/repair-cases/carmel-cafe-cve28dp2njs1-freezer-drain.html</loc>
@@ -1010,6 +1011,8 @@
   </url>
   <url>
     <loc>https://alex-repair.com/repair-cases/westfield-whirlpool-wed5800bw0-dryer-noise-rollers-idler-pulley.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/cabinet-idler-parts-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/drum-roller-parts-diagram.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/whirlpool-cabrio-service-visit.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/wed5800bw0-model-label.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/cabinet-before-cleaning.webp</image:loc></image:image>
@@ -1017,8 +1020,6 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/front-support-rollers.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/old-idler-pulley.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/replacement-idler-installed.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/cabinet-idler-parts-diagram.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/drum-roller-parts-diagram.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/idler-pulley-reference.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/support-roller-reference.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/blower-before-cleaning.webp</image:loc></image:image>
@@ -1026,6 +1027,29 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/lint-in-front-duct.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/front-duct-cleaned.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/cabinet-after-cleaning.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-dryer-gas-valve-coil-repair-open-dryer.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-repair.com/repair-cases/mccordsville-maytag-medb835dc4-dryer-rollers-idler-repair.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/reference-idler-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/reference-roller-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/medb835dc4-model.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/three-front-rollers.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/two-rear-rollers.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/idler-installed.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/idler-reference.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/roller-reference.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/cabinet-before.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/cabinet-after.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/duct-before.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/duct-after.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/felt-before.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/felt-after.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/cleaned-drum.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/reassembly.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/maytag-tested.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-dryer-gas-valve-coil-repair-open-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>

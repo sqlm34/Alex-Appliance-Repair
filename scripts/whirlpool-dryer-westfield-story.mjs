@@ -44,12 +44,20 @@ export function whirlpoolDryerArticle(c,image,esc){
   const max=uniform==='duct'?520:uniform?450:Math.min(c.photos[i].width,520*c.photos[i].width/c.photos[i].height);
   const inset=uniform==='duct'?0:20;
   const frame=uniform?`style="aspect-ratio:${uniform==='duct'?'4/3':'1'};position:relative" `:'';
-  const sizing=uniform?`position:absolute;top:${inset}px;left:${inset}px;width:calc(100% - ${inset*2}px);height:calc(100% - ${inset*2}px);object-fit:contain!important;aspect-ratio:auto`:`aspect-ratio:${c.photos[i].width}/${c.photos[i].height}`;
-  return `<figure class="lg-fan-photo" style="--photo-max:${max}px"><a class="gallery-item" ${frame}href="/${c.photos[i].src}">${image(c.photos[i],i!==0).replace('<img ',`<img style="${sizing}" `)}</a><figcaption>${esc(c.photos[i].caption)}</figcaption></figure>`;
+  const sizing=uniform?`position:absolute;top:${inset}px;left:${inset}px;width:calc(100% - ${inset*2}px);height:calc(100% - ${inset*2}px);object-fit:contain!important;aspect-ratio:auto`:`aspect-ratio:${c.photos[i].width}/${c.photos[i].height};object-fit:contain!important`;
+  return `<figure class="lg-fan-photo" style="--photo-max:${max}px"><a class="gallery-item" ${frame}href="/${c.photos[i].src}">${image(c.photos[i],i!==12).replace('<img ',`<img style="${sizing}" `)}</a><figcaption>${esc(c.photos[i].caption)}</figcaption></figure>`;
  };
  const row=(i,heading,paragraphs)=>`<section class="repair-story-section lg-fan-row${i%2?' lg-fan-row--right':''}">${figure(i)}<div class="lg-fan-copy"><h2>${heading}</h2>${paragraphs.map(p=>`<p>${p}</p>`).join('')}</div></section>`;
  const pair=(a,b,uniform=false)=>`<div class="case-photo-grid lg-fan-pair">${figure(a,uniform)}${figure(b,uniform)}</div>`;
  return `<article class="case-body editorial-story">
+ ${row(12,'Cabinet Diagram: Idler Pulley Assembly',[
+ 'This supplied <strong>WED5800BW0 cabinet diagram</strong> shows the drive motor and belt-tensioning assembly in relation to the cabinet. The enlarged callout highlights the idler pulley assembly.',
+ 'The diagram provides a parts-location reference alongside the service photographs below. The belt is also shown in the drawing, but it was inspected and retained on this repair.'
+ ])}
+ ${row(13,'Drum Diagram: Front and Rear Support Rollers',[
+ 'The second supplied diagram shows the drum, front bulkhead and rear support. Its callouts highlight the <strong>front and rear drum support rollers</strong>, corresponding to the locations photographed during replacement.',
+ 'The complete drawing is included without cropping the numbered parts or enlarged roller illustration.'
+ ])}
  ${row(0,'Squeaking and a Thumping Drum',[
  'The homeowner in <strong>Westfield, Indiana</strong> reported that this Whirlpool Cabrio dryer was noisy: it squeaked, and the drum thumped or bounced as it turned. We opened the dryer to inspect its drum supports and belt-tensioning components.',
  'The repair included new front and rear drum support rollers and a new idler pulley. With the drum removed, we also addressed substantial lint accumulation inside the appliance.'
@@ -70,14 +78,6 @@ export function whirlpoolDryerArticle(c,image,esc){
  ${row(6,'New Idler Pulley, Existing Belt',[
  'The replacement idler pulley was installed beside the existing motor. <strong>The drive belt was inspected, found to be in good condition and retained.</strong> A belt replacement was not part of this repair.',
  'The motor and heating assembly also remained in place. Replacing the rollers and pulley did not require replacing these larger assemblies.'
- ])}
- ${row(12,'Cabinet Diagram: Idler Pulley Assembly',[
- 'This supplied <strong>WED5800BW0 cabinet diagram</strong> shows the drive motor and belt-tensioning assembly in relation to the cabinet. The enlarged callout highlights the idler pulley assembly.',
- 'The diagram provides a parts-location reference alongside the service photographs above. The belt is also shown in the drawing, but it was inspected and retained on this repair.'
- ])}
- ${row(13,'Drum Diagram: Front and Rear Support Rollers',[
- 'The second supplied diagram shows the drum, front bulkhead and rear support. Its callouts highlight the <strong>front and rear drum support rollers</strong>, corresponding to the locations photographed during replacement.',
- 'The complete drawing is included without cropping the numbered parts or enlarged roller illustration. Open the image to inspect those details.'
  ])}
  <section class="repair-story-section"><h2>Idler Pulley and Drum Roller References</h2><p>The supplied parts images identify the idler pulley assembly as <strong>W10837240</strong> and the drum support roller as <strong>WPW10314173</strong>. These are identification references accompanying the diagrams; the installed components are documented in the service photographs above. Match replacement parts to the full appliance identification before ordering.</p>${pair(14,15,true)}</section>
  <section class="repair-story-section"><h2>Blower Wheel Before and After Cleaning</h2><p>The blower wheel had thick lint deposits on its blades and around its housing. We cleaned the existing wheel and housing rather than replacing the blower. The paired photographs show the heavy buildup before cleaning and the same assembly afterward.</p><p>Some light residue remains visible in the after photograph. The documented work was removal of the accumulated lint, not restoration of every surface to a new appearance.</p>${pair(3,4)}</section>
