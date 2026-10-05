@@ -26,6 +26,19 @@ for stamp, name in photos:
         photo.save(destination / (name + '.webp'), 'WEBP', quality=84, method=6)
         print(name, photo.size)
 
+references = [
+    ('WPL-WED5800BW0_2.jpg', 'cabinet-idler-parts-diagram'),
+    ('WPL-WED5800BW0_3.jpg', 'drum-roller-parts-diagram'),
+    ('WPL-W10837240_0.jpg', 'idler-pulley-reference'),
+    ('WPL-WPW10314173_2.webp', 'support-roller-reference'),
+]
+for filename, name in references:
+    with Image.open(source / filename) as opened:
+        photo = ImageOps.exif_transpose(opened).convert('RGB')
+        # Preserve diagram numbers and the supplied callouts at full resolution.
+        photo.save(destination / (name + '.webp'), 'WEBP', lossless=True, method=6)
+        print(name, photo.size)
+
 with Image.open(source / 'WhatsApp Image 2026-10-04 at 18.06.50.jpeg') as opened:
     label = ImageOps.exif_transpose(opened).convert('RGB')
     w, h = label.size

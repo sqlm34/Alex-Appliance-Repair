@@ -50,7 +50,9 @@ assert 'View Fishers service coverage' not in html
 assert 'M43362347' not in html
 assert 'good condition and retained' in html
 photos = [(a['src'].lstrip('/'), a) for t, a in page.tags if t == 'img' and 'whirlpool-dryer-westfield/' in a.get('src', '')]
-assert len(photos) == 12
+assert len(photos) == 16
+for name in ('cabinet-idler-parts-diagram', 'drum-roller-parts-diagram', 'idler-pulley-reference', 'support-roller-reference'):
+    assert any(name + '.webp' in p for p, _ in photos), name
 assert any('model-label.webp' in p for p, _ in photos)
 for source, attrs in photos:
     assert attrs.get('alt')
@@ -65,7 +67,7 @@ for filename in ('blog.html', 'recent-work.html', 'westfield.html'):
     assert relative in (root / filename).read_text(encoding='utf-8')
 for filename in ('sitemap.xml', 'sitemap-images.xml'):
     assert len(ET.parse(root / filename).findall('.//{*}loc[.="' + url + '"]')) == 1
-print('PASS: 12 images, dimensions, model crop, metadata, schema, links and sitemaps')
+print('PASS: 16 images including both diagrams and part references, dimensions, model crop, metadata, schema, links and sitemaps')
 if '--live' in sys.argv:
     files = [relative, 'css/lg-fan-noblesville.css', 'blog.html', 'recent-work.html', 'westfield.html',
              'sitemap.xml', 'sitemap-images.xml'] + [p for p, _ in photos]

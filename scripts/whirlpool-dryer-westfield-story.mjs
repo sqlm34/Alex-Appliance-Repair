@@ -31,7 +31,11 @@ export const whirlpoolDryerStory={
   ['front-support-rollers',1400,1050,'Replacement front drum support rollers on the removed front bulkhead'],
   ['lint-in-front-duct',1200,1600,'Heavy lint accumulation in the removed front internal duct before cleaning'],
   ['front-duct-cleaned',1400,1050,'Removed front internal duct after cleaning during the Whirlpool dryer repair'],
-  ['cabinet-after-cleaning',1200,1600,'Dryer cabinet after vacuuming and cleaning, before drum installation and reassembly']
+  ['cabinet-after-cleaning',1200,1600,'Dryer cabinet after vacuuming and cleaning, before drum installation and reassembly'],
+  ['cabinet-idler-parts-diagram',1700,2221,'Whirlpool WED5800BW0 cabinet diagram with the idler pulley assembly highlighted'],
+  ['drum-roller-parts-diagram',1700,2507,'Whirlpool WED5800BW0 drum diagram with front and rear support roller locations highlighted'],
+  ['idler-pulley-reference',2384,2858,'Supplied reference image of idler pulley assembly W10837240'],
+  ['support-roller-reference',450,450,'Supplied reference image of drum support roller WPW10314173']
  ].map(([name,width,height,caption])=>({src:base+name+'.webp',width,height,caption}))
 };
 
@@ -61,6 +65,15 @@ export function whirlpoolDryerArticle(c,image,esc){
  'The replacement idler pulley was installed beside the existing motor. <strong>The drive belt was inspected, found to be in good condition and retained.</strong> A belt replacement was not part of this repair.',
  'The motor and heating assembly also remained in place. Replacing the rollers and pulley did not require replacing these larger assemblies.'
  ])}
+ ${row(12,'Cabinet Diagram: Idler Pulley Assembly',[
+ 'This supplied <strong>WED5800BW0 cabinet diagram</strong> shows the drive motor and belt-tensioning assembly in relation to the cabinet. The enlarged callout highlights the idler pulley assembly.',
+ 'The diagram provides a parts-location reference alongside the service photographs above. The belt is also shown in the drawing, but it was inspected and retained on this repair.'
+ ])}
+ ${row(13,'Drum Diagram: Front and Rear Support Rollers',[
+ 'The second supplied diagram shows the drum, front bulkhead and rear support. Its callouts highlight the <strong>front and rear drum support rollers</strong>, corresponding to the locations photographed during replacement.',
+ 'The complete drawing is included without cropping the numbered parts or enlarged roller illustration. Open the image to inspect those details.'
+ ])}
+ <section class="repair-story-section"><h2>Idler Pulley and Drum Roller References</h2><p>The supplied parts images identify the idler pulley assembly as <strong>W10837240</strong> and the drum support roller as <strong>WPW10314173</strong>. These are identification references accompanying the diagrams; the installed components are documented in the service photographs above. Match replacement parts to the full appliance identification before ordering.</p>${pair(14,15)}</section>
  <section class="repair-story-section"><h2>Blower Wheel Before and After Cleaning</h2><p>The blower wheel had thick lint deposits on its blades and around its housing. We cleaned the existing wheel and housing rather than replacing the blower. The paired photographs show the heavy buildup before cleaning and the same assembly afterward.</p><p>Some light residue remains visible in the after photograph. The documented work was removal of the accumulated lint, not restoration of every surface to a new appearance.</p>${pair(3,4)}</section>
  <section class="repair-story-section"><h2>Clearing Lint From the Internal Duct</h2><p>The removed front duct also contained a substantial accumulation of lint. We cleaned this internal passage while the dryer was apart. These are components inside the appliance; this visit does not document cleaning the entire household exhaust duct.</p>${pair(9,10)}</section>
  ${row(11,'Interior Cleaning, Reassembly and Testing',[
