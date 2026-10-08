@@ -17,6 +17,7 @@ import { whirlpoolWaterStory, whirlpoolWaterArticle } from './whirlpool-water-we
 import { lgNoiseStory, lgNoiseArticle } from './lg-dryer-noblesville-story.mjs';
 import { whirlpoolDryerStory, whirlpoolDryerArticle } from './whirlpool-dryer-westfield-story.mjs';
 import { maytagDryerStory, maytagDryerArticle } from './maytag-dryer-mccordsville-story.mjs';
+import { lgDrainStory, lgDrainArticle } from './lg-wm4270hva-carmel-story.mjs';
 import { story as lgRangeStory, paragraphs as lgRangeParagraphs, lgRangeArticle } from './lg-range-story.mjs';
 import { rebuildSitemaps } from './rebuild-sitemaps.mjs';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -42,7 +43,7 @@ function rootAssets(html){return html.replace(/\b(href|src)="([^"#]+)"/g,(all,at
 const cta='<section class="local-cta"><div class="local-shell"><h2>Need help with your appliance?</h2><p>Tell us the appliance, symptom and service address. We explain the diagnosis and estimate before approved repair work.</p><div class="local-actions"><a class="local-button" href="https://aleksappliancerepair.com/booking">Book service online</a><a class="local-button local-button--secondary" href="tel:+14632488429">Call (463) 248-8429</a></div></div></section>';
 export function buildRepairCases(){
  const storedCases=JSON.parse(fs.readFileSync(path.join(ROOT,'scripts/repair-cases.json'),'utf8'));
- const cases=[maytagDryerStory,whirlpoolDryerStory,lgNoiseStory,whirlpoolWaterStory,lgFanStory,lgSwitchStory,carmelFridgeStory,geDryerStory,drawerStory,fridgeStory,samsungStory,washerStory,lgRangeStory,...storedCases];
+ const cases=[lgDrainStory,maytagDryerStory,whirlpoolDryerStory,lgNoiseStory,whirlpoolWaterStory,lgFanStory,lgSwitchStory,carmelFridgeStory,geDryerStory,drawerStory,fridgeStory,samsungStory,washerStory,lgRangeStory,...storedCases];
  cases.sort((a,b)=>b.published.localeCompare(a.published));
  const editorialStories=new Map([[washerStory.slug,washerArticle],[fishersSlug,fishersArticle],[lgDryerSlug,lgDryerArticle],[lgRangeStory.slug,lgRangeArticle],[cafeSlug,cafeArticle]]);
  notes[lgRangeStory.slug]=lgRangeParagraphs;
@@ -57,6 +58,7 @@ export function buildRepairCases(){
  editorialStories.set(lgNoiseStory.slug,lgNoiseArticle);
  editorialStories.set(whirlpoolDryerStory.slug,whirlpoolDryerArticle);
  editorialStories.set(maytagDryerStory.slug,maytagDryerArticle);
+ editorialStories.set(lgDrainStory.slug,lgDrainArticle);
  const seen=new Set();
  for(const c of cases){
   if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(c.slug)||seen.has(c.slug))throw Error('Invalid/duplicate case slug');seen.add(c.slug);

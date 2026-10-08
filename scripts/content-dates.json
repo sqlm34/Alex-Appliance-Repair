@@ -1,4 +1,5 @@
 {
+  "carmel.html": "2026-10-08",
   "10-warning-signs-your-refrigerator.html": "2026-09-09",
   "about.html": "2026-09-09",
   "carmel/cooktop-repair-services.html": "2026-09-09",
@@ -82,7 +83,7 @@
   "brands/miele-appliance-repair.html": "2026-09-09",
   "brands/samsung-appliance-repair.html": "2026-09-17",
   "brands/sharp-appliance-repair.html": "2026-09-09",
-  "recent-work.html": "2026-10-05",
+  "recent-work.html": "2026-10-08",
   "brands/smeg-appliance-repair.html": "2026-09-09",
   "brands/speed-queen-appliance-repair.html": "2026-09-09",
   "brands/sub-zero-appliance-repair.html": "2026-09-09",
@@ -90,7 +91,7 @@
   "brands/viking-appliance-repair.html": "2026-09-09",
   "brands/whirlpool-appliance-repair.html": "2026-09-09",
   "brands/wolf-appliance-repair.html": "2026-09-09",
-  "blog.html": "2026-10-05",
+  "blog.html": "2026-10-08",
   "repair-cases/carmel-dryer-gas-valve-coils.html": "2026-09-09",
   "repair-cases/carmel-freezer-evaporator-fan.html": "2026-09-09",
   "repair-cases/carmel-dishwasher-fill-funnel.html": "2026-09-09",
@@ -123,5 +124,6 @@
   "repair-cases/westfield-whirlpool-wrs588fihz00-water-leak-frozen-fill-tube.html": "2026-10-03",
   "repair-cases/noblesville-lg-dlex4200b-dryer-squeaking-rollers-idler-pulley.html": "2026-10-04",
   "repair-cases/westfield-whirlpool-wed5800bw0-dryer-noise-rollers-idler-pulley.html": "2026-10-05",
-  "repair-cases/mccordsville-maytag-medb835dc4-dryer-rollers-idler-repair.html": "2026-10-05"
+  "repair-cases/mccordsville-maytag-medb835dc4-dryer-rollers-idler-repair.html": "2026-10-05",
+  "repair-cases/carmel-lg-wm4270hva-washer-not-draining-noisy-drain-pump.html": "2026-10-08"
 }
