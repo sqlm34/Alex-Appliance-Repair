@@ -15,6 +15,10 @@ photos = [
     ('12.08.19 (3)', 'removed-pump-assembly'),
     ('12.08.20', 'pump-reinstalled'),
     ('12.08.21 (1)', 'washer-reassembled'),
+    ('12.08.20 (1)', 'dryer-flex-pipe-removed'),
+    ('12.08.20 (3)', 'dryer-flex-pipe-replaced'),
+    ('12.08.20 (4)', 'dryer-flex-pipe-wall-connection'),
+    ('12.08.21', 'dryer-flex-pipe-dryer-connection'),
 ]
 for stamp, name in photos:
     with Image.open(source / f'WhatsApp Image 2026-10-08 at {stamp}.jpeg') as opened:

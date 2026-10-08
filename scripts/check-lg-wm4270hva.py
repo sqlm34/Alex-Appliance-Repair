@@ -51,7 +51,10 @@ for excluded in ('412PNUR10934', '4681EA2001T'):
 body = html.split('<article class="case-body editorial-story">')[1].split('</article>')[0]
 assert body.index('drain-pump-diagram.webp') < body.index('wm4270hva-model.webp') < body.index('washer-before.webp')
 photos = [a for t, a in Page(body).tags if t == 'img']
-assert len(photos) == 11
+assert len(photos) == 15
+assert 'id="dryer-flex-pipe"' in body
+assert 'old hose was torn' in body
+assert 'separate work on the dryer' in body
 assert photos[0].get('fetchpriority') == 'high'
 photo_paths = []
 for a in photos:
@@ -69,7 +72,7 @@ for filename in ('blog.html', 'recent-work.html', 'carmel.html'):
     assert relative in (root / filename).read_text(encoding='utf-8')
 for filename in ('sitemap.xml', 'sitemap-images.xml'):
     assert len(ET.parse(root / filename).findall('.//{*}loc[.="' + url + '"]')) == 1
-print('PASS: 11 images, top diagram, model crop dimensions, metadata, schema, links and sitemaps')
+print('PASS: 15 images, dryer hose replacement section, top diagram, model crop dimensions, metadata, schema, links and sitemaps')
 if '--live' in sys.argv:
     files = [relative, 'blog.html', 'recent-work.html', 'carmel.html', 'sitemap.xml', 'sitemap-images.xml'] + photo_paths
     for filename in files:
