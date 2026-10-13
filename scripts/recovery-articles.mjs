@@ -1,7 +1,7 @@
 // Editorial source for the existing guides. Keep their URLs and search intent.
 export const articles = {
   'keeping-your-home-running-smoothly-why-choose-a-local-appliance-repair-expert.html': {
-    lead: 'Questions to ask before booking appliance repair: diagnosis, estimates, model support, scheduling and warranty terms.',
+    lead: 'Questions to ask before booking appliance repair: diagnosis, estimates, model support, scheduling and repair details.',
     body: `<p>Choosing a repair company is easier when you can compare what the visit includes. A promise of fast service does not tell you whether the provider supports your model, how the diagnostic fee works or what happens if parts are needed. Use these questions before booking service in Carmel or a nearby community.</p>
 <h2>Start with the appliance and the problem</h2>
 <p>Give the company the appliance type, brand, model number if accessible, and the symptom. “The washer fills but stops before draining” is more useful than “the washer is broken.” Include an error code and say whether the problem is constant or intermittent. For built-in or stacked equipment, mention the installation before the visit.</p>
@@ -12,9 +12,9 @@ export const articles = {
 <h2>Compare the evidence, not just the claims</h2>
 <p>Look for identifiable business contact details, reviews you can trace to their original source, and examples showing actual work. A repair photo is most useful when it explains which appliance was involved and what work it documents. Ask about qualifications or insurance that matter to your job and request confirmation rather than relying on a general badge.</p>
 <p>Alex Appliance Repair is operated by Aksenov LLC. Our <a href="https://alex-repair.com/recent-work.html">repair gallery</a> includes documented dishwasher, laundry and refrigeration work. Each example identifies its published service area; it is not a promise that your appliance has the same fault.</p>
-<h2>Confirm the appointment and warranty</h2>
+<h2>Confirm the appointment and repair details</h2>
 <p>Ask for the available arrival window for your address. Same-day or next-day appointments may be available, depending on the schedule, appliance and parts. Confirm access arrangements, especially for stacked laundry, built-in units or equipment that cannot safely be moved.</p>
-<p>Completed repairs include a 12-month parts and labor warranty under the applicable service terms. Before approving work, ask what the warranty covers for the specific repair, what exclusions apply and how to request follow-up service. Keep the estimate and repair documentation.</p>
+<p>We approach each repair with care, explain the work performed and check the appliance after service. Before approving work, ask what the repair involves, which checks will be performed and how to contact us with questions afterward. Keep the estimate and repair documentation.</p>
 <h2>Ready to request a visit?</h2>
 <p>Use the <a href="https://alex-repair.com/carmel.html">Carmel appliance repair page</a> for local coverage and services, or <a href="https://alex-repair.com/locations.html">find your service area</a>. Have the symptom, service address and accessible model information ready. If there is a burning smell, active leak or other immediate hazard, stop using the appliance and address safety before scheduling routine service.</p>`
   },
@@ -32,8 +32,8 @@ export const articles = {
 <p>Ask for the diagnostic fee and an estimate before approving work. Consider the appliance's condition, the proposed repair, parts availability and the complete cost of a suitable replacement. For installed units, account for fitting, removal and compatible trim as well as the purchase price. There is no single repair-cost percentage that makes the right decision for every appliance.</p>
 <p>If the unit may be covered by a manufacturer warranty, check the warranty service route first. Alex Appliance Repair provides independent service; model and parts support should be confirmed before scheduling repair work.</p>
 <h2>Questions to ask before the visit</h2>
-<ul><li>Do you evaluate this model and installation type?</li><li>What does the service call include?</li><li>Will you explain the diagnosis and estimate before repair approval?</li><li>What warranty applies to the completed work?</li><li>What appointment window is available for my address?</li></ul>
-<p>Our service call is $89 and is waived when the quoted repair is completed. Completed repairs include a 12-month parts and labor warranty under the service terms. Same-day or next-day availability depends on the schedule and parts; emergency arrival is not promised.</p>
+<ul><li>Do you evaluate this model and installation type?</li><li>What does the service call include?</li><li>Will you explain the diagnosis and estimate before repair approval?</li><li>What checks are performed after the repair?</li><li>What appointment window is available for my address?</li></ul>
+<p>Our service call is $89 and is waived when the quoted repair is completed. We approach each repair with care, explain the work performed and check the appliance after service. Same-day or next-day availability depends on the schedule and parts; emergency arrival is not promised.</p>
 <p>See <a href="https://alex-repair.com/carmel/microwave-repair-services.html">microwave repair in Carmel</a> for service details, or <a href="https://alex-repair.com/locations.html">choose another service area</a>. Share the installation, model if available and a short symptom description when booking.</p>`
   },
   'keeping-your-cool-why-timely-refrigerator-repair-is-crucial-in-carmel.html': {
@@ -52,7 +52,7 @@ export const articles = {
 <p>Share the brand, accessible model number, address and symptom. Mention a built-in or panel-ready installation and any access restrictions. Leave moving heavy appliances and accessing electrical or water connections to the service provider when doing so would be unsafe.</p>
 <p>For <a href="https://alex-repair.com/carmel/refrigerator-repair-services.html">refrigerator repair in Carmel</a>, the service call is $89, waived when the quoted repair is completed. You receive the diagnosis and estimate before approving work. Same-day or next-day appointments may be available subject to scheduling and parts.</p>
 <h2>After a repair</h2>
-<p>Ask which operating checks were completed and what to observe afterward. Temperature recovery depends on the appliance, the work and conditions; follow the technician's and manufacturer's instructions. Keep your repair documentation and contact the provider if the reported issue returns. Completed repairs include a 12-month parts and labor warranty under the applicable service terms.</p>`
+<p>Ask which operating checks were completed and what to observe afterward. Temperature recovery depends on the appliance, the work and conditions; follow the technician's and manufacturer's instructions. Keep your repair documentation and contact the provider if the reported issue returns. We approach each repair with care, explain the work performed and check the appliance after service.</p>`
   },
   'signs-your-dryer-needs-repairs-before-it-breaks-down.html': {
     lead: 'Distinguish changes in drying time, heat, noise and drum movement, with safe preparation steps before a repair visit.',
