@@ -45,12 +45,12 @@
   <url>
     <loc>https://alex-repair.com/blog.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/repair-room.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/samsung-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-wtw5057-fishers/whirlpool-washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dv400-fishers/dryer-before.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm9000hva-noblesville/washer-reassembled.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm4270hva-carmel/washer-before.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/maytag-tested.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/whirlpool-cabrio-service-visit.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/overworking-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair-carmel.webp</image:loc></image:image>
@@ -596,6 +596,7 @@
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/samsung-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-wtw5057-fishers/whirlpool-washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dv400-fishers/dryer-before.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm9000hva-noblesville/washer-reassembled.webp</image:loc></image:image>
@@ -813,7 +814,7 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dishwasher-leak-fishers/installed-circulation-pump-seal.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-dishwasher-fill-funnel.jpeg</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/bosch-dishwasher-pump-01.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-wtw5057-fishers/whirlpool-washer.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/samsung-dryer.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/repair-cases/lg-dle3400w-dryer-thermostat-vent-repair-fishers-indiana.html</loc>
@@ -830,9 +831,9 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/crushed-dryer-exhaust-duct.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/dryer-exhaust-duct-secured-with-clamp.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle3400w-dryer-thermostat-fishers/lg-dryer-reassembled-internal-components.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/samsung-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dv400-fishers/dryer-before.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-dryer-mccordsville/maytag-tested.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-dryer-westfield/whirlpool-cabrio-service-visit.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/repair-cases/carmel-cafe-cve28dp2njs1-freezer-drain.html</loc>
@@ -1141,6 +1142,27 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-wtw5057-fishers/drive-cover-reinstalled.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/samsung-washer-valve-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-washer-suspension-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-repair.com/repair-cases/fishers-samsung-dve50r5200w-dryer-not-heating-element-replacement.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/heater-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/samsung-dryer.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/model-label.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/front-panel-removed.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/cabinet-before-cleaning.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/heater-diagnostic-access.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/broken-heating-coil.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/drive-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/worn-idler-pulley.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/replacement-idler-installed.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/lint-duct-before-cleaning.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/lint-duct-after-cleaning.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/cabinet-after-cleaning.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/replacement-heating-element.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/heater-housing-reassembled.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-dryer-gas-valve-coil-repair-open-dryer.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
   </url>
 </urlset>

@@ -83,7 +83,7 @@
   "brands/miele-appliance-repair.html": "2026-10-13",
   "brands/samsung-appliance-repair.html": "2026-10-13",
   "brands/sharp-appliance-repair.html": "2026-10-13",
-  "recent-work.html": "2026-10-13",
+  "recent-work.html": "2026-10-14",
   "brands/smeg-appliance-repair.html": "2026-10-13",
   "brands/speed-queen-appliance-repair.html": "2026-10-13",
   "brands/sub-zero-appliance-repair.html": "2026-10-13",
@@ -91,7 +91,7 @@
   "brands/viking-appliance-repair.html": "2026-10-13",
   "brands/whirlpool-appliance-repair.html": "2026-10-13",
   "brands/wolf-appliance-repair.html": "2026-10-13",
-  "blog.html": "2026-10-13",
+  "blog.html": "2026-10-14",
   "repair-cases/carmel-dryer-gas-valve-coils.html": "2026-09-09",
   "repair-cases/carmel-freezer-evaporator-fan.html": "2026-09-09",
   "repair-cases/carmel-dishwasher-fill-funnel.html": "2026-09-09",
@@ -348,5 +348,6 @@
   "zionsville/viking-appliance-repair.html": "2026-10-13",
   "zionsville/whirlpool-appliance-repair.html": "2026-10-13",
   "zionsville/wolf-appliance-repair.html": "2026-10-13",
-  "repair-cases/fishers-whirlpool-wtw5057lw0-washer-not-spinning-capacitor-replacement.html": "2026-10-13"
+  "repair-cases/fishers-whirlpool-wtw5057lw0-washer-not-spinning-capacitor-replacement.html": "2026-10-13",
+  "repair-cases/fishers-samsung-dve50r5200w-dryer-not-heating-element-replacement.html": "2026-10-14"
 }
