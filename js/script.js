@@ -793,6 +793,50 @@ document.addEventListener('DOMContentLoaded', () => {
 		const previousButton = lightbox.querySelector('.native-lightbox-prev');
 		const nextButton = lightbox.querySelector('.native-lightbox-next');
 		let activeIndex = 0;
+		let scrollLock = null;
+
+		function lockPageScroll() {
+			if (scrollLock) return;
+			const root = document.documentElement;
+			const body = document.body;
+			const gap = window.innerWidth - root.clientWidth;
+			const padding = parseFloat(window.getComputedStyle(body).paddingRight) || 0;
+			const properties = [
+				[root, ['overflow', 'scroll-behavior']],
+				[body, ['position', 'top', 'left', 'width', 'overflow', 'padding-right']]
+			];
+			scrollLock = {
+				x: window.scrollX, y: window.scrollY, focus: document.activeElement,
+				styles: properties.flatMap(([element, names]) => names.map(name => ({
+					element, name, value: element.style.getPropertyValue(name),
+					priority: element.style.getPropertyPriority(name)
+				})))
+			};
+			// Fix the document at its current position, including on touch browsers.
+			root.style.setProperty('overflow', 'hidden', 'important');
+			root.style.setProperty('scroll-behavior', 'auto', 'important');
+			body.style.setProperty('position', 'fixed', 'important');
+			body.style.setProperty('top', `${-scrollLock.y}px`, 'important');
+			body.style.setProperty('left', `${-scrollLock.x}px`, 'important');
+			body.style.setProperty('width', '100%', 'important');
+			body.style.setProperty('overflow', 'hidden', 'important');
+			body.style.setProperty('padding-right', `${padding + gap}px`, 'important');
+			closeButton.focus({ preventScroll: true });
+		}
+
+		function unlockPageScroll() {
+			if (!scrollLock) return;
+			const saved = scrollLock;
+			scrollLock = null;
+			const restore = ({element, name, value, priority}) => {
+				if (value) element.style.setProperty(name, value, priority);
+				else element.style.removeProperty(name);
+			};
+			saved.styles.filter(item => item.name !== 'scroll-behavior').forEach(restore);
+			window.scrollTo({ left: saved.x, top: saved.y, behavior: 'instant' });
+			saved.styles.filter(item => item.name === 'scroll-behavior').forEach(restore);
+			if (saved.focus && saved.focus.isConnected) saved.focus.focus({ preventScroll: true });
+		}
 
 		function showImage(index) {
 			activeIndex = (index + galleryLinks.length) % galleryLinks.length;
@@ -801,12 +845,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			preview.src = link.dataset.gallerySrc || link.getAttribute('href');
 			preview.alt = image ? image.alt : 'Gallery image';
 			lightbox.classList.add('is-open');
-			document.body.style.overflow = 'hidden';
+			lockPageScroll();
 		}
 
 		function closeLightbox() {
 			lightbox.classList.remove('is-open');
-			document.body.style.overflow = '';
+			unlockPageScroll();
 			preview.src = lightboxPlaceholder;
 			preview.alt = 'Gallery image';
 		}

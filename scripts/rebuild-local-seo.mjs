@@ -470,7 +470,7 @@ function write(relativePath, content) {
     .replace(/[ \t]+$/gm, "")
     .replace(
       /js\/script\.js\?v=[^"']+/g,
-      "js/script.js?v=20260728-location-navigation"
+      "js/script.js?v=20261014-gallery-scroll-lock"
     )
     .replace(
       /css\/style\.css\?v=[^"']+/g,
