@@ -115,7 +115,7 @@ export function buildRepairCases(){
    content=content.replace(/(<article class="case-body editorial-story">[\s\S]*?<\/article>)(<aside class="case-summary">[\s\S]*?<\/aside>)/, '$2$1');
    content=content.replace(/(<article class="case-body editorial-story">[\s\S]*?<\/article>)(<aside class="case-summary case-summary--with-image">[\s\S]*?<\/aside>)/, '$2$1');
   }
-  let page=shell.replace(/<main\b[\s\S]*?<\/main>/,content).replace(/\/js\/script\.js\?v=[^"']+/g,'/js/script.js?v=20261014-gallery-scroll-lock');
+  let page=shell.replace(/<main\b[\s\S]*?<\/main>/,content).replace(/\/js\/script\.js\?v=[^"']+/g,'/js/script.js?v=20261014-all-gallery-scroll-lock');
   page=metadata(styleLink(page),{name:c.seoTitle||title(c)+' | Alex Appliance Repair',description:c.description||c.summary,page:url(c),imageUrl:BASE+c.photos[0].src,type:'article',schema});
   if(editorialStories.has(c.slug)) {
    const editorialStyleVersion=c.slug===lgSwitchStory.slug||c.slug===carmelFridgeStory.slug||c.slug===geDryerStory.slug||c.slug===drawerStory.slug||c.slug===fridgeStory.slug||c.slug===samsungStory.slug||c.slug===cafeSlug||c.slug===washerStory.slug?'20260916-cafe-aligned':c.slug===fishersSlug?'20260911-highlighted-seal':'20260913-lg-dryer';

@@ -1,3 +1,54 @@
+// All photo viewers use the same position-preserving document lock.
+window.createGalleryScrollLock = function (focusTarget) {
+	let saved = null;
+	const preventBackgroundScroll = event => {
+		// Preserve pinch zoom while blocking wheel and one-finger page scrolling.
+		if (event.ctrlKey || (event.touches && event.touches.length !== 1)) return;
+		if (event.cancelable) event.preventDefault();
+	};
+	return {
+		lock() {
+			if (saved) return;
+			const root = document.documentElement;
+			const body = document.body;
+			const gap = window.innerWidth - root.clientWidth;
+			const padding = parseFloat(window.getComputedStyle(body).paddingRight) || 0;
+			saved = {
+				x: window.scrollX, y: window.scrollY, focus: document.activeElement,
+				styles: [[root, ['overflow', 'scroll-behavior']], [body, ['position', 'top', 'left', 'width', 'overflow', 'padding-right']]]
+					.flatMap(([element, names]) => names.map(name => ({element, name,
+						value: element.style.getPropertyValue(name), priority: element.style.getPropertyPriority(name)})))
+			};
+			root.style.setProperty('overflow', 'hidden', 'important');
+			root.style.setProperty('scroll-behavior', 'auto', 'important');
+			body.style.setProperty('position', 'fixed', 'important');
+			body.style.setProperty('top', `${-saved.y}px`, 'important');
+			body.style.setProperty('left', `${-saved.x}px`, 'important');
+			body.style.setProperty('width', '100%', 'important');
+			body.style.setProperty('overflow', 'hidden', 'important');
+			body.style.setProperty('padding-right', `${padding + gap}px`, 'important');
+			document.addEventListener('wheel', preventBackgroundScroll, { passive: false, capture: true });
+			document.addEventListener('touchmove', preventBackgroundScroll, { passive: false, capture: true });
+			focusTarget?.focus({ preventScroll: true });
+		},
+		unlock() {
+			if (!saved) return;
+			const state = saved;
+			saved = null;
+			document.removeEventListener('wheel', preventBackgroundScroll, true);
+			document.removeEventListener('touchmove', preventBackgroundScroll, true);
+			const restore = ({element, name, value, priority}) => {
+				if (value) element.style.setProperty(name, value, priority);
+				else element.style.removeProperty(name);
+			};
+			state.styles.filter(item => item.name !== 'scroll-behavior').forEach(restore);
+			window.scrollTo({ left: state.x, top: state.y, behavior: 'instant' });
+			state.styles.filter(item => item.name === 'scroll-behavior').forEach(restore);
+			if (state.focus?.isConnected) state.focus.focus({ preventScroll: true });
+		}
+	};
+};
+
 document.addEventListener('DOMContentLoaded', () => {
 
 	// Copyright year range START
@@ -793,50 +844,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const previousButton = lightbox.querySelector('.native-lightbox-prev');
 		const nextButton = lightbox.querySelector('.native-lightbox-next');
 		let activeIndex = 0;
-		let scrollLock = null;
-
-		function lockPageScroll() {
-			if (scrollLock) return;
-			const root = document.documentElement;
-			const body = document.body;
-			const gap = window.innerWidth - root.clientWidth;
-			const padding = parseFloat(window.getComputedStyle(body).paddingRight) || 0;
-			const properties = [
-				[root, ['overflow', 'scroll-behavior']],
-				[body, ['position', 'top', 'left', 'width', 'overflow', 'padding-right']]
-			];
-			scrollLock = {
-				x: window.scrollX, y: window.scrollY, focus: document.activeElement,
-				styles: properties.flatMap(([element, names]) => names.map(name => ({
-					element, name, value: element.style.getPropertyValue(name),
-					priority: element.style.getPropertyPriority(name)
-				})))
-			};
-			// Fix the document at its current position, including on touch browsers.
-			root.style.setProperty('overflow', 'hidden', 'important');
-			root.style.setProperty('scroll-behavior', 'auto', 'important');
-			body.style.setProperty('position', 'fixed', 'important');
-			body.style.setProperty('top', `${-scrollLock.y}px`, 'important');
-			body.style.setProperty('left', `${-scrollLock.x}px`, 'important');
-			body.style.setProperty('width', '100%', 'important');
-			body.style.setProperty('overflow', 'hidden', 'important');
-			body.style.setProperty('padding-right', `${padding + gap}px`, 'important');
-			closeButton.focus({ preventScroll: true });
-		}
-
-		function unlockPageScroll() {
-			if (!scrollLock) return;
-			const saved = scrollLock;
-			scrollLock = null;
-			const restore = ({element, name, value, priority}) => {
-				if (value) element.style.setProperty(name, value, priority);
-				else element.style.removeProperty(name);
-			};
-			saved.styles.filter(item => item.name !== 'scroll-behavior').forEach(restore);
-			window.scrollTo({ left: saved.x, top: saved.y, behavior: 'instant' });
-			saved.styles.filter(item => item.name === 'scroll-behavior').forEach(restore);
-			if (saved.focus && saved.focus.isConnected) saved.focus.focus({ preventScroll: true });
-		}
+		const pageScroll = window.createGalleryScrollLock(closeButton);
 
 		function showImage(index) {
 			activeIndex = (index + galleryLinks.length) % galleryLinks.length;
@@ -845,12 +853,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			preview.src = link.dataset.gallerySrc || link.getAttribute('href');
 			preview.alt = image ? image.alt : 'Gallery image';
 			lightbox.classList.add('is-open');
-			lockPageScroll();
+			pageScroll.lock();
 		}
 
 		function closeLightbox() {
 			lightbox.classList.remove('is-open');
-			unlockPageScroll();
+			pageScroll.unlock();
 			preview.src = lightboxPlaceholder;
 			preview.alt = 'Gallery image';
 		}
@@ -1036,6 +1044,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		const closeGalleryButton = galleryModal.querySelector('.carmel-gallery-close');
 		const previousGalleryButton = galleryModal.querySelector('.carmel-gallery-prev');
 		const nextGalleryButton = galleryModal.querySelector('.carmel-gallery-next');
+		const pageScroll = window.createGalleryScrollLock(closeGalleryButton);
 
 		carmelGalleryCards.forEach((card, index) => {
 			const cardLink = carmelGalleryLinks[index];
@@ -1069,6 +1078,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			if (carmelRepairsSlider) carmelRepairsSlider.scrollLeft = 0;
 			showGalleryImage(index);
 			galleryModal.classList.add('is-open');
+			pageScroll.lock();
 			document.body.classList.add('carmel-gallery-open');
 			closeGalleryButton.focus({ preventScroll: true });
 		}
@@ -1076,6 +1086,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		function closeGallery() {
 			galleryModal.classList.remove('is-open');
 			document.body.classList.remove('carmel-gallery-open');
+			pageScroll.unlock();
 			galleryImage.removeAttribute('src');
 			if (carmelRepairsSlider) carmelRepairsSlider.scrollLeft = 0;
 		}
@@ -1116,11 +1127,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	//Magnific-popup START//
 	if (typeof window.jQuery !== 'undefined' && typeof window.jQuery.fn.magnificPopup !== 'undefined') {
+		const popupScroll = window.createGalleryScrollLock();
+		const popupOptions = {
+			fixedContentPos: true,
+			fixedBgPos: true,
+			callbacks: { beforeOpen: () => popupScroll.lock(), afterClose: () => popupScroll.unlock() }
+		};
 		window.jQuery('.magnific-iframe').magnificPopup({
+			...popupOptions,
 			type: 'iframe',
 		});
 
 		window.jQuery('.magnific-image').magnificPopup({
+			...popupOptions,
 			type: 'image',
 			mainClass: 'mfp-with-zoom',
 			zoom: {

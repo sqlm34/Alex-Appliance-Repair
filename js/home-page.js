@@ -88,6 +88,8 @@
   const closeGalleryButton = galleryModal.querySelector('.home-gallery-close');
   const previousGalleryButton = galleryModal.querySelector('.home-gallery-prev');
   const nextGalleryButton = galleryModal.querySelector('.home-gallery-next');
+  const pageScroll = window.createGalleryScrollLock(closeGalleryButton);
+  let closeTimer = null;
 
   function parseArray(value) {
     try {
@@ -122,14 +124,16 @@
     galleryTitle = card.dataset.title || 'Completed appliance repair';
     galleryIndex = Number.parseInt(card.dataset.startIndex || '0', 10);
     returnFocus = card;
+    window.clearTimeout(closeTimer);
     galleryModal.hidden = false;
+    pageScroll.lock();
     document.documentElement.classList.add('home-gallery-open');
     document.body.classList.add('home-gallery-open');
     showGalleryImage(Number.isFinite(galleryIndex) ? galleryIndex : 0);
 
     window.requestAnimationFrame(function () {
       galleryModal.classList.add('is-open');
-      closeGalleryButton.focus();
+      closeGalleryButton.focus({ preventScroll: true });
     });
   }
 
@@ -138,10 +142,12 @@
     document.documentElement.classList.remove('home-gallery-open');
     document.body.classList.remove('home-gallery-open');
 
-    window.setTimeout(function () {
+    window.clearTimeout(closeTimer);
+    closeTimer = window.setTimeout(function () {
       galleryModal.hidden = true;
       galleryImage.removeAttribute('src');
-      if (returnFocus) returnFocus.focus();
+      pageScroll.unlock();
+      if (returnFocus) returnFocus.focus({ preventScroll: true });
     }, 180);
   }
 
