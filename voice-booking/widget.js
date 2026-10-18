@@ -47,9 +47,18 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
         const Audio = window.AudioContext || window.webkitAudioContext
         if (!Audio) return
         audioContext = new Audio()
-        keyBuffer = audioContext.createBuffer(1, Math.ceil(audioContext.sampleRate * 0.018), audioContext.sampleRate)
+        keyBuffer = audioContext.createBuffer(1, Math.ceil(audioContext.sampleRate * 0.085), audioContext.sampleRate)
         const samples = keyBuffer.getChannelData(0)
-        for (let i = 0; i < samples.length; i++) samples[i] = (Math.random() * 2 - 1) * Math.exp(-i / (samples.length / 5))
+        // Key bottom-out, muted body resonance, then a softer release tap.
+        let noise = 0
+        for (let i = 0; i < samples.length; i++) {
+          const t = i / audioContext.sampleRate
+          noise = noise * 0.72 + (Math.random() * 2 - 1) * 0.28
+          const release = Math.max(0, t - 0.033)
+          samples[i] = 0.65 * noise * Math.exp(-t * 160)
+            + 0.25 * Math.sin(2 * Math.PI * 240 * t) * Math.exp(-t * 95)
+            + (t > 0.033 ? 0.32 * noise * Math.exp(-release * 200) : 0)
+        }
       }
       void audioContext.resume().catch(() => {})
     } catch { /* Audio must not prevent a voice call. */ }
@@ -62,8 +71,8 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
     const source = audioContext.createBufferSource(), gain = audioContext.createGain(), filter = audioContext.createBiquadFilter()
     source.buffer = keyBuffer
     source.playbackRate.value = 0.9 + Math.random() * 0.2
-    filter.type = 'bandpass'; filter.frequency.value = 1800; filter.Q.value = 0.7
-    gain.gain.value = 0.09
+    filter.type = 'lowpass'; filter.frequency.value = 1300; filter.Q.value = 0.5
+    gain.gain.value = 0.24 + Math.random() * 0.06
     source.connect(filter).connect(gain).connect(audioContext.destination)
     source.onended = () => { source.disconnect(); filter.disconnect(); gain.disconnect() }
     source.start()
