@@ -23,3 +23,13 @@
 .voice-verification { margin: 12px 0; max-width: 100%; }
 .mobile-menu-open .voice-booking:not(.voice-active),.home-gallery-open .voice-booking:not(.voice-active) { visibility: hidden; }
 @media (max-width: 575px) { .voice-booking { --voice-edge: 18px; --voice-size: 46px; } .voice-panel { padding: 16px; } }
+.voice-confirmation { border: 1px solid #d8e1e3; border-radius: 8px; padding: 32px 24px 24px; width: min(460px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow: auto; box-sizing: border-box; color: #193e4a; background: #fff; font-family: inherit; }
+.voice-confirmation::backdrop { background: #102d4280; }
+.voice-confirmation h2 { font-size: 22px; line-height: 1.4; padding-right: 32px; margin: 0 0 18px; }
+.voice-confirmation p { font-size: 15px; line-height: 1.6; margin: 16px 0; }
+.voice-confirm-close { position: absolute; right: 10px; top: 10px; width: 44px; height: 44px; display: grid; place-items: center; border: 0; background: transparent; cursor: pointer; color: inherit; }
+.voice-confirmation svg { width: 22px; height: 22px; flex-shrink: 0; }
+.voice-confirm-actions { display: grid; gap: 12px; margin-top: 22px; }
+.voice-confirm-actions a { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; border-radius: 6px; border: 1px solid #cbd9dd; color: #193e4a; font-size: 14px; text-decoration: none; }
+.voice-confirm-actions .voice-calendar { background: #ffce00; }
+.voice-confirmation .voice-confirm-note { font-size: 12px; color: #52676e; }
