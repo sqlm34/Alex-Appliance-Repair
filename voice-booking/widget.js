@@ -1,4 +1,4 @@
-import { createIcons, Mic, MicOff, PhoneOff, Minus, X, CalendarPlus, Download } from 'lucide'
+import { createIcons, Mic, MicOff, PhoneOff, Minus, X, CalendarPlus, Download, Volume2, VolumeX } from 'lucide'
 
 export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
   const privatePreview = location.origin === 'http://127.0.0.1:5198'
@@ -30,14 +30,56 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
   const order = document.createElement('dialog')
   order.className = 'voice-order'
   order.setAttribute('aria-labelledby', 'voice-order-title')
-  const fields = { appliance: 'Appliance', brand: 'Brand', age: 'Approximate age', issue: 'Problem', customer: 'Name', phone: 'Phone', address: 'Address', zip: 'ZIP code', date: 'Date', window: 'Arrival window' }
-  order.innerHTML = `<header><div><h2 id="voice-order-title">Booking Order</h2><p class="voice-order-state" role="status">Draft · Not booked yet</p></div><button class="voice-order-minimize" aria-label="Minimize booking order" title="Minimize"><i data-lucide="minus"></i></button></header><div class="voice-order-fields">${Object.entries(fields).map(([key, label]) => `<section data-field="${key}"><h3>${label}</h3><p>—</p></section>`).join('')}</div><footer class="voice-order-controls"></footer>`
+  const fields = { appliance: 'Appliance', brand: 'Brand', age: 'Approximate age', zip: 'ZIP code', customer: 'Name', phone: 'Phone', address: 'Address', issue: 'Problem', date: 'Date', window: 'Arrival window' }
+  order.innerHTML = `<header><div><h2 id="voice-order-title">Booking Order</h2><p class="voice-order-state" role="status">Draft · Not booked yet</p></div><div class="voice-order-tools"><button class="voice-typing-sound" aria-label="Typing sound" aria-pressed="true" title="Turn typing sound off"><i data-lucide="volume-2"></i></button><button class="voice-order-minimize" aria-label="Minimize booking order" title="Minimize"><i data-lucide="minus"></i></button></div></header><div class="voice-order-fields">${Object.entries(fields).map(([key, label]) => `<section data-field="${key}"><h3>${label}</h3><p>—</p></section>`).join('')}</div><footer class="voice-order-controls"></footer>`
   root.append(order)
   const minimizeOrder = () => { order.close(); $('.voice-launch').focus() }
   order.querySelector('.voice-order-minimize').onclick = minimizeOrder
   order.addEventListener('cancel', event => { event.preventDefault(); minimizeOrder() })
   let resultToken = '', confirmationTimer, calendarBlob, pollTimer, confirmedResult, shownGeneration = -1
   let draftValues = {}, typingTimers = [], pollSequence = 0
+  let typingSound = true, audioContext, keyBuffer, lastKeyTime = 0
+  try { typingSound = localStorage.getItem('voice-typing-sound') !== 'off' } catch { /* Storage is optional. */ }
+  function prepareTypingAudio() {
+    if (!typingSound) return
+    try {
+      if (!audioContext) {
+        const Audio = window.AudioContext || window.webkitAudioContext
+        if (!Audio) return
+        audioContext = new Audio()
+        keyBuffer = audioContext.createBuffer(1, Math.ceil(audioContext.sampleRate * 0.018), audioContext.sampleRate)
+        const samples = keyBuffer.getChannelData(0)
+        for (let i = 0; i < samples.length; i++) samples[i] = (Math.random() * 2 - 1) * Math.exp(-i / (samples.length / 5))
+      }
+      void audioContext.resume().catch(() => {})
+    } catch { /* Audio must not prevent a voice call. */ }
+  }
+  function keyClick() {
+    if (!typingSound || !busy || !order.open || document.hidden || audioContext?.state !== 'running') return
+    const now = audioContext.currentTime
+    if (now - lastKeyTime < 0.075) return
+    lastKeyTime = now
+    const source = audioContext.createBufferSource(), gain = audioContext.createGain(), filter = audioContext.createBiquadFilter()
+    source.buffer = keyBuffer
+    source.playbackRate.value = 0.9 + Math.random() * 0.2
+    filter.type = 'bandpass'; filter.frequency.value = 1800; filter.Q.value = 0.7
+    gain.gain.value = 0.09
+    source.connect(filter).connect(gain).connect(audioContext.destination)
+    source.onended = () => { source.disconnect(); filter.disconnect(); gain.disconnect() }
+    source.start()
+  }
+  function soundButton() {
+    const button = order.querySelector('.voice-typing-sound')
+    button.setAttribute('aria-pressed', String(typingSound))
+    button.title = typingSound ? 'Turn typing sound off' : 'Turn typing sound on'
+    button.innerHTML = `<i data-lucide="${typingSound ? 'volume-2' : 'volume-x'}"></i>`
+  }
+  soundButton()
+  order.querySelector('.voice-typing-sound').onclick = () => {
+    typingSound = !typingSound
+    try { localStorage.setItem('voice-typing-sound', typingSound ? 'on' : 'off') } catch { /* Optional preference. */ }
+    prepareTypingAudio(); soundButton(); icons()
+  }
   function updateDraft(draft = {}) {
     for (const key of Object.keys(fields)) {
       if (typeof draft[key] !== 'string' || draftValues[key] === draft[key]) continue
@@ -51,6 +93,7 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
       element.typingTimer = setInterval(() => {
         length += Math.max(1, Math.ceil(value.length / 24))
         element.textContent = value.slice(0, length)
+        keyClick()
         if (length >= value.length) clearInterval(element.typingTimer)
       }, 25)
       typingTimers.push(element.typingTimer)
@@ -109,7 +152,7 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
   const panel = $('.voice-panel'), start = $('.voice-start'), status = $('.voice-status'), controls = $('.voice-controls')
   let call, sdk, challenge = '', widgetId, loading, muted = false, busy = false, terminal = false, generation = 0
   const icons = () => {
-    const icons = { Mic, MicOff, PhoneOff, Minus, X, CalendarPlus, Download }
+    const icons = { Mic, MicOff, PhoneOff, Minus, X, CalendarPlus, Download, Volume2, VolumeX }
     createIcons({ icons, root }); createIcons({ icons, root: confirmation })
   }
   icons()
@@ -183,6 +226,7 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
   root.addEventListener('keydown', event => { if (event.key === 'Escape') { panel.hidden = true; $('.voice-launch').focus() } })
   start.onclick = () => {
     if (busy || !sdk || !challenge) return
+    prepareTypingAudio()
     closeConfirmation()
     clearTimeout(pollTimer)
     pollSequence++
@@ -248,6 +292,6 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
     icons()
   }
   $('.voice-end').onclick = () => { void end().catch(() => {}) }
-  window.addEventListener('pagehide', () => { void call?.end().catch(() => {}) })
+  window.addEventListener('pagehide', () => { void call?.end().catch(() => {}); void audioContext?.close().catch(() => {}); audioContext = undefined })
   window.addEventListener('offline', () => { if (busy) void end('Connection lost. Please reconnect and try again.', true).catch(() => {}) })
 }

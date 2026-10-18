@@ -22,6 +22,10 @@ test('live draft, corrections, confirmed calendar, auto-close and unconfirmed ca
     await page.locator('.voice-start').click()
     await page.waitForFunction(() => document.querySelector('[data-field="brand"] p').textContent === 'Bosch')
     assert.equal(await page.locator('.voice-order').isVisible(), true)
+    assert.equal(await page.locator('.voice-order-fields').evaluate(e => e.scrollHeight <= e.clientHeight), true)
+    await page.locator('.voice-typing-sound').click()
+    assert.equal(await page.locator('.voice-typing-sound').getAttribute('aria-pressed'), 'false')
+    assert.equal(await page.evaluate(() => localStorage.getItem('voice-typing-sound')), 'off')
     assert.equal(await page.locator('.voice-confirmation').isHidden(), true)
     result.draft.brand = 'Samsung'
     await page.waitForFunction(() => document.querySelector('[data-field="brand"] p').textContent === 'Samsung')
