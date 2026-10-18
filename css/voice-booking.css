@@ -33,3 +33,15 @@
 .voice-confirm-actions a { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; border-radius: 6px; border: 1px solid #cbd9dd; color: #193e4a; font-size: 14px; text-decoration: none; }
 .voice-confirm-actions .voice-calendar { background: #ffce00; }
 .voice-confirmation .voice-confirm-note { font-size: 12px; color: #52676e; }
+.voice-order { width: min(620px, calc(100vw - 24px)); max-height: calc(100dvh - 32px); padding: 0; border: 1px solid #d8e1e3; border-radius: 8px; color: #193e4a; background: #fff; box-sizing: border-box; overflow: hidden; }
+.voice-order::backdrop { background: #102d4280; }
+.voice-order header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 20px 24px; border-bottom: 1px solid #d8e1e3; background: #f1f7f8; }
+.voice-order h2 { margin: 0; font-size: 23px; line-height: 1.4; }
+.voice-order-state { font-size: 12px; line-height: 1.5; margin: 6px 0 0; }
+.voice-order-minimize { width: 44px; height: 44px; flex-shrink: 0; display: grid; place-items: center; border: 1px solid #cbd9dd; background: #fff; border-radius: 6px; color: inherit; cursor: pointer; }
+.voice-order svg { width: 22px; height: 22px; }
+.voice-order-fields { padding: 0 24px; max-height: calc(100dvh - 250px); overflow-y: auto; overscroll-behavior: contain; }
+.voice-order-fields section { padding: 15px 0; border-bottom: 1px solid #e4eaed; }
+.voice-order-fields h3 { font-size: 12px; line-height: 1.5; color: #52676e; margin: 0 0 5px; }
+.voice-order-fields p { font-size: 16px; line-height: 1.55; margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; min-height: 25px; }
+.voice-order-controls { padding: 14px 24px; border-top: 1px solid #d8e1e3; }
