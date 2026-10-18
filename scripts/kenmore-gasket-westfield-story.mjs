@@ -34,18 +34,20 @@ export const kenmoreGasketStory={
   ['hose-reconnected',1200,1600,'Lower gasket hose reconnected with its clamps in place'],
   ['counterweight-reinstalled',1200,1600,'Front counterweight reinstalled around the new washer door boot'],
   ['finished-door-seal',1200,1600,'Completed gasket replacement with the front panel back in place'],
-  ['washer-testing',1200,1600,'Reassembled Kenmore Elite washer powered on for post-repair testing in Westfield']
+  ['washer-testing',1200,1600,'Reassembled Kenmore Elite washer powered on for post-repair testing in Westfield'],
+  ['gasket-diagram',1226,1800,'Washer assembly diagram with the door gasket highlighted']
  ].map(([name,width,height,caption])=>({src:base+name+'.webp',width,height,caption}))
 };
 
 export function kenmoreGasketArticle(c,image,esc){
  const figure=(i,paired=false)=>{
   const p=c.photos[i];const max=paired?390:Math.min(p.width,520*p.width/p.height);
-  return `<figure class="lg-fan-photo" style="--photo-max:${max}px"><a class="gallery-item" href="/${p.src}">${image(p,i!==0).replace('<img ',`<img style="aspect-ratio:${p.width}/${p.height};object-fit:contain!important" `)}</a><figcaption>${esc(p.caption)}</figcaption></figure>`;
+  return `<figure class="lg-fan-photo" style="--photo-max:${i===15?620:max}px"><a class="gallery-item" href="/${p.src}">${image(p,i!==15).replace('<img ',`<img style="aspect-ratio:${p.width}/${p.height};object-fit:contain!important" `)}</a>${i===15?'':`<figcaption>${esc(p.caption)}</figcaption>`}</figure>`;
  };
  const row=(i,heading,paragraphs)=>`<section class="repair-story-section lg-fan-row${i%2?' lg-fan-row--right':''}">${figure(i)}<div class="lg-fan-copy"><h2>${heading}</h2>${paragraphs.map(p=>`<p>${p}</p>`).join('')}</div></section>`;
  const pair=(a,b)=>`<div class="case-photo-grid lg-fan-pair">${figure(a,true)}${figure(b,true)}</div>`;
  return `<article class="case-body editorial-story">
+ ${figure(15)}
  ${row(0,'Replacing a Worn Door Gasket on an Otherwise Working Washer',[
   'This <strong>Kenmore Elite washer repair in Westfield, Indiana</strong> focused on the condition of the door boot, also called the door gasket or door seal. The homeowner reported that the old rubber had become dirty, rough and stiff, with mold buildup, and requested a new gasket.',
   'The washer\'s other functions were working well. This was not a visit for a reported initial leak or a failed wash cycle. We replaced the gasket, reassembled the appliance and checked it in operation. <strong>No leaks were found during the final test.</strong>'

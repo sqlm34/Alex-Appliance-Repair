@@ -7,6 +7,7 @@ source = Path(sys.argv[1])
 target = Path(__file__).resolve().parents[1] / 'images/repair-cases/kenmore-gasket-westfield'
 target.mkdir(parents=True, exist_ok=True)
 files = [
+    ('gasket-diagram', 'LGE-WM4270HVA_1.jpg'),
     ('old-and-new-gaskets', '545454.jpg'),
     ('model-label', 'WhatsApp Image 2026-10-17 at 10.19.27 (2).jpeg'),
     ('gasket-before', 'WhatsApp Image 2026-10-17 at 10.19.28.jpeg'),

@@ -36,11 +36,13 @@ assert 'noindex' not in meta['robots']
 assert meta['og:url'] == url and meta['og:type'] == 'article'
 assert [a['href'] for t, a in page.tags if t == 'link' and a.get('rel') == 'canonical'] == [url]
 article = next(s for s in page.schemas[0]['@graph'] if s['@type'] == 'BlogPosting')
-assert article['mainEntityOfPage'] == url and len(article['image']) == 15
+assert article['mainEntityOfPage'] == url and len(article['image']) == 16
 assert article['datePublished'] == '2026-10-18'
 body = source.split('<article class="case-body editorial-story">')[1].split('</article>')[0]
 photos = [a for t, a in Page(body).tags if t == 'img']
-assert len(photos) == 15 and photos[0].get('fetchpriority') == 'high'
+assert len(photos) == 16 and photos[0].get('fetchpriority') == 'high'
+assert photos[0]['src'].endswith('/gasket-diagram.webp')
+assert '<figcaption>' not in body.split('</figure>', 1)[0]
 for a in photos:
     assert a['alt'] and 'object-fit:contain' in a['style']
     with Image.open(root / urlparse(urljoin(url, a['src'])).path.lstrip('/')) as photo:
@@ -54,4 +56,4 @@ for filename in ('blog.html', 'recent-work.html', 'sitemap.xml', 'sitemap-images
     assert relative in (root / filename).read_text(encoding='utf-8')
 assert all(x not in source for x in ('MDS47123608', 'WM4270HVA', '603PNRT7J262'))
 assert 'no leaks were observed' in body and 'warranty' not in body.lower()
-print('PASS: 15 images, dimensions, model, metadata, schema, local links, sitemaps and repair facts')
+print('PASS: diagram first without caption, 16 images, dimensions, model, metadata, schema, links and sitemaps')
