@@ -1,0 +1,13 @@
+.case-summary--with-image .repair-diagrams{display:flex;flex-direction:column;justify-content:center;padding:20px;box-sizing:border-box}
+.repair-diagrams-stage{width:100%;min-width:0}
+.repair-diagrams.is-enhanced .repair-diagrams-stage{aspect-ratio:4/5;position:relative;touch-action:pan-y}
+.repair-diagrams .repair-diagram-slide{height:auto}
+.repair-diagrams.is-enhanced .repair-diagram-slide{position:absolute;inset:0;display:block;height:100%}
+.repair-diagrams .repair-diagram-slide[hidden],.repair-diagrams-controls[hidden]{display:none!important}
+.case-summary--with-image .repair-diagrams .repair-diagram-slide img{height:100%;width:100%;object-fit:contain}
+.repair-diagrams-controls{display:flex;align-items:center;justify-content:center;gap:24px;padding-top:16px}
+.repair-diagrams-controls button{width:48px;height:48px;flex:0 0 48px;border:1px solid #e2b915;border-radius:50%;background:#ffd43b;color:#14325a;font:28px/1 Arial,sans-serif;cursor:pointer;display:grid;place-items:center;transition:background .15s,color .15s}
+.repair-diagrams-controls button:hover{background:#14325a;color:#fff;border-color:#14325a}
+.repair-diagrams-controls button:focus-visible,.repair-diagram-slide:focus-visible{outline:3px solid #14325a;outline-offset:4px}
+.repair-diagrams-controls [data-diagram-count]{min-width:50px;text-align:center;color:#14325a;font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
+@media(max-width:760px){.case-summary--with-image .repair-diagrams{padding:16px}.repair-diagrams.is-enhanced .repair-diagrams-stage{max-height:620px}}

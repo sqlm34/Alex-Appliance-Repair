@@ -23,6 +23,7 @@ import { fishersDryerStory, fishersDryerArticle } from './samsung-dv400-fishers-
 import { fishersWasherStory, fishersWasherArticle } from './whirlpool-wtw5057-fishers-story.mjs';
 import { samsungHeatStory, samsungHeatArticle } from './samsung-dve50-fishers-story.mjs';
 import { kenmoreGasketStory, kenmoreGasketArticle } from './kenmore-gasket-westfield-story.mjs';
+import { lgIceStory, lgIceArticle } from './lg-ice-light-mccordsville-story.mjs';
 import { story as lgRangeStory, paragraphs as lgRangeParagraphs, lgRangeArticle } from './lg-range-story.mjs';
 import { rebuildSitemaps } from './rebuild-sitemaps.mjs';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -34,6 +35,7 @@ const city=c=>c.city==='service-area'?'Central Indiana service area':cityName(c)
 const title=c=>c.headline||c.title+(c.city==='service-area'?'':' in '+cityName(c));
 const cardTitle=c=>c.cardTitle||title(c);
 const image=(p,lazy=true)=>`<img src="/${esc(p.src)}" width="${p.width}" height="${p.height}" alt="${esc(p.caption)}" ${lazy?'loading="lazy"':'fetchpriority="high"'} decoding="async">`;
+const overviewImages=c=>c.overviewImages||(c.overviewImage?[c.overviewImage]:[]);
 const date=s=>new Date(s+'T12:00:00Z').toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'UTC'});
 function card(c,anchor=false){return `<article ${anchor?`id="${c.slug}" data-work-card data-city="${c.city}" data-appliance="${c.appliance}"`:''} class="case-card"><a class="case-card-image" href="${url(c)}">${image(c.photos[0])}</a><div class="case-card-copy"><p class="local-eyebrow">${esc(city(c))} · ${esc(c.appliance)}</p><h3><a href="${url(c)}">${esc(cardTitle(c))}</a></h3><p>${esc(c.summary)}</p><p class="case-date">Published <time datetime="${c.published}">${date(c.published)}</time></p><a class="case-read" href="${url(c)}">Read repair story <span aria-hidden="true">→</span></a></div></article>`;}
 function styleLink(html){if(!html.includes('/css/repair-cases.css'))html=html.replace('</head>','<link rel="stylesheet" href="/css/repair-cases.css?v=20260926-heading-style">\n</head>');return html.replace(/(css\/repair-cases\.css)\?v=[^"']+/g,'$1?v=20260926-heading-style');}
@@ -48,7 +50,7 @@ function rootAssets(html){return html.replace(/\b(href|src)="([^"#]+)"/g,(all,at
 const cta='<section class="local-cta"><div class="local-shell"><h2>Need help with your appliance?</h2><p>Tell us the appliance, symptom and service address. We explain the diagnosis and estimate before approved repair work.</p><div class="local-actions"><a class="local-button" href="https://aleksappliancerepair.com/booking">Book service online</a><a class="local-button local-button--secondary" href="tel:+14632488429">Call (463) 248-8429</a></div></div></section>';
 export function buildRepairCases(){
  const storedCases=JSON.parse(fs.readFileSync(path.join(ROOT,'scripts/repair-cases.json'),'utf8'));
- const cases=[kenmoreGasketStory,samsungHeatStory,fishersWasherStory,fishersDryerStory,noblesvilleWasherStory,lgDrainStory,maytagDryerStory,whirlpoolDryerStory,lgNoiseStory,whirlpoolWaterStory,lgFanStory,lgSwitchStory,carmelFridgeStory,geDryerStory,drawerStory,fridgeStory,samsungStory,washerStory,lgRangeStory,...storedCases];
+ const cases=[lgIceStory,kenmoreGasketStory,samsungHeatStory,fishersWasherStory,fishersDryerStory,noblesvilleWasherStory,lgDrainStory,maytagDryerStory,whirlpoolDryerStory,lgNoiseStory,whirlpoolWaterStory,lgFanStory,lgSwitchStory,carmelFridgeStory,geDryerStory,drawerStory,fridgeStory,samsungStory,washerStory,lgRangeStory,...storedCases];
  cases.sort((a,b)=>b.published.localeCompare(a.published));
  const editorialStories=new Map([[washerStory.slug,washerArticle],[fishersSlug,fishersArticle],[lgDryerSlug,lgDryerArticle],[lgRangeStory.slug,lgRangeArticle],[cafeSlug,cafeArticle]]);
  notes[lgRangeStory.slug]=lgRangeParagraphs;
@@ -69,12 +71,13 @@ export function buildRepairCases(){
  editorialStories.set(fishersWasherStory.slug,fishersWasherArticle);
  editorialStories.set(samsungHeatStory.slug,samsungHeatArticle);
  editorialStories.set(kenmoreGasketStory.slug,kenmoreGasketArticle);
+ editorialStories.set(lgIceStory.slug,lgIceArticle);
  const seen=new Set();
  for(const c of cases){
   if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(c.slug)||seen.has(c.slug))throw Error('Invalid/duplicate case slug');seen.add(c.slug);
   if((!notes[c.slug]&&!editorialStories.has(c.slug))||!c.photos.length)throw Error('Missing editorial content: '+c.slug);
   for(const d of [c.published,c.modified])if(!/^\d{4}-\d{2}-\d{2}$/.test(d))throw Error('Invalid date');
-  for(const p of [...c.photos,...(c.overviewImage?[c.overviewImage]:[])])if(!p.src.startsWith('images/')||p.src.includes('..')||!fs.existsSync(path.join(ROOT,p.src)))throw Error('Missing or unsafe photo');
+  for(const p of [...c.photos,...overviewImages(c)])if(!p.src.startsWith('images/')||p.src.includes('..')||!fs.existsSync(path.join(ROOT,p.src)))throw Error('Missing or unsafe photo');
  }
  let archive=fs.readFileSync(path.join(ROOT,'recent-work.html'),'utf8');
  // Capture the site's actual shared shell, never a replacement design.
@@ -87,7 +90,7 @@ export function buildRepairCases(){
   const relatedPool=c.slug===lgDryerSlug?cases:c.slug===fishersSlug?cases.filter(x=>x.slug!==lgDryerSlug):[lgRangeStory,...storedCases.filter(x=>x.slug!==fishersSlug&&x.slug!==lgDryerSlug)];
   const related=relatedPool.filter(x=>x.slug!==lgNoiseStory.slug&&x.slug!==whirlpoolWaterStory.slug&&x.slug!==lgFanStory.slug&&x.slug!==lgSwitchStory.slug&&x.slug!==carmelFridgeStory.slug&&x.slug!==geDryerStory.slug&&x.slug!==drawerStory.slug&&x.slug!==fridgeStory.slug&&x.slug!==samsungStory.slug&&x.slug!==c.slug&&x.slug!==washerStory.slug&&(c.slug===cafeSlug||x.slug!==cafeSlug)).sort((a,b)=>(b.appliance===c.appliance)-(a.appliance===c.appliance)).slice(0,3);
   const schema={'@context':'https://schema.org','@graph':[
-   {'@type':'BlogPosting','@id':url(c)+'#article',url:url(c),mainEntityOfPage:url(c),headline:title(c),description:c.summary,image:[...c.photos,...(c.overviewImage?[c.overviewImage]:[])].map(p=>BASE+p.src),datePublished:c.published,dateModified:c.modified,author:{'@type':'Organization',name:'Alex Appliance Repair',url:BASE+'about.html'},publisher:{'@type':'Organization',name:'Alex Appliance Repair',url:BASE},inLanguage:'en-US'},
+   {'@type':'BlogPosting','@id':url(c)+'#article',url:url(c),mainEntityOfPage:url(c),headline:title(c),description:c.summary,image:[...c.photos,...overviewImages(c)].map(p=>BASE+p.src),datePublished:c.published,dateModified:c.modified,author:{'@type':'Organization',name:'Alex Appliance Repair',url:BASE+'about.html'},publisher:{'@type':'Organization',name:'Alex Appliance Repair',url:BASE},inLanguage:'en-US'},
    {'@type':'BreadcrumbList',itemListElement:[{name:'Home',item:BASE},{name:'Repair stories',item:BASE+'recent-work.html'},{name:title(c),item:url(c)}].map((x,i)=>({'@type':'ListItem',position:i+1,...x}))}
   ]};
   const main=`<main class="local-seo-page repair-case-page">
@@ -111,9 +114,13 @@ export function buildRepairCases(){
   if(editorialStories.has(c.slug)) {
    if(c.slug===kenmoreGasketStory.slug||c.slug===whirlpoolWaterStory.slug||c.slug===whirlpoolDryerStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/westfield.html">View Westfield service coverage</a>');
    if(c.slug===noblesvilleWasherStory.slug||c.slug===lgFanStory.slug||c.slug===lgNoiseStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/noblesville.html">View Noblesville service coverage</a>');
-   if(c.slug===maytagDryerStory.slug||c.slug===samsungStory.slug||c.slug===lgSwitchStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/mccordsville.html">View McCordsville service coverage</a>');
+   if(c.slug===lgIceStory.slug||c.slug===maytagDryerStory.slug||c.slug===samsungStory.slug||c.slug===lgSwitchStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/mccordsville.html">View McCordsville service coverage</a>');
    if(c.slug!==geDryerStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>', '<a href="/fishers.html">View Fishers service coverage</a>');
-   if(c.overviewImage) content=content.replace('<aside class="case-summary">','<aside class="case-summary case-summary--with-image"><div class="case-summary-copy">').replace('</aside>',`</div><figure class="case-summary-visual">${image(c.overviewImage)}</figure></aside>`);
+   const diagrams=overviewImages(c);
+   if(diagrams.length){
+    const visual=diagrams.length===1?`<figure class="case-summary-visual">${image(diagrams[0])}</figure>`:`<div class="case-summary-visual repair-diagrams" data-diagram-slider role="region" aria-roledescription="carousel" aria-label="Repair diagrams"><div class="repair-diagrams-stage">${diagrams.map((p,i)=>`<a class="repair-diagram-slide gallery-item" href="/${esc(p.src)}" aria-label="Enlarge diagram ${i+1} of ${diagrams.length}">${image(p)}</a>`).join('')}</div><div class="repair-diagrams-controls" hidden><button type="button" data-diagram-prev aria-label="Previous diagram" title="Previous diagram"><span aria-hidden="true">&#8592;</span></button><span data-diagram-count role="status" aria-live="polite" aria-atomic="true">1 / ${diagrams.length}</span><button type="button" data-diagram-next aria-label="Next diagram" title="Next diagram"><span aria-hidden="true">&#8594;</span></button></div></div>`;
+    content=content.replace('<aside class="case-summary">','<aside class="case-summary case-summary--with-image"><div class="case-summary-copy">').replace('</aside>',`</div>${visual}</aside>`);
+   }
    content=content.replace(/(<article class="case-body editorial-story">[\s\S]*?<\/article>)(<aside class="case-summary">[\s\S]*?<\/aside>)/, '$2$1');
    content=content.replace(/(<article class="case-body editorial-story">[\s\S]*?<\/article>)(<aside class="case-summary case-summary--with-image">[\s\S]*?<\/aside>)/, '$2$1');
   }
@@ -123,6 +130,7 @@ export function buildRepairCases(){
    const editorialStyleVersion=c.slug===lgSwitchStory.slug||c.slug===carmelFridgeStory.slug||c.slug===geDryerStory.slug||c.slug===drawerStory.slug||c.slug===fridgeStory.slug||c.slug===samsungStory.slug||c.slug===cafeSlug||c.slug===washerStory.slug?'20260916-cafe-aligned':c.slug===fishersSlug?'20260911-highlighted-seal':'20260913-lg-dryer';
    page=page.replace('</head>',`<link rel="stylesheet" href="/css/repair-story-editorial.css?v=${c.slug===lgSwitchStory.slug?'20261001-lg-captions':editorialStyleVersion}">\n</head>`);
    if(c.editorialStylesheet) page=page.replace('</head>',`<link rel="stylesheet" href="/css/${esc(c.editorialStylesheet)}.css?v=20261002">\n</head>`);
+   if(overviewImages(c).length>1) page=page.replace('</head>','<link rel="stylesheet" href="/css/repair-diagram-slider.css?v=20261018"><script src="/js/repair-diagram-slider.js?v=20261018" defer></script>\n</head>');
    // Keep this standalone HTML preview usable from disk as well as from the site root.
    if(c.slug!==maytagDryerStory.slug&&c.slug!==whirlpoolDryerStory.slug&&c.slug!==lgNoiseStory.slug&&c.slug!==whirlpoolWaterStory.slug&&c.slug!==lgFanStory.slug&&c.slug!==lgSwitchStory.slug&&c.slug!==carmelFridgeStory.slug&&c.slug!==geDryerStory.slug&&c.slug!==drawerStory.slug&&c.slug!==fridgeStory.slug&&c.slug!==samsungStory.slug&&c.slug!==lgRangeStory.slug&&c.slug!==cafeSlug&&c.slug!==washerStory.slug) page=page.replace(/\b(href|src)="\/(?!\/)([^"]*)"/g,(_,attr,value)=>`${attr}="../${value||'index.html'}"`);
   }

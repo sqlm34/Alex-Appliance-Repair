@@ -45,12 +45,12 @@
   <url>
     <loc>https://alex-repair.com/blog.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/repair-room.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/kenmore-gasket-westfield/old-and-new-gaskets.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/samsung-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-wtw5057-fishers/whirlpool-washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dv400-fishers/dryer-before.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm9000hva-noblesville/washer-reassembled.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm4270hva-carmel/washer-before.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/overworking-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair-carmel.webp</image:loc></image:image>
@@ -596,6 +596,7 @@
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/kenmore-gasket-westfield/old-and-new-gaskets.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/samsung-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-wtw5057-fishers/whirlpool-washer.webp</image:loc></image:image>
@@ -815,7 +816,7 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-dishwasher-leak-fishers/installed-circulation-pump-seal.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-dishwasher-fill-funnel.jpeg</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/bosch-dishwasher-pump-01.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kenmore-gasket-westfield/old-and-new-gaskets.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/refrigerator.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/repair-cases/lg-dle3400w-dryer-thermostat-vent-repair-fishers-indiana.html</loc>
@@ -1187,5 +1188,27 @@
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/samsung-washer-valve-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-washer-suspension-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-repair.com/repair-cases/mccordsville-lg-lfxc24726s-ice-maker-leak-light-repair.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/valve-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/ice-maker-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/light-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/refrigerator.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/model-label.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/ice-behind-connector.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/ice-behind-assembly.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/rear-valve-access.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/old-and-new-valves.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/empty-ice-compartment.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/ice-maker-replacement.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/installed-ice-maker.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/unlit-door-light.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/removed-led.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/replacement-led.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/right-hinge-wiring-repair.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-32.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-41.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-42.webp</image:loc></image:image>
   </url>
 </urlset>
