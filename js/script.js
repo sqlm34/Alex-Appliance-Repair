@@ -1206,4 +1206,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 	//TIMER END
 
+	const voiceStyles = document.createElement('link');
+	voiceStyles.rel = 'stylesheet';
+	voiceStyles.href = '/css/voice-booking.css?v=20261018';
+	document.head.append(voiceStyles);
+	import('/js/voice-booking/widget.js?v=20261018').then(({ mountVoiceBooking }) => {
+		mountVoiceBooking({
+			endpoint: 'https://alex-crm-api.alexeasyrepair.workers.dev/api/receptionist/web/start',
+			siteKey: '0x4AAAAAAEjTM8M7o8G6b16z'
+		});
+	}).catch(() => {});
+
 });

@@ -1,0 +1,8 @@
+{
+  "name": "alex-repair-voice-booking",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "esbuild widget.js --bundle --splitting --format=esm --minify --outdir=../js/voice-booking" },
+  "dependencies": { "retell-client-js-sdk": "3.0.2", "lucide": "^0.468.0" },
+  "devDependencies": { "esbuild": "0.25.12" }
+}
