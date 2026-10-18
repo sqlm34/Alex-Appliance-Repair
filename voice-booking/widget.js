@@ -83,11 +83,11 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
     if (privatePreview) { challenge = 'private-preview'; start.disabled = false; return }
     if (widgetId !== undefined && window.turnstile) window.turnstile.reset(widgetId)
   }
-  function finished(message) {
+  function finished(message, failed = false) {
     const token = resultToken
     resultToken = ''
     busy = false
-    panel.hidden = true
+    panel.hidden = !failed
     $('.voice-end').disabled = true
     $('.voice-mute').disabled = true
     controls.hidden = true
@@ -97,14 +97,24 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
     $('.voice-launch span').textContent = 'Book by voice'
     setStatus(message)
     resetChallenge()
-    void showBookingResult(token, generation)
+    if (!failed) void showBookingResult(token, generation)
   }
-  async function end(message = 'Conversation ended') {
+  function failureMessage(error) {
+    if (error?.name === 'NotAllowedError') return 'Microphone access was denied. Allow microphone access in your browser, then try again.'
+    if (error?.name === 'NotFoundError') return 'No microphone was found. Connect a microphone, then try again.'
+    if (error?.status === 429) return String(error.message).includes('limit')
+      ? 'The daily voice-call limit has been reached. Please use Book online or call us.'
+      : 'Emily is currently busy. Please try again shortly or use Book online.'
+    if (error?.status === 403) return 'Verification expired or failed. Please complete the verification again.'
+    if (error?.status === 503) return 'Voice booking is temporarily unavailable. Please use Book online or call us.'
+    return 'Unable to connect. Check microphone access and your connection, then try again or use Book online.'
+  }
+  async function end(message = 'Conversation ended', failed = false) {
     terminal = true
     generation++
     const current = call
     call = undefined
-    try { await current?.end() } finally { finished(message) }
+    try { await current?.end() } finally { finished(message, failed) }
   }
   async function prepare() {
     if (loading) return loading
@@ -171,10 +181,10 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
           else if (state === 'live') { setStatus('Connected'); $('.voice-launch span').textContent = 'In conversation' }
         },
         onEnd: () => { if (current()) { terminal = true; call = undefined; finished('Conversation ended') } },
-        onError: () => { if (current()) void end('Connection interrupted or microphone unavailable. Please use Book online.').catch(() => {}) },
+        onError: error => { if (current()) void end(failureMessage(error), true).catch(() => {}) },
       } })
-      call.ready.catch(() => { if (current()) void end('Unable to connect. Check microphone access or use Book online.').catch(() => {}) })
-    } catch { void end('Unable to start. Please use Book online.').catch(() => {}) }
+      call.ready.catch(error => { if (current()) void end(failureMessage(error), true).catch(() => {}) })
+    } catch (error) { void end(failureMessage(error), true).catch(() => {}) }
   }
   $('.voice-mute').onclick = () => {
     if (!call) return
@@ -189,5 +199,5 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
   }
   $('.voice-end').onclick = () => { void end().catch(() => {}) }
   window.addEventListener('pagehide', () => { void call?.end().catch(() => {}) })
-  window.addEventListener('offline', () => { if (busy) void end('Connection lost. Please use Book online when reconnected.').catch(() => {}) })
+  window.addEventListener('offline', () => { if (busy) void end('Connection lost. Please reconnect and try again.', true).catch(() => {}) })
 }
