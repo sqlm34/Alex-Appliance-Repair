@@ -48,3 +48,38 @@
 .voice-order-fields p { font-size: 14px; line-height: 1.4; margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; min-height: 20px; }
 .voice-order-controls { padding: 10px 18px; border-top: 1px solid #d8e1e3; background: #f1f7f8; }
 @media (max-width: 360px) { .voice-order h2 { font-size: 17px; } .voice-order header { padding: 12px; } .voice-order-fields { padding-inline: 12px; column-gap: 12px; } }
+.voice-order { width: min(646px, calc(100vw - 24px)); border-color: #79b6d9; box-shadow: 0 16px 60px #061c3550; }
+.voice-order header { background: linear-gradient(115deg, #123754, #08253d); border-bottom-color: #ffb800; gap: 14px; padding: 16px 24px; }
+.voice-order-heading { flex: 1; min-width: 0; }
+.voice-document-icon { color: #ffb800; display: flex; flex-shrink: 0; }
+.voice-document-icon svg { width: 32px; height: 36px; }
+.voice-order-tools { gap: 8px; }
+.voice-order-minimize,.voice-typing-sound { border: 1px solid #527a94; color: #ffb800; background: #ffffff04; }
+.voice-order-fields { padding: 12px 18px; gap: 10px; }
+.voice-order-fields section { display: flex; align-items: flex-start; gap: 14px; padding: 8px 10px; background: #f1f7fb; border: 0; border-radius: 8px; }
+.voice-field-icon { display: grid; place-items: center; flex: 0 0 34px; height: 34px; border-radius: 8px; color: #123754; background: #dceffc; }
+.voice-field-value { flex: 1; min-width: 0; }
+.voice-order-fields h3 { color: #12324f; font-weight: 700; }
+.voice-order-fields p { border-bottom: 1px solid #d0e2ee; padding-bottom: 3px; }
+.voice-order-controls { display: grid; grid-template-columns: 54px minmax(0,1.3fr) minmax(0,1fr); gap: 10px; padding: 10px 18px; }
+.voice-order-controls .voice-controls:not([hidden]) { display: contents; }
+.voice-order-controls .voice-mute { width: 100%; height: 48px; }
+.voice-order-controls .voice-end { padding: 10px; background: #ffdddd; border: 1px solid #e7a6ae; }
+.voice-order .voice-review { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 8px 12px; background: #084991; color: white; border: 1px solid #2464a6; border-radius: 6px; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.voice-review svg { flex-shrink: 0; width: 18px; }
+.voice-reviewing .voice-order-fields { grid-template-columns: minmax(0,1fr); }
+.voice-reviewing .voice-order-fields p { font-size: 16px; }
+@media (max-width: 480px) {
+  .voice-order header { padding: 12px; gap: 8px; }
+  .voice-order h2 { font-size: 17px; }
+  .voice-document-icon svg { width: 24px; height: 30px; }
+  .voice-order-tools { gap: 4px; }
+  .voice-order-minimize,.voice-typing-sound { width: 34px; height: 40px; }
+  .voice-order-fields { padding: 8px; gap: 6px; }
+  .voice-order-fields section { gap: 7px; padding: 6px; }
+  .voice-field-icon { flex-basis: 26px; height: 28px; border-radius: 6px; }
+  .voice-field-icon svg { width: 18px; height: 18px; }
+  .voice-order-controls { padding: 8px; gap: 6px; grid-template-columns: 42px minmax(0,1fr) minmax(0,1.4fr); }
+  .voice-order .voice-review { padding: 8px 5px; font-size: 11px; gap: 5px; }
+  .voice-order .voice-end { font-size: 14px; gap: 6px; }
+}

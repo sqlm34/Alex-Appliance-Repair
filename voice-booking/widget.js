@@ -1,4 +1,4 @@
-import { createIcons, Mic, MicOff, PhoneOff, Minus, X, CalendarPlus, Download, Volume2, VolumeX } from 'lucide'
+import { createIcons, Mic, MicOff, PhoneOff, Minus, X, CalendarPlus, Download, Volume2, VolumeX, FileText, WashingMachine, Tag, Calendar, MapPin, User, Phone, House, Wrench, Clock, ArrowRight, ArrowLeft } from 'lucide'
 
 export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
   const privatePreview = location.origin === 'http://127.0.0.1:5198'
@@ -31,11 +31,22 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
   order.className = 'voice-order'
   order.setAttribute('aria-labelledby', 'voice-order-title')
   const fields = { appliance: 'Appliance', brand: 'Brand', age: 'Approximate age', zip: 'ZIP code', customer: 'Name', phone: 'Phone', address: 'Address', issue: 'Problem', date: 'Date', window: 'Arrival window' }
-  order.innerHTML = `<header><div><h2 id="voice-order-title">Booking Order</h2><p class="voice-order-state" role="status">Draft · Not booked yet</p></div><div class="voice-order-tools"><button class="voice-typing-sound" aria-label="Typing sound" aria-pressed="true" title="Turn typing sound off"><i data-lucide="volume-2"></i></button><button class="voice-order-minimize" aria-label="Minimize booking order" title="Minimize"><i data-lucide="minus"></i></button></div></header><div class="voice-order-fields">${Object.entries(fields).map(([key, label]) => `<section data-field="${key}"><h3>${label}</h3><p>—</p></section>`).join('')}</div><footer class="voice-order-controls"></footer>`
+  const fieldIcons = { appliance: 'washing-machine', brand: 'tag', age: 'calendar', zip: 'map-pin', customer: 'user', phone: 'phone', address: 'house', issue: 'wrench', date: 'calendar', window: 'clock' }
+  order.innerHTML = `<header><span class="voice-document-icon"><i data-lucide="file-text"></i></span><div class="voice-order-heading"><h2 id="voice-order-title">Booking Order</h2><p class="voice-order-state" role="status">Draft · Not booked yet</p></div><div class="voice-order-tools"><button class="voice-typing-sound" aria-label="Typing sound" aria-pressed="true" title="Turn typing sound off"><i data-lucide="volume-2"></i></button><button class="voice-order-minimize" aria-label="Minimize booking order" title="Minimize"><i data-lucide="minus"></i></button></div></header><div class="voice-order-fields">${Object.entries(fields).map(([key, label]) => `<section data-field="${key}"><span class="voice-field-icon"><i data-lucide="${fieldIcons[key]}"></i></span><div class="voice-field-value"><h3>${label}</h3><p>—</p></div></section>`).join('')}</div><footer class="voice-order-controls"><button class="voice-review" aria-pressed="false"><span>Review Details</span><i data-lucide="arrow-right"></i></button></footer>`
   root.append(order)
   const minimizeOrder = () => { order.close(); $('.voice-launch').focus() }
   order.querySelector('.voice-order-minimize').onclick = minimizeOrder
   order.addEventListener('cancel', event => { event.preventDefault(); minimizeOrder() })
+  function setReview(review) {
+    order.classList.toggle('voice-reviewing', review)
+    const button = order.querySelector('.voice-review')
+    button.setAttribute('aria-pressed', String(review))
+    button.innerHTML = `<span>${review ? 'Back' : 'Review Details'}</span><i data-lucide="${review ? 'arrow-left' : 'arrow-right'}"></i>`
+    order.querySelector('h2').textContent = review ? 'Review Details' : 'Booking Order'
+    order.querySelector('.voice-order-fields').scrollTop = 0
+    icons()
+  }
+  order.querySelector('.voice-review').onclick = () => setReview(!order.classList.contains('voice-reviewing'))
   let resultToken = '', confirmationTimer, calendarBlob, pollTimer, confirmedResult, shownGeneration = -1
   let draftValues = {}, typingTimers = [], pollSequence = 0
   let typingSound = true, audioContext, keyBuffer, lastKeyTime = 0
@@ -161,7 +172,7 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
   const panel = $('.voice-panel'), start = $('.voice-start'), status = $('.voice-status'), controls = $('.voice-controls')
   let call, sdk, challenge = '', widgetId, loading, muted = false, busy = false, terminal = false, generation = 0
   const icons = () => {
-    const icons = { Mic, MicOff, PhoneOff, Minus, X, CalendarPlus, Download, Volume2, VolumeX }
+    const icons = { Mic, MicOff, PhoneOff, Minus, X, CalendarPlus, Download, Volume2, VolumeX, FileText, WashingMachine, Tag, Calendar, MapPin, User, Phone, House, Wrench, Clock, ArrowRight, ArrowLeft }
     createIcons({ icons, root }); createIcons({ icons, root: confirmation })
   }
   icons()
@@ -236,6 +247,7 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
   start.onclick = () => {
     if (busy || !sdk || !challenge) return
     prepareTypingAudio()
+    setReview(false)
     closeConfirmation()
     clearTimeout(pollTimer)
     pollSequence++
@@ -253,7 +265,7 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
     $('.voice-mute').title = 'Mute microphone'
     icons()
     start.hidden = true; controls.hidden = false
-    order.querySelector('.voice-order-controls').append(controls)
+    order.querySelector('.voice-order-controls').prepend(controls)
     panel.hidden = true
     order.showModal()
     root.classList.add('voice-active')

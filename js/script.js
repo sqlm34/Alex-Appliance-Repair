@@ -1208,9 +1208,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const voiceStyles = document.createElement('link');
 	voiceStyles.rel = 'stylesheet';
-	voiceStyles.href = '/css/voice-booking.css?v=20261018-7';
+	voiceStyles.href = '/css/voice-booking.css?v=20261018-8';
 	document.head.append(voiceStyles);
-	import('/js/voice-booking/widget.js?v=20261018-7').then(({ mountVoiceBooking }) => {
+	import('/js/voice-booking/widget.js?v=20261018-8').then(({ mountVoiceBooking }) => {
 		mountVoiceBooking({
 			endpoint: 'https://alex-crm-api.alexeasyrepair.workers.dev/api/receptionist/web/start',
 			siteKey: '0x4AAAAAAEjTM8M7o8G6b16z'
