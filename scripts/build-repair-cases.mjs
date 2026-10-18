@@ -109,7 +109,7 @@ export function buildRepairCases(){
    content=content.replace(/<dl>[\s\S]*?<\/dl>/,`<dl>${c.overviewEntries.map(item=>`<dt>${esc(item.label)}</dt><dd>${esc(item.value)}</dd>`).join('')}</dl>`);
   }
   if(editorialStories.has(c.slug)) {
-   if(c.slug===whirlpoolWaterStory.slug||c.slug===whirlpoolDryerStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/westfield.html">View Westfield service coverage</a>');
+   if(c.slug===kenmoreGasketStory.slug||c.slug===whirlpoolWaterStory.slug||c.slug===whirlpoolDryerStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/westfield.html">View Westfield service coverage</a>');
    if(c.slug===noblesvilleWasherStory.slug||c.slug===lgFanStory.slug||c.slug===lgNoiseStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/noblesville.html">View Noblesville service coverage</a>');
    if(c.slug===maytagDryerStory.slug||c.slug===samsungStory.slug||c.slug===lgSwitchStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/mccordsville.html">View McCordsville service coverage</a>');
    if(c.slug!==geDryerStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>', '<a href="/fishers.html">View Fishers service coverage</a>');

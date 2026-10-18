@@ -1,6 +1,6 @@
 # Repair Story Requirements
 
-- When the user supplies a Photoshop-prepared repair diagram, always place it first in the article body, before the service photographs. Preserve the supplied diagram and do not add visible explanatory captions or commentary about brand/model differences. Keep the appliance model verified from its actual label.
+- When the user supplies a Photoshop-prepared repair diagram, place it in the right half of the Visit Overview block using overviewImage; keep the overview text and call button on the left. On mobile, stack these using the existing responsive layout. Do not repeat the diagram at the start of the article body. Preserve the supplied diagram without visible explanatory captions or commentary about brand/model differences. Keep the appliance model verified from its actual label.
 
 - When the user supplies a photograph of an appliance model label, verify the model against that photograph and include a readable, unretouched crop of its model-number area in the article. Do not invent or recreate label text. Keep serial numbers out of the crop when practical.
 - Preserve the established repair-story layout: desktop text and heading blocks centered against their associated photograph, captions inset slightly from the photograph edges, and responsive mobile stacking.
