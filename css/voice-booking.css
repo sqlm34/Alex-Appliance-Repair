@@ -1,4 +1,6 @@
-.voice-booking { --voice-edge: 24px; --voice-size: 52px; position: fixed; right: var(--voice-edge); bottom: calc(2 * var(--voice-edge) + var(--voice-size) + env(safe-area-inset-bottom, 0px)); z-index: 998; font-family: inherit; color: #193e4a; letter-spacing: 0; }
+.voice-booking { --voice-edge: 24px; --voice-size: 52px; position: fixed; right: var(--voice-edge); bottom: calc(var(--voice-edge) + env(safe-area-inset-bottom, 0px)); transition: bottom .25s ease; z-index: 998; font-family: inherit; color: #193e4a; letter-spacing: 0; }
+.voice-booking.voice-above-scroll { bottom: calc(2 * var(--voice-edge) + var(--voice-size) + env(safe-area-inset-bottom, 0px)); }
+@media (prefers-reduced-motion: reduce) { .voice-booking { transition: none; } }
 .voice-booking [hidden] { display: none !important; }
 .voice-booking button { cursor: pointer; font: inherit; border: 1px solid #cbd9dd; }
 .voice-booking button:disabled { cursor: default; opacity: .55; }

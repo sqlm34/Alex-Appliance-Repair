@@ -18,6 +18,12 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
       <footer><a href="https://aleksappliancerepair.com/booking">Book online</a><a href="tel:+14632488429">Call us</a></footer>
     </section>`
   document.body.append(root)
+  const scrollTop = document.querySelector('.scroll-top-button')
+  if (scrollTop) {
+    const syncPosition = () => root.classList.toggle('voice-above-scroll', scrollTop.classList.contains('is-visible'))
+    new MutationObserver(syncPosition).observe(scrollTop, { attributes: true, attributeFilter: ['class'] })
+    syncPosition()
+  }
   const $ = selector => root.querySelector(selector)
   const panel = $('.voice-panel'), start = $('.voice-start'), status = $('.voice-status'), controls = $('.voice-controls')
   let call, sdk, challenge = '', widgetId, loading, muted = false, busy = false, terminal = false, generation = 0
@@ -31,6 +37,8 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
   }
   function finished(message) {
     busy = false
+    $('.voice-end').disabled = true
+    $('.voice-mute').disabled = true
     controls.hidden = true
     start.hidden = false
     start.disabled = true
@@ -75,6 +83,8 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
   start.onclick = () => {
     if (busy || !sdk || !challenge) return
     busy = true; terminal = false; muted = false
+    $('.voice-end').disabled = false
+    $('.voice-mute').disabled = false
     const currentGeneration = ++generation
     const current = () => currentGeneration === generation && !terminal
     $('.voice-mute').innerHTML = '<i data-lucide="mic"></i>'
@@ -95,7 +105,11 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
     // Called synchronously from the Start click so browser microphone permission is user initiated.
     try {
       call = client.createWebCall({ agent_id: 'server-selected', transcript: false, hooks: {
-        onStatus: state => { if (state === 'live' && current()) { setStatus('Connected'); $('.voice-launch span').textContent = 'In conversation' } },
+        onStatus: state => {
+          if (!current()) return
+          if (state === 'ended') { terminal = true; call = undefined; finished('Conversation ended') }
+          else if (state === 'live') { setStatus('Connected'); $('.voice-launch span').textContent = 'In conversation' }
+        },
         onEnd: () => { if (current()) { terminal = true; call = undefined; finished('Conversation ended') } },
         onError: () => { if (current()) void end('Connection interrupted or microphone unavailable. Please use Book online.').catch(() => {}) },
       } })
