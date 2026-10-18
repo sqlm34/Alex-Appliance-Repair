@@ -22,7 +22,8 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
   confirmation.className = 'voice-confirmation'
   confirmation.setAttribute('aria-labelledby', 'voice-confirmation-title')
   confirmation.innerHTML = `<button class="voice-confirm-close" aria-label="Close confirmation" title="Close"><i data-lucide="x"></i></button>
-    <h2 id="voice-confirmation-title">Thank you for your appointment</h2><p class="voice-confirm-time"></p><p class="voice-confirm-message"></p>
+    <svg class="voice-success" viewBox="0 0 160 160" aria-hidden="true"><circle class="voice-success-ring" cx="80" cy="80" r="66"/><circle class="voice-success-disc" cx="80" cy="80" r="66"/><path class="voice-success-base" d="M44 80 L69 103 L118 55"/><path class="voice-success-tick" d="M44 80 L69 103 L118 55"/></svg>
+    <h2 id="voice-confirmation-title"><span class="voice-confirm-typing">Booking Confirmed</span></h2><p class="voice-confirm-time"></p><p class="voice-confirm-message"></p>
     <div class="voice-confirm-actions"><a class="voice-calendar" target="_blank" rel="noopener noreferrer"><i data-lucide="calendar-plus"></i>Save to Google Calendar</a>
     <a class="voice-calendar-file" download="appointment.ics"><i data-lucide="download"></i>Download Calendar Event</a></div>
     <p class="voice-confirm-note">A saved calendar copy does not update automatically if your appointment changes.</p>`
@@ -121,6 +122,7 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
   }
   function closeConfirmation() {
     clearTimeout(confirmationTimer)
+    confirmation.classList.remove('voice-confirm-animate')
     confirmation.close()
     if (calendarBlob) URL.revokeObjectURL(calendarBlob)
     calendarBlob = undefined
@@ -141,6 +143,8 @@ export function mountVoiceBooking({ endpoint, siteKey, previewToken }) {
     calendarBlob = URL.createObjectURL(new Blob([result.calendarFile], { type: 'text/calendar;charset=utf-8' }))
     confirmation.querySelector('.voice-calendar-file').href = calendarBlob
     confirmation.showModal()
+    void confirmation.offsetWidth
+    confirmation.classList.add('voice-confirm-animate')
     confirmationTimer = setTimeout(closeConfirmation, 15000)
   }
   async function pollResult(token, expectedGeneration, until = Infinity, sequence = pollSequence) {

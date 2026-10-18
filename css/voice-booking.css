@@ -33,6 +33,32 @@
 .voice-confirm-actions a { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; border-radius: 6px; border: 1px solid #cbd9dd; color: #193e4a; font-size: 14px; text-decoration: none; }
 .voice-confirm-actions .voice-calendar { background: #ffce00; }
 .voice-confirmation .voice-confirm-note { font-size: 12px; color: #52676e; }
+.voice-confirmation { text-align: center; background: #f7fbfe; border-color: #9bbdd5; border-top: 4px solid #ffbf00; padding-top: 28px; }
+.voice-confirmation::backdrop { background: #071e36b8; backdrop-filter: blur(4px); }
+.voice-confirmation h2 { font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: 22px; letter-spacing: 0; line-height: 1.4; padding: 0; margin: 0 0 16px; }
+.voice-confirmation .voice-success { display: block; width: 128px; height: 128px; margin: 0 auto 14px; overflow: visible; }
+.voice-success-ring { fill: none; stroke: #d4f4e1; stroke-width: 2; }
+.voice-success-disc { fill: #12c765; opacity: 0; transform: scale(.8); transform-origin: 80px 80px; }
+.voice-success-base,.voice-success-tick { fill: none; stroke: #08b75b; stroke-width: 11; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 110; stroke-dashoffset: 110; }
+.voice-success-tick { stroke: #fff; opacity: 0; }
+.voice-confirm-typing { display: inline-block; clip-path: inset(0 100% 0 0); }
+.voice-confirm-animate .voice-success-base { animation: voice-draw .72s cubic-bezier(.3,.05,.15,1) .12s forwards, voice-hide 0s 1.14s forwards; }
+.voice-confirm-animate .voice-success-disc { animation: voice-fill .72s ease-in-out .88s forwards; }
+.voice-confirm-animate .voice-success-tick { animation: voice-white-tick .05s linear 1.12s forwards; }
+.voice-confirm-animate .voice-success-ring { animation: voice-hide .2s 1.15s forwards; }
+.voice-confirm-animate .voice-confirm-typing { animation: voice-type 1.23s steps(17,end) 1.74s forwards; }
+@keyframes voice-draw { to { stroke-dashoffset: 0; } }
+@keyframes voice-hide { to { opacity: 0; } }
+@keyframes voice-fill { to { opacity: 1; transform: scale(1); } }
+@keyframes voice-white-tick { to { opacity: 1; stroke-dashoffset: 0; } }
+@keyframes voice-type { to { clip-path: inset(0 0 0 0); } }
+@media (max-width: 380px) { .voice-confirmation h2 { font-size: 18px; } .voice-confirmation { padding-inline: 16px; } }
+@media (prefers-reduced-motion: reduce) {
+  .voice-confirm-animate .voice-success-base,.voice-confirm-animate .voice-success-ring { animation: none; opacity: 0; }
+  .voice-confirm-animate .voice-success-disc { animation: none; opacity: 1; transform: scale(1); }
+  .voice-confirm-animate .voice-success-tick { animation: none; opacity: 1; stroke-dashoffset: 0; }
+  .voice-confirm-animate .voice-confirm-typing { animation: none; clip-path: none; }
+}
 .voice-order { width: min(620px, calc(100vw - 24px)); max-height: calc(100dvh - 32px); padding: 0; border: 1px solid #d8e1e3; border-radius: 8px; color: #193e4a; background: #fff; box-sizing: border-box; overflow: hidden; }
 .voice-order::backdrop { background: #102d4280; }
 .voice-order header { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 18px; border-bottom: 3px solid #ffce00; background: #12324f; color: #fff; }
