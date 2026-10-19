@@ -83,7 +83,7 @@
   "brands/miele-appliance-repair.html": "2026-10-13",
   "brands/samsung-appliance-repair.html": "2026-10-13",
   "brands/sharp-appliance-repair.html": "2026-10-13",
-  "recent-work.html": "2026-10-18",
+  "recent-work.html": "2026-10-19",
   "brands/smeg-appliance-repair.html": "2026-10-13",
   "brands/speed-queen-appliance-repair.html": "2026-10-13",
   "brands/sub-zero-appliance-repair.html": "2026-10-13",
@@ -91,7 +91,7 @@
   "brands/viking-appliance-repair.html": "2026-10-13",
   "brands/whirlpool-appliance-repair.html": "2026-10-13",
   "brands/wolf-appliance-repair.html": "2026-10-13",
-  "blog.html": "2026-10-18",
+  "blog.html": "2026-10-19",
   "repair-cases/carmel-dryer-gas-valve-coils.html": "2026-09-09",
   "repair-cases/carmel-freezer-evaporator-fan.html": "2026-09-09",
   "repair-cases/carmel-dishwasher-fill-funnel.html": "2026-09-09",
@@ -351,5 +351,6 @@
   "repair-cases/fishers-whirlpool-wtw5057lw0-washer-not-spinning-capacitor-replacement.html": "2026-10-13",
   "repair-cases/fishers-samsung-dve50r5200w-dryer-not-heating-element-replacement.html": "2026-10-14",
   "repair-cases/westfield-kenmore-elite-79641582411-washer-door-gasket-replacement.html": "2026-10-18",
-  "repair-cases/mccordsville-lg-lfxc24726s-ice-maker-leak-light-repair.html": "2026-10-18"
+  "repair-cases/mccordsville-lg-lfxc24726s-ice-maker-leak-light-repair.html": "2026-10-18",
+  "repair-cases/carmel-whirlpool-wed8500dc4-dryer-not-starting-thermal-fuse.html": "2026-10-19"
 }
