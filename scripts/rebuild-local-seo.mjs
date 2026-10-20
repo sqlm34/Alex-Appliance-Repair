@@ -337,27 +337,27 @@ const services = {
     ]
   },
   microwave: {
-    label: "Microwave Repair",
-    singular: "microwave",
-    image: "microwave-repair.webp",
-    titleSuffix: "Heating & Control Service",
+    label: "Built-in Microwave + Oven Combo Repair",
+    singular: "built-in microwave/oven combo",
+    image: "about-appliance-repair-tools-logo.webp",
+    titleSuffix: "Combination Units Only",
     metaIssues: "heating, door, turntable and control problems",
-    summary: "Diagnosis for built-in and over-the-range microwaves that will not heat, start, turn, vent or respond to the controls.",
+    summary: "Diagnosis and repair for the microwave section of built-in microwave/wall-oven combination units only. Over-the-range, countertop, drawer and standalone microwaves are not serviced.",
     issues: [
       ["Runs but does not heat", "High-voltage components, controls and power delivery require trained testing because stored voltage can be dangerous."],
       ["Door will not latch", "Hooks, switches, mounts and alignment must operate in the correct sequence for safe startup."],
       ["Turntable does not move", "The motor, coupler, tray support and control output are checked after confirming the tray is seated."],
       ["Display or keypad is unresponsive", "Power supply, membrane controls, user-interface boards and main controls can cause similar symptoms."],
-      ["Vent fan or light fails", "Motors, bulbs, sockets, relays and control outputs are evaluated on over-the-range models."],
+      ["Cooling fan or cavity light fails", "We evaluate cooling fans and cavity lighting in supported built-in microwave/wall-oven combination units."],
       ["Sparking inside the cavity", "Metal contamination, damaged waveguide covers, racks or cavity damage must be identified before reuse."]
     ],
-    components: ["door switches and latches", "turntable motors and couplers", "control and display assemblies", "vent fans and lights", "fuses and power circuits", "model-specific heating components"],
+    components: ["door switches and latches", "turntable motors and couplers", "control and display assemblies", "cooling fans and cavity lights", "fuses and power circuits", "model-specific heating components"],
     safety: "Microwaves contain high-voltage components that can retain a dangerous charge after unplugging. Internal repair is not a do-it-yourself task.",
     faq: [
-      ["Is a microwave worth repairing?", "Built-in and over-the-range units are often practical to repair when the cabinet, cavity and installation are in good condition."],
+      ["Is a microwave worth repairing?", "For a built-in microwave/wall-oven combination, repair options depend on diagnosis, appliance condition, parts availability and the installed cost of a suitable replacement. We explain the estimate before approved work."],
       ["Why does the microwave run without heating?", "Several high-voltage or control faults can cause this symptom. Safe electrical testing is required."],
       ["Can a broken door switch stop the microwave?", "Yes. Multiple interlock switches monitor the door, and a failed or misaligned switch can prevent operation."],
-      ["Do you repair countertop microwaves?", "Service availability depends on model, parts and repair economics. Built-in and over-the-range units are the primary focus."]
+      ["Do you repair over-the-range or standalone microwaves?", "No. Our built-in microwave/oven combo service is limited to built-in microwave/wall-oven combination units. We do not service over-the-range, countertop, drawer or standalone built-in microwaves."]
     ]
   },
   cooktop: {
@@ -448,7 +448,7 @@ const brandNotes = {
   midea: "Midea produces compact and full-size household appliances across several categories. Because model support and part families vary, we confirm identification and availability before recommending a component.",
   miele: "Miele appliances use detailed operating sequences across dishwashing, laundry and built-in kitchen products. Access planning, stored faults and model-specific test behavior help avoid unnecessary part replacement.",
   samsung: "Samsung service commonly involves refrigeration, laundry and connected kitchen appliances. Fans, sensors, valves, drain systems and control communication can create overlapping symptoms that require staged testing.",
-  sharp: "Sharp repair is often associated with built-in, over-the-range and drawer microwave products. Door interlocks, control response, installation access and high-voltage safety shape the diagnostic process.",
+  sharp: "Please confirm the exact model before requesting Sharp service. A drawer, countertop, over-the-range or standalone built-in microwave is outside our service scope, even when fitted into cabinetry.",
   smeg: "SMEG appliances combine distinctive exterior design with cooking and refrigeration systems that vary by model. Finish protection and exact part identification are considered before panels or controls are removed.",
   "speed-queen": "Speed Queen service is centered on washers and dryers. Mechanical drive, water flow, drain, heating and airflow checks are matched to the specific commercial-style or residential control platform.",
   "sub-zero": "Sub-Zero service focuses on built-in refrigeration, freezer and wine-storage systems. Airflow, compartment temperatures, door sealing, defrost and installation ventilation are reviewed as a complete cooling system.",
@@ -961,7 +961,7 @@ function cityMainSchema(citySlug) {
 function cityMainFaq(citySlug) {
   const city = cities[citySlug];
   return [
-    [`Which appliances do you repair in ${city.name}?`, "We repair refrigerators, freezers, washers, dryers, dishwashers, stoves, ovens, cooktops and many built-in or over-the-range microwaves."],
+    [`Which appliances do you repair in ${city.name}?`, "We repair refrigerators, freezers, washers, dryers, dishwashers, stoves, ovens, cooktops and built-in microwave/wall-oven combination units only."],
     [`Which parts of ${city.name} do you serve?`, `Service is available across ${city.zipCodes.join(", ")} and local areas including ${city.areas.join(", ")}. The exact address is confirmed during booking.`],
     [`How much is the service call in ${city.name}?`, "The service call is $89 and is waived when the quoted repair is completed."],
     ["Is same-day service guaranteed?", "No. Same-day or next-day appointments may be available, but the confirmed window depends on the active route, job duration and parts."],
@@ -1508,7 +1508,7 @@ function renderServicesMain() {
 <nav class="local-breadcrumbs" aria-label="Breadcrumb"><div class="local-shell"><ol><li><a href="https://alex-repair.com/">Home</a></li><li aria-current="page">Services</li></ol></div></nav>
 <section class="local-hero">
   <div class="local-hero-media"><img src="images/service-maintenance-worker-repairing.webp" alt="Alex Appliance Repair technician servicing a household appliance" width="1536" height="900" fetchpriority="high"></div>
-  <div class="local-shell local-hero-content"><p class="local-eyebrow">Kitchen and laundry appliance service</p><h1>Appliance Repair Services in the Indianapolis Area</h1><p class="local-hero-lead">Model-specific diagnosis and repair for refrigerators, washers, dryers, dishwashers, cooking appliances, microwaves and freezers across six Central Indiana service routes.</p><ul class="local-proof-list"><li>$89 service call</li><li>Fee waived with completed repair</li><li>Careful workmanship</li></ul><div class="local-actions"><a class="local-button" href="${BOOKING_URL}">Book service online</a><a class="local-button local-button--secondary" href="tel:${PHONE_LINK}">Call ${PHONE_DISPLAY}</a></div></div>
+  <div class="local-shell local-hero-content"><p class="local-eyebrow">Kitchen and laundry appliance service</p><h1>Appliance Repair Services in the Indianapolis Area</h1><p class="local-hero-lead">Model-specific diagnosis and repair for refrigerators, washers, dryers, dishwashers, cooking appliances, built-in microwave/wall-oven combination units and freezers across six Central Indiana service routes.</p><ul class="local-proof-list"><li>$89 service call</li><li>Fee waived with completed repair</li><li>Careful workmanship</li></ul><div class="local-actions"><a class="local-button" href="${BOOKING_URL}">Book service online</a><a class="local-button local-button--secondary" href="tel:${PHONE_LINK}">Call ${PHONE_DISPLAY}</a></div></div>
 </section>
 <section class="local-section"><div class="local-shell"><header class="local-section-header"><p class="local-eyebrow">Choose an appliance</p><h2>Repair services for the equipment in your home</h2><p>Open the service guide that matches the appliance. Each page explains common symptoms, diagnostic steps and direct links to city-specific coverage.</p></header><div class="local-service-card-grid">${cards}</div></div></section>
 <section class="local-section local-section--blue"><div class="local-shell"><header class="local-section-header"><p class="local-eyebrow">Repair process</p><h2>Clear information at every step</h2></header><ol class="local-process"><li><strong>Book</strong>Share the appliance, model, symptom and address.</li><li><strong>Diagnose</strong>We inspect and test the systems related to the failure.</li><li><strong>Approve</strong>You review the recommendation and estimate.</li><li><strong>Verify</strong>Approved work is completed and tested.</li></ol></div></section>

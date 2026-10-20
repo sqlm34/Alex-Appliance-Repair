@@ -19,10 +19,10 @@ export const articles = {
 <p>Use the <a href="https://alex-repair.com/carmel.html">Carmel appliance repair page</a> for local coverage and services, or <a href="https://alex-repair.com/locations.html">find your service area</a>. Have the symptom, service address and accessible model information ready. If there is a burning smell, active leak or other immediate hazard, stop using the appliance and address safety before scheduling routine service.</p>`
   },
   'finding-reliable-microwave-repair-near-carmel-what-to-look-for.html': {
-    lead: 'How to compare microwave repair options in Carmel, prepare model details and decide whether diagnosis makes sense for your appliance.',
-    body: `<p>A countertop microwave and a built-in unit can have very different repair decisions. Before choosing a microwave repair provider near Carmel, identify the installation, describe the symptom and confirm that the company supports the model. Avoid buying a replacement part based only on a symptom such as “runs but does not heat.”</p>
+    lead: 'Compare built-in microwave/oven combo repair in Carmel: confirm the installation, model support, diagnosis and estimate before booking.',
+    body: `<p>We repair only built-in combination units that integrate a microwave with a wall oven in cabinetry. We do not repair over-the-range microwaves mounted above gas or electric cooktops, countertop microwaves, microwave drawers or standalone built-in microwaves without an integrated oven. Before choosing a repair provider near Carmel, confirm model support and describe the symptom.</p>
 <h2>Identify the type of microwave first</h2>
-<p>Tell the provider whether the appliance is countertop, over-the-range, a drawer unit or built into cabinetry. Include the brand and model number from an accessible label. Describe any trim kit, cabinet access or installation issue that could affect removal. Do not pull out a heavy built-in appliance or remove covers just to obtain a label.</p>
+<p>Confirm that the microwave is part of a built-in microwave/wall-oven combination unit. Share the model number, cabinet access and whether the problem affects the microwave, oven or both. Do not remove the appliance or its covers to obtain this information. A microwave fitted into a cabinet by itself is not the same as an integrated microwave/wall-oven combination.</p>
 <h2>Describe what happens during normal use</h2>
 <ul><li>Does the display work and respond to controls?</li><li>Does the appliance start but fail to heat?</li><li>Does it stop during a cycle or show an error code?</li><li>Is the issue with the door, turntable or controls?</li><li>Have there been sparks, smoke or an unusual smell?</li></ul>
 <p>Record what you already observed; do not run repeated test cycles when there is arcing, smoke or a door problem. These details help establish the next diagnostic step, but they do not prove that a magnetron, switch or control board needs replacing.</p>
@@ -34,7 +34,7 @@ export const articles = {
 <h2>Questions to ask before the visit</h2>
 <ul><li>Do you evaluate this model and installation type?</li><li>What does the service call include?</li><li>Will you explain the diagnosis and estimate before repair approval?</li><li>What checks are performed after the repair?</li><li>What appointment window is available for my address?</li></ul>
 <p>Our service call is $89 and is waived when the quoted repair is completed. We approach each repair with care, explain the work performed and check the appliance after service. Same-day or next-day availability depends on the schedule and parts; emergency arrival is not promised.</p>
-<p>See <a href="https://alex-repair.com/carmel/microwave-repair-services.html">microwave repair in Carmel</a> for service details, or <a href="https://alex-repair.com/locations.html">choose another service area</a>. Share the installation, model if available and a short symptom description when booking.</p>`
+<p>See <a href="https://alex-repair.com/microwave-repair.html">built-in microwave/oven combo repair in Carmel</a> for service details, or <a href="https://alex-repair.com/locations.html">choose another service area</a>. Share the installation, model if available and a short symptom description when booking.</p>`
   },
   'keeping-your-cool-why-timely-refrigerator-repair-is-crucial-in-carmel.html': {
     lead: 'What to record when a refrigerator stops cooling, what to avoid and how to prepare for a service visit in Carmel.',
