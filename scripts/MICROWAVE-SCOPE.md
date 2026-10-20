@@ -6,6 +6,10 @@ Do not advertise over-the-range, countertop, drawer or standalone built-in
 microwave repair. Confirm model support before booking.
 
 Keep existing routes, canonical URLs, redirects and indexing directives.
+The six existing city microwave service URLs are active, self-canonical pages.
+City-menu links and city service cards must use their respective city URL, not
+the general Indianapolis-area page. Do not re-add these routes to retirement
+lists. Historical aliases still follow their existing redirects.
 Navigation and service copy use `Built-in Microwave + Oven Combo Repair`.
 Do not replace the current service-tools image with an over-the-range appliance.
 
@@ -14,6 +18,8 @@ After regenerating legacy HTML, run:
 ```text
 python scripts/update-microwave-scope.py
 python scripts/update-microwave-scope.py --check
+python scripts/fix-microwave-city-links.py
+python scripts/check-microwave-cities.py
 python scripts/check-microwave-scope.py
 node --input-type=module -e "import {rebuildSitemaps} from './scripts/rebuild-sitemaps.mjs'; console.log(rebuildSitemaps())"
 node scripts/check-microwave-layout.cjs

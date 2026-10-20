@@ -15,10 +15,10 @@ const retiredBrands = [
   "sub-zero", "thermador", "viking", "whirlpool", "wolf"
 ];
 const retiredServices = [
-  ["carmel", "cooktop"], ["carmel", "microwave"], ["fishers", "microwave"],
-  ["mccordsville", "cooktop"], ["mccordsville", "dishwasher"], ["mccordsville", "freezer"], ["mccordsville", "microwave"],
-  ["westfield", "cooktop"], ["westfield", "freezer"], ["westfield", "microwave"], ["westfield", "refrigerator"], ["westfield", "washer"],
-  ["zionsville", "cooktop"], ["zionsville", "dishwasher"], ["zionsville", "freezer"], ["zionsville", "microwave"], ["zionsville", "refrigerator"], ["zionsville", "stove"]
+  ["carmel", "cooktop"],
+  ["mccordsville", "cooktop"], ["mccordsville", "dishwasher"], ["mccordsville", "freezer"],
+  ["westfield", "cooktop"], ["westfield", "freezer"], ["westfield", "refrigerator"], ["westfield", "washer"],
+  ["zionsville", "cooktop"], ["zionsville", "dishwasher"], ["zionsville", "freezer"], ["zionsville", "refrigerator"], ["zionsville", "stove"]
 ];
 const retiredPaths = new Set([
   ...retiredBrands.map((slug) => `brands/${slug}-appliance-repair.html`),

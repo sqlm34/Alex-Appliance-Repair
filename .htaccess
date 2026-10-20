@@ -31,11 +31,11 @@ RedirectMatch 301 ^/(carmel|fishers|westfield|noblesville|mccordsville|zionsvill
 # SEO recovery: consolidate city-service pages with no clicks and negligible
 # search demand into their city hubs. Rules for historical aliases are kept
 # above the older redirects so every retired URL reaches its final page once.
-RedirectMatch 301 ^/carmel/(cooktop|microwave)-repair-services\.html$ https://alex-repair.com/carmel.html
-RedirectMatch 301 ^/fishers/microwave-repair-services\.html$ https://alex-repair.com/fishers.html
-RedirectMatch 301 ^/mccordsville/(cooktop|dishwasher|freezer|microwave)-repair-services\.html$ https://alex-repair.com/mccordsville.html
-RedirectMatch 301 ^/westfield/(cooktop|freezer|microwave|refrigerator|washer)-repair-services\.html$ https://alex-repair.com/westfield.html
-RedirectMatch 301 ^/zionsville/(cooktop|dishwasher|freezer|microwave|refrigerator|stove)-repair-services\.html$ https://alex-repair.com/zionsville.html
+# Microwave/oven combination service pages remain available for each city.
+RedirectMatch 301 ^/carmel/cooktop-repair-services\.html$ https://alex-repair.com/carmel.html
+RedirectMatch 301 ^/mccordsville/(cooktop|dishwasher|freezer)-repair-services\.html$ https://alex-repair.com/mccordsville.html
+RedirectMatch 301 ^/westfield/(cooktop|freezer|refrigerator|washer)-repair-services\.html$ https://alex-repair.com/westfield.html
+RedirectMatch 301 ^/zionsville/(cooktop|dishwasher|freezer|refrigerator|stove)-repair-services\.html$ https://alex-repair.com/zionsville.html
 
 RedirectMatch 301 ^/blog-carmel-(cooktop|microwave)-repair\.html$ https://alex-repair.com/carmel.html
 RedirectMatch 301 ^/blog-fishers-microwave-repair\.html$ https://alex-repair.com/fishers.html

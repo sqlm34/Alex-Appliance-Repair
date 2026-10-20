@@ -11,11 +11,10 @@ const titles = new Map();
 const canonicals = new Map();
 const retired = [
   /\/brands\/(amana|bertazzoni|dacor|electrolux|fisher-paykel|gaggenau|haier|hisense|jenn-air|kenmore|liebherr|maytag|midea|miele|sharp|smeg|speed-queen|sub-zero|thermador|viking|whirlpool|wolf)-appliance-repair\.html$/,
-  /\/carmel\/(cooktop|microwave)-repair-services\.html$/,
-  /\/fishers\/microwave-repair-services\.html$/,
-  /\/mccordsville\/(cooktop|dishwasher|freezer|microwave)-repair-services\.html$/,
-  /\/westfield\/(cooktop|freezer|microwave|refrigerator|washer)-repair-services\.html$/,
-  /\/zionsville\/(cooktop|dishwasher|freezer|microwave|refrigerator|stove)-repair-services\.html$/
+  /\/carmel\/cooktop-repair-services\.html$/,
+  /\/mccordsville\/(cooktop|dishwasher|freezer)-repair-services\.html$/,
+  /\/westfield\/(cooktop|freezer|refrigerator|washer)-repair-services\.html$/,
+  /\/zionsville\/(cooktop|dishwasher|freezer|refrigerator|stove)-repair-services\.html$/
 ];
 
 function addMap(map, key, relative) {

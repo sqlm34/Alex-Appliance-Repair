@@ -5,6 +5,7 @@ const fs=require('node:fs');
 const {chromium}=require(process.env.PLAYWRIGHT_PATH||'playwright');
 const root=path.resolve(__dirname,'..');
 const files=['index.html','services.html','microwave-repair.html','noblesville/microwave-repair-services.html','carmel.html','brands.html','blog-microwave-repair-guide.html','top-5-common-microwave-problems-and-how-to-fix-them.html','finding-reliable-microwave-repair-near-carmel-what-to-look-for.html'];
+const cities={carmel:'Carmel',fishers:'Fishers',westfield:'Westfield',noblesville:'Noblesville',mccordsville:'McCordsville',zionsville:'Zionsville'};
 (async()=>{
  const server=http.createServer((req,res)=>{
   const filename=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));
@@ -18,6 +19,39 @@ const files=['index.html','services.html','microwave-repair.html','noblesville/m
  const browser=await chromium.launch({channel:'msedge',headless:true});
  try{
   const page=await browser.newPage();
+  if(!process.argv[2])await page.route('https://alex-repair.com/**',async route=>{
+   const requested=new URL(route.request().url());
+   const response=await route.fetch({url:new URL((requested.pathname==='/'?'/index.html':requested.pathname)+requested.search,base).href});
+   await route.fulfill({response});
+  });
+  for(const width of [1440,390,320]){
+   await page.setViewportSize({width,height:1000});
+   for(const [city,name] of Object.entries(cities)){
+    await page.goto(new URL('index.html',base).href,{waitUntil:'domcontentloaded'});
+    const nav=page.locator(width<1000?'.mobile-menu-nav':'.menu-nav');
+    if(width<1000)await page.locator('.hamburger').click();
+    const locations=nav.locator(':scope > ul > .menu-has-children').first();
+    await locations.locator(':scope > .menu-item-plus').click();
+    const group=locations.locator(':scope > .sub-menu > .menu-has-children').filter({has:page.locator(`a[href="https://alex-repair.com/${city}.html"]`)});
+    await group.locator(':scope > .menu-item-plus').click();
+    await page.waitForTimeout(500);
+    const entry=group.getByRole('link',{name:'Built-in Microwave + Oven Combo Repair',exact:true});
+    const expected=`https://alex-repair.com/${city}/microwave-repair-services.html`;
+    assert.equal(await entry.getAttribute('href'),expected);
+    await entry.click();
+    await page.waitForURL(expected);
+    await page.locator('h1').waitFor();
+    assert.equal(await page.locator('h1').textContent(),`Built-in Microwave + Oven Combo Repair in ${name}, IN`);
+    assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),expected);
+    assert(!(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1)),`${city} ${width} overflow`);
+    await page.screenshot({path:path.join(root,`previews/microwave-city-${city}-${width}.png`)});
+    await page.goto(new URL(city+'.html',base).href,{waitUntil:'domcontentloaded'});
+    await page.locator(`main a[href="${expected}"]`).first().click();
+    await page.waitForURL(expected);
+    assert.equal(await page.locator('h1').textContent(),`Built-in Microwave + Oven Combo Repair in ${name}, IN`);
+    console.log(`PASS city menu + hub -> ${name} ${width}px`);
+   }
+  }
   for(const width of [1440,390,320]){
    await page.setViewportSize({width,height:1000});
    for(const file of files){

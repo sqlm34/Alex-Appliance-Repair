@@ -24,7 +24,10 @@ for filename in files:
         assert [n.attrs.get('content') for n in doc.nodes if n.tag=='meta' and n.attrs.get('name')=='robots']==b['robots'], filename+' robots changed'
         assert [n.attrs.get('src') for n in doc.nodes if n.tag=='script' and 'src' in n.attrs]==b['scripts'], filename+' scripts changed'
         if 'microwave' not in filename:
-            assert [n.attrs.get('href') for n in doc.nodes if n.tag=='a']==b['links'],filename+' links changed'
+            def normalize_microwave(url):
+                if url and re.search(r'(?:^|/)microwave-repair(?:-services)?\.html$', url): return 'microwave-service'
+                return url
+            assert [normalize_microwave(n.attrs.get('href')) for n in doc.nodes if n.tag=='a']==[normalize_microwave(url) for url in b['links']],filename+' unrelated links changed'
     for n in doc.nodes:
         if n.tag=='script' and n.attrs.get('type')=='application/ld+json': json.loads(source[n.inner:n.end])
         if n.tag=='a': assert doc.text(n).strip()!='Microwave Repair', filename+' unqualified service link'
@@ -51,7 +54,10 @@ for filename in files:
 ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
 current=ET.parse(ROOT/'sitemap.xml')
 previous=ET.fromstring(subprocess.check_output(['git','show','HEAD:sitemap.xml'],cwd=ROOT))
-assert [e.text for e in current.findall('.//s:loc',ns)]==[e.text for e in previous.findall('.//s:loc',ns)],'Sitemap URL set changed'
-for name in ['.htaccess','robots.txt']:
+before={e.text for e in previous.findall('.//s:loc',ns)}
+after={e.text for e in current.findall('.//s:loc',ns)}
+restored={f'https://alex-repair.com/{city}/microwave-repair-services.html' for city in ['carmel','fishers','westfield','mccordsville','zionsville']}
+assert before <= after and after-before <= restored,'Unrelated sitemap URLs changed'
+for name in ['robots.txt']:
     assert (ROOT/name).read_bytes().replace(b'\r\n',b'\n')==subprocess.check_output(['git','show','HEAD:'+name],cwd=ROOT).replace(b'\r\n',b'\n'),name+' changed'
 print(f'PASS {checked} pages: canonical, robots, script URLs, navigation targets, JSON-LD, scope, FAQs and sitemap URLs')

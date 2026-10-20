@@ -40,21 +40,16 @@ const UNIFIED_PAGE_PATHS = new Set([...CORE_SERVICE_PAGES, ...INFORMATION_PAGES,
 const INDEXED_BRAND_SLUGS = new Set(["bosch", "frigidaire", "ge", "kitchenaid", "lg", "samsung"]);
 const EXCLUDED_SERVICE_PAGES = new Set([
   "carmel/cooktop",
-  "carmel/microwave",
-  "fishers/microwave",
   "mccordsville/cooktop",
   "mccordsville/dishwasher",
   "mccordsville/freezer",
-  "mccordsville/microwave",
   "westfield/cooktop",
   "westfield/freezer",
-  "westfield/microwave",
   "westfield/refrigerator",
   "westfield/washer",
   "zionsville/cooktop",
   "zionsville/dishwasher",
   "zionsville/freezer",
-  "zionsville/microwave",
   "zionsville/refrigerator",
   "zionsville/stove"
 ]);
