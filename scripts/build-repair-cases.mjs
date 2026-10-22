@@ -25,6 +25,7 @@ import { samsungHeatStory, samsungHeatArticle } from './samsung-dve50-fishers-st
 import { kenmoreGasketStory, kenmoreGasketArticle } from './kenmore-gasket-westfield-story.mjs';
 import { lgIceStory, lgIceArticle } from './lg-ice-light-mccordsville-story.mjs';
 import { whirlpoolNoStartStory, whirlpoolNoStartArticle } from './whirlpool-no-start-carmel-story.mjs';
+import { maytagHeatStory, maytagHeatArticle } from './maytag-no-heat-fishers-story.mjs';
 import { story as lgRangeStory, paragraphs as lgRangeParagraphs, lgRangeArticle } from './lg-range-story.mjs';
 import { rebuildSitemaps } from './rebuild-sitemaps.mjs';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -49,9 +50,10 @@ function metadata(html,{name,description,page,imageUrl,type='website',schema}){
 }
 function rootAssets(html){return html.replace(/\b(href|src)="([^"#]+)"/g,(all,attr,value)=>/^(?:[a-z]+:|\/)/i.test(value)?all:`${attr}="/${value.replace(/^(?:\.\.\/)+/,'')}"`);}
 const cta='<section class="local-cta"><div class="local-shell"><h2>Need help with your appliance?</h2><p>Tell us the appliance, symptom and service address. We explain the diagnosis and estimate before approved repair work.</p><div class="local-actions"><a class="local-button" href="https://aleksappliancerepair.com/booking">Book service online</a><a class="local-button local-button--secondary" href="tel:+14632488429">Call (463) 248-8429</a></div></div></section>';
-export function buildRepairCases(){
+export function buildRepairCases(onlySlug){
  const storedCases=JSON.parse(fs.readFileSync(path.join(ROOT,'scripts/repair-cases.json'),'utf8'));
- const cases=[whirlpoolNoStartStory,lgIceStory,kenmoreGasketStory,samsungHeatStory,fishersWasherStory,fishersDryerStory,noblesvilleWasherStory,lgDrainStory,maytagDryerStory,whirlpoolDryerStory,lgNoiseStory,whirlpoolWaterStory,lgFanStory,lgSwitchStory,carmelFridgeStory,geDryerStory,drawerStory,fridgeStory,samsungStory,washerStory,lgRangeStory,...storedCases];
+ const cases=[maytagHeatStory,whirlpoolNoStartStory,lgIceStory,kenmoreGasketStory,samsungHeatStory,fishersWasherStory,fishersDryerStory,noblesvilleWasherStory,lgDrainStory,maytagDryerStory,whirlpoolDryerStory,lgNoiseStory,whirlpoolWaterStory,lgFanStory,lgSwitchStory,carmelFridgeStory,geDryerStory,drawerStory,fridgeStory,samsungStory,washerStory,lgRangeStory,...storedCases];
+ if(onlySlug&&!cases.some(c=>c.slug===onlySlug))throw Error('Unknown repair case: '+onlySlug);
  cases.sort((a,b)=>b.published.localeCompare(a.published));
  const editorialStories=new Map([[washerStory.slug,washerArticle],[fishersSlug,fishersArticle],[lgDryerSlug,lgDryerArticle],[lgRangeStory.slug,lgRangeArticle],[cafeSlug,cafeArticle]]);
  notes[lgRangeStory.slug]=lgRangeParagraphs;
@@ -74,6 +76,7 @@ export function buildRepairCases(){
  editorialStories.set(kenmoreGasketStory.slug,kenmoreGasketArticle);
  editorialStories.set(lgIceStory.slug,lgIceArticle);
  editorialStories.set(whirlpoolNoStartStory.slug,whirlpoolNoStartArticle);
+ editorialStories.set(maytagHeatStory.slug,maytagHeatArticle);
  const seen=new Set();
  for(const c of cases){
   if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(c.slug)||seen.has(c.slug))throw Error('Invalid/duplicate case slug');seen.add(c.slug);
@@ -87,6 +90,7 @@ export function buildRepairCases(){
  fs.mkdirSync(path.join(ROOT,'repair-cases'),{recursive:true});
  for(const c of cases){
   const caseNotes=notes[c.slug]||[];
+  if(onlySlug&&c.slug!==onlySlug)continue;
   const service=c.appliance==='range'?'stove':c.appliance;
   const servicePath=service==='diagnosis'?'services.html':c.city==='service-area'?`${service}-repair.html`:`${c.city}/${service}-repair-services.html`;
   const relatedPool=c.slug===lgDryerSlug?cases:c.slug===fishersSlug?cases.filter(x=>x.slug!==lgDryerSlug):[lgRangeStory,...storedCases.filter(x=>x.slug!==fishersSlug&&x.slug!==lgDryerSlug)];
@@ -179,4 +183,4 @@ export function buildRepairCases(){
  fs.writeFileSync(datesPath,JSON.stringify(dates,null,2)+'\n');
  return rebuildSitemaps(cases.map(c=>'repair-cases/'+c.slug+'.html'));
 }
-if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))console.log(buildRepairCases());
+if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))console.log(buildRepairCases(process.argv[2]));

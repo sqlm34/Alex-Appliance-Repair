@@ -83,7 +83,7 @@
   "brands/miele-appliance-repair.html": "2026-10-13",
   "brands/samsung-appliance-repair.html": "2026-10-19",
   "brands/sharp-appliance-repair.html": "2026-10-19",
-  "recent-work.html": "2026-10-19",
+  "recent-work.html": "2026-10-22",
   "brands/smeg-appliance-repair.html": "2026-10-13",
   "brands/speed-queen-appliance-repair.html": "2026-10-13",
   "brands/sub-zero-appliance-repair.html": "2026-10-13",
@@ -91,7 +91,7 @@
   "brands/viking-appliance-repair.html": "2026-10-13",
   "brands/whirlpool-appliance-repair.html": "2026-10-13",
   "brands/wolf-appliance-repair.html": "2026-10-19",
-  "blog.html": "2026-10-19",
+  "blog.html": "2026-10-22",
   "repair-cases/carmel-dryer-gas-valve-coils.html": "2026-09-09",
   "repair-cases/carmel-freezer-evaporator-fan.html": "2026-09-09",
   "repair-cases/carmel-dishwasher-fill-funnel.html": "2026-09-09",
@@ -425,5 +425,6 @@
   "mccordsville-microwave-repair.html": "2026-10-19",
   "noblesville-microwave-repair.html": "2026-10-19",
   "westfield-microwave-repair.html": "2026-10-19",
-  "zionsville-microwave-repair.html": "2026-10-19"
+  "zionsville-microwave-repair.html": "2026-10-19",
+  "repair-cases/fishers-maytag-med5630hw2-dryer-not-heating-element-replacement.html": "2026-10-22"
 }
