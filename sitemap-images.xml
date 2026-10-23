@@ -45,12 +45,12 @@
   <url>
     <loc>https://alex-repair.com/blog.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/repair-room.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-no-heat-fishers/stacked-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-no-start-carmel/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/kenmore-gasket-westfield/old-and-new-gaskets.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-fishers/samsung-dryer.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-wtw5057-fishers/whirlpool-washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/overworking-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair-carmel.webp</image:loc></image:image>
@@ -595,6 +595,7 @@
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-no-heat-fishers/stacked-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-no-start-carmel/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/refrigerator.webp</image:loc></image:image>
@@ -1277,6 +1278,25 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-no-heat-fishers/completed-test.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-dryer-gas-valve-coil-repair-open-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-repair.com/repair-cases/carmel-ge-gfw550ssn3ww-washer-control-board-replacement.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/control-board-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/washer.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/model-label.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/washer-open.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/control-housing.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/original-board-connections.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/old-and-new-boards.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/replacement-board.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/installed-board.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/dryer-restacked.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/gas-connection-check.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/vent-reconnected.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/completed-installation.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/samsung-washer-valve-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-washer-suspension-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
   </url>
 </urlset>
