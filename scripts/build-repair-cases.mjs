@@ -137,7 +137,7 @@ export function buildRepairCases(onlySlug){
   if(editorialStories.has(c.slug)) {
    const editorialStyleVersion=c.slug===lgSwitchStory.slug||c.slug===carmelFridgeStory.slug||c.slug===geDryerStory.slug||c.slug===drawerStory.slug||c.slug===fridgeStory.slug||c.slug===samsungStory.slug||c.slug===cafeSlug||c.slug===washerStory.slug?'20260916-cafe-aligned':c.slug===fishersSlug?'20260911-highlighted-seal':'20260913-lg-dryer';
    page=page.replace('</head>',`<link rel="stylesheet" href="/css/repair-story-editorial.css?v=${c.slug===lgSwitchStory.slug?'20261001-lg-captions':editorialStyleVersion}">\n</head>`);
-   if(c.editorialStylesheet) page=page.replace('</head>',`<link rel="stylesheet" href="/css/${esc(c.editorialStylesheet)}.css?v=20261002">\n</head>`);
+   if(c.editorialStylesheet) page=page.replace('</head>',`<link rel="stylesheet" href="/css/${esc(c.editorialStylesheet)}.css?v=20261023-spacing">\n</head>`);
    if(overviewImages(c).length>1) page=page.replace('</head>','<link rel="stylesheet" href="/css/repair-diagram-slider.css?v=20261018"><script src="/js/repair-diagram-slider.js?v=20261018" defer></script>\n</head>');
    // Keep this standalone HTML preview usable from disk as well as from the site root.
    if(c.slug!==maytagDryerStory.slug&&c.slug!==whirlpoolDryerStory.slug&&c.slug!==lgNoiseStory.slug&&c.slug!==whirlpoolWaterStory.slug&&c.slug!==lgFanStory.slug&&c.slug!==lgSwitchStory.slug&&c.slug!==carmelFridgeStory.slug&&c.slug!==geDryerStory.slug&&c.slug!==drawerStory.slug&&c.slug!==fridgeStory.slug&&c.slug!==samsungStory.slug&&c.slug!==lgRangeStory.slug&&c.slug!==cafeSlug&&c.slug!==washerStory.slug) page=page.replace(/\b(href|src)="\/(?!\/)([^"]*)"/g,(_,attr,value)=>`${attr}="../${value||'index.html'}"`);
