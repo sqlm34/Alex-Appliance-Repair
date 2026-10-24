@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import {articleDividers} from './apply-article-dividers.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { articles } from './recovery-articles.mjs';
@@ -101,7 +102,7 @@ export function applyRecovery() {
   for(const relativePath of paths) {
     const file=path.join(ROOT,relativePath); const original=fs.readFileSync(file,'utf8');
     const improved=improvePage(relativePath,original);
-    if(improved!==original.replace(/\r\n/g,'\n')) {fs.writeFileSync(file,improved);changed.push(relativePath);}
+    if(improved!==original.replace(/\r\n/g,'\n')) {fs.writeFileSync(file,articleDividers(improved));changed.push(relativePath);}
   }
   return changed;
 }

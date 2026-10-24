@@ -32,15 +32,9 @@ const target=process.argv[2]||pathToFileURL(path.join(root,'repair-cases',slug+'
    }),[]);
    assert.deepEqual(await page.locator('.case-body img,.case-summary-visual img').evaluateAll(images=>images.filter(i=>i.naturalWidth!==Number(i.getAttribute('width'))||i.naturalHeight!==Number(i.getAttribute('height'))).map(i=>i.src)),[]);
    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Horizontal overflow');
-   const dividers=await page.locator('.editorial-story>.repair-story-section').evaluateAll(sections=>sections.map(s=>({
-    icon:getComputedStyle(s,'::after').backgroundImage,content:getComputedStyle(s,'::after').content,
-    top:parseFloat(getComputedStyle(s,'::after').top),height:parseFloat(getComputedStyle(s,'::after').height)
-   })));
-   assert.equal(dividers[0].content,'none');
-   dividers.slice(1).forEach((d,i)=>{
-    assert(d.icon.includes(i%2?'article-divider-stripes.svg':'article-divider-wrench.svg'));
-    assert(d.top<0 && d.top+d.height<0,'Divider remains inside section gap');
-   });
+   const dividers=await page.locator('.editorial-story>.article-divider').evaluateAll(xs=>xs.map(e=>e.dataset.variant));
+   assert(dividers.length>0&&dividers.length<=6);
+   dividers.forEach((d,i)=>assert.equal(d,i%2?'stripes':'wrench'));
    for(const asset of ['article-divider-wrench.svg','article-divider-stripes.svg']){
     assert(await page.evaluate(async asset=>{const i=new Image();i.src=new URL('../images/'+asset,location.href);try{await i.decode();return i.naturalWidth>0;}catch{return false;}},asset));
    }

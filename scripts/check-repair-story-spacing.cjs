@@ -43,13 +43,13 @@ const files=fs.readdirSync(path.join(root,'repair-cases')).filter(f=>f.endsWith(
       else {check(parseFloat(getComputedStyle(row).columnGap),32,`row ${i} columns`);check(box(caption).top-box(link).bottom,12,`row ${i} caption`);}
      });
      const sections=[...document.querySelectorAll('.editorial-story>.repair-story-section')];
-     const divided=!!document.querySelector('link[href*="lg-dle5977s-mccordsville.css"]');
      sections.slice(1).forEach((s,i)=>{
       const gap=box(s).top-box(sections[i]).bottom;
+      const divided=s.previousElementSibling?.classList.contains('article-divider');
       check(gap,divided?(mobile?80:96):(mobile?36:48),`section ${i} spacing`);
       if(divided){
-       const ornament=getComputedStyle(s,'::after'),top=parseFloat(ornament.top),height=parseFloat(ornament.height);
-       check(gap+top,-top-height,`section ${i} symmetric divider clearance`);
+       const ornament=box(s.previousElementSibling);
+       check(ornament.top-box(sections[i]).bottom,box(s).top-ornament.bottom,`section ${i} symmetric divider clearance`);
       }
      });
      if(document.documentElement.scrollWidth>innerWidth+1)errors.push('Horizontal overflow');
