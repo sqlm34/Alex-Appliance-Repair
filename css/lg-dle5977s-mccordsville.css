@@ -1,0 +1,7 @@
+.case-summary--with-image dd{overflow-wrap:anywhere}
+.case-summary--with-image .case-summary-visual img{object-fit:contain!important}
+@media(max-width:1024px){
+ .case-layout:has(.editorial-story)>.case-summary--with-image{grid-template-columns:1fr}
+ .case-summary--with-image .case-summary-visual{min-height:0;border-top:1px solid #dce4ee}
+ .case-summary--with-image .case-summary-visual img{max-width:480px;margin-inline:auto;height:auto}
+}
