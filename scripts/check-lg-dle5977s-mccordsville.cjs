@@ -32,6 +32,18 @@ const target=process.argv[2]||pathToFileURL(path.join(root,'repair-cases',slug+'
    }),[]);
    assert.deepEqual(await page.locator('.case-body img,.case-summary-visual img').evaluateAll(images=>images.filter(i=>i.naturalWidth!==Number(i.getAttribute('width'))||i.naturalHeight!==Number(i.getAttribute('height'))).map(i=>i.src)),[]);
    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'Horizontal overflow');
+   const dividers=await page.locator('.editorial-story>.repair-story-section').evaluateAll(sections=>sections.map(s=>({
+    icon:getComputedStyle(s,'::after').backgroundImage,content:getComputedStyle(s,'::after').content,
+    top:parseFloat(getComputedStyle(s,'::after').top),height:parseFloat(getComputedStyle(s,'::after').height)
+   })));
+   assert.equal(dividers[0].content,'none');
+   dividers.slice(1).forEach((d,i)=>{
+    assert(d.icon.includes(i%2?'article-divider-stripes.svg':'article-divider-wrench.svg'));
+    assert(d.top<0 && d.top+d.height<0,'Divider remains inside section gap');
+   });
+   for(const asset of ['article-divider-wrench.svg','article-divider-stripes.svg']){
+    assert(await page.evaluate(async asset=>{const i=new Image();i.src=new URL('../images/'+asset,location.href);try{await i.decode();return i.naturalWidth>0;}catch{return false;}},asset));
+   }
    assert.deepEqual(await page.locator('.case-summary dd').evaluateAll(nodes=>nodes.filter(n=>n.scrollWidth>n.clientWidth+1).map(n=>n.textContent)),[],'Overview clipping');
    await page.locator('.case-body .gallery-item').first().click();
    await page.locator('.native-lightbox.is-open').waitFor();
@@ -43,6 +55,11 @@ const target=process.argv[2]||pathToFileURL(path.join(root,'repair-cases',slug+'
     await section.screenshot({path:path.join(root,`previews/lg-belt-${name}-${width}.png`)});
    }
    console.log(`PASS ${width}px: SEO metadata, images, gallery, overview and overflow`);
+   const section=page.locator('.repair-story-section').nth(3);
+   await section.evaluate(e=>window.scrollTo(0,e.getBoundingClientRect().top+scrollY-100));
+   await page.screenshot({path:path.join(root,`previews/lg-belt-dividers-${width}.png`)});
+   await page.locator('.repair-story-section').nth(4).evaluate(e=>window.scrollTo(0,e.getBoundingClientRect().top+scrollY-100));
+   await page.screenshot({path:path.join(root,`previews/lg-belt-stripes-${width}.png`)});
   }
   const links=await page.locator('main [href],main [src]').evaluateAll(nodes=>nodes.flatMap(n=>['href','src'].filter(a=>n.hasAttribute(a)).map(a=>n.getAttribute(a))));
   for(const link of links)if(link.startsWith('../'))assert(fs.existsSync(path.resolve(root,'repair-cases',link.split(/[?#]/)[0])),link);

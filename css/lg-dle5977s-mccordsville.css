@@ -1,5 +1,23 @@
 .case-summary--with-image dd{overflow-wrap:anywhere}
 .case-summary--with-image .case-summary-visual img{object-fit:contain!important}
+/* Decorative dividers occupy the existing section gap without changing spacing. */
+.editorial-story>.repair-story-section{position:relative}
+.editorial-story>.repair-story-section+.repair-story-section::before{
+ content:"";position:absolute;inset-inline:0;top:-25px;height:2px;pointer-events:none;
+ background:linear-gradient(to right,#14325a 0 calc(50% - 30px),transparent calc(50% - 30px) calc(50% + 30px),#14325a calc(50% + 30px) 100%);
+}
+.editorial-story>.repair-story-section+.repair-story-section::after{
+ content:"";position:absolute;left:50%;top:-38px;width:32px;height:28px;transform:translateX(-50%);pointer-events:none;
+ background:url("../images/article-divider-wrench.svg") center/28px 28px no-repeat;
+}
+.editorial-story>.repair-story-section:nth-child(odd)::after{
+ background-image:url("../images/article-divider-stripes.svg");background-size:32px 28px;
+}
+@media(max-width:768px){
+ .editorial-story>.repair-story-section+.repair-story-section::before{top:-19px}
+ .editorial-story>.repair-story-section+.repair-story-section::after{top:-30px;height:24px;background-size:24px 24px}
+ .editorial-story>.repair-story-section:nth-child(odd)::after{background-size:30px 24px}
+}
 @media(max-width:1024px){
  .case-layout:has(.editorial-story)>.case-summary--with-image{grid-template-columns:1fr}
  .case-summary--with-image .case-summary-visual{min-height:0;border-top:1px solid #dce4ee}
