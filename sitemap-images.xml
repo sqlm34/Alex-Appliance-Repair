@@ -45,12 +45,12 @@
   <url>
     <loc>https://alex-repair.com/blog.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/repair-room.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle5977s-mccordsville/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-carmel/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-no-heat-fishers/stacked-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-no-start-carmel/dryer.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-ice-light-mccordsville/refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/overworking-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair-carmel.webp</image:loc></image:image>
@@ -595,6 +595,7 @@
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle5977s-mccordsville/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-carmel/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/washer.webp</image:loc></image:image>
@@ -1339,6 +1340,28 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle5977s-mccordsville/duct-debris.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle5977s-mccordsville/cleaned-cabinet.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle5977s-mccordsville/reassembly.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-dryer-gas-valve-coil-repair-open-dryer.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-repair.com/repair-cases/noblesville-maytag-med5430mw0-dryer-not-heating-repair.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/bulkhead-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/idler-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/dryer.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/model-label.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/rear-open.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/old-cutoff.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/new-cutoff.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/blower-fuse.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/old-roller.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/old-idler.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/new-roller.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/new-idler.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/cleaned-cabinet.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/drum-cleaning.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/reassembly.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/tested-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-dryer-gas-valve-coil-repair-open-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>

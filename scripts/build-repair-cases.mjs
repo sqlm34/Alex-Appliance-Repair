@@ -30,6 +30,7 @@ import { maytagHeatStory, maytagHeatArticle } from './maytag-no-heat-fishers-sto
 import { geBoardStory, geBoardArticle } from './ge-board-carmel-story.mjs';
 import { lgBeltStory, lgBeltArticle } from './lg-dle5977s-mccordsville-story.mjs';
 import { samsungCarmelStory, samsungCarmelArticle } from './samsung-dve50-carmel-story.mjs';
+import { maytagNoblesvilleStory, maytagNoblesvilleArticle } from './maytag-med5430-noblesville-story.mjs';
 import { story as lgRangeStory, paragraphs as lgRangeParagraphs, lgRangeArticle } from './lg-range-story.mjs';
 import { rebuildSitemaps } from './rebuild-sitemaps.mjs';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -56,7 +57,7 @@ function rootAssets(html){return html.replace(/\b(href|src)="([^"#]+)"/g,(all,at
 const cta='<section class="local-cta"><div class="local-shell"><h2>Need help with your appliance?</h2><p>Tell us the appliance, symptom and service address. We explain the diagnosis and estimate before approved repair work.</p><div class="local-actions"><a class="local-button" href="https://aleksappliancerepair.com/booking">Book service online</a><a class="local-button local-button--secondary" href="tel:+14632488429">Call (463) 248-8429</a></div></div></section>';
 export function buildRepairCases(onlySlug){
  const storedCases=JSON.parse(fs.readFileSync(path.join(ROOT,'scripts/repair-cases.json'),'utf8'));
- const cases=[lgBeltStory,samsungCarmelStory,geBoardStory,maytagHeatStory,whirlpoolNoStartStory,lgIceStory,kenmoreGasketStory,samsungHeatStory,fishersWasherStory,fishersDryerStory,noblesvilleWasherStory,lgDrainStory,maytagDryerStory,whirlpoolDryerStory,lgNoiseStory,whirlpoolWaterStory,lgFanStory,lgSwitchStory,carmelFridgeStory,geDryerStory,drawerStory,fridgeStory,samsungStory,washerStory,lgRangeStory,...storedCases];
+ const cases=[maytagNoblesvilleStory,lgBeltStory,samsungCarmelStory,geBoardStory,maytagHeatStory,whirlpoolNoStartStory,lgIceStory,kenmoreGasketStory,samsungHeatStory,fishersWasherStory,fishersDryerStory,noblesvilleWasherStory,lgDrainStory,maytagDryerStory,whirlpoolDryerStory,lgNoiseStory,whirlpoolWaterStory,lgFanStory,lgSwitchStory,carmelFridgeStory,geDryerStory,drawerStory,fridgeStory,samsungStory,washerStory,lgRangeStory,...storedCases];
  if(onlySlug&&!cases.some(c=>c.slug===onlySlug))throw Error('Unknown repair case: '+onlySlug);
  cases.sort((a,b)=>b.published.localeCompare(a.published));
  const editorialStories=new Map([[washerStory.slug,washerArticle],[fishersSlug,fishersArticle],[lgDryerSlug,lgDryerArticle],[lgRangeStory.slug,lgRangeArticle],[cafeSlug,cafeArticle]]);
@@ -84,6 +85,7 @@ export function buildRepairCases(onlySlug){
  editorialStories.set(geBoardStory.slug,geBoardArticle);
  editorialStories.set(lgBeltStory.slug,lgBeltArticle);
  editorialStories.set(samsungCarmelStory.slug,samsungCarmelArticle);
+ editorialStories.set(maytagNoblesvilleStory.slug,maytagNoblesvilleArticle);
  const seen=new Set();
  for(const c of cases){
   if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(c.slug)||seen.has(c.slug))throw Error('Invalid/duplicate case slug');seen.add(c.slug);
@@ -126,7 +128,7 @@ export function buildRepairCases(onlySlug){
   }
   if(editorialStories.has(c.slug)) {
    if(c.slug===kenmoreGasketStory.slug||c.slug===whirlpoolWaterStory.slug||c.slug===whirlpoolDryerStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/westfield.html">View Westfield service coverage</a>');
-   if(c.slug===noblesvilleWasherStory.slug||c.slug===lgFanStory.slug||c.slug===lgNoiseStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/noblesville.html">View Noblesville service coverage</a>');
+   if(c.slug===maytagNoblesvilleStory.slug||c.slug===noblesvilleWasherStory.slug||c.slug===lgFanStory.slug||c.slug===lgNoiseStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/noblesville.html">View Noblesville service coverage</a>');
    if(c.slug===lgBeltStory.slug||c.slug===lgIceStory.slug||c.slug===maytagDryerStory.slug||c.slug===samsungStory.slug||c.slug===lgSwitchStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/mccordsville.html">View McCordsville service coverage</a>');
    if(c.slug!==geDryerStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>', '<a href="/fishers.html">View Fishers service coverage</a>');
    const diagrams=overviewImages(c);
