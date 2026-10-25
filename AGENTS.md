@@ -2,6 +2,7 @@
 
 When creating or editing repair articles:
 
+- Never include replacement-part numbers in blog articles or repair stories, including headings, body text, FAQs, captions, alt text, SEO metadata and structured data. Use component names only. Appliance model numbers are allowed and should be verified from the model label. Diagram position/callout numbers are not replacement-part numbers. Check this rule before publishing.
 - Reuse the existing editorial layout and shared CSS. Keep image/text spacing consistent throughout the article, including paired photo blocks followed by paragraphs.
 - For the `lg-fan-noblesville.css` layout, preserve 32px desktop image/text column gaps, 28px desktop photo-block/text gaps, 24px mobile gaps, and 12px image/caption gaps. Undivided section spacing is 48px desktop and 36px mobile.
 - All blog articles and repair stories use shared `article-dividers.css` and `article-dividers.js`, installed by `scripts/apply-article-dividers.mjs` and the generators. Alternate wrench and yellow-stripe motifs, never identical consecutive dividers. Limit to six per article, only before major sections after at least 70 words; do not divide individual paragraphs, captions, cards or FAQ questions.

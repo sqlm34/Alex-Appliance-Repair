@@ -1,5 +1,7 @@
 # Repair Story Requirements
 
+- Never emit replacement-part numbers in article content, FAQs, captions, alt text, SEO metadata or structured data. Use component names only, and check generated output before publication. Verified appliance model numbers and diagram position/callout numbers remain allowed.
+
 - Preserve the shared alternating article-divider system for every new article. Follow the root AGENTS.md density and symmetric spacing rules; add assets through `articleDividers` from `apply-article-dividers.mjs`. Run the divider browser regression test before and after deployment. Never insert a divider inside photo/caption blocks or individual FAQ answers.
 
 - For more than one supplied diagram, use overviewImages and a manual slider in the right half of Visit Overview, with visible previous/next arrow buttons styled to the site. Keep diagrams uncropped, support mobile use, and do not add visible diagram captions. A single diagram remains a plain image without slider controls.

@@ -20,6 +20,7 @@ const target=process.argv[2]||pathToFileURL(path.join(root,'repair-cases',slug+'
    await page.locator('[data-diagram-next]').waitFor();
    await page.evaluate(()=>document.fonts.ready);
    assert.equal(await page.locator('h1').count(),1);
+   assert.doesNotMatch(await page.content(), /(?:WP)?3392519|(?:WP)?691366|3397590|W10900067/i, 'Replacement-part numbers must not appear in the article');
    assert.match(await page.locator('h1').textContent(),/Maytag MED5430MW0.*Noblesville/);
    assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'),canonical);
    const schema=JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
