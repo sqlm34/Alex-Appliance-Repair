@@ -32,6 +32,7 @@ import { lgBeltStory, lgBeltArticle } from './lg-dle5977s-mccordsville-story.mjs
 import { samsungCarmelStory, samsungCarmelArticle } from './samsung-dve50-carmel-story.mjs';
 import { maytagNoblesvilleStory, maytagNoblesvilleArticle } from './maytag-med5430-noblesville-story.mjs';
 import { maytagCarmelStory, maytagCarmelArticle } from './maytag-medb835-carmel-story.mjs';
+import { geSuspensionStory, geSuspensionArticle } from './ge-suspension-fishers-story.mjs';
 import { story as lgRangeStory, paragraphs as lgRangeParagraphs, lgRangeArticle } from './lg-range-story.mjs';
 import { rebuildSitemaps } from './rebuild-sitemaps.mjs';
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
@@ -58,7 +59,7 @@ function rootAssets(html){return html.replace(/\b(href|src)="([^"#]+)"/g,(all,at
 const cta='<section class="local-cta"><div class="local-shell"><h2>Need help with your appliance?</h2><p>Tell us the appliance, symptom and service address. We explain the diagnosis and estimate before approved repair work.</p><div class="local-actions"><a class="local-button" href="https://aleksappliancerepair.com/booking">Book service online</a><a class="local-button local-button--secondary" href="tel:+14632488429">Call (463) 248-8429</a></div></div></section>';
 export function buildRepairCases(onlySlug){
  const storedCases=JSON.parse(fs.readFileSync(path.join(ROOT,'scripts/repair-cases.json'),'utf8'));
- const cases=[maytagCarmelStory,maytagNoblesvilleStory,lgBeltStory,samsungCarmelStory,geBoardStory,maytagHeatStory,whirlpoolNoStartStory,lgIceStory,kenmoreGasketStory,samsungHeatStory,fishersWasherStory,fishersDryerStory,noblesvilleWasherStory,lgDrainStory,maytagDryerStory,whirlpoolDryerStory,lgNoiseStory,whirlpoolWaterStory,lgFanStory,lgSwitchStory,carmelFridgeStory,geDryerStory,drawerStory,fridgeStory,samsungStory,washerStory,lgRangeStory,...storedCases];
+ const cases=[geSuspensionStory,maytagCarmelStory,maytagNoblesvilleStory,lgBeltStory,samsungCarmelStory,geBoardStory,maytagHeatStory,whirlpoolNoStartStory,lgIceStory,kenmoreGasketStory,samsungHeatStory,fishersWasherStory,fishersDryerStory,noblesvilleWasherStory,lgDrainStory,maytagDryerStory,whirlpoolDryerStory,lgNoiseStory,whirlpoolWaterStory,lgFanStory,lgSwitchStory,carmelFridgeStory,geDryerStory,drawerStory,fridgeStory,samsungStory,washerStory,lgRangeStory,...storedCases];
  if(onlySlug&&!cases.some(c=>c.slug===onlySlug))throw Error('Unknown repair case: '+onlySlug);
  cases.sort((a,b)=>b.published.localeCompare(a.published));
  const editorialStories=new Map([[washerStory.slug,washerArticle],[fishersSlug,fishersArticle],[lgDryerSlug,lgDryerArticle],[lgRangeStory.slug,lgRangeArticle],[cafeSlug,cafeArticle]]);
@@ -88,6 +89,7 @@ export function buildRepairCases(onlySlug){
  editorialStories.set(samsungCarmelStory.slug,samsungCarmelArticle);
  editorialStories.set(maytagNoblesvilleStory.slug,maytagNoblesvilleArticle);
  editorialStories.set(maytagCarmelStory.slug,maytagCarmelArticle);
+ editorialStories.set(geSuspensionStory.slug,geSuspensionArticle);
  const seen=new Set();
  for(const c of cases){
   if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(c.slug)||seen.has(c.slug))throw Error('Invalid/duplicate case slug');seen.add(c.slug);
@@ -147,6 +149,7 @@ export function buildRepairCases(onlySlug){
    const editorialStyleVersion=c.slug===lgSwitchStory.slug||c.slug===carmelFridgeStory.slug||c.slug===geDryerStory.slug||c.slug===drawerStory.slug||c.slug===fridgeStory.slug||c.slug===samsungStory.slug||c.slug===cafeSlug||c.slug===washerStory.slug?'20260916-cafe-aligned':c.slug===fishersSlug?'20260911-highlighted-seal':'20260913-lg-dryer';
    page=page.replace('</head>',`<link rel="stylesheet" href="/css/repair-story-editorial.css?v=${c.slug===lgSwitchStory.slug?'20261001-lg-captions':editorialStyleVersion}">\n</head>`);
    if(c.editorialStylesheet) page=page.replace('</head>',`<link rel="stylesheet" href="/css/${esc(c.editorialStylesheet)}.css?v=20261023-spacing">\n</head>`);
+   if(c.slug===geSuspensionStory.slug) page=page.replace('</head>','<style>.case-summary dd{overflow-wrap:anywhere}@media(max-width:900px){.case-layout:has(.editorial-story) > .case-summary dl{grid-template-columns:1fr;gap:6px}.case-layout:has(.editorial-story) > .case-summary dd{margin-bottom:12px}}</style>\n</head>');
    if(c.slug===lgBeltStory.slug) page=page.replace('</head>','<link rel="stylesheet" href="/css/lg-dle5977s-mccordsville.css?v=20261024-shared">\n</head>');
    if(overviewImages(c).length>1) page=page.replace('</head>','<link rel="stylesheet" href="/css/repair-diagram-slider.css?v=20261024-contain"><script src="/js/repair-diagram-slider.js?v=20261018" defer></script>\n</head>');
    // Keep this standalone HTML preview usable from disk as well as from the site root.

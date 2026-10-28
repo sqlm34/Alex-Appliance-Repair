@@ -45,12 +45,12 @@
   <url>
     <loc>https://alex-repair.com/blog.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/repair-room.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-suspension-fishers/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-medb835-carmel/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle5977s-mccordsville/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-carmel/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-control-board-carmel/washer.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-no-heat-fishers/stacked-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/overworking-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair-carmel.webp</image:loc></image:image>
@@ -595,6 +595,7 @@
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-suspension-fishers/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-medb835-carmel/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle5977s-mccordsville/dryer.webp</image:loc></image:image>
@@ -1386,6 +1387,19 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-medb835-carmel/clean-cabinet.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-dryer-gas-valve-coil-repair-open-dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-repair.com/repair-cases/fishers-ge-wcsr4170g6ww-washer-suspension-rods-replacement.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-suspension-fishers/suspension-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-suspension-fishers/washer.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-suspension-fishers/model-label.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-suspension-fishers/open-cabinet.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-suspension-fishers/suspension-detail.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-suspension-fishers/installed-suspension.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-suspension-fishers/assembled-washer.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/samsung-washer-valve-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-washer-suspension-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
   </url>
 </urlset>
