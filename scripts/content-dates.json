@@ -83,7 +83,7 @@
   "brands/miele-appliance-repair.html": "2026-10-13",
   "brands/samsung-appliance-repair.html": "2026-10-19",
   "brands/sharp-appliance-repair.html": "2026-10-19",
-  "recent-work.html": "2026-10-30",
+  "recent-work.html": "2026-10-31",
   "brands/smeg-appliance-repair.html": "2026-10-13",
   "brands/speed-queen-appliance-repair.html": "2026-10-13",
   "brands/sub-zero-appliance-repair.html": "2026-10-13",
@@ -91,7 +91,7 @@
   "brands/viking-appliance-repair.html": "2026-10-13",
   "brands/whirlpool-appliance-repair.html": "2026-10-13",
   "brands/wolf-appliance-repair.html": "2026-10-19",
-  "blog.html": "2026-10-30",
+  "blog.html": "2026-10-31",
   "repair-cases/carmel-dryer-gas-valve-coils.html": "2026-09-09",
   "repair-cases/carmel-freezer-evaporator-fan.html": "2026-09-09",
   "repair-cases/carmel-dishwasher-fill-funnel.html": "2026-09-09",
@@ -434,5 +434,6 @@
   "repair-cases/carmel-maytag-medb835dw4-dryer-squeaking-rollers-idler-repair.html": "2026-10-27",
   "repair-cases/fishers-ge-wcsr4170g6ww-washer-suspension-rods-replacement.html": "2026-10-28",
   "repair-cases/carmel-lg-wt7400cv-washer-spins-but-wont-agitate.html": "2026-10-29",
-  "repair-cases/noblesville-kitchenaid-kdtm404kps0-dishwasher-not-cleaning.html": "2026-10-30"
+  "repair-cases/noblesville-kitchenaid-kdtm404kps0-dishwasher-not-cleaning.html": "2026-10-30",
+  "repair-cases/carmel-lg-wm4000hwa-washer-leaking-door-boot-gasket.html": "2026-10-31"
 }
