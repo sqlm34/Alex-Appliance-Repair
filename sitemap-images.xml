@@ -45,12 +45,12 @@
   <url>
     <loc>https://alex-repair.com/blog.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/repair-room.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dryer-mccordsville/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm4000hwa-gasket-carmel/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kdtm404-noblesville/dishwasher.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wt7400cv-actuator-carmel/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-suspension-fishers/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-medb835-carmel/dryer.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/overworking-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair-carmel.webp</image:loc></image:image>
@@ -595,6 +595,7 @@
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dryer-mccordsville/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm4000hwa-gasket-carmel/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kdtm404-noblesville/dishwasher.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wt7400cv-actuator-carmel/washer.webp</image:loc></image:image>
@@ -1448,6 +1449,22 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm4000hwa-gasket-carmel/reassembled-door.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/samsung-washer-valve-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-washer-suspension-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-repair.com/repair-cases/mccordsville-samsung-dve50r5200w-dryer-not-heating-repair.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dryer-mccordsville/heater-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dryer-mccordsville/idler-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dryer-mccordsville/dryer.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dryer-mccordsville/model-label.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dryer-mccordsville/failed-heater.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dryer-mccordsville/replacement-heater.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dryer-mccordsville/worn-idler.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dryer-mccordsville/new-idler.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dryer-mccordsville/lint-before.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dryer-mccordsville/clean-interior.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-dryer-gas-valve-coil-repair-open-dryer.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
   </url>
 </urlset>
