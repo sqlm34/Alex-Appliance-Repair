@@ -45,12 +45,12 @@
   <url>
     <loc>https://alex-repair.com/blog.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/repair-room.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kdtm404-noblesville/dishwasher.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wt7400cv-actuator-carmel/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-suspension-fishers/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-medb835-carmel/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-med5430-noblesville/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dle5977s-mccordsville/dryer.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve50-carmel/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/overworking-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair-carmel.webp</image:loc></image:image>
@@ -595,6 +595,7 @@
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kdtm404-noblesville/dishwasher.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wt7400cv-actuator-carmel/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-suspension-fishers/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/maytag-medb835-carmel/dryer.webp</image:loc></image:image>
@@ -1415,6 +1416,22 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wt7400cv-actuator-carmel/reassembled-drive.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/samsung-washer-valve-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-washer-suspension-01.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-repair.com/repair-cases/noblesville-kitchenaid-kdtm404kps0-dishwasher-not-cleaning.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kdtm404-noblesville/pump-valve-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kdtm404-noblesville/dishwasher.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kdtm404-noblesville/model-label.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kdtm404-noblesville/access.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kdtm404-noblesville/pump-removed.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kdtm404-noblesville/pump-replacement.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kdtm404-noblesville/pump-installed.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kdtm404-noblesville/valve-comparison.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kdtm404-noblesville/valve-installed.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kdtm404-noblesville/wash-system.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-dishwasher-fill-funnel.jpeg</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-repairs/bosch-dishwasher-pump-01.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
   </url>
 </urlset>
