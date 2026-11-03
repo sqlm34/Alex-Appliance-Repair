@@ -83,7 +83,7 @@
   "brands/miele-appliance-repair.html": "2026-10-13",
   "brands/samsung-appliance-repair.html": "2026-10-19",
   "brands/sharp-appliance-repair.html": "2026-10-19",
-  "recent-work.html": "2026-11-02",
+  "recent-work.html": "2026-11-03",
   "brands/smeg-appliance-repair.html": "2026-10-13",
   "brands/speed-queen-appliance-repair.html": "2026-10-13",
   "brands/sub-zero-appliance-repair.html": "2026-10-13",
@@ -91,7 +91,7 @@
   "brands/viking-appliance-repair.html": "2026-10-13",
   "brands/whirlpool-appliance-repair.html": "2026-10-13",
   "brands/wolf-appliance-repair.html": "2026-10-19",
-  "blog.html": "2026-11-02",
+  "blog.html": "2026-11-03",
   "repair-cases/carmel-dryer-gas-valve-coils.html": "2026-09-09",
   "repair-cases/carmel-freezer-evaporator-fan.html": "2026-09-09",
   "repair-cases/carmel-dishwasher-fill-funnel.html": "2026-09-09",
@@ -436,5 +436,6 @@
   "repair-cases/carmel-lg-wt7400cv-washer-spins-but-wont-agitate.html": "2026-10-29",
   "repair-cases/noblesville-kitchenaid-kdtm404kps0-dishwasher-not-cleaning.html": "2026-10-30",
   "repair-cases/carmel-lg-wm4000hwa-washer-leaking-door-boot-gasket.html": "2026-10-31",
-  "repair-cases/mccordsville-samsung-dve50r5200w-dryer-not-heating-repair.html": "2026-11-02"
+  "repair-cases/mccordsville-samsung-dve50r5200w-dryer-not-heating-repair.html": "2026-11-02",
+  "repair-cases/mccordsville-whirlpool-wed6200sw1-dryer-not-heating.html": "2026-11-03"
 }

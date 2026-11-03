@@ -1,3 +1,4 @@
+import { whirlpoolMcStory, whirlpoolMcArticle } from './whirlpool-wed6200-mccordsville-story.mjs';
 import { samsungMcStory, samsungMcArticle } from './samsung-dryer-mccordsville-story.mjs';
 import fs from 'node:fs';
 import {articleDividers} from './apply-article-dividers.mjs';
@@ -63,7 +64,7 @@ function rootAssets(html){return html.replace(/\b(href|src)="([^"#]+)"/g,(all,at
 const cta='<section class="local-cta"><div class="local-shell"><h2>Need help with your appliance?</h2><p>Tell us the appliance, symptom and service address. We explain the diagnosis and estimate before approved repair work.</p><div class="local-actions"><a class="local-button" href="https://aleksappliancerepair.com/booking">Book service online</a><a class="local-button local-button--secondary" href="tel:+14632488429">Call (463) 248-8429</a></div></div></section>';
 export function buildRepairCases(onlySlug){
  const storedCases=JSON.parse(fs.readFileSync(path.join(ROOT,'scripts/repair-cases.json'),'utf8'));
- const cases=[samsungMcStory,lgGasketStory,kitchenAidWashStory,lgActuatorStory,geSuspensionStory,maytagCarmelStory,maytagNoblesvilleStory,lgBeltStory,samsungCarmelStory,geBoardStory,maytagHeatStory,whirlpoolNoStartStory,lgIceStory,kenmoreGasketStory,samsungHeatStory,fishersWasherStory,fishersDryerStory,noblesvilleWasherStory,lgDrainStory,maytagDryerStory,whirlpoolDryerStory,lgNoiseStory,whirlpoolWaterStory,lgFanStory,lgSwitchStory,carmelFridgeStory,geDryerStory,drawerStory,fridgeStory,samsungStory,washerStory,lgRangeStory,...storedCases];
+ const cases=[whirlpoolMcStory,samsungMcStory,lgGasketStory,kitchenAidWashStory,lgActuatorStory,geSuspensionStory,maytagCarmelStory,maytagNoblesvilleStory,lgBeltStory,samsungCarmelStory,geBoardStory,maytagHeatStory,whirlpoolNoStartStory,lgIceStory,kenmoreGasketStory,samsungHeatStory,fishersWasherStory,fishersDryerStory,noblesvilleWasherStory,lgDrainStory,maytagDryerStory,whirlpoolDryerStory,lgNoiseStory,whirlpoolWaterStory,lgFanStory,lgSwitchStory,carmelFridgeStory,geDryerStory,drawerStory,fridgeStory,samsungStory,washerStory,lgRangeStory,...storedCases];
  if(onlySlug&&!cases.some(c=>c.slug===onlySlug))throw Error('Unknown repair case: '+onlySlug);
  cases.sort((a,b)=>b.published.localeCompare(a.published));
  const editorialStories=new Map([[washerStory.slug,washerArticle],[fishersSlug,fishersArticle],[lgDryerSlug,lgDryerArticle],[lgRangeStory.slug,lgRangeArticle],[cafeSlug,cafeArticle]]);
@@ -98,6 +99,7 @@ export function buildRepairCases(onlySlug){
  editorialStories.set(kitchenAidWashStory.slug,kitchenAidWashArticle);
  editorialStories.set(lgGasketStory.slug,lgGasketArticle);
  editorialStories.set(samsungMcStory.slug,samsungMcArticle);
+ editorialStories.set(whirlpoolMcStory.slug,whirlpoolMcArticle);
  const seen=new Set();
  for(const c of cases){
   if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(c.slug)||seen.has(c.slug))throw Error('Invalid/duplicate case slug');seen.add(c.slug);
@@ -141,7 +143,7 @@ export function buildRepairCases(onlySlug){
   if(editorialStories.has(c.slug)) {
    if(c.slug===kenmoreGasketStory.slug||c.slug===whirlpoolWaterStory.slug||c.slug===whirlpoolDryerStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/westfield.html">View Westfield service coverage</a>');
    if(c.slug===kitchenAidWashStory.slug||c.slug===maytagNoblesvilleStory.slug||c.slug===noblesvilleWasherStory.slug||c.slug===lgFanStory.slug||c.slug===lgNoiseStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/noblesville.html">View Noblesville service coverage</a>');
-   if(c.slug===samsungMcStory.slug||c.slug===lgBeltStory.slug||c.slug===lgIceStory.slug||c.slug===maytagDryerStory.slug||c.slug===samsungStory.slug||c.slug===lgSwitchStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/mccordsville.html">View McCordsville service coverage</a>');
+   if(c.slug===whirlpoolMcStory.slug||c.slug===samsungMcStory.slug||c.slug===lgBeltStory.slug||c.slug===lgIceStory.slug||c.slug===maytagDryerStory.slug||c.slug===samsungStory.slug||c.slug===lgSwitchStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>','<a href="/mccordsville.html">View McCordsville service coverage</a>');
    if(c.slug!==geDryerStory.slug) content=content.replace('<a href="/locations.html">View service coverage</a>', '<a href="/fishers.html">View Fishers service coverage</a>');
    const diagrams=overviewImages(c);
    if(diagrams.length){
@@ -157,7 +159,7 @@ export function buildRepairCases(onlySlug){
    const editorialStyleVersion=c.slug===lgSwitchStory.slug||c.slug===carmelFridgeStory.slug||c.slug===geDryerStory.slug||c.slug===drawerStory.slug||c.slug===fridgeStory.slug||c.slug===samsungStory.slug||c.slug===cafeSlug||c.slug===washerStory.slug?'20260916-cafe-aligned':c.slug===fishersSlug?'20260911-highlighted-seal':'20260913-lg-dryer';
    page=page.replace('</head>',`<link rel="stylesheet" href="/css/repair-story-editorial.css?v=${c.slug===lgSwitchStory.slug?'20261001-lg-captions':editorialStyleVersion}">\n</head>`);
    if(c.editorialStylesheet) page=page.replace('</head>',`<link rel="stylesheet" href="/css/${esc(c.editorialStylesheet)}.css?v=20261023-spacing">\n</head>`);
-   if(c.slug===samsungMcStory.slug||c.slug===lgGasketStory.slug||c.slug===geSuspensionStory.slug||c.slug===lgActuatorStory.slug||c.slug===kitchenAidWashStory.slug) page=page.replace('</head>','<style>.case-summary dd{overflow-wrap:anywhere}@media(max-width:900px){.case-layout:has(.editorial-story) > .case-summary dl{grid-template-columns:1fr;gap:6px}.case-layout:has(.editorial-story) > .case-summary dd{margin-bottom:12px}}</style>\n</head>');
+   if(c.slug===whirlpoolMcStory.slug||c.slug===samsungMcStory.slug||c.slug===lgGasketStory.slug||c.slug===geSuspensionStory.slug||c.slug===lgActuatorStory.slug||c.slug===kitchenAidWashStory.slug) page=page.replace('</head>','<style>.case-summary dd{overflow-wrap:anywhere}@media(max-width:900px){.case-layout:has(.editorial-story) > .case-summary dl{grid-template-columns:1fr;gap:6px}.case-layout:has(.editorial-story) > .case-summary dd{margin-bottom:12px}}</style>\n</head>');
    if(c.slug===lgBeltStory.slug) page=page.replace('</head>','<link rel="stylesheet" href="/css/lg-dle5977s-mccordsville.css?v=20261024-shared">\n</head>');
    if(overviewImages(c).length>1) page=page.replace('</head>','<link rel="stylesheet" href="/css/repair-diagram-slider.css?v=20261024-contain"><script src="/js/repair-diagram-slider.js?v=20261018" defer></script>\n</head>');
    // Keep this standalone HTML preview usable from disk as well as from the site root.
