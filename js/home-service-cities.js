@@ -8,7 +8,7 @@
   const accessible = root.querySelector('.home-serving-accessible');
   const initial = city.textContent.trim();
   const cities = [...new Set([initial, ...Array.from(
-    document.querySelectorAll('.home-area-card-grid h3 a'), link => link.textContent.trim()
+    document.querySelectorAll('.home-area-card-grid h3 a'), link => link.textContent.trim() === 'Indianapolis' ? 'Indianapolis (North Side & Old Northside)' : link.textContent.trim()
   )].filter(Boolean))];
   if (cities.length < 2) return;
   accessible.textContent = 'Serving ' + cities.join(', ') + '.';

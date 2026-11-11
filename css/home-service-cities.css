@@ -78,3 +78,9 @@
 @media (prefers-reduced-motion: reduce) {
   .home-serving .home-serving-cursor { animation: none; visibility: hidden; }
 }
+
+/* Allow the Indianapolis coverage qualifier to wrap on narrow screens. */
+.local-seo-page .home-serving-line { flex: 1; min-width: 0; white-space: normal; }
+.home-serving-city-slot { width: auto; flex: 1; min-width: 0; white-space: normal; }
+.home-serving { align-items: flex-start; }
+.home-serving-toggle { margin-top: 4px; }
