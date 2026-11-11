@@ -45,12 +45,12 @@
   <url>
     <loc>https://alex-repair.com/blog.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/repair-room.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-icemaker-mccordsville/ice-compartment.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/cafe-freezer-noise-carmel/refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-wed6200-mccordsville/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dryer-mccordsville/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm4000hwa-gasket-carmel/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kdtm404-noblesville/dishwasher.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wt7400cv-actuator-carmel/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/overworking-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair-carmel.webp</image:loc></image:image>
@@ -595,6 +595,7 @@
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-icemaker-mccordsville/ice-compartment.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/cafe-freezer-noise-carmel/refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-wed6200-mccordsville/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dryer-mccordsville/dryer.webp</image:loc></image:image>
@@ -1498,6 +1499,18 @@
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/cafe-freezer-noise-carmel/steam-drain.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/cafe-freezer-noise-carmel/clean-evaporator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/cafe-freezer-noise-carmel/reassembled.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-32.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-41.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-42.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-repair.com/repair-cases/mccordsville-ge-pye22kyndfs-ice-maker-not-making-ice.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-icemaker-mccordsville/diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-icemaker-mccordsville/ice-compartment.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-icemaker-mccordsville/model-label.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-icemaker-mccordsville/assembly-service.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-icemaker-mccordsville/connections.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-icemaker-mccordsville/assembly-reference.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-32.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-41.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-42.webp</image:loc></image:image>
