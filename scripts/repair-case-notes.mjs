@@ -31,11 +31,6 @@ export const notes = {
   'Electrical connectors and the wiring path are inspected as part of understanding a reported fault. The published image documents this stage of the service visit.',
   'A loose connection, damaged wiring and a failed control can produce overlapping symptoms. A technician needs to establish the circuit condition before recommending a repair. Customers should describe the symptom and error messages without opening electrical covers.'
  ],
- 'carmel-range-control-wiring': [
-  'This Carmel range-service photograph documents access to the control-panel wiring during diagnosis. The focus is inspection of the control area and its connections.',
-  'The image shows a diagnostic stage. It does not identify a replaced control board or a completed heating repair, so the case is presented as a wiring-diagnosis note.',
-  'For a range fault, the selected cooking mode, displayed error and whether the surface or oven is affected are useful starting points. Gas, electric and dual-fuel installations require different checks.'
- ],
  'carmel-refrigerator-temperature-check': [
   'This Carmel service photograph documents a refrigerator temperature check after service. Temperature verification is the focus of this example.',
   'The photograph records an operating check rather than a component replacement. It provides a view of the verification stage of a refrigerator visit.',

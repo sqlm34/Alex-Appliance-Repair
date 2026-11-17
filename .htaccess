@@ -1,5 +1,8 @@
 RewriteEngine On
 
+# Removed repair story: return Gone even if the host retains an old file.
+RewriteRule ^repair-cases/carmel-range-control-wiring\.html$ - [G,L]
+
 # Send UTF-8 with text responses even when the host omits a charset.
 AddDefaultCharset UTF-8
 

@@ -39,7 +39,7 @@ const serviceCases = {
   "carmel/dishwasher-repair-services.html": ["carmel-dishwasher-fill-funnel"],
   "carmel/freezer-repair-services.html": ["carmel-freezer-evaporator-fan"],
   "carmel/refrigerator-repair-services.html": ["carmel-cafe-cve28dp2njs1-freezer-drain", "carmel-kitchenaid-door-switch", "carmel-refrigerator-drain-cleaning"],
-  "carmel/stove-repair-services.html": ["carmel-kitchenaid-ksdg950ess1-bake-element", "carmel-range-control-wiring"],
+  "carmel/stove-repair-services.html": ["carmel-kitchenaid-ksdg950ess1-bake-element"],
   "fishers/dishwasher-repair-services.html": ["ge-dishwasher-leak-repair-fishers-indiana"],
   "fishers/dryer-repair-services.html": ["lg-dle3400w-dryer-thermostat-vent-repair-fishers-indiana"]
 };

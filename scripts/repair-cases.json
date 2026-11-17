@@ -387,23 +387,6 @@
     ]
   },
   {
-    "slug": "carmel-range-control-wiring",
-    "title": "Range control panel wiring diagnosis",
-    "city": "carmel",
-    "appliance": "range",
-    "summary": "Range control access and wiring inspection during diagnosis.",
-    "published": "2026-09-09",
-    "modified": "2026-09-09",
-    "photos": [
-      {
-        "src": "images/carmel-completed-repairs/carmel-completed-repair-38.webp",
-        "width": 640,
-        "height": 480,
-        "caption": "Range control panel wiring diagnosis"
-      }
-    ]
-  },
-  {
     "slug": "carmel-refrigerator-temperature-check",
     "title": "Refrigerator temperature verification after service",
     "city": "carmel",
