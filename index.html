@@ -412,6 +412,24 @@ main.local-seo-page .local-hero .local-eyebrow { margin-bottom: 12px; font-size:
 .home-serving { align-items: flex-start; }
 .home-serving-toggle { margin-top: 4px; }
 
+
+/* Measure the initial multiline city, keeping the existing inline cursor and actual text. */
+@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+.home-serving .home-serving-city-slot { display: grid; }
+.home-serving-city-slot > .home-serving-current,
+.home-serving-city-slot > .home-serving-reserve {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+.home-serving-city-slot > .home-serving-reserve {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+  .home-serving .home-serving-toggle[hidden] { display: inline-flex; visibility: hidden; pointer-events: none; }
+}
+
 /* The shared script inserts this control before full CSS can finish. */
 .scroll-top-button:not(.is-visible){opacity:0;pointer-events:none}
 </style>
@@ -1126,7 +1144,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="home-serving-line">
           <span class="home-serving-accessible">Serving Indianapolis (North Side &amp; Old Northside), Carmel, Fishers, Westfield, Noblesville, McCordsville and Zionsville.</span>
           <span aria-hidden="true">Serving</span>
-          <span class="home-serving-city-slot" aria-hidden="true"><span data-city-name>Indianapolis (North Side &amp; Old Northside)</span><span class="home-serving-cursor"></span></span>
+          <span class="home-serving-city-slot" aria-hidden="true"><span class="home-serving-current"><span data-city-name>Indianapolis (North Side &amp; Old Northside)</span><span class="home-serving-cursor"></span></span><span class="home-serving-reserve" hidden>Indianapolis (North Side &amp; Old Northside)<span class="home-serving-cursor"></span></span></span>
         </p>
         <button class="home-serving-toggle" type="button" hidden aria-label="Pause city animation" title="Pause city animation"><span aria-hidden="true" data-city-toggle-icon>&#10074;&#10074;</span></button>
       </div>
