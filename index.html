@@ -51,19 +51,117 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<!-- Favicon END -->
 
 	<!-- Styles START -->
+	<!-- The exact H1 glyphs load first; other headings and text use the matching homepage subset. -->
+	<link rel="preload" href="fonts/Unbounded-Bold-HomeTitle.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="fonts/Unbounded-Regular-HomeLatin.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="fonts/Unbounded-Bold-HomeLatin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css?v=20260727-mobile-booking-menu">
 	<link rel="stylesheet" href="css/local-seo.css?v=20260729-mobile-logo-clearance">
-<link rel="stylesheet" href="css/home-service-cities.css?v=20261111-north">
+<style id="homepage-service-cities">
+.home-serving {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 42px;
+  margin: 0 0 22px;
+  color: #fff;
+}
+.local-seo-page .home-serving-line {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0;
+  color: #fff;
+  flex: none;
+  white-space: nowrap;
+  font-size: 28px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.home-serving-city-slot {
+  display: inline-block;
+  width: 9em;
+  flex: none;
+  white-space: nowrap;
+  color: #ffd400;
+}
+.home-serving-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 0.9em;
+  margin-left: 4px;
+  vertical-align: -0.04em;
+  background: currentColor;
+  visibility: hidden;
+}
+.home-serving.is-animating .home-serving-cursor {
+  visibility: visible;
+  animation: home-serving-blink 1s steps(1) infinite;
+}
+.home-serving-toggle {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  font: 12px Arial, sans-serif;
+}
+.home-serving-toggle[hidden] { display: none; }
+.home-serving-toggle:hover { background: rgba(255,255,255,.15); }
+.home-serving-toggle:focus-visible { outline: 2px solid #ffd400; outline-offset: 4px; }
+.home-serving-accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@keyframes home-serving-blink { 50% { opacity: 0; } }
+@media (max-width: 680px) {
+  .home-serving { gap: 8px; min-height: 36px; margin-bottom: 18px; }
+  .local-seo-page .home-serving-line { font-size: 20px; gap: 8px; }
+}
+@media (max-width: 380px) {
+  .local-seo-page .home-serving-line { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-serving .home-serving-cursor { animation: none; visibility: hidden; }
+}
+
+/* Allow the Indianapolis coverage qualifier to wrap on narrow screens. */
+.local-seo-page .home-serving-line { flex: 1; min-width: 0; white-space: normal; }
+.home-serving-city-slot { width: auto; flex: 1; min-width: 0; white-space: normal; }
+.home-serving { align-items: flex-start; }
+.home-serving-toggle { margin-top: 4px; }
+</style>
 <link rel="preload" as="image" media="(max-width: 680px)" imagesrcset="images/home-perf/hero-portrait-540.webp 540w, images/home-perf/hero-portrait-810.webp 810w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" as="image" media="(min-width: 681px)" imagesrcset="images/home-perf/hero-wide-1280.webp 1280w, images/home-perf/hero-wide-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
 	<style id="homepage-fast-assets">
-		@font-face{font-family:Unbounded;src:url('fonts/Unbounded-Light-HomeLatin.woff2') format('woff2');font-style:normal;font-weight:300;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
-		@font-face{font-family:Unbounded;src:url('fonts/Unbounded-Regular-HomeLatin.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
-		@font-face{font-family:Unbounded;src:url('fonts/Unbounded-Medium-HomeLatin.woff2') format('woff2');font-style:normal;font-weight:500;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
-		@font-face{font-family:Unbounded;src:url('fonts/Unbounded-Bold-HomeLatin.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
-		@font-face{font-family:Unbounded;src:url('fonts/Unbounded-Black-HomeLatin.woff2') format('woff2');font-style:normal;font-weight:900;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		@font-face{font-family:'Unbounded Home Title';src:url('fonts/Unbounded-Bold-HomeTitle.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap;unicode-range:U+20,U+41,U+43,U+49,U+4E,U+52,U+61-65,U+69,U+6C-70,U+72-75,U+79}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Light-HomeLatin.woff2') format('woff2'),url('fonts/Unbounded-Light.woff2') format('woff2');font-style:normal;font-weight:300;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Light.woff2') format('woff2');font-style:normal;font-weight:300;font-display:swap;unicode-range:U+0250-1FFF,U+2070-209F,U+20D0-20FF,U+2150-218F,U+2200-259F,U+27C0-10FFFF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Regular-HomeLatin.woff2') format('woff2'),url('fonts/Unbounded-Regular.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Regular.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0250-1FFF,U+2070-209F,U+20D0-20FF,U+2150-218F,U+2200-259F,U+27C0-10FFFF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Medium-HomeLatin.woff2') format('woff2'),url('fonts/Unbounded-Medium.woff2') format('woff2');font-style:normal;font-weight:500;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Medium.woff2') format('woff2');font-style:normal;font-weight:500;font-display:swap;unicode-range:U+0250-1FFF,U+2070-209F,U+20D0-20FF,U+2150-218F,U+2200-259F,U+27C0-10FFFF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Bold-HomeLatin.woff2') format('woff2'),url('fonts/Unbounded-Bold.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Bold.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap;unicode-range:U+0250-1FFF,U+2070-209F,U+20D0-20FF,U+2150-218F,U+2200-259F,U+27C0-10FFFF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Black-HomeLatin.woff2') format('woff2'),url('fonts/Unbounded-Black.woff2') format('woff2');font-style:normal;font-weight:900;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Black.woff2') format('woff2');font-style:normal;font-weight:900;font-display:swap;unicode-range:U+0250-1FFF,U+2070-209F,U+20D0-20FF,U+2150-218F,U+2200-259F,U+27C0-10FFFF}
+		:root{--font:'Unbounded Home',sans-serif}
+		.header-mobile-wrap :is(.mobile-info-title,.mobile-info-mail,.mobile-info-phone){font-family:var(--font)}
+		.local-hero--home h1{font-family:'Unbounded Home Title','Unbounded Home',sans-serif}
 		.local-hero--home .local-hero-media picture{display:block;width:100%;height:100%}
 	</style>
 	<style id="partner-icon-css">.partners-icon-light{filter:brightness(0) invert(1)}</style>
