@@ -51,6 +51,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<!-- Favicon END -->
 
 	<!-- Styles START -->
+	<!-- The exact H1 glyphs load first; other headings and text use the matching homepage subset. -->
+	<link rel="preload" href="fonts/Unbounded-Bold-HomeTitle.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="fonts/Unbounded-Regular-HomeLatin.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="fonts/Unbounded-Bold-HomeLatin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css?v=20260727-mobile-booking-menu">
@@ -59,11 +61,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preload" as="image" media="(max-width: 680px)" imagesrcset="images/home-perf/hero-portrait-540.webp 540w, images/home-perf/hero-portrait-810.webp 810w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" as="image" media="(min-width: 681px)" imagesrcset="images/home-perf/hero-wide-1280.webp 1280w, images/home-perf/hero-wide-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
 	<style id="homepage-fast-assets">
-		@font-face{font-family:Unbounded;src:url('fonts/Unbounded-Light-HomeLatin.woff2') format('woff2');font-style:normal;font-weight:300;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
-		@font-face{font-family:Unbounded;src:url('fonts/Unbounded-Regular-HomeLatin.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
-		@font-face{font-family:Unbounded;src:url('fonts/Unbounded-Medium-HomeLatin.woff2') format('woff2');font-style:normal;font-weight:500;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
-		@font-face{font-family:Unbounded;src:url('fonts/Unbounded-Bold-HomeLatin.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
-		@font-face{font-family:Unbounded;src:url('fonts/Unbounded-Black-HomeLatin.woff2') format('woff2');font-style:normal;font-weight:900;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		@font-face{font-family:'Unbounded Home Title';src:url('fonts/Unbounded-Bold-HomeTitle.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap;unicode-range:U+20,U+41,U+43,U+49,U+4E,U+52,U+61-65,U+69,U+6C-70,U+72-75,U+79}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Light-HomeLatin.woff2') format('woff2'),url('fonts/Unbounded-Light.woff2') format('woff2');font-style:normal;font-weight:300;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Light.woff2') format('woff2');font-style:normal;font-weight:300;font-display:swap;unicode-range:U+0250-1FFF,U+2070-209F,U+20D0-20FF,U+2150-218F,U+2200-259F,U+27C0-10FFFF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Regular-HomeLatin.woff2') format('woff2'),url('fonts/Unbounded-Regular.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Regular.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0250-1FFF,U+2070-209F,U+20D0-20FF,U+2150-218F,U+2200-259F,U+27C0-10FFFF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Medium-HomeLatin.woff2') format('woff2'),url('fonts/Unbounded-Medium.woff2') format('woff2');font-style:normal;font-weight:500;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Medium.woff2') format('woff2');font-style:normal;font-weight:500;font-display:swap;unicode-range:U+0250-1FFF,U+2070-209F,U+20D0-20FF,U+2150-218F,U+2200-259F,U+27C0-10FFFF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Bold-HomeLatin.woff2') format('woff2'),url('fonts/Unbounded-Bold.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Bold.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap;unicode-range:U+0250-1FFF,U+2070-209F,U+20D0-20FF,U+2150-218F,U+2200-259F,U+27C0-10FFFF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Black-HomeLatin.woff2') format('woff2'),url('fonts/Unbounded-Black.woff2') format('woff2');font-style:normal;font-weight:900;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		@font-face{font-family:'Unbounded Home';src:url('fonts/Unbounded-Black.woff2') format('woff2');font-style:normal;font-weight:900;font-display:swap;unicode-range:U+0250-1FFF,U+2070-209F,U+20D0-20FF,U+2150-218F,U+2200-259F,U+27C0-10FFFF}
+		:root{--font:'Unbounded Home',sans-serif}
+		.header-mobile-wrap :is(.mobile-info-title,.mobile-info-mail,.mobile-info-phone){font-family:var(--font)}
+		.local-hero--home h1{font-family:'Unbounded Home Title','Unbounded Home',sans-serif}
 		.local-hero--home .local-hero-media picture{display:block;width:100%;height:100%}
 	</style>
 	<style id="partner-icon-css">.partners-icon-light{filter:brightness(0) invert(1)}</style>
