@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-<script>document.documentElement.classList.add("logo-pending");setTimeout(function(){document.documentElement.classList.remove("logo-pending")},8000);</script><style>.header-logo,.header-mobile-logo{transition:opacity .45s ease .2s}html.logo-pending .header-logo:not(.flag-ready),html.logo-pending .header-mobile-logo:not(.flag-ready){opacity:0}@media(prefers-reduced-motion:reduce){.header-logo,.header-mobile-logo{transition:none}}</style>
     
 <!-- Open Graph Meta Tags for Facebook -->
 
@@ -52,12 +51,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<!-- Favicon END -->
 
 	<!-- Styles START -->
-	<link rel="preload" href="fonts/Unbounded-Regular.woff2" as="font" type="font/woff2" crossorigin>
-	<link rel="preload" href="fonts/Unbounded-Bold.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="fonts/Unbounded-Regular-HomeLatin.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="fonts/Unbounded-Bold-HomeLatin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css?v=20260727-mobile-booking-menu">
 	<link rel="stylesheet" href="css/local-seo.css?v=20260729-mobile-logo-clearance">
 <link rel="stylesheet" href="css/home-service-cities.css?v=20261111-north">
-<link rel="preload" as="image" href="images/home-hero-refrigerator.webp" fetchpriority="high">
+<link rel="preload" as="image" media="(max-width: 680px)" imagesrcset="images/home-perf/hero-portrait-540.webp 540w, images/home-perf/hero-portrait-810.webp 810w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" media="(min-width: 681px)" imagesrcset="images/home-perf/hero-wide-1280.webp 1280w, images/home-perf/hero-wide-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
+	<style id="homepage-fast-assets">
+		@font-face{font-family:Unbounded;src:url('fonts/Unbounded-Light-HomeLatin.woff2') format('woff2');font-style:normal;font-weight:300;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		@font-face{font-family:Unbounded;src:url('fonts/Unbounded-Regular-HomeLatin.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		@font-face{font-family:Unbounded;src:url('fonts/Unbounded-Medium-HomeLatin.woff2') format('woff2');font-style:normal;font-weight:500;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		@font-face{font-family:Unbounded;src:url('fonts/Unbounded-Bold-HomeLatin.woff2') format('woff2');font-style:normal;font-weight:700;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		@font-face{font-family:Unbounded;src:url('fonts/Unbounded-Black-HomeLatin.woff2') format('woff2');font-style:normal;font-weight:900;font-display:swap;unicode-range:U+0-24F,U+2000-206F,U+20A0-20CF,U+2100-214F,U+2190-21FF,U+25A0-27BF}
+		.local-hero--home .local-hero-media picture{display:block;width:100%;height:100%}
+	</style>
 	<style id="partner-icon-css">.partners-icon-light{filter:brightness(0) invert(1)}</style>
 	<style id="services-mobile-card-css">@media screen and (max-width:768px){section.services-wrap>.container>.services-wrap{gap:16px;grid-template-columns:1fr!important;margin-top:28px}section.services-wrap .services-item{background-color:#fff;border:1px solid #E3E3E3!important;border-radius:8px;box-shadow:0 4px 18px 3px rgba(133,123,123,.10)!important;display:block;padding:22px!important;position:relative;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}section.services-wrap .services-item:hover{border-color:var(--color-6)!important;box-shadow:0 8px 22px 4px rgba(133,123,123,.16)!important;transform:translateY(-4px)}section.services-wrap .services-icon{display:none!important}section.services-wrap .services-title{font-size:22px;line-height:1.3;margin:0 0 12px}section.services-wrap .services-desc{font-size:16px;line-height:1.6;margin-bottom:0}section.services-wrap .services-readmore{color:transparent!important;display:block!important;font-size:0!important;inset:0;margin:0!important;position:absolute;z-index:2}section.services-wrap .services-readmore span{font-size:0!important}section.services-wrap .services-readmore img{display:none!important}}</style>
 	<style id="services-hover-fill-css">section.services-wrap .services-item{isolation:isolate!important;overflow:hidden!important;position:relative!important}section.services-wrap .services-item::before{background:linear-gradient(90deg,rgba(119,176,232,.18) 0%,rgba(255,199,0,.14) 100%)!important;border-radius:inherit;content:"";inset:0;pointer-events:none;position:absolute;transform:scaleX(0);transform-origin:left center;transition:transform 360ms ease;z-index:0}section.services-wrap .services-item:hover::before{transform:scaleX(1)}section.services-wrap .services-item:hover{border-color:rgba(37,129,217,.28)!important;box-shadow:0 14px 30px rgba(16,55,92,.08)!important;transform:none!important}section.services-wrap .services-item>*{position:relative;z-index:1}section.services-wrap .services-icon,section.services-wrap .services-icon:hover,section.services-wrap .services-item:hover .services-icon{background-color:var(--color-5)!important;border-radius:8px!important;box-shadow:none!important;clip-path:none!important;overflow:hidden!important;transform:none!important}section.services-wrap .services-icon::before,section.services-wrap .services-icon::after,section.services-wrap .services-item::after{content:none!important;display:none!important}section.services-wrap .services-icon img{transform:none!important}</style>
@@ -730,7 +738,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <main class="local-seo-page unified-home-page">
   <section class="local-hero local-hero--home">
     <div class="local-hero-media">
-      <img src="images/home-hero-refrigerator.webp" width="1920" height="1080" alt="Alex Appliance Repair service for a refrigerator near Indianapolis, Indiana" fetchpriority="high">
+      <picture>
+        <source media="(max-width: 680px)" srcset="images/home-perf/hero-portrait-540.webp 540w, images/home-perf/hero-portrait-810.webp 810w" sizes="100vw" width="810" height="1530">
+        <img src="images/home-perf/hero-wide-1920.webp" srcset="images/home-perf/hero-wide-1280.webp 1280w, images/home-perf/hero-wide-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Alex Appliance Repair service for a refrigerator near Indianapolis, Indiana" fetchpriority="high">
+      </picture>
     </div>
     <div class="local-shell local-hero-content">
       <p class="local-eyebrow">Alex Appliance Repair | Indianapolis, Indiana</p>
@@ -828,8 +839,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="home-repairs-viewport">
-        <div class="home-repairs-track"><!-- lg-range-story:start --><a class="home-repair-card" href="https://alex-repair.com/repair-cases/carmel-lg-lde4413st-terminal-block.html"><img src="/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp" width="1020" height="1290" alt="LG LDE4413ST electric range serviced in Carmel, Indiana" loading="lazy" decoding="async"><span class="home-repair-card-copy"><small>Stove &amp; Oven Repair</small><strong>LG LDE4413ST Burned Terminal Block and Power Cord Replacement in Carmel</strong><span>Read repair story</span></span></a><!-- lg-range-story:end -->
-          <a class="home-repair-card" href="https://alex-repair.com/repair-cases/fishers-kenmore-washer-softener-drawer-dc97-07125z.html"><img src="/images/repair-cases/kenmore-drawer-fishers/kenmore-washer-open.webp" width="1200" height="1600" alt="Kenmore washer opened for dispenser repair in Fishers" loading="lazy" decoding="async"><span class="home-repair-card-copy"><small>Washer Repair · Fishers</small><strong>Kenmore Fabric Softener Dispenser Repair</strong><span>Read repair story</span></span></a>
+        <div class="home-repairs-track"><!-- lg-range-story:start --><a class="home-repair-card" href="https://alex-repair.com/repair-cases/carmel-lg-lde4413st-terminal-block.html"><img src="/images/home-perf/lg-range-700.webp" srcset="/images/home-perf/lg-range-420.webp 420w, /images/home-perf/lg-range-700.webp 700w" sizes="(max-width: 680px) 86vw, 420px" width="1020" height="1290" alt="LG LDE4413ST electric range serviced in Carmel, Indiana" loading="lazy" decoding="async"><span class="home-repair-card-copy"><small>Stove &amp; Oven Repair</small><strong>LG LDE4413ST Burned Terminal Block and Power Cord Replacement in Carmel</strong><span>Read repair story</span></span></a><!-- lg-range-story:end -->
+          <a class="home-repair-card" href="https://alex-repair.com/repair-cases/fishers-kenmore-washer-softener-drawer-dc97-07125z.html"><img src="/images/home-perf/kenmore-700.webp" srcset="/images/home-perf/kenmore-420.webp 420w, /images/home-perf/kenmore-700.webp 700w" sizes="(max-width: 680px) 86vw, 420px" width="1200" height="1600" alt="Kenmore washer opened for dispenser repair in Fishers" loading="lazy" decoding="async"><span class="home-repair-card-copy"><small>Washer Repair · Fishers</small><strong>Kenmore Fabric Softener Dispenser Repair</strong><span>Read repair story</span></span></a>
           <a class="home-repair-card" href="https://alex-repair.com/repair-cases/fishers-samsung-rfg237aawp-refrigerator-fan-motor-sensor.html"><img src="/images/repair-cases/samsung-rfg237aawp-fishers/samsung-rfg237aawp-refrigerator.webp" width="1200" height="1600" alt="Samsung RFG237AAWP refrigerator serviced in Fishers" loading="lazy" decoding="async"><span class="home-repair-card-copy"><small>Refrigerator Repair · Fishers</small><strong>Samsung Fan Motor and Sensor Replacement</strong><span>Read repair story</span></span></a>
           <a class="home-repair-card" href="https://alex-repair.com/repair-cases/carmel-cafe-cve28dp2njs1-freezer-drain.html"><img src="/images/repair-cases/cafe-freezer-drain-carmel/cafe-cve28dp2njs1-freezer-ice-before.webp" width="720" height="1220" alt="Café refrigerator freezer ice buildup before drain repair in Carmel" loading="lazy" decoding="async"><span class="home-repair-card-copy"><small>Refrigerator Repair · Carmel</small><strong>Café Freezer Drain Repair</strong><span>Read repair story</span></span></a>
           <a class="home-repair-card" href="https://alex-repair.com/repair-cases/carmel-lg-wm3997hwa-drain-pump.html"><img src="/images/repair-cases/lg-wm3997hwa-drain-pump-carmel/lg-wm3997hwa-washer.webp" width="1200" height="1600" alt="LG WM3997HWA washer serviced for a drainage problem in Carmel" loading="lazy" decoding="async"><span class="home-repair-card-copy"><small>Washer Repair · Carmel</small><strong>LG Drain Pump Replacement</strong><span>Read repair story</span></span></a>
@@ -874,7 +885,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </header>
       <div class="local-service-card-grid home-area-card-grid">
         <article class="local-service-card">
-          <a class="local-service-card-media" href="carmel.html"><img src="images/carmel-service.webp" alt="Appliance repair service in Carmel, Indiana" width="720" height="520" loading="lazy"></a>
+          <a class="local-service-card-media" href="carmel.html"><img src="/images/home-perf/carmel-700.webp" srcset="/images/home-perf/carmel-420.webp 420w, /images/home-perf/carmel-700.webp 700w" sizes="(max-width: 680px) 95vw, 360px" alt="Appliance repair service in Carmel, Indiana" width="720" height="520" loading="lazy"></a>
           <div class="local-service-card-copy"><p class="local-eyebrow">Hamilton County</p><h3><a href="carmel.html">Carmel</a></h3><p>ZIP 46032, 46033 and nearby Carmel neighborhoods.</p><a class="local-text-link" href="carmel.html">View Carmel service</a></div>
         </article>
         <article class="local-service-card">
@@ -1049,7 +1060,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="js/home-page.js?v=20261014-all-gallery-scroll-lock" defer></script>
 <script src="js/home-service-cities.js?v=20261111-north" defer></script>
 <script src="/js/gtm-monitoring.js?v=20260624-gtm-rebuild" defer></script>
-<script src="/js/logo-flag.js?v=20261005-shader-v3" defer></script>
+<script>
+(function () {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || navigator.connection?.saveData) return;
+  var loaded = false;
+  function startLogoAnimation() {
+    if (loaded) return;
+    loaded = true;
+    var script = document.createElement('script');
+    script.src = '/js/logo-flag.js?v=20261005-shader-v3';
+    document.head.appendChild(script);
+    window.removeEventListener('pointerdown', onEngagement);
+    window.removeEventListener('keydown', onEngagement);
+  }
+  function onEngagement() { setTimeout(startLogoAnimation, 400); }
+  window.addEventListener('pointerdown', onEngagement, { once: true, passive: true });
+  window.addEventListener('keydown', onEngagement, { once: true });
+  if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    window.addEventListener('load', function () { setTimeout(startLogoAnimation, 6000); }, { once: true });
+  }
+}());
+</script>
 </body>
 
 </html>
