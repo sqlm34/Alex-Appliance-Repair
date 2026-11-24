@@ -55,7 +55,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<link rel="preload" href="fonts/Unbounded-Bold-HomeTitle.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="fonts/Unbounded-Regular-HomeCore.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="fonts/Unbounded-Bold-HomeCore.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" media="(max-width: 680px)" imagesrcset="images/home-perf/hero-portrait-540.webp 540w, images/home-perf/hero-portrait-810.webp 810w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" media="(max-width: 680px)" imagesrcset="images/home-perf/hero-portrait-540.avif 540w, images/home-perf/hero-portrait-810.avif 810w" imagesizes="100vw" fetchpriority="high">
 <!-- Mobile first paint; desktop and no-JS retain normal blocking stylesheets. -->
 <style id="homepage-critical-first-screen" media="(max-width: 680px)">
 /* /css/style.css */
@@ -1133,6 +1133,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="local-hero local-hero--home">
     <div class="local-hero-media">
       <picture>
+        <source type="image/avif" media="(max-width: 680px)" srcset="images/home-perf/hero-portrait-540.avif 540w, images/home-perf/hero-portrait-810.avif 810w" sizes="100vw" width="810" height="1530">
         <source media="(max-width: 680px)" srcset="images/home-perf/hero-portrait-540.webp 540w, images/home-perf/hero-portrait-810.webp 810w" sizes="100vw" width="810" height="1530">
         <img src="images/home-perf/hero-wide-1920.webp" srcset="images/home-perf/hero-wide-1280.webp 1280w, images/home-perf/hero-wide-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Alex Appliance Repair service for a refrigerator near Indianapolis, Indiana" fetchpriority="high">
       </picture>
