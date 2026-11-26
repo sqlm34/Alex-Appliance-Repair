@@ -48,7 +48,7 @@
 	<link rel="preload" media="(min-width:681px)" href="fonts/Unbounded-Bold-HomeTitle.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="fonts/Unbounded-Regular-HomeCore.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preload" href="fonts/Unbounded-Bold-HomeCore.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" media="(max-width: 680px)" imagesrcset="images/home-perf/hero-portrait-540.webp 540w, images/home-perf/hero-portrait-810.webp 810w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" media="(max-width: 680px)" imagesrcset="images/home-perf/hero-portrait-540.avif 540w, images/home-perf/hero-portrait-810.avif 810w" imagesizes="100vw" fetchpriority="high">
 <!-- Mobile first paint; desktop and no-JS retain normal blocking stylesheets. -->
 <style id="homepage-critical-first-screen" media="(max-width: 680px)">
 /* /css/style.css */
@@ -404,6 +404,24 @@ main.local-seo-page .local-hero .local-eyebrow { margin-bottom: 12px; font-size:
 .home-serving-city-slot { width: auto; flex: 1; min-width: 0; white-space: normal; }
 .home-serving { align-items: flex-start; }
 .home-serving-toggle { margin-top: 4px; }
+
+
+/* Measure the initial multiline city, keeping the existing inline cursor and actual text. */
+@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+.home-serving .home-serving-city-slot { display: grid; }
+.home-serving-city-slot > .home-serving-current,
+.home-serving-city-slot > .home-serving-reserve {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+.home-serving-city-slot > .home-serving-reserve {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+  .home-serving .home-serving-toggle[hidden] { display: inline-flex; visibility: hidden; pointer-events: none; }
+}
 
 /* The shared script inserts this control before full CSS can finish. */
 .scroll-top-button:not(.is-visible){opacity:0;pointer-events:none}
@@ -1109,6 +1127,7 @@ main.local-seo-page .local-hero .local-eyebrow { margin-bottom: 12px; font-size:
   <section class="local-hero local-hero--home">
     <div class="local-hero-media">
       <picture>
+        <source type="image/avif" media="(max-width: 680px)" srcset="images/home-perf/hero-portrait-540.avif 540w, images/home-perf/hero-portrait-810.avif 810w" sizes="100vw" width="810" height="1530">
         <source media="(max-width: 680px)" srcset="images/home-perf/hero-portrait-540.webp 540w, images/home-perf/hero-portrait-810.webp 810w" sizes="100vw" width="810" height="1530">
         <img src="images/home-perf/hero-wide-1920.webp" srcset="images/home-perf/hero-wide-1280.webp 1280w, images/home-perf/hero-wide-1920.webp 1920w" sizes="100vw" width="1920" height="1080" alt="Alex Appliance Repair service for a refrigerator near Indianapolis, Indiana" fetchpriority="high">
       </picture>
@@ -1120,7 +1139,7 @@ main.local-seo-page .local-hero .local-eyebrow { margin-bottom: 12px; font-size:
         <p class="home-serving-line">
           <span class="home-serving-accessible">Serving Indianapolis (North Side &amp; Old Northside), Carmel, Fishers, Westfield, Noblesville, McCordsville and Zionsville.</span>
           <span aria-hidden="true">Serving</span>
-          <span class="home-serving-city-slot" aria-hidden="true"><span data-city-name>Indianapolis (North Side &amp; Old Northside)</span><span class="home-serving-cursor"></span></span>
+          <span class="home-serving-city-slot" aria-hidden="true"><span class="home-serving-current"><span data-city-name>Indianapolis (North Side &amp; Old Northside)</span><span class="home-serving-cursor"></span></span><span class="home-serving-reserve" hidden>Indianapolis (North Side &amp; Old Northside)<span class="home-serving-cursor"></span></span></span>
         </p>
         <button class="home-serving-toggle" type="button" hidden aria-label="Pause city animation" title="Pause city animation"><span aria-hidden="true" data-city-toggle-icon>&#10074;&#10074;</span></button>
       </div>
