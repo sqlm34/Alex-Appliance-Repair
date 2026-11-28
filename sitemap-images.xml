@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://alex-repair.com/</loc>
-    <image:image><image:loc>https://alex-repair.com/images/home-hero-refrigerator.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/hero-wide-1920.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/smart-refrigerator-blue-icon.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-icon.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-icon.webp</image:loc></image:image>
@@ -12,23 +12,23 @@
     <image:image><image:loc>https://alex-repair.com/images/microwave-icon.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/freezer-icon.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kenmore-drawer-fishers/kenmore-washer-open.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-rfg237aawp-fishers/samsung-rfg237aawp-refrigerator.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/cafe-freezer-drain-carmel/cafe-cve28dp2njs1-freezer-ice-before.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm3997hwa-drain-pump-carmel/lg-wm3997hwa-washer.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/home-repairs/bosch-dishwasher-pump-01.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-01.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/home-repairs/frigidaire-freezer-fan-01.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/home-repairs/samsung-washer-valve-01.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-washer-suspension-01.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/home-repairs/refrigerator-ice-maker-01.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/carmel-service.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/fishers.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/westfield.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/noblesville.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/mccordsville.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/zionsville-image.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/home-repairs/bosch-dishwasher-pump-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/kenmore-700.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/samsung-rfg237aawp-refrigerator-700.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/cafe-cve28dp2njs1-freezer-ice-before-700.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/lg-wm3997hwa-washer-700.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/bosch-dishwasher-pump-01-700.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/lg-dryer-rollers-01-700.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/frigidaire-freezer-fan-01-700.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/samsung-washer-valve-01-700.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/lg-washer-suspension-01-700.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/refrigerator-ice-maker-01-700.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/carmel-700.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/fishers-700.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/westfield-700.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/noblesville-700.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/mccordsville-700.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/zionsville-image-700.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/home-perf/bosch-dishwasher-pump-02-1000.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://alex-repair.com/10-warning-signs-your-refrigerator.html</loc>
@@ -45,12 +45,12 @@
   <url>
     <loc>https://alex-repair.com/blog.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/repair-room.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/double-oven-range.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-wrs325sdhz01-ice-maker-fishers/refrigerator.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm3400cw-gasket-carmel/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/bosch-circulation-pump-westfield/dishwasher.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve45b6300p-belt-fishers/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dlex4000w-drum-carmel/dryer.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dryer-cleaning-carmel/dryer.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/ge-profile-westfield/dryer.webp</image:loc></image:image>
-    <image:image><image:loc>https://alex-repair.com/images/repair-cases/frigidaire-wall-oven-fishers/finished-oven.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/overworking-refrigerator.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/washer-repair.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/dryer-repair-carmel.webp</image:loc></image:image>
@@ -593,6 +593,9 @@
   <url>
     <loc>https://alex-repair.com/recent-work.html</loc>
     <image:image><image:loc>https://alex-repair.com/images/home-repairs/lg-dryer-rollers-02.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/double-oven-range.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/whirlpool-wrs325sdhz01-ice-maker-fishers/refrigerator.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-wm3400cw-gasket-carmel/washer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/bosch-circulation-pump-westfield/dishwasher.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/samsung-dve45b6300p-belt-fishers/dryer.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-dlex4000w-drum-carmel/dryer.webp</image:loc></image:image>
@@ -1639,5 +1642,37 @@
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-32.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-41.webp</image:loc></image:image>
     <image:image><image:loc>https://alex-repair.com/images/carmel-completed-repairs/carmel-completed-repair-42.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://alex-repair.com/repair-cases/carmel-kitchenaid-kfgd500ess01-double-oven-igniter-replacement.html</loc>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/oven-ignition-diagram.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/double-oven-range.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/range-before-service.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/range-in-kitchen.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/model-label.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/model-number-closeup.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/range-controls-and-doors.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/rear-service-access.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/rear-access-side-view.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/lower-oven-access.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/lower-burner-closeup.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/removed-igniter-assembly.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/bake-igniter-position.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/igniter-reference-short-lead.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/igniter-reference-long-lead.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/upper-oven-preheating.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/upper-bake-flame-detail.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/upper-bake-igniter-glow.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/broil-igniter-glow.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/broil-burner-startup.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/broil-burner-flame.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/broil-flame-closeup.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/upper-oven-test.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/lower-bake-flame.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/lower-bake-flame-closeup.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-kfgd500ess01-igniters-carmel/double-oven-test-view.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/lg-lde4413st-terminal-block-carmel/lg-lde4413st-electric-range.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/repair-cases/kitchenaid-ksdg950ess1-bake-element-carmel/kitchenaid-ksdg950ess1-dual-fuel-range-carmel.webp</image:loc></image:image>
+    <image:image><image:loc>https://alex-repair.com/images/carmel-dryer-gas-valve-coil-repair-open-dryer.webp</image:loc></image:image>
   </url>
 </urlset>
