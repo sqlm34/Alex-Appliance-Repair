@@ -23,7 +23,10 @@ const target = process.argv[2] || pathToFileURL(path.join(root,'repair-cases',sl
    await page.evaluate(()=>document.fonts.ready);
    assert.equal(await page.locator('h1').count(),1);
    assert.match(await page.locator('h1').textContent(),/KitchenAid Double Oven Not Heating in Carmel/);
-   assert.match(await page.locator('.case-summary').innerText(),/KFGD500ESS01/);
+   const identifying = page.locator('.repair-story-section').filter({has:page.getByRole('heading',{name:'Identifying the KitchenAid Double Oven',exact:true})});
+   assert.equal(await identifying.locator('img').count(),1);
+   assert.match(await identifying.innerText(),/single freestanding gas range with two oven cavities/);
+   assert.doesNotMatch(await page.locator('main').innerText(),/KFGD500ESS01/);
    assert.match(await page.locator('.case-summary a').first().getAttribute('href'),/carmel\.html/);
    assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'),canonical);
    assert.match(await page.locator('meta[name=description]').getAttribute('content'),/three igniter/);
@@ -31,8 +34,8 @@ const target = process.argv[2] || pathToFileURL(path.join(root,'repair-cases',sl
    assert.doesNotMatch(await page.locator('main').innerText(),/D54603248|W10827919A/);
    const schema = JSON.parse(await page.locator('script[type="application/ld+json"]').textContent());
    assert.equal(schema['@graph'][0].datePublished,'2026-11-28');
-   assert.equal(schema['@graph'][0].image.length,26);
-   assert.equal(await page.locator('.case-body img').count(),25);
+   assert.equal(schema['@graph'][0].image.length,23);
+   assert.equal(await page.locator('.case-body img').count(),22);
    assert.equal(await page.locator('.case-summary-visual img').count(),1);
    assert.deepEqual(await page.locator('.case-body img,.case-summary-visual img').evaluateAll(async images=>{
     images.forEach(img=>{img.loading='eager';});
@@ -47,11 +50,11 @@ const target = process.argv[2] || pathToFileURL(path.join(root,'repair-cases',sl
     await page.keyboard.press('Escape');
     assert.equal(await page.locator('.native-lightbox.is-open').count(),0);
    }
-   for (const [name,selector,index] of [['overview','.case-summary',0],['labels','.repair-story-section:has(.lg-fan-pair)',0],['access','.repair-story-section:has(.lg-fan-pair)',1],['broil','.repair-story-section:has(.lg-fan-pair)',4]]) {
+   for (const [name,selector,index] of [['overview','.case-summary',0],['identifying','.lg-fan-row',1],['access','.repair-story-section:has(.lg-fan-pair)',0],['broil','.repair-story-section:has(.lg-fan-pair)',3]]) {
     const section=page.locator(selector).nth(index);
     await section.screenshot({path:path.join(root,'previews','kitchenaid-'+name+'-'+width+'.png')});
    }
-   console.log('PASS '+width+'px: SEO, 26 images, photo and diagram enlargement and no horizontal overflow');
+   console.log('PASS '+width+'px: SEO, 23 images, photo and diagram enlargement and no horizontal overflow');
   }
   assert.deepEqual(errors,[]);
   if (!process.argv[2]) {
